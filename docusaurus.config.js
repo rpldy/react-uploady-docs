@@ -13,8 +13,15 @@ const config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "https://res.cloudinary.com/yoav-cloud/image/upload/w_192,r_max/v1585756811/rpldy/logo/logo-white-bg.png",
-  organizationName: "rpldy", // Usually your GitHub org/user name.
-  projectName: "react-uploady-docs", // Usually your repo name.
+  organizationName: "rpldy",
+  projectName: "react-uploady",
+
+	// metadata: [{name: 'twitter:card', content: 'summary'}],
+
+	// customFields: {
+	// 	description:
+	// 		'An optimized site generator in React. Docusaurus helps you to move fast and write content. Build documentation websites, blogs, marketing pages, and more.',
+	// },
 
   presets: [
     [
@@ -25,6 +32,10 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+
+	        showLastUpdateAuthor: true,
+	        showLastUpdateTime: true,
+
         },
         blog: {
           showReadingTime: true,
@@ -42,26 +53,46 @@ const config = {
   themeConfig:
     /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
     ({
+	    image: "img/uploady/react-uploady-text-logo.png",
+
+	    announcementBar: {
+		    id: 'rpldy-announce-1', // Increment on change
+		    content: `⭐️ If you like Uploady, please give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/rpldy/react-uploady">GitHub</a> ⭐`,
+	    },
+
       navbar: {
-        title: "My Site",
+	      hideOnScroll: true,
+        title: "React-Uploady",
         logo: {
-          alt: "My Site Logo",
+          alt: "Uploady Logo",
           src: "img/uploady/react-uploady.png",
 	        srcDark: "img/uploady/react-uploady-light.png",
         },
         items: [
+	        //left-side
           {
             type: "doc",
-            docId: "intro",
+            docId: "introduction",
             position: "left",
-            label: "Tutorial",
+            label: "Docs",
           },
+	        {
+		        type: "doc",
+		        docId: "api/api",
+		        position: "left",
+		        label: "API",
+	        },
           {to: "/blog", label: "Blog", position: "left"},
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
+
+
+	        //right-side
+	        {
+		        href: "https://github.com/rpldy/react-uploady",
+		        position: "right",
+		        className: "header-github-link",
+		        "aria-label": "GitHub repository",
           },
+
         ],
       },
       footer: {
@@ -71,9 +102,13 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Tutorial",
+                label: "Docs",
                 to: "/docs/intro",
               },
+	            {
+		            label: "API",
+		            to: "/docs/api",
+	            },
             ],
           },
           {

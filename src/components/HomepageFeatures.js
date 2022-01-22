@@ -2,63 +2,63 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
 
-const FeatureList = [
-  {
-    title: "Get Started Quickly",
-    Svg: require("../../static/img/undraw_docusaurus_mountain.svg").default,
-    description: (
-      <>
-        React-Uploady takes care of complex & advanced uploading flows
-	    without you needing to write a whole lot of code
-      </>
-    ),
-  },
-  {
-    title: "Focus on What Matters",
-    Svg: require("../../static/img/undraw_docusaurus_tree.svg").default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: "Powered by React",
-    Svg: require("../../static/img/undraw_docusaurus_react.svg").default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-  },
+const FEATURES = [
+	{
+		title: "Get Started Quickly",
+		Svg: require("../../static/img/undraw_docusaurus_mountain.svg").default,
+		description: (
+			<>
+				React-Uploady takes care of complex & advanced uploading flows
+				without you needing to write a whole lot of code.
+			</>
+		),
+	},
+	{
+		title: "Simple yet Configurable",
+		Svg: require("../../static/img/undraw_docusaurus_tree.svg").default,
+		description: (
+			<>
+				All of Uploady's features can be used easily and out of the box.
+				However, everything is configurable and extensible so you can easily make it fit your particular needs.
+			</>
+		),
+	},
+	{
+		title: "Building Blocks Inside",
+		Svg: require("../../static/img/undraw_docusaurus_react.svg").default,
+		description: (
+			<>
+				React-Uploady doesn't try to be something it's not.
+				It provides the building-blocks (components & hooks) for you to build your upload flow they way you like it.
+			</>
+		),
+	},
 ];
 
-function Feature({Svg, title, description}) {
-  return (
-    <div className={clsx("col col--4")}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
+function Feature({ Svg, title, description }) {
+	return (
+		<div className={clsx("col col--4")}>
+			<div className="text--center">
+				<Svg className={styles.featureSvg} alt={title}/>
+			</div>
+			<div className="text--center padding-horiz--md">
+				<h3>{title}</h3>
+				<p>{description}</p>
+			</div>
+		</div>
+	);
 }
 
 export default function HomepageFeatures() {
-  return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+	return (
+		<section className={styles.features}>
+			<div className="container">
+				<div className="row">
+					{FEATURES.map((props) => (
+						<Feature key={props.title} {...props} />
+					))}
+				</div>
+			</div>
+		</section>
+	);
 }

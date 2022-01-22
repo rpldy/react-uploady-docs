@@ -16,6 +16,7 @@
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.14",
     "@docusaurus/preset-classic": "2.0.0-beta.14",
+    "@docusaurus/remark-plugin-npm2yarn": "^2.0.0-beta.14",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
     "grommet-icons": "^4.7.0",
@@ -35,5 +36,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@rpldy/upload-button": "^0.17.0",
+    "@rpldy/upload-preview": "^0.17.0",
+    "@rpldy/uploady": "^0.17.0"
   }
 }

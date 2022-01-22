@@ -1,0 +1,65 @@
+---
+id: introduction
+title: Introduction
+description: React-Uploady is a lightweight library that enables React application developers to build file-upload features with just a few lines of code.
+slug: /
+sidebar_position: 1
+---
+
+# Welcome
+
+React-Uploady is a lightweight library that enables React application developers to build file-upload features
+with just a few lines of code.
+
+It does what it does best, provide the foundations needed to upload files from the browser, while leaving the UI (look & feel) up to the application.
+
+## Philosophy
+
+The thought behind this library is that it should be as simple as possible to use, yet customizable at every point.
+You can start simple, or you can can configure just about every aspect of the upload flow.
+For this purpose, Uploady provides components, hooks, and plenty of [features](#features).
+You get to choose which ones you need and only install the dependencies required.
+
+How simple? This is an actual, working, code sample:
+
+```jsx title="src/components/App.jsx"
+import React from "react";
+import Uploady from "@rpldy/uploady";
+import UploadButton from  "@rpldy/upload-button";
+
+const MyApp = () => (
+	<Uploady destination={{ url: "https://my-server.com/upload" }}>
+		<UploadButton/>
+	</Uploady>
+);
+```
+
+It is literally, all you need to get file uploading to work in your app.
+
+:::note
+The example above is obviously very simple. Read on to discover how much more you can enhance the uploading flows of your apps.
+:::
+
+As part of its design principals it won't ever include features or capabilities that are done better elsewhere.
+For example, you won't find an image cropping component in one of its packages.
+However, you will be able to easily integrate Uploady with your cropping tool of choice.
+
+See this guide for an illustration of how easy it is to add cropping to your Uploady based uploads.
+
+### Lightweight
+
+By design, React-Uploady has a small footprint with almost no 3rd party dependencies.
+
+| Bundle         | Minified size | GZipped size
+| -------------- | ------------- | -------------
+| core                         | 28.6KB          | 10.5KB
+| core + ui                    | 39.8KB          | 12.6KB
+| core + ui + chunked support  | 49.1KB          | 14.8KB
+| everything                   | 75.7KB          | 22.1KB
+
+
+## Features
+
+React-Uploady aims to bring you the entire file-uploading toolkit in order for you to be able to focus on your applications needs.
+
+

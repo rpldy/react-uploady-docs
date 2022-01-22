@@ -19,6 +19,8 @@
     --ifm-navbar-link-hover-color: var(--ifm-color-primary-darkest);
     --ifm-menu-color-active: var(--ifm-color-primary-darkest);
 
+    --ifm-table-stripe-background: #afb5cc;
+
     --ifm-font-color-base-inverse: #000000;
     --ifm-button-color: #FFFFFF;
 }
@@ -41,6 +43,8 @@ html[data-theme='dark'] {
     --ifm-menu-color-active: var(--ifm-color-primary-lightest);
 
     --ifm-link-color: var(--ifm-color-primary-light);
+
+    --ifm-table-stripe-background: #292e3f;
 }
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {

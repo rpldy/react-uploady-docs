@@ -1,0 +1,58 @@
+---
+id: providers_uploady
+title: Uploady
+---
+
+# @rpldy/uploady
+
+This is the main UI package. Its role is to initialize and expose the uploader functionality.
+It also contains and initializes the Context Provider that all other UI packages rely on.
+
+Uploady provides multiple hooks that enable more advanced features and exposes data for client apps.
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+Typically, only once instance of Uploady should be enough for an application.
+
+Rendering Uploady does three main things:
+
+- Create an instance of the [uploader](api/uploader) object,
+which manages the actual upload data and passes it to the configured [sender](../getting-started/concepts#sender).
+
+- Create a [UploadyContext](../api/context) (Reactjs [context](https://reactjs.org/docs/context.html)) instance.
+
+- Render a (hidden) file input element will to the page. This element will be used to show the file chooser prompt to the user.
+
+In order to use one of the components provided by react-uploady, or one of the hooks, you need to wrap them with &lt;Uploady&gt;.
+Internally, this will give them access to the UploadyContext.
+
+The different upload initiators (ex: upload-button, upload-drop-zone, etc)
+
+## Example
+
+```jsx title="Simple Example"
+import Uploady from "@rpldy/uploady";
+
+const App = () => (
+	<Uploady
+    multiple
+    grouped
+    maxGroupSize={2}
+    method="PUT"
+    destination={{ url: "https://my-server", headers: { "x-custom": "123" } }}>
+
+    <RestOfMyApp/>
+</Uploady>
+)
+```
+
+
+## API
+
+[Uploady Reference](../api/providers/api_providers_uploady)

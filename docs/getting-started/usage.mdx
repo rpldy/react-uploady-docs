@@ -1,0 +1,102 @@
+---
+id: usage
+title: Usage
+---
+
+Getting started with Uploady is very easy. You can get a simple upload flow in a matter of minutes.
+
+```jsx title="src/components/App.jsx"
+import React from "react";
+import Uploady from "@rpldy/uploady";
+import UploadButton from "@rpldy/upload-button";
+
+const App = () => (
+	<Uploady destination={{ url: "https://my-server.com/upload" }}>
+		<UploadButton/>
+	</Uploady>
+);
+```
+
+In many cases you'd want a custom button or re-use a component you're already using. In this case you can wrap it with the handy `asUploadButton`:
+
+```jsx title="src/components/App-WithCustomButton.jsx"
+import React from "react";
+import Uploady from "@rpldy/uploady";
+import { asUploadButton } from "@rpldy/upload-button";
+
+const DivUploadButton = asUploadButton((props) => {
+    return <div {...props} style={{ cursor: "pointer" }}>
+        DIV Upload Button
+    </div>
+});
+
+const App = () => (<Uploady
+    destination={{ url: "https://my-server/upload" }}>
+    <DivUploadButton/>
+</Uploady>);
+
+```
+
+The code samples above show the very basic Uploady usage.
+
+You can play around with this simple live example:
+
+<iframe src="https://codesandbox.io/embed/react-uploady-intro-simple-32luv?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.js&theme=dark"
+     style={{ width:"100%", height: "500px", border:"0", borderRadius: "4px", overflow:"hidden" }}
+     title="react-uploady intro simple"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+
+Once you have Uploady in your app you can start thinking about more advanced flows. For example: Showing upload progress, cancelling running uploads, queuing, etc.
+
+Many of these use-cases are described in the [Guides](guides) section and some can be explored in the live sandboxes below.
+
+## More Sandboxes
+
+### Crop & Upload
+
+Example code integrating react-uploady with react-image-crop.
+
+[![Edit react-uploady - crop and upload](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-uploady-crop-and-upload-uyl4e?fontsize=14&hidenavigation=1&theme=dark)
+
+### Paste to Upload
+
+Example of React-Uploady's paste-to-upload HOC in action.
+Can also be combined with other components Uploady's or not
+
+[![Edit react-uploady paste-to-upload demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-uploady-paste-to-upload-demo-usx9s?fontsize=14&hidenavigation=1&theme=dark)
+
+
+### Two Fields with Single Uploady
+
+Show two fields with different configuration and separate previews with a single Uploady instance
+
+[![Edit react-uploady - Two Fields with Single Uploady](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-uploady-two-fields-with-single-uploady-e059m?fontsize=14&hidenavigation=1&theme=dark)
+
+
+### With Ant Design
+
+Example of upload queue using React-Uploady and Ant Design
+
+[![Edit react-uploady with antd - upload with preview progress](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-uploady-with-antd-upload-with-preview-progress-d7o3w?fontsize=14&hidenavigation=1&theme=dark)
+
+
+### Preview with Progress
+
+Show progress by changing the image preview opacity until fully uploaded
+
+[![Edit preview-progress-react-uploady](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/preview-progress-react-uploady-pki4i?fontsize=14&hidenavigation=1&theme=dark)
+
+### Upload with Form
+
+use react-uploady to submit a form with a file and additional fields
+
+[![Edit react-uploady - inside form](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-uploady-inside-form-ys1wx?fontsize=14&hidenavigation=1&theme=dark)
+
+### Drag & Drop
+
+example implementation of react-uploady with drag & drop together with asUploadButton
+
+[![Edit react-uploady dnd with asUploadButton](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-uploady-dnd-with-asuploadbutton-jk9bg?fontsize=14&hidenavigation=1&theme=dark)

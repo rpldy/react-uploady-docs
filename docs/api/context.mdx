@@ -1,0 +1,108 @@
+---
+id: api_context
+title: Uploady Context
+---
+
+When working in React, The UploadyContext is the API provider for the uploader mechanism.
+It wraps the [uploader](uploader) and exposes everything the app using it needs.
+
+
+
+
+## API
+
+### showFileUpload
+
+_(?UploadOptions) => void_
+
+Show the native file selection dialog. Optionally Pass options as a parameter to override options set as props on the Uploady component.
+
+### upload
+
+_(files: UploadInfo | UploadInfo[], addOptions: ?UploadOptions) => void_
+
+Upload file(s). Optionally Pass options as the second parameter to override options set as props on the Uploady component.
+
+### processPending
+
+_(uploadOptions?: UploadOptions) => void_
+
+Start uploading batches that were added with autoUpload = false
+
+Upload Options can be added here to be (deep) merged with the options the batch(es) was added with.
+
+### clearPending
+
+_() => void_
+
+Remove all batches that were added with autoUpload = false, and were not uploaded yet.
+
+### setOptions
+
+_(UploadOptions) => void_
+
+Update the uploader instance with different options than the ones used to initialize
+
+### getOptions
+
+_() => UploadOptions_
+
+get the current options used by the uploader
+
+### getExtension
+
+_(name: any) => ?Object_
+
+get an extension registered by that name (through an enhancer)
+
+### abort
+
+_(id?: string) => void_
+
+abort all files being uploaded or a single item by its ID
+
+### abortBatch
+
+_(id: string) => void_
+
+abort a specific batch by its ID
+
+### on
+
+_(name: any, cb: EventCallback) => OffMethod_
+
+register for an [event](../../core/uploader/README.md#events)
+
+### once
+
+_(name: any, cb: EventCallback) => OffMethod_
+
+register once for an [event](../../core/uploader/README.md#events)
+
+### off
+
+_(name: any, cb?: EventCallback) => void_
+
+unregister from an events
+
+## Example
+
+```javascript
+import React from "react";
+import Uploady, { useUploady } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    const uploady = useUploady();
+
+    const onClick = ()=> {
+            uploady.showFileUpload();
+        };
+
+    return <button onClick={onClick}>Custom Upload Button</button>
+}
+
+const App = () => (<Uploady>
+    <MyComponent/>
+</Uploady>);
+
+```

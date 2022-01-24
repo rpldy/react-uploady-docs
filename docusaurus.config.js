@@ -94,7 +94,12 @@ const config = {
 						className: "header-github-link",
 						"aria-label": "GitHub repository",
 					},
-
+					{
+						href: "https://www.npmjs.com/package/@rpldy/uploady",
+						position: "right",
+						className: "header-npm-version",
+						"aria-label": "NPM package"
+					},
 				],
 			},
 			footer: {
@@ -160,7 +165,7 @@ const config = {
 				priority: 0.5,
 			},
 		],
-
+		"./src/plugins/uploadyPlugin",
 		//TODO - configure PWA plugin!!
 		// [
 		// 	"@docusaurus/plugin-pwa",

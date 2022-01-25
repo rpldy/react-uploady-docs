@@ -1,0 +1,64 @@
+---
+id: useFileInput
+title: useFileInput
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useFileInput = (fileInputRef?: InputRef) => InputRef
+```
+
+When customInput prop is set to true, Uploady will not create its own file input element.
+In this case, Uploady will wait for a ref to an existing input.
+
+The way you pass in your own input element is by using this hook.
+
+In case Uploady wasn't provided with a destination prop or if it doesn't have a URL property,
+Uploady will check whether the input resides in a form. It will then use the form's action and method to set the upload endpoint and request method.
+
+> In case the form's attributes were used for the upload destination, updating the form's attributes dynamically won't affect the uploader configuration once it was set.
+
+See [InputRef](../types#inputref) type.
+
+## Example
+
+```javascript title=WithCustomFileInputAndForm.jsx
+import Uploady, { useFileInput } from "@rpldy/uploady";
+import UploadButton from "@rpldy/upload-button";
+
+const MyForm = () => {
+    const inputRef = useRef();
+    useFileInput(inputRef);
+
+    return <form action="/upload" method="POST">
+        <input type="file" name="testFile" style={{ display: "none" }} ref={inputRef}/>
+    </form>;
+};
+
+export const WithCustomFileInputAndForm = () => {
+    return <section>
+        <Uploady
+            debug
+            customInput
+        >
+            <MyForm />
+            <UploadButton/>
+        </Uploady>
+    </section>
+};
+
+```
+:::info
+This hook can also be used to retrieve Uploady's internal file input. Calling the hook without parameters will return the ref.
+:::

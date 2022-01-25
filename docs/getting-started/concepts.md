@@ -30,7 +30,7 @@ Sender should be able to supply progress information and an abort method to the 
 
 By default, an XHR sender is used.
 
-However, other senders can be configured. This is typically done using the [send](../api/providers/uploady#send) prop on Uploady
+However, other senders can be configured. This is typically done using the [send prop](../api/providers/uploady#send) passed to Uploady
 or when initializing the uploader.
 
 ### Enhancer
@@ -47,18 +47,19 @@ See this [guide](../guides/UploaderEnhancers.md) for practical information and s
 
 ### Batch
 
-When a file or files are handed over to the uploader, they are grouped into a batch.
-This batch will have its own lifetime [events](packages/ui/uploady#events).
- 
+When a file or files are handed over to the uploader, they are considered to be a batch.
+This batch will have its own lifetime [events](../api/uploader#batch-events).
 
 ### BatchItem
 
 Each file (or URL) added to the uploader are wrapped by a BatchItem object. They will have a unique ID within the life-time of the uploader instance.
-A BatchItem has its own lifetime [events](packages/ui/uploady#events).
+A BatchItem has its own lifetime [events](../api/uploader#batch-item-events).
 
 ### Events
 
-
+Internally, Uploady uses a pub/sub mechanism to pass info from one part to another.
+For example when an upload begins or fails. Many of these events are also exposed publicly and can be regsitered to.
+Most of the events are related to either a batch (ex: batch upload started) or to a batch item (ex: batch item upload failed) 
 
 ### Abort 
 

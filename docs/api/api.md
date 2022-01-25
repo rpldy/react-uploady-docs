@@ -1,8 +1,8 @@
 ---
 id: api
 title: API Intro
-description: bla bla
 sidebar_position: 0
 ---
 
-Test
+This section contains detailed information about 
+all the classes, functions, components available in React-Uploady.

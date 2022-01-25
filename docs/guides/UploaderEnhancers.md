@@ -7,7 +7,7 @@ Current examples of their use can be found in these packages:
 - [@rpldy/retry](../packages/retry)
 - [@rpldy/chunked-sender](../packages/chunked-sender)
 
-Enhancers receive an instance of the Uploader and may change its options (or modify it - no recommended).
+Enhancers receive an instance of the Uploader and may change its options (or modify it - not recommended).
 They can also register to events and register [extensions](#extensions)
 For example, the chunked-sender enhancer updates the uploader options with a different send method.
 

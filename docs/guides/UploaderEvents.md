@@ -44,7 +44,7 @@ const unregister = uploader.on(UPLOADER_EVENTS.BATCH_ADD, (batch) => {
 unregister(); 
 ```
 
-### Using the Uploady props
+### Using the Uploady props {#listeners-props}
 
 In React, if you're not using hooks, you can still handle events. 
 You can pass event handlers directly to the Uploady instance:

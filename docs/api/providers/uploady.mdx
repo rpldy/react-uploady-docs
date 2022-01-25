@@ -1,36 +1,44 @@
 ---
-id: api_providers_uploady
+id: uploady
 title: Uploady
 ---
 
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
 
 ## Props
-
 
 | Name (* = mandatory) | Type          | Default       | Description |
 | --------------       | ------------- | ------------- | ------------- |
 | **Uploader Options** |
 | autoUpload           | boolean       | true          | automatically upload files when they are added |
 | destination          | [Destination](#destination)   | undefined     | configure the end-point to upload to |
-| inputFieldName       | string        | "file"        | name (attribute) of the file input field (requires sendWithFormData = true) |
 | grouped              | boolean       | false         | group multiple files in a single request |
 | maxGroupSize         | number        | 5             | maximum of files to group together in a single request |
 | formatGroupParamName | (number, string) => string | undefined | determine the upload request field name when more than file is grouped in a single upload |
-| fileFilter           | (File &#124; string, index: number, File[] &#124; string[]) => boolean | undefined | return false to exclude from batch |
+| fileFilter           | [FileFilter](#filefilter) | undefined | return false to exclude from batch |
 | method               | string        | "POST"        | HTTP method in upload request |
 | params               | Object        | undefined     | collection of params to pass along with the upload (requires sendWithFormData = true) |
 | forceJsonResponse    | boolean       | false         | parse server response as JSON even if no JSON content-type header received |
 | withCredentials      | boolean       | false         | set XHR withCredentials to true |
-| enhancer             | [UploaderEnhancer](../../core/uploader/src/types.js#L37) | undefined    | uploader [enhancer](../../../README.md#enhancer) function |
+| enhancer             | [UploaderEnhancer](#enhancer) | undefined    | uploader enhancer function |
 | concurrent           | boolean       | false          | issue multiple upload requests simultaneously |
 | maxConcurrent        | number        | 2              | maximum allowed simultaneous requests |
-| send                 | [SendMethod](../../core/sender/src/types.js#L38) | @rpldy/sender | how to send files to the server |
+| send                 | [SendMethod](#sendMethod) | @rpldy/sender | how to send files to the server |
 | sendWithFormData     | boolean       | true           | upload is sent as part of [formdata](https://developer.mozilla.org/en-US/docs/Web/API/FormData) - when true, additional params can be sent along with uploaded data |
 | formatServerResponse | [FormatServerResponseMethod](../../core/shared/src/types.js#L40) | undefined | function to create the batch item's uploadResponse from the raw xhr response |
 | **Uploady Options** |
 | debug                | boolean        | false | enable console logs from uploady packages |
 | listeners            | Object        | undefined | map of [event](../../core/uploader/README.md#events) name and event handler |
-| customInput          | boolean       | false | whether to use a custom file input (see: [useFileInput](#useFileInput) |
+| customInput          | boolean       | false | whether to use a custom file input (see: [useFileInput](../hooks/useFileInput) |
+| inputFieldName       | string        | "file"        | name (attribute) of the file input field (requires sendWithFormData = true) |
 | inputFieldContainer  | HTMLElement   | document.body | html element to place the file input element inside |
 | children             | React.Node    | undefined     | any part of your React app that will require access to the upload flow  (components, hooks, etc.) |
 | capture              | string        | null          | [input/file#capture](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#capture) - affects file input only. for example, drag&drop or programmatic uploads will not be affected by this setting |
@@ -42,3 +50,117 @@ title: Uploady
 
 
 ### Destination
+
+```typescript
+type Destination = {
+    url?: string;
+    filesParamName?: string;
+    params?: Record<string, unknown>;
+    headers?: Record<string, unknown>;
+    method?: string;
+};
+```
+
+The destination is how you tell Uploady (and the Uploader) where to upload to. In most cases, this means an HTTP endpoint.
+
+There are a few Props such as: `params` and `method` that both Uploady accepts directly and can also be passed inside the Destination object.
+The destination has the higher priority and will override the ones configured outside.
+
+#### URL
+
+The endpoint to make the request to
+
+#### filesPAramName
+
+The name of the param in the upload request (default: input element's name)
+
+See [inputFieldName](#inputFieldName)
+
+#### params
+
+collection of params to pass along with the upload
+
+#### headers
+
+collection of headers to add to the request
+
+#### method
+
+> Default: POST
+
+The HTTP verb to use for the request
+
+### inputFieldName
+
+> Default: file
+
+This is the name that will be assigned to the file input element rendered by Uploady.
+
+### enhancer
+
+```typescript
+type UploaderEnhancer = (uploader: UploaderType, trigger: Trigger<any>) => UploaderType;
+```
+
+Registering an enhancer gives you access to the uploader instance and to the trigger method.
+This is a powerful way to customize the uploader or its options.
+
+The trigger method can be used to trigger(fire) custom events that can be listened to using the [listeners](#listeners) prop or the [on](../context#on) and [once](../context#once) context methods.
+
+#### Extensions
+
+Enhancers are the only time when external code can register an extension.
+Extensions are objects that are added to an uploader instance under a specific name and can later be retrieved.
+This is mainly used internally by the other providers.
+
+See [Uploader Enhancer Guide](../../guides/UploaderEnhancer) for more details
+
+### fileFilter
+
+```typescript
+type FileFilterMethod = (file: File | string, index: number, files: File[] | string[]) => boolean | Promise<boolean | undefined> | undefined;
+```
+
+the file filter method is called on each item being uploaded (typically: File) and should return false (or a falsy value) in case it __shouldn't__ be added to the batch.
+
+the filter method supports async (returning a promise) responses.
+
+See [File Filter Guide](../../guides/FileFilter)
+
+### listeners
+
+Makes it possible to pass an object map of key being the event name (ex: "BATCH-START") and the value being a handler function.
+The event handlers passed using this object map will be registered using the Context's on method.
+
+- See [Uploader Events](../constants#uploaderEvents)
+
+- See [Passing listeners using props](../../guides/UploaderEvents#listeners-props)
+
+### Send Method {#sendMethod}
+
+```typescript
+
+export type SenderProgressEvent = {
+    total: number;
+    loaded: number;
+}
+
+type OnProgress = (e: SenderProgressEvent, objs: Record<string, unknown>[]) => void;
+
+type SendMethod = (item: BatchItem[], url: string | undefined, options: SendOptions, onProgress?: OnProgress) => SendResult;
+```
+
+This is the method that will be called by the uploader when its time to start making upload requests.
+The default send method comes from the [XHR Sender](../senders/xhrSender).
+
+It's possible to replace the default method with any other sender that provides the same signature the uploader expects.
+
+Providers like [Chunked-Uploady](chunkedUploady), use the ability to swap the send method in order to provide the one from their own sender. ie: [Chunked-Sender](../senders/chunked-sender).
+
+### debug
+
+> Default: false
+
+Most of the time there is no need to use this flag. When setting to true it will make Uploady and other internal classes to log debugging information to the console.
+
+### No DOM Uploady

@@ -23,6 +23,9 @@
 
     --ifm-font-color-base-inverse: #000000;
     --ifm-button-color: #FFFFFF;
+
+    --ifm-font-family-base: 'Source Sans Pro', sans-serif;
+    --ifm-heading-font-family: 'Source Sans Pro', sans-serif;
 }
 
 .docusaurus-highlight-code-line {

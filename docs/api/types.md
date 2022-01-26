@@ -5,6 +5,32 @@ title: Types
 
 For Batch and BatchItem see: [Entities Page](entities)
 
+
+## UploadyContextType {#uploadyContextType}
+
+```typescript
+type UploadyContextType = {
+    getInternalFileInput: () => InputRef | undefined;
+    setExternalFileInput: (inputRef: InputRef) => void;
+    getIsUsingExternalInput: () => boolean;
+    hasUploader: () => boolean;
+    showFileUpload: (options?: UploadOptions) => void;
+    upload: AddUploadFunction;
+    processPending: (uploadOptions?: UploadOptions) => void;
+    clearPending: () => void;
+    setOptions: (options: CreateOptions) => void;
+    getOptions: () => CreateOptions;
+    on: OnAndOnceMethod;
+    once: OnAndOnceMethod;
+    off: OffMethod;
+    abort: (id?: string) => void;
+    abortBatch: (id: string) => void;
+    getExtension: (name: unknown) => Record<string, unknown>;
+};
+
+```
+
+
 ## Destination
 
 ```typescript
@@ -66,8 +92,37 @@ interface UploadOptions extends Partial<SendOptions>{
 }
 ```
 
+## CreateOptions
+
+```typescript
+export interface CreateOptions extends UploadOptions {
+  enhancer?: UploaderEnhancer;
+  concurrent?: boolean;
+  maxConcurrent?: number;
+  send?: SendMethod;
+}
+```
+
 ## InputRef
 
 ```typescript
 type InputRef = { current: HTMLInputElement | null };
+```
+
+## ItemCancellableEventHook
+
+```typescript
+type ItemCancellableEventHook = CancellableHook<BatchItem>;
+```
+
+## CancellableHook
+
+```typescript
+type CancellableHook<T> = (cb: (obj: T) => boolean | void, id?: string) => void;
+```
+
+## BatchCancellableEventHook
+
+```typescript
+type BatchCancellableEventHook = CancellableHook<Batch>;
 ```

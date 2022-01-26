@@ -3,10 +3,31 @@ id: context
 title: Uploady Context
 ---
 
-When working in React, The UploadyContext is the API provider for the uploader mechanism.
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+When working in React, The UploadyContext is the [API](#api) provider for the uploader mechanism.
 It wraps the [uploader](uploader) and exposes everything the app using it needs.
 
 
+Accessing the Context API should be done using the [useUploady](hooks/useUploady) hook.
+
+```javascript
+import { useUploady } from "@rpldy/uploady";
+```
+
+:::info
+Can only be called from components rendered inside an &lt;Uploady&gt; components
+:::
 
 
 ## API

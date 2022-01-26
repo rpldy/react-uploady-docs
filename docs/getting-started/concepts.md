@@ -8,8 +8,8 @@ title: Important Concepts
 These are the options that are passed to the [uploader](../api/uploader) to configure aspects of the upload process.
 For example, whether files can be grouped in a single request (by default, no).
 
-Upload Options are typically passed to the [Uploady](../providers/uploady) instance. But these can be overriden. 
-For example, by props passed to the [upload button](../components/upload-button).
+Upload Options are typically passed to the [Uploady](../api/providers/uploady) instance. But these can be overriden. 
+For example, by props passed to the [upload button](../api/components/upload-button).
 Or even during [upload processing](../guides/DynamicParameters.md).
 
 ### Destination
@@ -17,7 +17,7 @@ Or even during [upload processing](../guides/DynamicParameters.md).
 Passed as a part of the upload options. It's an object that is used to configure the end-point where the files will be uploaded to.
 Its type is defined [here](https://github.com/rpldy/react-uploady/blob/master/packages/core/shared/types/index.d.ts#L1).
 
-See more information in the [Uploady](../providers/uploady#props) section.
+See more information in the [Uploady](../api/providers/uploady#props) section.
 
 At the very least, a destination should contain a URL property with the server endpoint.
 

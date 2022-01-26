@@ -15,6 +15,7 @@
   --ifm-color-primary-lightest: rgb(146, 206, 224);
   --ifm-code-font-size: 95%;
 
+    --ifm-navbar-background-color: rgba(188, 212, 238, 0.86);
 
     --ifm-navbar-link-hover-color: var(--ifm-color-primary-darkest);
     --ifm-menu-color-active: var(--ifm-color-primary-darkest);
@@ -28,6 +29,14 @@
     --ifm-heading-font-family: 'Source Sans Pro', sans-serif;
 }
 
+footer.footer--dark {
+    --ifm-footer-background-color: #384762;
+}
+
+html[data-theme='dark'] footer.footer--dark {
+    --ifm-footer-background-color: #030c1a;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
@@ -36,6 +45,9 @@
 }
 
 html[data-theme='dark'] {
+    --ifm-background-color: #041323;
+    --ifm-navbar-background-color: rgba(5, 38, 73, 0.86);
+
     --ifm-color-primary: #092358;
     --ifm-font-color-base-inverse: #FFFFFF;
 
@@ -82,4 +94,8 @@ html[data-theme='dark'] .table-of-contents__link--active {
 
 html[data-theme='dark'] .table-of-contents__link:hover {
     color: var(--ifm-color-primary-lightest);
+}
+
+.navbar {
+    border-bottom: 1px solid rgba(92, 92, 110, 0.72);
 }

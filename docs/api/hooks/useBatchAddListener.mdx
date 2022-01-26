@@ -1,0 +1,47 @@
+---
+id: useBatchAddListener
+title: useBatchAddListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useBatchAddListener: BatchCancellableEventHook;
+```
+
+See: [BatchCancellableEventHook](../types#batchcancellableeventhook)
+
+:::note
+Event Hook - [BATCH-ADD](../events#batchAdd)
+:::
+
+Called when a new batch is added.
+
+:::info
+This event is _[cancellable](../events#cancellable-events)_
+:::
+
+
+## Example
+
+```javascript
+    import { useBatchAddListener } from "@rpldy/uploady";
+
+    const MyComponent = () => {
+        useBatchAddListener((batch) => {
+            console.log(`batch ${batch.id} was just added with ${batch.items.length} items`);
+        });
+
+        //...
+    };
+```

@@ -1,0 +1,46 @@
+---
+id: useBatchCancelledListener
+title: useBatchCancelledListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useBatchCancelledListener: BatchEventHook;
+```
+
+See: [BatchCancellableEventHook](../types#batchcancellableeventhook)
+
+:::note
+Event Hook - [BATCH-CANCEL](../events#batchCancel)
+:::
+
+Called in case batch was cancelled programmatically
+
+:::info
+This event can be scoped to a specific batch by passing the batch id as a second parameter
+:::
+
+## Example
+
+```javascript
+import { useBatchCancelledListener } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    useBatchCancelledListener((batch) => {
+        console.log(`batch ${batch.id} was cancelled`);
+    });
+
+    //...
+};
+```

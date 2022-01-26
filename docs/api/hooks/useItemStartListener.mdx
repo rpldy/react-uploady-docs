@@ -1,0 +1,56 @@
+---
+id: useItemStartListener
+title: useItemStartListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useItemStartListener = ItemCancellableEventHook;
+```
+
+See: [ItemCancellableEventHook](../types#itemcancellableeventhook)
+
+:::note
+Event Hook - [Item-Start](../events#itemStart)
+:::
+
+Called when item starts uploading (just before)
+For grouped uploads (multiple files in same xhr request) ITEM_START is triggered for each item separately
+
+:::info
+This event is _[cancellable](../events#cancellable-events)_
+:::
+
+:::info
+This event can be scoped to a specific item by passing the item id as a second parameter
+:::
+
+## Example
+
+```javascript
+    import { useItemStartListener } from "@rpldy/uploady";
+
+    const MyComponent = () => {
+        useItemStartListener((item) => {
+            console.log(`item ${item.id} started uploading`);
+        });
+
+        //or scoped:
+        useItemStartListener((item) => {
+            console.log(`item ${item.id} started uploading`);
+        }, "i-123");
+
+        //...
+    };
+```

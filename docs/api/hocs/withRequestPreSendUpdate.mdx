@@ -1,0 +1,87 @@
+---
+id: withRequestPreSendUpdate
+title: withRequestPreSendUpdate
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+
+interface WithRequestPreSendUpdateProps {
+    id: string;
+}
+
+type withRequestPreSendUpdate = <P extends WithRequestPreSendUpdateProps>(Comp: React.FC<P> | React.ComponentType<P>) =>
+    React.FC<Omit<P, "updateRequest" | "requestData">>;
+```
+
+HOC to enable components to interact with the upload data and options just-in-time before the request is sent.
+This is a hatch point to introduce custom logic that may affect the upload data.
+
+A good example use-case for this is applying [crop](../../guides/Crop.md) to selected image before it is uploaded.
+
+When rendering the HOC's output, the id of the batch-item must be provided as a prop.
+This ensures the HOC only re-renders for a specific item and not for all.
+The id of the batch-item can be obtained from a hook (ex: [useitemstartlistener](useitemstartlistener) or
+[useBatchStartListener](useBatchStartListener))
+
+```javascript
+  import React, { useState, useCallback } from "react";
+  import Cropper from "react-easy-crop";
+	import Uploady, { withRequestPreSendUpdate } from "@rpldy/uploady";
+	import UploadButton from "@rpldy/upload-button";
+  import cropImage from "./my-image-crop-code";
+
+    const ItemCrop = withRequestPreSendUpdate((props) => {
+        const [crop, setCrop] = useState({ x: 0, y: 0 });
+        const [cropPixels, setCropPixels] = useState(null);
+
+        const { url, updateRequest, requestData } = props;
+
+        const onUploadCrop = useCallback(async() => {
+            if (updateRequest && cropPixels) {
+                //replace the file data with the cropped result
+                requestData.items[0].file = await cropImage(url, requestData.items[0].file, cropPixels);
+                //resume the upload flow with the updated file data
+                updateRequest({ items: requestData.items });
+            }
+        }, [url, requestData, updateRequest, cropPixels]);
+
+        const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+            setCropPixels(croppedAreaPixels);
+        }, []);
+
+        return <>
+            <Cropper
+                image={url}
+                crop={crop}
+                onCropChange={setCrop}
+                onCropComplete={onCropComplete}
+            />
+            <button style={{ display: updateRequest && cropPixels ? "block" : "none" }}
+                    onClick={onUploadCrop}>
+                Upload Cropped
+            </button>
+        </>;
+    });
+
+    const MyApp = () => {
+        return <Uploady destination={{ url: "my-server.com/upload" }}>
+            <UploadButton />
+            <ItemCrop id="batch-item-1" />
+        </Uploady>
+    }
+```
+
+See the [Crop Guide](../../guides/Crop.md) for a full example.
+

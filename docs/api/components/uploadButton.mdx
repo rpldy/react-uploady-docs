@@ -1,23 +1,9 @@
 ---
-id: comps_upload-button
-title: Upload Button
+id: uploadButton
+title: UploadButton
 ---
 
-# @rpldy/upload-button
 
-Renders a simple (un-styled) button that initiates file upload by opening the browser's native file selection dialog.
-
-Buttons can use different configuration overrides that supersede the options passed to the parent Uploady.
-
-:::info
-Some options cannot be overriden by the button. For example, any prop that influences the file input directly (such as '_multiple_')
-:::
-
-## Installation
-
-```bash npm2yarn
-npm install @rpldy/uploady
-```
 
 ## Props
 
@@ -32,6 +18,6 @@ npm install @rpldy/uploady
 | onClick        | EventHandler      | undefined | function to handle button click (called after showing the system's file selection dialog)
 
 In addition, most UploadOptions props can be passed to UploadButton, in order to override configuration passed to the parent Uploady component.
-See [Uploady documentation](../providers/uploady#props) for detailed list of upload options.
+See [Uploady documentation](../api/providers/uploady#props) for detailed list of upload options.
 
 The following [guide](../guides/DifferentConfiguration.md) shows how different upload buttons may use different upload options.

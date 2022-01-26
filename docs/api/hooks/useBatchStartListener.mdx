@@ -1,0 +1,92 @@
+---
+id: useBatchStartListener
+title: useBatchStartListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type BatchStartHook = (cb: (batch: Batch, options: CreateOptions) =>
+    { items?: BatchItem[]; options?: CreateOptions } | boolean | void) => void;
+```
+
+See: [CreateOptions](../types#createoptions)
+
+:::note
+Event Hook - [BATCH-START](../events#batchStart)
+:::
+
+Called when batch items start uploading
+
+The callback passed to the hook may also return an object containing items and/or options
+in order to update the request dynamically, similar to [useRequestPreSend](useRequestPreSend) only for the entire batch.
+See [withBatchStartUpdate](../hocs/withBatchStartUpdate) HOC below for more details.
+
+
+:::info
+This event is _[cancellable](../events#cancellable-events)_
+:::
+
+:::info
+This event can be scoped to a specific batch by passing the batch id as a second parameter
+:::
+
+## Example
+
+```javascript
+    import { useBatchStartListener } from "@rpldy/uploady";
+
+    const MyComponent = () => {
+        useBatchStartListener((batch) => {
+            console.log(`batch ${batch.id} started uploading`);
+        });
+
+        //or scoped:
+        useBatchStartListener((batch) => {
+            console.log(`batch ${batch.id} started uploading`);
+        }, "b-123");
+        //...
+    };
+```
+
+### Cancel Batch
+
+```javascript
+ import { useBatchStartListener } from "@rpldy/uploady";
+
+    const MyComponent = () => {
+        useBatchStartListener(() => {
+            return false;
+        });
+    };
+```
+
+### Update Batch Options
+
+```javascript
+import { useBatchStartListener } from "@rpldy/uploady";
+    const MyComponent = () => {
+        useBatchStartListener((batch, options) => {
+            return {
+							options: {
+								destination: {
+									headers: {
+										"x-custom":
+											options.destination.headers["x-custom"]	+ " updated",
+									}
+								}
+							}
+            }
+        });
+    };
+```

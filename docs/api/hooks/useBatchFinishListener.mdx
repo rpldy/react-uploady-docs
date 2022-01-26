@@ -1,0 +1,47 @@
+---
+id: useBatchFinishListener
+title: useBatchFinishListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useBatchFinishListener: BatchEventHook;
+```
+
+See: [BatchEventHook](../types#batcheventhook)
+
+:::note
+Event Hook - [BATCH-FINISH](../events#batchFinish)
+:::
+
+Called when batch items finished uploading.
+
+:::info
+This event can be scoped to a specific item by passing the item id as a second parameter
+:::
+
+## Example
+
+```javascript
+    import { useBatchFinishListener } from "@rpldy/uploady";
+
+    const MyComponent = () => {
+        useBatchFinishListener((batch) => {
+            console.log(`batch ${batch.id} finished uploading`);
+        });
+
+        //...
+    };
+```
+

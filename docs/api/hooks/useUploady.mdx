@@ -1,0 +1,52 @@
+---
+id: useUploady
+title: useUploady
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useUploady: () => UploadyContextType;
+```
+
+See [UploadyContextType](../types#uploadyContextType)
+
+Shortcut hook to get the [Uploady Context](#context) instance
+
+:::info
+alias for `useUploadyContext`
+:::
+
+:::caution
+Will throw in case used outside of Uploady render tree
+:::
+
+```javascript
+import { useUploady } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    const uploady = useUploady();
+
+    const onClick = () => {
+        uploady.showFileUpload();
+    }
+
+    //...
+};
+
+const App = () => (
+    <Uploady destination={{ ... }}>
+        <MyComponent/>
+    </Uploady>
+);
+```

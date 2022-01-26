@@ -1,15 +1,8 @@
 ---
-id: providers-uploady
+id: rpldy-uploady
 title: "@rpldy/uploady"
 sidebar_position: 0
 ---
-
-# @rpldy/uploady
-
-This is the main UI package. Its role is to initialize and expose the uploader functionality.
-It also contains and initializes the Context Provider that all other UI packages rely on.
-
-Uploady provides multiple hooks that enable more advanced features and exposes data for client apps.
 
 ## Installation
 
@@ -18,6 +11,11 @@ npm install @rpldy/uploady
 ```
 
 ## Details
+
+This is the main UI package. Its role is to initialize and expose the uploader functionality.
+It also contains and initializes the Context Provider that all other UI packages rely on.
+
+Uploady provides multiple hooks that enable more advanced features and exposes data for client apps.
 
 Typically, only once instance of Uploady should be enough for an application.
 
@@ -55,18 +53,34 @@ const App = () => (
 
 ## Exports
 
-* [Uploady](../api/providers/uploady)
+* [Uploady](../api)
 * [useFileInput](../api/hooks/useFileInput)
+* [useBatchAddListener](../api/hooks/useBatchAddListener)
+* [useBatchStartListener](../api/hooks/useBatchStartListener)
+* [useBatchProgressListener](../api/hooks/useBatchProgressListener)
+* [useBatchFinishListener](../api/hooks/useBatchFinishListener)
+* [useBatchCancelledListener](../api/hooks/useBatchCancelledListener)
+* [useBatchAbortListener](../api/hooks/useBatchAbortListener)
+* [useBatchErrorListener](../api/hooks/useBatchErrorListener)
+* [useBatchFinalizeListener](../api/hooks/useBatchFinalizeListener)
+* [useItemStartListener](../api/hooks/useItemStartListener)
+* [useItemFinishListener](../api/hooks/useItemFinishListener)
+* [useItemProgressListener](../api/hooks/useItemProgressListener)
+* [useItemCancelListener](../api/hooks/useItemCancelListener)
+* [useItemErrorListener](../api/hooks/useItemErrorListener)
 * [useItemAbortListener](../api/hooks/useItemAbortListener)
-
+* [useItemFinalizeListener](../api/hooks/useItemFinalizeListener)
 * [useUploadOptions](../api/hooks/useUploadOptions)
 * [useAbortItem](../api/hooks/useAbortItem)
+* [useAbortBatch](../api/hooks/useAbortBatch)
+* [useAbortAll](../api/hooks/useAbortAll)
+* [useUploader](../api/hooks/useUploader)
 * [BATCH_STATES](../api/constants#batchStates)
 * [FILE_STATES](../api/constants#fileStates)
 
 
 ## Related Topics
 
-* [chunked-uploady](chunked-uploady)
-* [tus-uploady](tus-uploady)
+* [chunked-uploady](rpldy-chunked-uploady)
+* [tus-uploady](rpldy-tus-uploady)
 * [Different Configuration Guide](../guides/DifferentConfiguration)

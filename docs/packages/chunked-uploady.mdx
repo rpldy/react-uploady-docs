@@ -1,5 +1,62 @@
 ---
-id: providers-chunked-uploady
-title: Chunked Uploady
-sidebar_position: 1
+id: rpldy-chunked-uploady
+title: "@rpldy/chunked-uploady"
 ---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/chunked-uploady
+```
+
+## Details
+
+This package is provided as a convenient alternative to the main [Uploady](../uploady) package.
+To be used in case chunked upload is required.
+
+The server that is accepting the upload must also support chunked uploads.
+The original file is broken down into smaller blobs, which are sent in different requests.
+Each request is sent with the _Content-Range_ header to specify the bytes range.
+
+Internally, _ChunkedUploady_ uses [@rpldy/chunked-sender](chunked-sender) instead of the default (XHR) sender.
+
+_Chunked-Sender_, doesn't support grouped uploads (see Upload Options [documentation](../api#props)) or URL uploading.
+These will be handed over to the default [@rpldy/sender](sender).
+
+In case the browser doesn't support chunking (blob slicing), the default sender will be used as well.
+
+## Example
+
+```jsx title="Simple Example"
+import ChunkedUploady from "@rpldy/uploady";
+
+const App = () => (
+	<ChunkedUploady
+		chunkSize={5120000}
+    multiple
+    grouped
+    maxGroupSize={2}
+    method="PUT"
+    destination={{ url: "https://my-server", headers: { "x-custom": "123" } }}>
+
+    <RestOfMyApp/>
+</ChunkedUploady>
+);
+```
+
+## Exports
+
+* [ChunkedUploady](../api/providers/chunkedUploady)
+* [useChunkStartListener](../api/hooks/useChunkStartListener)
+* [useChunkFinishListener](../api/hooks/useChunkFinishListener)
+* [CHUNK_EVENTS](../api/events#chunk-events)
+
+:::info
+Plus all the exports from [uploady](uploady)
+:::
+
+## Related Topics
+
+* [uploady](rpldy-uploady)
+* [tus-uploady](rpldy-tus-uploady)
+* [chunked-sender](rpldy-chunked-sender)

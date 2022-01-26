@@ -99,3 +99,16 @@ html[data-theme='dark'] .table-of-contents__link:hover {
 .navbar {
     border-bottom: 1px solid rgba(92, 92, 110, 0.72);
 }
+
+
+.missing-content-box {
+
+}
+
+
+.missing-content-box p {
+    font-size: 22px;
+    color: red;
+    background-color: rgba(255, 255, 0, 0.24);
+    padding-left: 10px;
+}

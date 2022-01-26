@@ -1,0 +1,42 @@
+---
+id: retryEnhancer
+title: retryEnhancer
+tags: [enhancer, retry]
+---
+
+
+## Package
+
+- **_@rpldy/retry_**
+- **_@rpldy/retry-hooks_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/retry
+
+OR
+
+npm install @rpldy/retry-hooks
+```
+
+## Details
+
+To enable retries for your Uploady instance, you need to use the provided (uploader enhancer): `retryEnhancer`.
+
+## Example
+```javascript
+import Uploady from "@rpldy/uploady";
+import { retryEnhancer } from "@rpldy/retry-hooks";
+import UploadButton from "@rpldy/upload-button";
+
+const App = () => {
+    return <Uploady
+              destination={{ url: "my-server.com/upload" }}
+              enhancer={retryEnhancer}
+           >
+              <UploadButton/>
+           </Uploady>;
+};
+
+```

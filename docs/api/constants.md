@@ -7,7 +7,7 @@ title: Constants
 
 The different values [Batch](entities#batch).state can have. 
 
-```typescript 
+```typescript
 enum BATCH_STATES {
     PENDING = "pending",
     ADDED = "added",
@@ -62,5 +62,14 @@ enum UPLOADER_EVENTS {
     REQUEST_PRE_SEND = "REQUEST_PRE_SEND",
 
     ALL_ABORT =  "ALL_ABORT",
+}
+```
+
+## CHUNK_EVENTS
+
+```typescript
+enum CHUNK_EVENTS {
+    CHUNK_START = "CHUNK_START",
+    CHUNK_FINISH = "CHUNK_FINISH",
 }
 ```

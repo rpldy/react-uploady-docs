@@ -1,0 +1,54 @@
+---
+id: useChunkStartListener
+title: useChunkStartListener
+tags: [hook, event, chunk, cancellable]
+---
+
+## Package
+
+**_@rpldy/chunked-uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/chunked-uploady
+```
+
+## Details
+
+```typescript
+
+type StartEventResponse = void | boolean | {
+    url?: string,
+    sendOptions?: SendOptions
+};
+
+type useChunkStartListener = (cb: (data: ChunkStartEventData ) => StartEventResponse) => void;
+```
+
+- See: [ChunkStartEventData](../types#chunkstarteventdata)
+- See: [SendOptions](../types#sendoptions)
+
+:::note
+Event Hook - [CHUNK_START](../events#chunkStart)
+:::
+
+Called when a chunk begins uploading as part of a chunked upload
+
+:::info
+This event is _[cancellable](../events#cancellable-events)_
+:::
+
+## Example
+
+```javascript
+import { useChunkStartListener } from "@rpldy/chunked-uploady";
+
+const MyComponent = () => {
+    useChunkStartListener((data) => {
+        return {
+            url: `${data.url}/${data.chunk.index}`
+        };
+    });
+};
+```

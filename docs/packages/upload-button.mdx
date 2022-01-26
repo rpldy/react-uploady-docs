@@ -1,17 +1,7 @@
 ---
-id: comps_upload-button
-title: Upload Button
+id: rpldy-upload-button
+title: "@rpldy/upload-button"
 ---
-
-# @rpldy/upload-button
-
-Renders a simple (un-styled) button that initiates file upload by opening the browser's native file selection dialog.
-
-Buttons can use different configuration overrides that supersede the options passed to the parent Uploady.
-
-:::info
-Some options cannot be overriden by the button. For example, any prop that influences the file input directly (such as '_multiple_')
-:::
 
 ## Installation
 
@@ -19,6 +9,44 @@ Some options cannot be overriden by the button. For example, any prop that influ
 npm install @rpldy/uploady
 ```
 
+## Details
+
+Upload button component and asUploadButton HOC
+
+The _UploadButton_ component renders a simple (un-styled) button that initiates file upload by opening the browser's native file selection dialog.
+
+Buttons can use different configuration overrides that supersede the options passed to the parent Uploady.
+
+:::info
+Some options cannot be overridden by the button. For example, any prop that influences the file input directly (such as '_multiple_')
+:::
+
+## Example
+
+### Simple Upload Button
+
+This examples shows how you add Uploady and UploadButton to your app.
+This is all it takes to get file uploading to work in your React app.
+
+```jsx
+import React from "react";
+import Uploady from "@rpldy/uploady";
+import UploadButton from "@rpldy/upload-button";
+
+const App = () => (<Uploady
+    destination={{ url: "https://my-server/upload" }}>
+    <UploadButton/>
+</Uploady>);
+```
+
+
+:::note
+_asUploadButton_ makes it possible to gain access to the underlying component with a [ref](https://reactjs.org/docs/refs-and-the-dom.html).
+To support this, it passes along a ref to the component you provide it. For functional components,
+you'd need to wrap your component with [React.forwardRef](https://reactjs.org/docs/react-api.html#reactforwardref).
+:::
+
 ## Exports
 
-* [UploadButton](../api/components/uploadButton.mdx)
+* [UploadButton](../api/components/uploadButton)
+* [asUploadButton](../hocs/asUploadButton)

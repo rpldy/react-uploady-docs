@@ -1,23 +1,58 @@
 ---
 id: uploadButton
 title: UploadButton
+tags: [component, dom]
 ---
 
+## Package
 
+**_@rpldy/upload-button_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/upload-button
+
+OR
+
+npm install @rpldy/uploady @rpldy/upload-button
+```
+
+:::note
+Must be rendered inside (child/descendant) of an Uploady instance
+:::
 
 ## Props
 
-| Name (* = mandatory) | Type          | Default       | Description
-| --------------       | ------------- | ------------- | -------------
-| id             | string            | undefined | id attribute to pass to the button element
-| text           | string            | "Upload"  | the button text (in case no children passed)
-| className      | string            | undefined | the class attribute to pass to the button element
-| children       | React.Node        | undefined | child element(s) to render inside the button (replaces text)
-| extraProps     | Object            | undefined | any other props to pass to the button component (with spread)
-| ref            | React ref         | undefined | will be passed to the button element to acquire a ref
-| onClick        | EventHandler      | undefined | function to handle button click (called after showing the system's file selection dialog)
+| Name (* = mandatory) | Type          | Default       | Description                                                                               |
+| --------------       | ------------- | ------------- |-------------------------------------------------------------------------------------------|
+| id             | string            | undefined | id attribute to pass to the button element                                                |
+| text           | string            | "Upload"  | the button text (in case no children passed) |
+| className      | string            | undefined | the class attribute to pass to the button element                                         |
+| children       | React.Node        | undefined | child element(s) to render inside the button (replaces text)                              |
+| extraProps     | Object            | undefined | any other props to pass to the button component (with spread)                             |
+| ref            | React ref         | undefined | will be passed to the button element to acquire a ref                                     |
+| onClick        | EventHandler      | undefined | function to handle button click (called after showing the system's file selection dialog) |
+
 
 In addition, most UploadOptions props can be passed to UploadButton, in order to override configuration passed to the parent Uploady component.
 See [Uploady documentation](../api/providers/uploady#props) for detailed list of upload options.
 
 The following [guide](../guides/DifferentConfiguration.md) shows how different upload buttons may use different upload options.
+
+:::note
+Some options cannot be overridden by the button. For example, any prop that influences the file input directly (such as '_multiple_')
+:::
+
+## Example
+
+```jsx
+import React from "react";
+import Uploady from "@rpldy/uploady";
+import UploadButton from "@rpldy/upload-button";
+
+const App = () => (<Uploady
+    destination={{ url: "https://my-server/upload" }}>
+    <UploadButton/>
+</Uploady>);
+```

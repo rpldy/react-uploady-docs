@@ -1,6 +1,6 @@
 ---
-id: useAbortItem
-title: useAbortItem
+id: useAbortAll
+title: useAbortAll
 tags: [hook, abort]
 ---
 
@@ -17,20 +17,21 @@ npm install @rpldy/uploady
 ## Details
 
 ```typescript
-type useAbortItem = () => (itemId: string) => boolean;
+type useAbortAll = () => () => boolean;
 ```
 
-Returns abort item method.
+Returns abort all method.
 This is a convenience method to use instead of using the Context API directly.
 
 ## Example
 
 ```javascript
-import { useAbortItem } from "@rpldy/uploady";
+import { useAbortAll } from "@rpldy/uploady";
 
 const MyComponent = () => {
-    const abortItem = useAbortItem();
+    const abortAll = useAbortAll();
 
-    return <button onClick={() => abortItem("i-123")}>Abort Item</button>
+    return <button onClick={() => abortAll()}>Abort All</button>
 };
 ```
+

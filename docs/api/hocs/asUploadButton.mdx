@@ -1,0 +1,60 @@
+---
+id: asUploadButton
+title: asUploadButton
+tags: [hoc, component]
+---
+
+## Package
+
+**_@rpldy/upload-button_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/upload-button
+```
+
+## Details
+
+```typescript
+export interface ButtonProps {
+    className?: string;
+    id?: string;
+    children?: JSX.Element[] | JSX.Element | string;
+    text?: string;
+    extraProps?: Record<string, unknown>;
+    ref?: React.RefObject<any>;
+}
+
+export interface UploadButtonProps extends ButtonProps, UploadOptions {}
+
+type asUploadButton = <T>(component: React.ForwardRefExoticComponent<T> | React.ComponentType<T>) => React.FC<UploadButtonProps>;
+```
+
+- See: [UploadOptions](../types#uploadoptions)
+
+In case you want to use your own component as the upload trigger, use the asUploadButton HOC.
+
+The props that the new component (returned by HOC) are the same as described in
+the [Upload Button Props table](../components/uploadButton#props).
+In order to pass props to the wrapped component, use the `extraProps` prop.
+
+## Example
+
+```jsx
+import React, { forwardRef } from "react";
+import Uploady from "@rpldy/uploady";
+import { asUploadButton } from "@rpldy/upload-button";
+
+const DivUploadButton = asUploadButton(forwardRef(
+    (props, ref) =>
+        <div {...props} style={{ cursor: "pointer" }}>
+            DIV Upload Button
+        </div>
+));
+
+const App = () => (<Uploady
+    destination={{ url: "https://my-server/upload" }}>
+    <DivUploadButton/>
+</Uploady>);
+```

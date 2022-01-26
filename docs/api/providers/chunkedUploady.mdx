@@ -1,0 +1,27 @@
+---
+id: chunked-uploady
+title: ChunkedUploady
+---
+
+## Package
+
+**_@rpldy/chunked-uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/chunked-uploady
+```
+
+## Props
+
+| Name (* = mandatory) | Type          | Default       | Description |
+| --------------       | ------------- | ------------- | ------------|
+| chunked               | boolean       | true          | chunk uploads. setting to false will return to default sending behavior|
+| chunkSize             | number        | 5242880       | the chunk size. relevant when uploaded file is larger than the value|
+| retries               | number        | 0             | how many times to retry sending a failed chunk|
+| parallel              | number        | 0             | how many (chunk) requests to send simultaneously|
+
+In addition, all [UploadOptions](../types#uploadoptions) props can be passed to ChunkedUploady.
+
+See [Uploady documentation](uploady#props) for detailed list of upload options.

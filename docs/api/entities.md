@@ -1,6 +1,7 @@
 ---
 id: entities
 title: Entities
+tags: [batch, batchItem]
 ---
 ## Batch
 

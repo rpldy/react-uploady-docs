@@ -1,0 +1,41 @@
+---
+id: useChunkFinishListener
+title: useChunkFinishListener
+tags: [hook, event, chunk]
+---
+
+## Package
+
+**_@rpldy/chunked-uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/chunked-uploady
+```
+
+## Details
+
+```typescript
+type useChunkFinishListener = (cb: (data: ChunkFinishEventData) => void) => void;
+```
+
+- See: [ChunkFinishEventData](../types#chunkfinisheventdata)
+
+:::note
+Event Hook - [CHUNK_FINISH](../events#chunkStart)
+:::
+
+Called when a chunk finishes uploading as part of a chunked upload
+
+## Example
+
+```javascript
+import { useChunkFinishListener } from "@rpldy/chunked-uploady";
+
+const MyComponent = () => {
+    useChunkFinishListener(({ chunk }) => {
+        console.log(`Chunk Finished - ${chunk.id} - attempt: ${chunk.attempt}`);
+    });
+};
+ ```

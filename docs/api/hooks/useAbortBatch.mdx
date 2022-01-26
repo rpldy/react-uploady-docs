@@ -1,6 +1,6 @@
 ---
-id: useAbortItem
-title: useAbortItem
+id: useAbortBatch
+title: useAbortBatch
 tags: [hook, abort]
 ---
 
@@ -17,20 +17,20 @@ npm install @rpldy/uploady
 ## Details
 
 ```typescript
-type useAbortItem = () => (itemId: string) => boolean;
+type useAbortBatch = () => (batchId: string) => boolean;
 ```
 
-Returns abort item method.
+Returns abort batch method.
 This is a convenience method to use instead of using the Context API directly.
 
 ## Example
 
 ```javascript
-import { useAbortItem } from "@rpldy/uploady";
+import { useAbortBatch } from "@rpldy/uploady";
 
 const MyComponent = () => {
-    const abortItem = useAbortItem();
+    const abortBatch = useAbortBatch();
 
-    return <button onClick={() => abortItem("i-123")}>Abort Item</button>
+    return <button onClick={() => abortBatch("b-123")}>Abort Batch</button>
 };
 ```

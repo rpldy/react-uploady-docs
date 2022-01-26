@@ -23,9 +23,9 @@ uploader.off(UPLOADER_EVENTS.BATCH_ADD, batchAddHandler);
 
 ## BATCH_ADD
 
-Triggered when a new batch is added.
+`Parameters`: _(batch: Batch, options: CreateOptions)_
 
-- Parameters: _(batch, uploadOptions)_
+Triggered when a new batch is added.
 
 :::info
 This event is _[cancellable](#cancellable-events)_
@@ -33,9 +33,9 @@ This event is _[cancellable](#cancellable-events)_
 
 ## BATCH_START {#batchStart}
 
-Triggered when batch items start uploading
+`Parameters`: _(batch: Batch)_
 
-- Parameters: _(batch)_
+Triggered when batch items start uploading
 
 :::info
 This event is _[cancellable](#cancellable-events)_
@@ -43,9 +43,9 @@ This event is _[cancellable](#cancellable-events)_
 
 ## BATCH_PROGRESS {#batchProgress}
 
-Triggered every time progress data is received from the upload request(s)
+`Parameters`: _(batch: Batch)_
 
-- Parameters: _(batch)_
+Triggered every time progress data is received from the upload request(s)
 
 ## BATCH_FINISH {#batchFinish}
 
@@ -55,29 +55,31 @@ Triggered when batch items finished uploading
 
 ## BATCH_CANCEL {#batchCancel}
 
+`Parameters`: _(batch: Batch)_
+
 Triggered in case batch was cancelled from BATCH_START event handler
 
-- Parameters: _(batch)_
 
 ## BATCH_ABORT {#batchAbort}
 
+`Parameters`: _(batch: Batch)_
+
 Triggered in case the batch was [aborted](uploader#abortBatch)
 
-- Parameters: _(batch)_
-
 ### BATCH_ERROR {#batchError}
+
+`Parameters`: _(batch: Batch)_
 
 Triggered in case the batch was failed with an error.
 These errors will most likely occur due to invalid event handling.
 For instance, by a handler (ex: BATCH_START) throwing an error.
 
-- Parameters: _(batch)_
 
 ### BATCH_FINALIZE {#batchFinalize}
 
-Triggered when all batch items have finished uploading or in case the batch was cancelled(abort) or had an error
+`Parameters`: _(batch: Batch)_
 
-- Parameters: _(batch)_
+Triggered when all batch items have finished uploading or in case the batch was cancelled(abort) or had an error
 
 :::note
 This event can be relied on to be called regardless of how the batch finished
@@ -85,10 +87,10 @@ This event can be relied on to be called regardless of how the batch finished
 
 ### ITEM_START {#itemStart}
 
+`Parameters`: _(item: BatchItem)_
+
 Triggered when item starts uploading (just before)
 For grouped uploads (multiple files in same xhr request) ITEM_START is triggered for each item separately
-
-- Parameters: _(item)_
 
 :::info
 This event is _[cancellable](#cancellable-events)_
@@ -96,9 +98,9 @@ This event is _[cancellable](#cancellable-events)_
 
 ### ITEM_FINISH {#itemFinish}
 
-Triggered when item finished uploading successfully
+`Parameters`: _(item: BatchItem)_
 
-- Parameters: _(item)_
+Triggered when item finished uploading successfully
 
 :::note
 The server response can be accessed through the item's _uploadResponse_ property and status code through _uploadStatus_
@@ -106,9 +108,9 @@ The server response can be accessed through the item's _uploadResponse_ property
 
 ### ITEM_PROGRESS {#itemProgress}
 
-Triggered every time progress data is received for this file upload
+`Parameters`: _(item: BatchItem)_
 
-- Parameters: _(item)_
+Triggered every time progress data is received for this file upload
 
 :::note
 progress info is accessed through the item's "completed" (percentage) and "loaded" (bytes) properties.
@@ -116,15 +118,16 @@ progress info is accessed through the item's "completed" (percentage) and "loade
 
 ### ITEM_CANCEL {#itemCancel}
 
-Triggered in case item was cancelled programmatically 
+`Parameters`: _(item: BatchItem)_
 
-- Parameters: _(item)_
+Triggered in case item was cancelled programmatically 
 
 ### ITEM_ERROR {#itemError}
 
+`Parameters`: _(item: BatchItem)_
+
 Triggered in case item upload failed
 
-- Parameters: _(item)_
 
 :::note
 The server response can be accessed through the item's uploadResponse property.
@@ -132,22 +135,24 @@ The server response can be accessed through the item's uploadResponse property.
 
 ### ITEM_ABORT {#itemAbort}
 
-Triggered in case [abort](uploader#abort) was called
+`Parameters`: _(item: BatchItem)_
 
-- Parameters: _(item)_
+Triggered in case [abort](uploader#abort) was called
 
 ### ITEM_FINALIZE {#itemFinalize}
 
+`Parameters`: _(item: BatchItem)_
+
 Triggered for item when uploading is done due to: finished, error, cancel or abort
 Use this event if you want to handle the state of the item being done for any reason.
-
-- Parameters: _(item)_
 
 :::note
 This event can be relied on to be called regardless of how the item finished
 :::
 
 ### REQUEST_PRE_SEND {#requestPreSend}
+
+`Parameters`: _(items: BatchItem[], options: CreateOptions)_
 
 Triggered before a group of items is going to be uploaded
 Group will contain a single item unless "grouped" option is set to true.
@@ -156,17 +161,15 @@ Handler receives the item(s) in the group and the upload options that were used.
 The handler can change data inside the items and in the options by returning different data than received.
 See this [guide](../guides/DynamicParameters.md) for more details.
 
-- Parameters: _(items, options)_
-
 :::info
 This event is _[cancellable](#cancellable-events)_
 :::
 
 ### ALL_ABORT {#allAbort}
 
-Triggered when abort is called without an item id (abort all)
+`No parameters`: _()_
 
-- no parameters
+Triggered when abort is called without an item id (abort all)
 
 ## Cancellable Events {#cancellable-events}
 
@@ -184,3 +187,35 @@ uploader.on(UPLOADER_EVENTS.ITEM_START, (item) => {
     return result;
 });
 ```
+
+## Chunk Events {#chunk-events}
+
+### CHUNK_START {#chunkStart}
+
+`Parameters`: _(data: ChunkStartEventData)_
+
+Triggered when a chunk begins uploading as part of a chunked upload
+
+- See: [ChunkStartEventData](types#chunkstarteventdata)
+
+### CHUNK_FINISH {#chunkFinish}
+
+`Parameters`: _(data: ChunkFinishEventData)_
+
+Triggered when a chunk finishes uploading as part of a chunked upload
+
+- See: [ChunkFinishEventData](types#chunkfinisheventdata)
+
+## RETRY_EVENT {#retryEvent}
+
+Triggered when files are re-added to the queue for retry.
+
+`Parameters`: _({ uploads: string[], options?: UploadOptions })_
+
+:::note
+uploads is an array of batch item ids.
+:::
+
+:::note
+options are the (optional) upload options that are passed to the retry call
+:::

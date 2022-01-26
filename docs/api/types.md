@@ -5,7 +5,6 @@ title: Types
 
 For Batch and BatchItem see: [Entities Page](entities)
 
-
 ## UploadyContextType {#uploadyContextType}
 
 ```typescript
@@ -76,6 +75,33 @@ interface SendOptions  {
     formDataAllowUndefined?: boolean;
     formatServerResponse?: FormatServerResponseMethod;
 }
+```
+
+## UploaderType
+
+```typescript
+export type UploaderType = {
+    id: string;
+    update: (updateOptions: CreateOptions) => UploaderType;
+    add: UploadAddMethod;
+    upload: (uploadOptions?: UploadOptions) => void;
+    abort: (id?: string) => void;
+    abortBatch: (id: string) => void;
+    getOptions: () => CreateOptions;
+    getPending: () => PendingBatch[];
+    clearPending: () => void;
+    on: OnAndOnceMethod;
+    once: OnAndOnceMethod;
+    off: OffMethod;
+    registerExtension: RegisterExtensionMethod;
+    getExtension: (name: unknown) => Record<string, unknown>;
+}
+```
+
+## UploaderListeners
+
+```typescript
+type UploaderListeners = { [key: string]: EventCallback };
 ```
 
 ## UploadOptions
@@ -155,4 +181,41 @@ type ItemCancellableEventHook = CancellableHook<BatchItem>;
 
 ```typescript
 type ItemEventHookWithState = EventHookWithState<BatchItem>;
+```
+
+## ChunkEventData
+
+```typescript
+export type ChunkEventData = {
+    id: string;
+    start: number;
+    end: number;
+    index: number;
+    attempt: number;
+};
+```
+
+## ChunkStartEventData
+
+```typescript
+export type ChunkStartEventData = {
+    item: BatchItem;
+    chunk: ChunkEventData;
+    chunkItem: BatchItem;
+    sendOptions: SendOptions;
+    url: string;
+    remainingCount: number,
+    totalCount: number,
+    onProgress: OnProgress
+};
+```
+
+## ChunkFinishEventData
+
+```typescript
+export type ChunkFinishEventData = {
+    item: BatchItem;
+    chunk: ChunkEventData;
+    uploadData: UploadData;
+};
 ```

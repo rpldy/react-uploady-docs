@@ -1,0 +1,28 @@
+---
+id: useUploader
+title: useUploader
+tags: [hook]
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useUploader = (options: CreateOptions, listeners?: UploaderListeners) => UploaderType;
+```
+
+- See: [CreateOptions](../types#createoptions)
+- See: [UploaderType](../types#uploadertype)
+- See: [UploaderListeners](../types#uploaderlisteners)
+
+Returns the instance of the Uploader currently being used.
+This hook is used internally by Uploady and typically shouldn't be used by external code.

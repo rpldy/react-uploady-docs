@@ -1,0 +1,59 @@
+---
+id: useItemProgressListener
+title: useItemProgressListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useItemProgressListener: ItemEventHookWithState;
+```
+
+- See: [ItemEventHookWithState](../types#itemeventhookwithstate)
+- See: [BatchItem Entity](../entities#batchitem)
+
+:::note
+Event Hook - [ITEM-PROGRESS](../events#itemProgress)
+:::
+
+Called every time progress data is received for this file upload
+
+:::info
+This event can be scoped to a specific item by passing the item id as a second parameter
+:::
+
+## Example
+
+```javascript
+import { useItemProgressListener } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    const item = useItemProgressListener((item) => {
+      //callback is optional for this hook
+    });
+
+    console.log(`item ${item.id} is ${item.completed}% done and ${item.loaded} bytes uploaded`)
+
+   //...
+};
+```
+
+### Scoping
+
+Scoping to an id can be done like so:
+
+```javascript
+//...
+const { completed } = useItemProgressListener("item-id") || { completed: 0 };
+//...
+```

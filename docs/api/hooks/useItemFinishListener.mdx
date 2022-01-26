@@ -1,0 +1,47 @@
+---
+id: useItemFinishListener
+title: useItemFinishListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useItemFinishListener: ItemEventHook;
+```
+
+- See: [ItemEventHook](../types#itemeventhook)
+- See: [BatchItem Entity](../entities#batchitem)
+
+:::note
+Event Hook - [ITEM-FINISH](../events#itemFinish)
+:::
+
+Called when item finished uploading
+
+:::info
+This event can be scoped to a specific item by passing the item id as a second parameter
+:::
+
+## Example
+
+```javascript
+import { useItemFinishListener } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    useItemFinishListener((item) => {
+        console.log(`item ${item.id} finished uploading, response was: `, item.uploadResponse, item.uploadStatus);
+    });
+
+    //...
+};
+```

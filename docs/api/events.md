@@ -65,7 +65,7 @@ Triggered in case the batch was [aborted](uploader#abortBatch)
 
 - Parameters: _(batch)_
 
-### UPLOADER_EVENTS.BATCH_ERROR {#batchError}
+### BATCH_ERROR {#batchError}
 
 Triggered in case the batch was failed with an error.
 These errors will most likely occur due to invalid event handling.
@@ -73,13 +73,17 @@ For instance, by a handler (ex: BATCH_START) throwing an error.
 
 - Parameters: _(batch)_
 
-### UPLOADER_EVENTS.BATCH_FINALIZE {#batchFinalize}
+### BATCH_FINALIZE {#batchFinalize}
 
 Triggered when all batch items have finished uploading or in case the batch was cancelled(abort) or had an error
 
 - Parameters: _(batch)_
 
-### UPLOADER_EVENTS.ITEM_START {#itemStart}
+:::note
+This event can be relied on to be called regardless of how the batch finished
+:::
+
+### ITEM_START {#itemStart}
 
 Triggered when item starts uploading (just before)
 For grouped uploads (multiple files in same xhr request) ITEM_START is triggered for each item separately
@@ -90,7 +94,7 @@ For grouped uploads (multiple files in same xhr request) ITEM_START is triggered
 This event is _[cancellable](#cancellable-events)_
 :::
 
-### UPLOADER_EVENTS.ITEM_FINISH {#itemFinish}
+### ITEM_FINISH {#itemFinish}
 
 Triggered when item finished uploading successfully
 
@@ -100,7 +104,7 @@ Triggered when item finished uploading successfully
 The server response can be accessed through the item's _uploadResponse_ property and status code through _uploadStatus_
 :::
 
-### UPLOADER_EVENTS.ITEM_PROGRESS {#itemProgress}
+### ITEM_PROGRESS {#itemProgress}
 
 Triggered every time progress data is received for this file upload
 
@@ -110,13 +114,13 @@ Triggered every time progress data is received for this file upload
 progress info is accessed through the item's "completed" (percentage) and "loaded" (bytes) properties.
 :::
 
-### UPLOADER_EVENTS.ITEM_CANCEL {#itemCancel}
+### ITEM_CANCEL {#itemCancel}
 
 Triggered in case item was cancelled programmatically 
 
 - Parameters: _(item)_
 
-### UPLOADER_EVENTS.ITEM_ERROR {#itemError}
+### ITEM_ERROR {#itemError}
 
 Triggered in case item upload failed
 
@@ -126,20 +130,24 @@ Triggered in case item upload failed
 The server response can be accessed through the item's uploadResponse property.
 :::
 
-### UPLOADER_EVENTS.ITEM_ABORT {#itemAbort}
+### ITEM_ABORT {#itemAbort}
 
 Triggered in case [abort](uploader#abort) was called
 
 - Parameters: _(item)_
 
-### UPLOADER_EVENTS.ITEM_FINALIZE {#itemFinalize}
+### ITEM_FINALIZE {#itemFinalize}
 
 Triggered for item when uploading is done due to: finished, error, cancel or abort
 Use this event if you want to handle the state of the item being done for any reason.
 
 - Parameters: _(item)_
 
-### UPLOADER_EVENTS.REQUEST_PRE_SEND {#requestPreSend}
+:::note
+This event can be relied on to be called regardless of how the item finished
+:::
+
+### REQUEST_PRE_SEND {#requestPreSend}
 
 Triggered before a group of items is going to be uploaded
 Group will contain a single item unless "grouped" option is set to true.
@@ -154,7 +162,7 @@ See this [guide](../guides/DynamicParameters.md) for more details.
 This event is _[cancellable](#cancellable-events)_
 :::
 
-### UPLOADER_EVENTS.ALL_ABORT {#allAbort}
+### ALL_ABORT {#allAbort}
 
 Triggered when abort is called without an item id (abort all)
 

@@ -121,8 +121,38 @@ type ItemCancellableEventHook = CancellableHook<BatchItem>;
 type CancellableHook<T> = (cb: (obj: T) => boolean | void, id?: string) => void;
 ```
 
+## EventHookWithState
+
+```typescript
+type EventHookWithState<T> = ((cb?: (obj: T) => void, id?: string) => T) & ((id?: string) => T);
+```
+
+## BatchEventHook
+
+```typescript
+type BatchEventHook = EventHook<Batch>;
+```
+
 ## BatchCancellableEventHook
 
 ```typescript
 type BatchCancellableEventHook = CancellableHook<Batch>;
+```
+
+## ItemEventHook
+
+```typescript
+type ItemEventHook = EventHook<BatchItem>;
+```
+
+## ItemCancellableEventHook
+
+```typescript
+type ItemCancellableEventHook = CancellableHook<BatchItem>;
+```
+
+## ItemEventHookWithState
+
+```typescript
+type ItemEventHookWithState = EventHookWithState<BatchItem>;
 ```

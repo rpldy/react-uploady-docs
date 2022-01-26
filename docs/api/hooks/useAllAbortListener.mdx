@@ -1,0 +1,37 @@
+---
+id: useAllAbortListener
+title: useAllAbortListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useAllAbortListener = (cb: () => void) => void;
+```
+
+Called in case [abort](#abort) was called for all running uploads
+
+Abort can be called on the [context](../context#abort)
+or on the [uploader](../uploader#abort).
+
+## Example
+
+```javascript
+import { useAllAbortListener } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    useAllAbortListener(() => {
+        console.log("abort all was called");
+    });
+};
+```

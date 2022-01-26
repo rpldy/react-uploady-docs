@@ -1,0 +1,47 @@
+---
+id: useItemCancelListener
+title: useItemCancelListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useItemCancelListener: ItemEventHook;
+```
+
+- See: [ItemEventHook](../types#itemeventhook)
+- See: [BatchItem Entity](../entities#batchitem)
+
+:::note
+Event Hook - [ITEM-CANCEL](../events#itemCancel)
+:::
+
+Called in case item was cancelled from ITEM_START event handler
+
+:::info
+This event can be scoped to a specific item by passing the item id as a second parameter
+:::
+
+## Example
+
+```javascript
+import { useItemCancelListener } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    useItemCancelListener((item) => {
+        console.log(`item ${item.id} was cancelled`);
+    });
+
+    //...
+};
+```

@@ -1,0 +1,48 @@
+---
+id: useBatchAbortListener
+title: useBatchAbortListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useBatchAbortListener: BatchEventHook;
+```
+
+- See: [BatchEventHook](../types#batcheventhook)
+- See: [Batch Entity](../entities#batch)
+
+:::note
+Event Hook - [BATCH-ABORT](../events#batchAbort)
+:::
+
+Called in case abort batch was called on the [context](../context#abortbatch)
+or on the [uploader](../uploader#abortbatch).
+
+:::info
+This event can be scoped to a specific batch by passing the batch id as a second parameter
+:::
+
+## Example
+
+```javascript
+import { useBatchAbortListener } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    useBatchAbortListener((batch) => {
+        console.log(`batch ${batch.id} was aborted`);
+    });
+
+    //...
+};
+```

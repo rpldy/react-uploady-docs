@@ -1,0 +1,47 @@
+---
+id: useItemFinalizeListener
+title: useItemFinalizeListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useItemFinalizeListener: ItemEventHook;
+```
+
+- See: [ItemEventHook](../types#itemeventhook)
+- See: [BatchItem Entity](../entities#batchitem)
+
+:::note
+Event Hook - [ITEM-FINALIZE](../events#itemFinalize)
+:::
+
+Called for item when uploading is done due to: finished, error, cancel or abort
+
+:::info
+This event can be scoped to a specific item by passing the item id as a second parameter
+:::
+
+## Example
+
+```javascript
+import { useItemFinalizeListener } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    useItemFinalizeListener((item) => {
+        console.log(`item ${item.id} is done with state: ${item.state}`);
+    });
+
+    //...
+};
+```

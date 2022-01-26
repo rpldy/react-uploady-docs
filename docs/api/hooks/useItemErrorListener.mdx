@@ -1,0 +1,47 @@
+---
+id: useItemErrorListener
+title: useItemErrorListener
+---
+
+## Package
+
+**_@rpldy/uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploady
+```
+
+## Details
+
+```typescript
+type useItemErrorListener: ItemEventHook;
+```
+
+- See: [ItemEventHook](../types#itemeventhook)
+- See: [BatchItem Entity](../entities#batchitem)
+
+:::note
+Event Hook - [ITEM-ERROR](../events#itemError)
+:::
+
+Called in case item upload failed
+
+:::info
+This event can be scoped to a specific item by passing the item id as a second parameter
+:::
+
+## Example
+
+```javascript
+import { useItemErrorListener } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    useItemErrorListener((item) => {
+        console.log(`item ${item.id} failed - `, item.uploadResponse);
+    });
+
+    //...
+};
+```

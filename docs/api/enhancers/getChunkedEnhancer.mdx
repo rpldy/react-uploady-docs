@@ -1,0 +1,64 @@
+---
+id: getChunkedEnhancer
+title: getChunkedEnhancer
+tags: [enhancer, chunk]
+---
+
+## Package
+
+- **_[@rpldy/chunked-sender](../../packages/rpldy-chunked-sender)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/chunked-sender
+```
+
+## Details
+
+```typescript
+type getChunkedEnhancer = (options: ChunkedOptions) => UploaderEnhancer
+```
+
+- See: [ChunkedOptions](../types#chunkedoptions)
+- See: [UploaderEnhancer](../types#uploaderenhancer)
+
+Creates an uploader enhancer that can be handed to the [Uploady](..) (using the [enhancer prop](..#enhancer)),
+or to the [uploader](../uploader).
+
+:::caution
+When using React, there's typically no need to use this enhancer directly.
+Using [Chunked-Uploady](../providers/chunkedUploady) will do this for you automatically.
+:::
+
+## Options
+
+| Name (* = mandatory) | Type          | Default       | Description
+| --------------       | ------------- | ------------- | ------------
+| chunked               | boolean       | true          | chunk uploads. setting to false will return to default sending behavior
+| chunkSize             | number        | 5242880      | the chunk size. relevant when uploaded file is larger than the value
+| retries               | number        | 0             | how many times to retry sending a failed chunk
+| parallel              | number        | 0             | how many (chunk) requests to send simultaneously
+
+## Example
+
+```javascript
+import Uploady from "@rpldy/uploady";
+import { getChunkedEnhancer } from "@rpldy/chunked-sender";
+
+const chunkedEnhancer = getChunkedEnhancer({
+	chunkSize: 1e+6
+});
+
+const App = () => (
+	<Uploady
+    destination={{ url: "https://my-server" }}
+		enhancer={chunkedEnhancer}
+	>
+    <RestOfMyApp/>
+	</Uploady>
+)
+
+```
+
+See: [composeEnhancers](../utils/composeEnhancers)

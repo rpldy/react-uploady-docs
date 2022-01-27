@@ -1,0 +1,33 @@
+---
+id: chunkedSender
+title: chunkedSender
+tags: [enhancer, chunk, sender]
+---
+
+# createChunkedSender
+
+:::danger
+Internal API - Not intended for use outside rpldy packages.
+:::
+
+
+## Package
+
+- **_[@rpldy/chunked-sender](../../packages/rpldy-chunked-sender)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/chunked-sender
+```
+
+## Details
+
+```typescript
+
+type ChunkedSender = {
+    send: SendMethod;
+};
+
+type createChunkedSender = (options: ChunkedOptions) => ChunkedSender;
+```

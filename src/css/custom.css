@@ -21,7 +21,7 @@
     --ifm-navbar-link-hover-color: var(--ifm-color-primary-darkest);
     --ifm-menu-color-active: var(--ifm-color-primary-darkest);
 
-    --ifm-table-stripe-background: #afb5cc;
+    --ifm-table-stripe-background: rgba(115, 145, 168, 0.5);
 
     --ifm-font-color-base-inverse: #000000;
     --ifm-button-color: #FFFFFF;
@@ -49,7 +49,7 @@ html[data-theme='dark'] {
 
     --ifm-link-color: var(--ifm-color-primary-light);
 
-    --ifm-table-stripe-background: #292e3f;
+    --ifm-table-stripe-background: rgba(72, 96, 133, 0.34);
 
     --ifm-tabs-color-active-border: var(--ifm-color-primary-lightest);
     --ifm-tabs-color-active: var(--ifm-color-primary-light);
@@ -147,7 +147,6 @@ html[data-theme='dark'] .navbar {
 
 }
 
-
 .missing-content-box p {
     font-size: 22px;
     color: red;
@@ -155,13 +154,24 @@ html[data-theme='dark'] .navbar {
     padding-left: 10px;
 }
 
-tr {
-    box-shadow: 0 -2px 4px 0 inset rgba(17, 40, 59, 0.75);
+table td, table th {
+    box-shadow: 1px 1px 2px 0 rgba(17, 40, 59, 0.4);
+}
+/*table tr {*/
+/*    box-shadow: 0 -2px 4px 0 inset rgba(17, 40, 59, 0.75);*/
+/*}*/
+
+table tr, table td, table, thead, table th, table thead tr {
+    border: none;
 }
 
-html[data-theme='dark']  tr {
-    box-shadow: 0 -2px 4px 0 inset rgba(144, 198, 242, 0.75);
+html[data-theme='dark'] table td, html[data-theme='dark'] table th {
+    box-shadow: 1px 1px 2px 0 rgba(144, 198, 242, 0.55);
 }
+
+/*html[data-theme='dark'] table tr {*/
+/*    box-shadow: 0 -2px 2px 0 inset rgba(144, 198, 242, 0.75);*/
+/*}*/
 
 button[class*='collapseSidebarButton_'] {
     border: 0;

@@ -118,10 +118,50 @@ interface UploadOptions extends Partial<SendOptions>{
 }
 ```
 
+## UploaderEnhancer
+
+```typescript
+type UploaderEnhancer = (uploader: UploaderType, trigger: Trigger<any>) => UploaderType;
+```
+
+## OnProgress
+
+```typescript
+type OnProgress = (e: SenderProgressEvent, objs: Record<string, unknown>[]) => void;
+```
+
+## UploadData
+
+```typescript
+type UploadData = {
+    status: number;
+    state: FILE_STATES;
+    response: any;
+};
+```
+
+See: [FILE_STATES](types#file-states)
+
+## SendResult
+
+```typescript
+type SendResult = {
+    request: Promise<UploadData>;
+    abort: () => boolean;
+    senderType: string;
+};
+```
+
+## SendMethod
+
+```typescript
+type SendMethod = (item: BatchItem[], url: string | undefined, options: SendOptions, onProgress?: OnProgress) => SendResult;
+```
+
 ## CreateOptions
 
 ```typescript
-export interface CreateOptions extends UploadOptions {
+interface CreateOptions extends UploadOptions {
   enhancer?: UploaderEnhancer;
   concurrent?: boolean;
   maxConcurrent?: number;
@@ -186,7 +226,7 @@ type ItemEventHookWithState = EventHookWithState<BatchItem>;
 ## ChunkEventData
 
 ```typescript
-export type ChunkEventData = {
+type ChunkEventData = {
     id: string;
     start: number;
     end: number;
@@ -198,7 +238,7 @@ export type ChunkEventData = {
 ## ChunkStartEventData
 
 ```typescript
-export type ChunkStartEventData = {
+type ChunkStartEventData = {
     item: BatchItem;
     chunk: ChunkEventData;
     chunkItem: BatchItem;
@@ -213,7 +253,7 @@ export type ChunkStartEventData = {
 ## ChunkFinishEventData
 
 ```typescript
-export type ChunkFinishEventData = {
+type ChunkFinishEventData = {
     item: BatchItem;
     chunk: ChunkEventData;
     uploadData: UploadData;

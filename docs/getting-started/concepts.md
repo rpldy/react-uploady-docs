@@ -35,9 +35,7 @@ or when initializing the uploader.
 
 ### Enhancer
 
-```javascript
-  (uploader: UploaderType, trigger: Trigger<mixed>) => UploaderType
-``` 
+See: [UploaderEnhancer](../api/types#uploaderenhancer)
 
 Enhancers are functions that can enhance an uploader instance. They are also passed as part of the options given to the Uploady instance.
 

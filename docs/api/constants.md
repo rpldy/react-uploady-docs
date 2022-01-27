@@ -92,3 +92,11 @@ enum PreviewType {
     VIDEO = "video",
 }
 ```
+
+## CHUNKING_SUPPORT {#chunkingSupport}
+
+Will be `true` if the browser supports chunking (Blob.slice)
+
+```typescript
+type CHUNKING_SUPPORT = boolean 
+```

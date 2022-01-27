@@ -1,0 +1,54 @@
+---
+id: rpldy-native-uploady
+title: "@rpldy/native-uploady"
+---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/native-uploady
+```
+
+## Details
+
+This is the main UI package for React-Native. Its role is to initialize and expose the [uploader](rpldy-uploader) functionality.
+It contains the Provider that all other UI packages rely on.
+
+It provides multiple hooks that enable more advanced features and data for client apps.
+
+:::note
+The difference between this package and the main [Uploady](rpldy-uploady) is that
+this one doesn't use react-dom (for obvious reasons) and doesn't create a file input element.
+:::
+
+## Example
+
+To be able to use one of the [UI Components](../api/components) or one of the [hooks](../api/hooks), you need to wrap them with Uploady.
+This will give them access to the UploadyContext.
+
+```javascript
+import React from "react";
+import NativeUploady from "@rpldy/native-uploady";
+
+const App = () => (<NativeUploady
+    grouped
+    maxGroupSize={2}
+    method="PUT"
+    destination={{ url: "https://my-server", headers: { "x-custom": "123" } }}>
+
+    <Upload/>
+    <RestOfMyApp/>
+</NativeUploady>)
+```
+
+## Exports
+
+* [NativeUploady](../api/providers/native-uploady)
+
+:::info
+See [Uploady's exports](rpldy-uploady#exports)
+:::
+
+## Related Topics
+
+* [uploady](rpldy-uploady)

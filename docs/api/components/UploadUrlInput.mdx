@@ -1,0 +1,77 @@
+---
+id: uploadUrlInput
+title: UploadUrlInput
+tags: [component, dom]
+---
+
+## Package
+
+**_[@rpldy/upload-url-input](../../packages/rpldy-upload-url-input)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/upload-url-input
+
+OR
+
+npm install @rpldy/uploady @rpldy/upload-url-input
+```
+
+:::note
+Must be rendered inside (child/descendant) of an Uploady instance
+:::
+
+## Props
+
+| Name (* = mandatory) | Type          | Default       | Description
+| --------------       | ------------- | ------------- | -------------
+| id             | string   | undefined | id attribute to pass to the button element
+| className      | string   | undefined | the class attribute to pass to the button element
+| placeholder    | string    | undefined | input's placeholder text
+| validate       | [ValidateMethod](#validate) | undefined | function to validate input's value before its sent
+| uploadRef     | React Ref   | undefined | ref will be set to the upload callback so it can be triggered from the outside (see [example](#example))
+| ignoreKeyPress   | boolean | false | by default pressing Enter will initiate the upload, set to true in order to disable this behavior
+
+In addition, most UploadOptions props can be passed to UploadButton, in order to override configuration passed to the parent Uploady component.
+See [Uploady documentation](../api/providers/uploady#props) for detailed list of upload options.
+
+### validate
+
+```typescript
+type ValidateMethod = (value: string | undefined, input: HTMLInputElement | undefined) => boolean;
+```
+
+When specified, should return true (truthy) to indicate the input's value is _valid_.
+Should return false (falsy) in case the value isn't valid and to prevent the upload from taking place.
+
+
+### uploadRef
+
+The value of the ref (current) will be set with a function that can be called when the input's value should be handed to the uploader.
+This is the equivalent of selecting a file of dropping a file in the [drop-zone](uploadDropZone).
+
+## Example
+
+```jsx
+import React, { useRef } from "react";
+import Uploady from "@rpldy/uploady";
+import UploadUrlInput from "@rpldy/upload-url-input";
+
+const MyUrlUpload = () => {
+    const uploadRef = useRef(null);
+
+    const onClick = () => {
+        if (uploadRef && uploadRef.current) {
+            uploadRef.current(); //initiate upload
+        }
+    };
+
+    return <Uploady>
+        <UploadUrlInput placeholder="URL to upload"
+            uploadRef={uploadRef} />
+
+        <button onClick={onClick}>Upload</button>
+    </Uploady>;
+};
+```

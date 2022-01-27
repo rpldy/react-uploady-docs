@@ -21,7 +21,7 @@ unregister(); //is equivalent to the line below
 uploader.off(UPLOADER_EVENTS.BATCH_ADD, batchAddHandler);
 ```
 
-## BATCH_ADD
+## BATCH_ADD {#batchAdd}
 
 `Parameters`: _(batch: Batch, options: CreateOptions)_
 

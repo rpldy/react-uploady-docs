@@ -6,14 +6,15 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #6888c9;
-  --ifm-color-primary-dark: #10398a;
-  --ifm-color-primary-darker: #09255b;
-  --ifm-color-primary-darkest: #041028;
-  --ifm-color-primary-light: rgb(72, 119, 133);
-  --ifm-color-primary-lighter: rgb(110, 163, 178);
-  --ifm-color-primary-lightest: rgb(146, 206, 224);
-  --ifm-code-font-size: 95%;
+    --ifm-background-color: #f6f6f6;
+    --ifm-color-primary: #6888c9;
+    --ifm-color-primary-dark: #10398a;
+    --ifm-color-primary-darker: #09255b;
+    --ifm-color-primary-darkest: #041028;
+    --ifm-color-primary-light: rgb(72, 119, 133);
+    --ifm-color-primary-lighter: rgb(110, 163, 178);
+    --ifm-color-primary-lightest: rgb(146, 206, 224);
+    --ifm-code-font-size: 95%;
 
     --ifm-navbar-background-color: rgba(188, 212, 238, 0.86);
 
@@ -27,40 +28,10 @@
 
     --ifm-font-family-base: 'Source Sans Pro', sans-serif;
     --ifm-heading-font-family: 'Source Sans Pro', sans-serif;
-}
 
-.homepage header {
-    clip-path: polygon(0 10%, 100% 2%, 100% 79%, 0 100%);
-}
+    --collapse-button-bg-color-dark: var(--ifm-color-primary-dark);
 
-.theme-doc-markdown header h1 {
-    position: relative;
-}
-
-.theme-doc-markdown header h1::before {
-    display: block;
-    position: absolute;
-    width: 35%;
-    height: 40px;
-    bottom: -6px;
-    content: "";
-    background-color: rgba(148, 199, 243, 0.27);
-    clip-path: polygon(16% 90%, 100% 77%, 0% 70%, 12% 92%);
-}
-
-footer.footer--dark {
-    --ifm-footer-background-color: #384762;
-}
-
-html[data-theme='dark'] footer.footer--dark {
-    --ifm-footer-background-color: #030c1a;
-}
-
-.docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
+    --side-menu-background-color: #fafafa;
 }
 
 html[data-theme='dark'] {
@@ -82,11 +53,60 @@ html[data-theme='dark'] {
 
     --ifm-tabs-color-active-border: var(--ifm-color-primary-lightest);
     --ifm-tabs-color-active: var(--ifm-color-primary-light);
+
+    --collapse-button-bg-color-dark: var(--ifm-color-primary-light);
+
+    --side-menu-background-color: #04111f;
+}
+
+.homepage header {
+    clip-path: polygon(0 10%, 100% 2%, 100% 79%, 0 100%);
+}
+
+.theme-doc-markdown header h1 {
+    position: relative;
+}
+
+.theme-doc-markdown header h1::before {
+    display: block;
+    position: absolute;
+    width: 35%;
+    height: 40px;
+    bottom: -6px;
+    content: "";
+    background-color: rgba(27, 59, 86, 0.82);
+    clip-path: polygon(16% 90%, 100% 77%, 0% 70%, 12% 92%);
+}
+
+html[data-theme='dark'] .theme-doc-markdown header h1::before {
+    background-color: rgba(148, 199, 243, 0.27);
+}
+
+footer.footer--dark {
+    --ifm-footer-background-color: #384762;
+    box-shadow: 1px 0 6px 0 var(--ifm-color-primary-darkest);
+    z-index: 1;
+}
+
+html[data-theme='dark'] footer.footer--dark {
+    --ifm-footer-background-color: #030c1a;
+    box-shadow: 1px 0 10px 0 var(--ifm-color-primary-lighter);
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+aside[class^='docSidebarContainer'] {
+    background-color: var(--side-menu-background-color);
+    border: 0;
 }
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
-
 }
 
 div[class^='announcementBar_'] {
@@ -116,9 +136,12 @@ html[data-theme='dark'] .table-of-contents__link:hover {
 }
 
 .navbar {
-    border-bottom: 1px solid rgba(92, 92, 110, 0.72);
+    box-shadow: -1px 0 6px 0 var(--ifm-color-primary-darkest);
 }
 
+html[data-theme='dark'] .navbar {
+    box-shadow: -1px 0 6px 0 var(--ifm-color-primary-lighter);
+}
 
 .missing-content-box {
 
@@ -138,4 +161,22 @@ tr {
 
 html[data-theme='dark']  tr {
     box-shadow: 0 -2px 4px 0 inset rgba(144, 198, 242, 0.75);
+}
+
+button[class*='collapseSidebarButton_'] {
+    border: 0;
+    box-shadow: 1px 0 2px 0 var(--ifm-color-primary-light);
+}
+
+html[data-theme='dark'] button[class*='collapseSidebarButton_'] {
+    background-color: var(--side-menu-background-color);
+    box-shadow: 1px 0 2px 0 var(--ifm-color-primary-dark);
+}
+
+button[class*='collapseSidebarButton_']:hover, div[class^='collapsedDocSidebar_']:hover {
+    background-color: var(--ifm-color-primary-darkest);
+}
+
+html[data-theme='dark'] button[class*='collapseSidebarButton_']:hover {
+    background-color: var(--ifm-color-primary-light);
 }

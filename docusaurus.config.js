@@ -41,7 +41,11 @@ const config = {
 				},
 				blog: {
 					showReadingTime: true,
-
+					postsPerPage: 3,
+					feedOptions: {
+						type: "all",
+						copyright: `Copyright © ${new Date().getFullYear()} Yoav Niran`,
+					},
 					// editUrl:
 					// 	"https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
 				},
@@ -56,6 +60,7 @@ const config = {
 	/** @type {import("@docusaurus/preset-classic").ThemeConfig} */
 		({
 			image: "img/uploady/react-uploady-text-logo.png",
+			hideableSidebar: true,
 
 			announcementBar: {
 				id: "rpldy-announce-1", // Increment on change

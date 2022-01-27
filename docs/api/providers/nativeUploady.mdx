@@ -1,0 +1,60 @@
+---
+id: native-uploady
+title: NativeUploady
+tags: [provider, react-native]
+---
+
+## Package
+
+**_[@rpldy/native-uploady](../../packages/rpldy-native-uploady)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/native-uploady
+```
+
+## Props
+
+This provider's props are just about identical to the main [Uploady](..) provider.
+See Uploady's [Props](..#props) documentation.
+
+:::note
+All props are identical besides the ones related to file input (ex: multiple, accept, etc.), which cannot be used with the native flavor.
+:::
+
+## Example
+
+```jsx
+import React, { useCallback } from "react";
+import { View, Button } from "react-native";
+import DocumentPicker from "react-native-document-picker/index";
+import NativeUploady from "@rpldy/native-uploady";
+
+const Upload = () => {
+
+  const pickFile = useCallback(async () => {
+      const res = await DocumentPicker.pick({
+        type: [DocumentPicker.types.images],
+      });
+
+      uploadyContext.upload(res);
+  }, [uploadyContext]);
+
+    return (
+			<View>
+				<Button title="Upload File" onPress={pickFile} />
+			</View>);
+};
+
+const App = () => (<NativeUploady
+    grouped
+    maxGroupSize={2}
+    method="PUT"
+    destination={{url: "https://my-server", headers: {"x-custom": "123"}}}>
+
+    <Upload/>
+    <RestOfMyApp/>
+</NativeUploady>)
+
+```

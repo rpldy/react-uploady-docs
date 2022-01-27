@@ -1,0 +1,20 @@
+---
+id: rpldy-chunked-sender
+title: "@rpldy/chunked-sender"
+---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/chunked-sender
+```
+
+## Details
+
+Adds chunked upload capabilities on top of the regular XHR [@rpldy/sender](rpldy-sender)
+Exposes an UploaderEnhancer that replaces the default send method the [uploader](../uploader) uses.
+
+For usage with your React app, see [@rpldy/chunked-uploady](../ui/chunked-uploady).
+
+Doesnt support grouped uploads (in single XHR equest) or URL uploading.
+These will be handed over to the default [@rpldy/sender](rpldy-sender)

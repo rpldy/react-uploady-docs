@@ -24,6 +24,17 @@ type Batch = {
 
 See [BATCH_STATES](constants#batchStates) 
 
+## FileLike
+
+```typescript
+type FileLike = {
+  name: string;
+  size: number;
+  type: string;
+  lastModified: number;
+}
+```
+
 ## BatchItem 
 
 There are two types of items that can be uploaded: File and URL (String).
@@ -41,13 +52,6 @@ interface BatchItemBase {
     loaded: number;
     recycled: boolean;
     previousBatch?: string;
-}
-
-export type FileLike = {
-  name: string;
-  size: number;
-  type: string;
-  lastModified: number;
 }
 
 interface BatchUrl extends BatchItemBase {

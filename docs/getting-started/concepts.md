@@ -68,4 +68,4 @@ With a batch ID, it is possible to cancel all files that are part of it.
 
 ### Retry
 
-It can also be used to retry all files in the batch (see [@rpldy/retry](packages/retry)).
+It can also be used to retry all files in the batch (see [@rpldy/retry](../packages/rpldy-retry)).

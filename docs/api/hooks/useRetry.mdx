@@ -17,5 +17,30 @@ npm install @rpldy/retry-hooks
 ## Details
 
 ```typescript
-type useFileInput = (fileInputRef?: InputRef) => InputRef
+type RetryMethod = (id?: string) => boolean;
+
+type useRetry = () => RetryMethod;
 ```
+
+Returns a retry function.
+
+When called without a parameter, will attempt retry all failed uploads.
+When called with a (id) parameter, will attempt retry for the failed batch-item identified by the id.
+
+## Example
+
+```javascript
+import React from "react";
+import { useRetry } from "@rpldy/retry-hooks";
+
+const MyComponent = ( ) => {
+    const retry = useRetry();
+
+    const onClick = () => {
+        retry("i-123");
+    };
+
+    return <button onClick={onClick}>retry item</button>;
+};
+```
+

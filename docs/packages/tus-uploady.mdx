@@ -1,0 +1,61 @@
+---
+id: rpldy-tus-uploady
+title: "@rpldy/tus-uploady"
+---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/tus-uploady
+```
+
+## Details
+
+This package is provided as a convenient alternative to the main [Uploady](rpldy-uploady) package.
+To be used in case resumable (tus) upload is required.
+
+Internally, _TusUploady_ uses [@rpldy/tus-sender](rpldy-tus-sender) instead of the default (XHR) sender.
+
+### TUS Protocol
+
+On top of the Core Protocol, Uploady supports the following extensions:
+
+- [Creation](https://tus.io/protocols/resumable-upload.html#creation) (creation)
+- [Creation with Upload](https://tus.io/protocols/resumable-upload.html#creation-with-upload) (creation-with-upload)
+- [Concatenation](https://tus.io/protocols/resumable-upload.html#concatenation) (concatenation)
+- [Creation Defer Length](https://tus.io/protocols/resumable-upload.html#upload-defer-length) (creation-defer-length)
+
+It also supports the __Upload-Metadata__ header and will turn the destination __params__ prop into the metadata key/value.
+
+## Example
+
+```jsx title="TUS - Simple Example"
+ import React from "react";
+ import TusUploady from "@rpldy/tus-uploady";
+ import UploadButton from "@rpldy/upload-button";
+
+ const App = () => (<TusUploady
+     destination={{ url: "https://my-tus-server/upload" }}
+     chunkSize={2142880}
+     sendDataOnCreate
+	>
+     <UploadButton/>
+ </TusUploady>);
+ ```
+
+## Exports
+
+* [TusUploady](../api/providers/tusUploady)
+* [useClearResumableStore](../api/hooks/useClearResumableStore)
+* [TusUploadyProps](../api/types#tusuploadyprops)
+
+:::info
+Plus all the exports from [uploady](uploady)
+:::
+
+## Related Topics
+
+* [tus-sender](rpldy-tus-sender)
+* [uploady](rpldy-uploady)
+* [chunked-uploady](rpldy-chunked-uploady)
+

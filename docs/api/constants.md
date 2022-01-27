@@ -5,6 +5,8 @@ title: Constants
 
 ## BATCH_STATES {#batchStates}
 
+Package: **_[@rpldy/uploader](../packages/rpldy-uploader)_**, **_[@rpldy/uploady](../packages/rpldy-uploady)_**
+
 The different values [Batch](entities#batch).state can have. 
 
 ```typescript
@@ -23,6 +25,8 @@ enum BATCH_STATES {
 
 ## FILE_STATES {#fileStates}
 
+Package: **_[@rpldy/uploader](../packages/rpldy-uploader)_**, **_[@rpldy/uploady](../packages/rpldy-uploady)_**
+
 The different values [BatchItem](entities#batchitem).state can have.
 
 ```typescript
@@ -39,6 +43,8 @@ enum FILE_STATES {
 ```
 
 ## UPLOADER_EVENTS {#uploaderEvents}
+
+Package: **_[@rpldy/uploader](../packages/rpldy-uploader)_**, **_[@rpldy/uploady](../packages/rpldy-uploady)_**
 
 ```typescript
 enum UPLOADER_EVENTS {
@@ -67,9 +73,22 @@ enum UPLOADER_EVENTS {
 
 ## CHUNK_EVENTS
 
+Package: **_[@rpldy/chunked-sender](../packages/rpldy-chunked-sender)_**, **_[@rpldy/chunked-uploady](../packages/rpldy-chunked-uploady)_**
+
 ```typescript
 enum CHUNK_EVENTS {
     CHUNK_START = "CHUNK_START",
     CHUNK_FINISH = "CHUNK_FINISH",
+}
+```
+
+## PREVIEW_TYPES {#previewTypes}
+
+Package: **_[@rpldy/upload-preview](../packages/rpldy-upload-preview)_**
+
+```typescript
+enum PreviewType {
+    IMAGE = "image",
+    VIDEO = "video",
 }
 ```

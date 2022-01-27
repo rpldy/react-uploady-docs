@@ -3,7 +3,9 @@ id: types
 title: Types
 ---
 
+:::info
 For Batch and BatchItem see: [Entities Page](entities)
+:::
 
 ## UploadyContextType {#uploadyContextType}
 
@@ -26,9 +28,7 @@ type UploadyContextType = {
     abortBatch: (id: string) => void;
     getExtension: (name: unknown) => Record<string, unknown>;
 };
-
 ```
-
 
 ## Destination
 
@@ -217,5 +217,91 @@ export type ChunkFinishEventData = {
     item: BatchItem;
     chunk: ChunkEventData;
     uploadData: UploadData;
+};
+```
+
+## ChunkedOptions
+
+```typescript
+interface ChunkedOptions {
+    chunked?: boolean;
+    chunkSize?: number;
+    retries?: number;
+    parallel?: number;
+}
+```
+
+```typescript
+interface ChunkedUploadyProps extends UploadyProps, ChunkedOptions {}
+```
+
+## TusOptions
+
+```typescript
+interface TusOptions extends ChunkedOptions {
+    version?: string;
+    featureDetection?: boolean;
+    featureDetectionUrl?: string | null;
+    onFeaturesDetected?: (extensions: string[]) => TusOptions | void;
+    resume?: boolean;
+    deferLength?: boolean;
+    overrideMethod?: boolean;
+    sendDataOnCreate?: boolean;
+    storagePrefix?: string;
+    lockedRetryDelay?: number;
+    forgetOnSuccess?: boolean;
+    ignoreModifiedDateInStorage?: boolean;
+}
+```
+
+## TusUploadyProps
+
+```typescript
+interface TusUploadyProps extends UploadyProps, TusOptions {}
+```
+
+## PasteUploadData
+
+```typescript
+type PasteUploadData = { count: number };
+```
+
+## PasteUploadHandler
+
+```typescript
+type PasteUploadHandler = (data: PasteUploadData) => void;
+```
+
+## PasteCompProps
+
+```typescript
+interface PasteCompProps {
+  className?: string;
+  id?: string;
+  children?: JSX.Element[] | JSX.Element | string;
+  extraProps?: Record<string, unknown>;
+  onPasteUpload?: PasteUploadHandler,
+}
+```
+
+## PreviewItem
+
+```typescript
+type PreviewItem = {
+    id: string;
+    url: string;
+    name: string;
+    type: PreviewType;
+    isFallback: boolean;
+    props: Record<string, unknown>;
+};
+```
+
+## PreviewData
+
+```typescript
+type PreviewData = {
+    previews: PreviewItem[];
+    clearPreviews: () => void;
 };
 ```

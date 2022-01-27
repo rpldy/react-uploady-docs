@@ -11,14 +11,14 @@ npm install @rpldy/chunked-uploady
 
 ## Details
 
-This package is provided as a convenient alternative to the main [Uploady](../uploady) package.
+This package is provided as a convenient alternative to the main [Uploady](rpldy-uploady) package.
 To be used in case chunked upload is required.
 
 The server that is accepting the upload must also support chunked uploads.
 The original file is broken down into smaller blobs, which are sent in different requests.
 Each request is sent with the _Content-Range_ header to specify the bytes range.
 
-Internally, _ChunkedUploady_ uses [@rpldy/chunked-sender](chunked-sender) instead of the default (XHR) sender.
+Internally, _ChunkedUploady_ uses [@rpldy/chunked-sender](rpldy-chunked-sender) instead of the default (XHR) sender.
 
 _Chunked-Sender_, doesn't support grouped uploads (see Upload Options [documentation](../api#props)) or URL uploading.
 These will be handed over to the default [@rpldy/sender](sender).
@@ -27,7 +27,7 @@ In case the browser doesn't support chunking (blob slicing), the default sender 
 
 ## Example
 
-```jsx title="Simple Example"
+```jsx title="Chunked - Simple Example"
 import ChunkedUploady from "@rpldy/uploady";
 
 const App = () => (
@@ -50,6 +50,7 @@ const App = () => (
 * [useChunkStartListener](../api/hooks/useChunkStartListener)
 * [useChunkFinishListener](../api/hooks/useChunkFinishListener)
 * [CHUNK_EVENTS](../api/events#chunk-events)
+* [ChunkedUploadyProps](../api/types#chunkeduploadyprops)
 
 :::info
 Plus all the exports from [uploady](uploady)
@@ -57,6 +58,6 @@ Plus all the exports from [uploady](uploady)
 
 ## Related Topics
 
+* [chunked-sender](rpldy-chunked-sender)
 * [uploady](rpldy-uploady)
 * [tus-uploady](rpldy-tus-uploady)
-* [chunked-sender](rpldy-chunked-sender)

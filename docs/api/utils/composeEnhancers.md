@@ -1,13 +1,13 @@
 ---
 id: composeEnhancers
 title: composeEnhancers
-tags: [enhancer]
+tags: [enhancer, utility]
 ---
 
 ## Package
 
-- **_@rpldy/uploady_**
-- **_@rpldy/uploader_**
+- **_[@rpldy/uploady](../../packages/rpldy-uploady)_**
+- **_[@rpldy/uploader](../../packages/rpldy-uploader)_**
 
 ## Installation
 

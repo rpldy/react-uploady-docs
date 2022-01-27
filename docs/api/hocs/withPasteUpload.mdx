@@ -1,0 +1,72 @@
+---
+id: withPasteUpload
+title: withPasteUpload
+tags: [hoc, paste]
+---
+
+## Package
+
+**_[@rpldy/upload-paste](../../packages/rpldy-upload-paste)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/upload-paste
+```
+
+## Details
+
+```typescript
+
+interface PasteProps extends UploadOptions, PasteCompProps {}
+
+type withPasteUpload =
+    <T>(component: React.ForwardRefExoticComponent<T> | React.ComponentType<T>) => React.FC<PasteProps>;
+```
+
+- See: [PasteUploadHandler](../types#pasteuploadhandler)
+- See: [PasteCompProps](../type#pastecompprops)
+- See: [UploadOptions](../types#uploadoptions)
+
+A HOC that turns the wrapped component into a paste target.
+Meaning, when user focuses and pastes, will pass the files (if there are any) from the clipboard to be uploaded.
+
+### PasteProps
+
+| Name (* = mandatory) | Type          | Default       | Description|
+| --------------       | ------------- | ------------- | -------------|
+| id             | string            | undefined | id attribute to pass to the button element|
+| className      | string            | undefined | the class attribute to pass to the button element|
+| children       | React.Node        | undefined | child element(s) to render inside the button (replaces text)|
+| extraProps     | Object            | undefined | any other props to pass to the wrapped component (with spread)|
+| ref            | React ref         | undefined | will be passed to the button element to acquire a ref|
+| onPasteUpload  | [PasteUploadHandler](../types#pasteuploadhandler) | undefined | function called when paste to upload occurs|
+
+
+## Example
+
+```javascript
+import React from "react";
+import styled from "styled-components";
+import Uploady from "@rpldy/uploady";
+import withPasteUpload from "@rpldy/upload-paste";
+
+const SimpleContainer = styled.div`
+    width: 400px;
+    height: 400px;
+`;
+
+const PasteArea = withPasteUpload(SimpleContainer);
+
+const MyApp = () => {
+    const onPasteUpload = useCallback(({ count }) => {
+        console.log("PASTE-TO-UPLOAD file count: ", count);
+    }, []);
+
+	return <Uploady destination={{ url: "my-server.com/upload" }}>
+        <PasteArea onPasteUpload={onPasteUpload} autoUpload={false}>
+            Paste file here to upload
+        </PasteArea>
+    </Uploady>;
+};
+```

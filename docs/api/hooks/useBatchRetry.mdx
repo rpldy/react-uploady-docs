@@ -1,0 +1,44 @@
+---
+id: useBatchRetry
+title: useBatchRetry
+tags: [hook, retry]
+---
+
+## Package
+
+**_@rpldy/retry-hooks_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/retry-hooks
+```
+
+## Details
+
+```typescript
+type RetryBatchMethod = (batchId?: string) => boolean;
+
+type useBatchRetry = (id: string) => RetryBatchMethod;
+```
+
+Returns a retry function.
+
+When called, passing a batch id, will attempt retry for all failed items in that batch.
+
+## Example
+
+```javascript
+import React from "react";
+import { useBatchRetry } from "@rpldy/retry-hooks";
+
+const MyComponent = ( ) => {
+    const retryBatch = useBatchRetry();
+
+    const onClick = () => {
+        retryBatch("b-123");
+    };
+
+    return <button onClick={onClick}>retry batch</button>;
+};
+```

@@ -1,0 +1,52 @@
+---
+id: tus-uploady
+title: TusUploady
+tags: [provider, tus, resumable]
+---
+
+## Package
+
+**_@rpldy/tus-uploady_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/tus-uploady
+```
+
+## Props
+
+| Name (* = mandatory) | Type          | Default       | Description  |
+| --------------       | ------------- | ------------- | ------------|
+| version           | string    | "1.0.0" | The tus server version|
+| featureDetection | boolean    | false | whether to query the server for supported extensions|
+| featureDetectionUrl | string | null | URL to query for TUS server feature detection, in case it's different from upload URL|
+| onFeaturesDetected  | (string[]) => ?TusOptions | void | callback to handle the extensions the server broadcasts|
+| resume    |   boolean     | true | whether to store information locally on files being uploaded to support resuming|
+| deferLength | boolean | false | defer sending file length to server ([protocol](https://tus.io/protocols/resumable-upload.html#upload-defer-length))|
+| overrideMethod | boolean | false | whether to use X-HTTP-Method-Override header instead of PATCH|
+| sendDataOnCreate | boolean | false | send first chunk with create request ([protocol](https://tus.io/protocols/resumable-upload.html#creation-with-upload))|
+| storagePrefix | string | "\_\_rpldy-tus\_\_" | the key prefix to use for persisting resumable info about files|
+| lockedRetryDelay | number | 2000 | milliseconds to wait before retrying a locked (423) resumable file|
+| forgetOnSuccess   | boolean | false | whether to remove URL from localStorage when upload finishes successfully|
+| ignoreModifiedDateInStorage   | boolean   | false     | ignore File's modified date when creating key for storage|
+
+In addition, all [UploadOptions](../types#uploadoptions) props can be passed to ChunkedUploady.
+
+See [Uploady documentation](uploady#props) for detailed list of upload options.
+
+All [chunked-sender options](../senders/chunked-sender#options) are supported as well
+
+:::note
+Params prop that is set on the Destination or upload options is serialized (encoded according to Tus protocol) and sent as the value of the Upload-Metadata header.
+:::
+
+:::note
+Custom headers set on the Destination will be sent (and override existing headers) with the Creation request
+:::
+
+## Feature Detection
+
+Tus servers may broadcast the features ([extensions](https://tus.io/protocols/resumable-upload.html#protocol-extensions)) they support.
+Uploady can query those and turn on/off certain features.
+By default, it will not make this query. Querying can be turned on by passing `true` to the `featureDetection` prop.

@@ -3,16 +3,15 @@ import clsx from "clsx";
 import Layout from "@theme/Layout";
 import ThemedImage from "@theme/ThemedImage";
 import Link from "@docusaurus/Link";
-// import useThemeContext from "@theme/hooks/useThemeContext";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./index.module.css";
 import HomepageFeatures from "../components/HomepageFeatures";
+// import useThemeContext from "@theme/hooks/useThemeContext";
 
 function HomepageHeader() {
 	const { siteConfig } = useDocusaurusContext();
 	// const {isDarkTheme, setLightTheme, setDarkTheme} = useTheme();
-	// const { isDarkTheme } = useThemeContext();
 
 	return (
 		<header className={clsx("hero hero--primary", styles.heroBanner)}>
@@ -51,11 +50,10 @@ function HomepageHeader() {
 export default function Home() {
 	const { siteConfig } = useDocusaurusContext();
 	// const { isDarkTheme } = useThemeContext();
-	//
-	// console.log("!!!!!!! HOME !!! ", { isDarkTheme });
 
 	return (
 		<Layout
+			home
 			title={`Home`}
 			description="Description will go into a meta tag in <head />">
 			<HomepageHeader/>

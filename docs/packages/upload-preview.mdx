@@ -1,0 +1,61 @@
+---
+id: rpldy-upload-preview
+title: "@rpldy/upload-preview"
+---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/upload-preview
+```
+
+## Details
+
+Preview component to show previews of the files being uploaded from the current [batch](../getting-started/concepts).
+
+The Preview works out of the box for images and videos (that can be shown in the browser).
+
+The preview per item can be customized by passing a custom component. This opens many use-cases as can be seen in the guides ([linked below](#related-topics))
+
+### Supported Image Types
+
+- "image/jpeg"
+- "image/webp"
+- "image/gif"
+- "image/png"
+- "image/apng"
+- "image/bmp"
+- "image/x-icon"
+- "image/svg+xml"
+
+### Supported Video Types
+
+- "video/mp4"
+- "video/webm"
+- "video/ogg"
+
+## Example
+
+```jsx
+import React from "react";
+import Uploady from "@rpldy/uploady";
+import UploadPreview from "@rpldy/upload-preview";
+
+export const App = () => (
+     <Uploady destination={{ url: "my-server.com/upload" }}>
+        <UploadPreview
+            fallbackUrl="https://icon-library.net/images/image-placeholder-icon/image-placeholder-icon-6.jpg"/>
+    </Uploady>
+);
+```
+
+## Exports
+
+* [UploadPreview](../api/components/uploadPreview)
+* [getUploadPreviewForBatchItemsMethod](../utils/getUploadPreviewForBatchItemsMethod)
+* [PREVIEW_TYPES](../api/constants#previewTypes)
+
+## Related Topics
+
+* [Multi Crop Guide](../guides/MultiCrop)
+* [Upload Queue Guide](../guides/UploadQueue)

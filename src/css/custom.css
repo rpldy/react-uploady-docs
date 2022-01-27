@@ -29,6 +29,25 @@
     --ifm-heading-font-family: 'Source Sans Pro', sans-serif;
 }
 
+.homepage header {
+    clip-path: polygon(0 10%, 100% 2%, 100% 79%, 0 100%);
+}
+
+.theme-doc-markdown header h1 {
+    position: relative;
+}
+
+.theme-doc-markdown header h1::before {
+    display: block;
+    position: absolute;
+    width: 35%;
+    height: 40px;
+    bottom: -6px;
+    content: "";
+    background-color: rgba(148, 199, 243, 0.27);
+    clip-path: polygon(16% 90%, 100% 77%, 0% 70%, 12% 92%);
+}
+
 footer.footer--dark {
     --ifm-footer-background-color: #384762;
 }
@@ -111,4 +130,12 @@ html[data-theme='dark'] .table-of-contents__link:hover {
     color: red;
     background-color: rgba(255, 255, 0, 0.24);
     padding-left: 10px;
+}
+
+tr {
+    box-shadow: 0 -2px 4px 0 inset rgba(17, 40, 59, 0.75);
+}
+
+html[data-theme='dark']  tr {
+    box-shadow: 0 -2px 4px 0 inset rgba(144, 198, 242, 0.75);
 }

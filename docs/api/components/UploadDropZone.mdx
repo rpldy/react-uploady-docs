@@ -1,0 +1,71 @@
+---
+id: uploadDropZone
+title: UploadDropZone
+tags: [component, dom]
+---
+
+## Package
+
+**_[@rpldy/upload-drop-zone](../../packages/rpldy-upload-drop-zone)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/upload-drop-zone
+
+OR
+
+npm install @rpldy/uploady @rpldy/upload-drop-zone
+```
+
+:::note
+Must be rendered inside (child/descendant) of an Uploady instance
+:::
+
+## Props
+
+| Name (* = mandatory) | Type          | Default       | Description|
+| --------------       | ------------- | ------------- | -------------|
+| id                  | string   | undefined | id attribute to pass to the container element|
+| className           | string   | undefined | the class attribute to pass to the container element|
+| onDragOverClassName | string   | undefined | class name to add to the container when dragged over|
+| dropHandler         | [DropHandlerMethod](#drophandler) | undefined | override default handler that returns the drop result (ex: files). May return a promise|
+| htmlDirContentParams | [Object](#htmldircontentparams) | undefined | will be passed as is to html-dir-content.|
+| children             | React.Node | undefined | child element(s) to render inside the container|
+| extraProps          | Object   | undefined | any other props to pass to the div component (with spread)|
+
+
+### dropHandler
+
+```typescript
+type DropResult = FileList | unknown[]
+
+type DropHandlerMethod = (e: DragEvent) => DropResult | Promise<DropResult>;
+```
+
+By default, handles Drop event by calling [getFilesFromDragEvent](https://github.com/yoavniran/html-dir-content/blob/master/README.MD#getfilesfromdragevent) from [html-dir-content](https://www.npmjs.com/package/html-dir-content).
+
+In case you want to provide your own logic that will calculate the items(files) passed to the uploader from the drop event, pass in a custom handler.
+
+### htmlDirContentParams
+
+These are options that html-dir-content receives as is.
+See [docs](https://www.npmjs.com/package/html-dir-content#api) for more info.
+
+## Example
+
+```jsx
+import Uploady from "@rpldy/uploady";
+import UploadDropZone from "@rpldy/upload-drop-zone";
+
+const App = () => (
+<Uploady destination={destination}>
+    <UploadDropZone
+			onDragOverClassName="drag-over"
+			grouped
+			maxGroupSize={3}
+		>
+        <span>Drag&Drop File(s) Here</span>
+    </UploadDropZone>
+</Uploady>);
+```

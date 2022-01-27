@@ -1,6 +1,56 @@
 ---
-id: comps_upload-drop-zone
-title: Upload Drop Zone
+id: rpldy-upload-drop-zone
+title: "@rpldy/upload-drop-zone"
 ---
 
-# @rpldy/upload-button
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/upload-drop-zone
+```
+
+## Details
+
+Drop zone (container) component to initiate file and folder content uploads
+Supports individual files as well as recursively iterating over a dropped directory to upload its contents.
+
+Uses [html-dir-content](https://www.npmjs.com/package/html-dir-content) to process the files/directories in the dnd events ([DataTransferItem](https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItem)).
+
+Can easily be combined with other D&D solutions.
+
+Drop Zones can use different configuration overrides that supersede the options passed to the parent Uploady.
+
+:::note
+Some options cannot be overriden by the button. For example, any prop that influences the file input directly (such as '_multiple_')
+:::
+
+## Example
+
+Simple example, shows how upload options can be passed to the drop-zone (grouped, maxGroupSize).
+
+```jsx
+import Uploady from "@rpldy/uploady";
+import UploadDropZone from "@rpldy/upload-drop-zone";
+
+const App = () => (
+    <Uploady destination={destination}>
+        <UploadDropZone
+					onDragOverClassName="drag-over"
+					grouped
+					maxGroupSize={3}
+				>
+            <span>Drag&Drop File(s) Here</span>
+        </UploadDropZone>
+    </Uploady>);
+```
+
+## Exports
+
+* [UploadDropZone](../api/components/uploadDropZone)
+
+## Related Topics
+
+* [upload-button](rpldy-upload-button)
+* [upload-paste](rpldy-upload-paste)
+* [Drop and Paste Guide](../guides/DropAndPaste)
+* [Drag and Drop Guide](../guides/DragAndDrop)

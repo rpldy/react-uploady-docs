@@ -1,0 +1,117 @@
+---
+id: uploadPreview
+title: UploadPreview
+tags: [component, preview]
+---
+
+## Package
+
+**_[@rpldy/upload-preview](../../packages/rpldy-upload-preview)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/upload-preview
+
+OR
+
+npm install @rpldy/uploady @rpldy/upload-preview
+```
+
+:::note
+Must be rendered inside (child/descendant) of an Uploady instance
+:::
+
+## Props
+
+| Name (* = mandatory) | Type          | Default       | Description |
+| --------------       | ------------- | ------------- | -------------|
+| loadFirstOnly        | boolean       | false         | load preview only for the first item in a batch|
+| maxPreviewImageSize  | number        | 2e+7          | maximum size of image to preview|
+| maxPreviewVideoSize  | number        | 1e+8          | maximum size of video to preview|
+| fallbackUrl          | string &#124; [FallbackMethod](#fallbackurl) | undefined | static URL or function that returns fallback in case failed to load preview or when file over max size|
+| imageMimeTypes       | string[]      | [see list](../../packages/rpldy-upload-preview#supported-image-types) | image mime types to load preview for |
+| videoMimeTypes       | string[]      | [see list](../../packages/rpldy-upload-preview#supported-video-types) | video mime types to load preview for |
+| previewComponentProps | [PreviewComponentPropsOrMethod](#previewcomponentprops) | undefined | object or function to generate object as additional props for the preview component|
+| PreviewComponent      | React.ComponentType&lt;any&gt; | img &#124; video | The component that will show the preview|
+| rememberPreviousBatches | boolean | false | show previous batches' previews as opposed to just the last |
+| previewMethodsRef     | React Ref   | undefined | ref will be set with preview helper [methods](src/types.js#L29)|
+| onPreviewsChanged     | (PreviewItem[]) => void | undefined | callback will be called whenever preview items array changes|
+
+
+### fallbackUrl
+
+In case you wish to return a dynamic fallback URL you can pass in a function instead of a string:
+
+```typescript
+type FallbackType = string | PreviewData;
+
+type FallbackMethod = (file: FileLike) => FallbackType | void;
+```
+
+- See: [PreviewData](../types#previewdata)
+- See: [FileLike](../entities#filelike)
+
+
+### previewComponentProps
+
+```typescript
+type PreviewComponentPropsMethod = (item: BatchItem, url: string, type: PreviewType) => Record<string, unknown>;
+
+type PreviewComponentPropsOrMethod = Record<string, unknown> | PreviewComponentPropsMethod;
+```
+
+- See: [PreviewType](../constants#previewTypes)
+- See: [BatchItem](../entities#batchitem)
+
+
+## Example
+
+The props _rememberPreviousBatches_, _previewMethodsRef_, and _onPreviewsChanged_ make it possible to do more with previews.
+Specifically, the make it possible to create a visual queue of the uploads.
+
+This is especially useful when adding other features such as abort and [retry](../core/retry-hooks).
+
+The code below shows how to clear the previews with a button click:
+
+```jsx title="advanced example"
+import React from "react";
+import Uploady from "@rpldy/uploady";
+import UploadPreview from "@rpldy/upload-preview";
+import UploadButton from "@rpldy/upload-button";
+
+const PreviewsWithClear = () => {
+	const previewMethodsRef = useRef();
+	const [previews, setPreviews] = useState([]);
+
+	const onPreviewsChanged = useCallback((previews) => {
+		setPreviews(previews);
+	}, []);
+
+	const onClear = useCallback(() => {
+		if (previewMethodsRef.current?.clear) {
+			previewMethodsRef.current.clear();
+		}
+	}, [previewMethodsRef]);
+
+	return <>
+		<button onClick={onClear}>
+            Clear {previews.length} previews
+        </button>
+		<br/>
+        <UploadPreview
+            rememberPreviousBatches
+            previewMethodsRef={previewMethodsRef}
+            onPreviewsChanged={onPreviewsChanged}
+        />
+	</>;
+};
+
+export const App = () => {
+	return <Uploady destination={{ url: "my-server.com/upload" }}>
+		<UploadButton />
+		<PreviewsWithClear />
+	</Uploady>;
+};
+
+```

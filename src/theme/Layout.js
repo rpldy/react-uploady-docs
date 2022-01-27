@@ -4,7 +4,7 @@ import Head from "@docusaurus/Head";
 
 const UploadyLayout = (props) => {
 	useEffect(() => {
-		console.log(`
+		console.log(` HELLO
  ________  _______   ________  ________ _________               ___  ___  ________  ___       ________  ________  ________      ___    ___
 |\\   __  \\|\\  ___ \\ |\\   __  \\|\\   ____\\\\___   ___\\            |\\  \\|\\  \\|\\   __  \\|\\  \\     |\\   __  \\|\\   __  \\|\\   ___ \\    |\\  \\  /  /|
 \\ \\  \\|\\  \\ \\   __/|\\ \\  \\|\\  \\ \\  \\___\\|___ \\  \\_|____________\\ \\  \\\\\\  \\ \\  \\|\\  \\ \\  \\    \\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\_|\\ \\   \\ \\  \\/  / /
@@ -15,6 +15,8 @@ const UploadyLayout = (props) => {
                                                                                                                               \\|___|/`);
 	}, []);
 
+	const pageClassName  = (props.pageClassName || "") + (props.home ? "homepage" : "");
+
 	return <>
 			<Head>
 				<link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -24,7 +26,7 @@ const UploadyLayout = (props) => {
 					rel="stylesheet"
 				/>
 			</Head>
-			<DocusaurusLayout {...props}/>
+			<DocusaurusLayout {...props} pageClassName={pageClassName}/>
 		</>;
 };
 

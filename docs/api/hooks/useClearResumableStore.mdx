@@ -1,0 +1,45 @@
+---
+id: useClearResumableStore
+title: useClearResumableStore
+tags: [hook, tus, resumable]
+---
+
+## Package
+
+**_[@rpldy/tus-uploady](../../packages/rpldy-tus-uploady)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/tus-uploady
+```
+
+## Details
+
+```typescript
+type ClearResumableStore = () => void;
+
+type useClearResumableStore = () => ClearResumableStore;
+```
+
+By default, the tus-sender will store the URLs for uploaded files, so it can query
+the server for their status and skip chunks that are indicated as uploaded.
+
+The URLs are persisted to local storage. This hook allows you to clear the URLs that were previously persisted.
+
+## Example
+
+```jsx
+import React from "react";
+import { useClearResumableStore } from "@rpldy/tus-uploady";
+
+const MyComponent = () => {
+	const clearResumables = useClearResumableStore();
+
+    const onClear = () => {
+      clearResumables();
+    };
+
+    return <button onClick={onClear}>Clear Store</button>;
+};
+```

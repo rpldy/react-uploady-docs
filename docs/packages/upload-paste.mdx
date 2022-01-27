@@ -1,0 +1,49 @@
+---
+id: rpldy-upload-paste
+title: "@rpldy/upload-paste"
+---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/upload-paste
+```
+
+## Details
+
+Enables Paste-To-Upload functionality. User can paste in a file from the clipboard to initiate an upload.
+
+The main feature is the `withPasteUpload` HOC, which allows any component to become a trigger of paste-to-upload.
+A user pasting (ctrl/cmd+v) a file or files while focused on the element will trigger an upload.
+
+## Example
+
+```jsx
+import React from "react";
+import Uploady from "@rpldy/uploady";
+import { withPasteUpload } from "@rpldy/upload-paste";
+
+const Container = ({ children }) => <div>{children}</div>;
+
+const PasteArea = withPasteUpload(Container);
+
+const MyApp = () => {
+	return <Uploady destination={{ url: "my-server.com/upload" }}>
+        <PasteArea>
+            Paste file here to upload
+        </PasteArea>
+    </Uploady>;
+};
+```
+
+## Exports
+
+* [withPasteUpload](../api/hocs/withPasteUpload)
+* [usePasteUpload](../api/hooks/usePasteUpload)
+
+## Related Topics
+
+* [upload-button](rpldy-upload-button)
+* [upload-drop-zone](rpldy-upload-drop-zone)
+* [Drop and Paste Guide](../guides/DropAndPaste)
+

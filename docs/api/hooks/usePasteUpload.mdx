@@ -1,0 +1,67 @@
+---
+id: usePasteUpload
+title: usePasteUpload
+tags: [hook, paste]
+---
+
+## Package
+
+**_[@rpldy/upload-paste](../../packages/rpldy-upload-paste)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/upload-paste
+```
+
+## Details
+
+```typescript
+type PasteUploadHookResult = { toggle: () => boolean, getIsEnabled: () => boolean};
+
+type usePasteUpload =
+    (uploadOptions: UploadOptions, element: React.RefObject<HTMLHtmlElement>, onPasteUpload: PasteUploadHandler) => PasteUploadHookResult;
+```
+
+- See: [PasteUploadHandler](../types#pasteuploadhandler)
+- See: [UploadOptions](../types#uploadoptions)
+
+The hook makes it possible to enable paste listening for file(s) on the window (so paste anywhere)
+or on a specific element (by passing a ref)
+
+## Example
+
+```jsx
+import React from "react";
+import Uploady from "@rpldy/uploady";
+import { usePasteUpload } from "@rpldy/upload-paste";
+
+const ElementPaste = (props) => {
+    const containerRef = useRef(null);
+
+    const onPasteUpload = useCallback(({ count }) => {
+        console.log("ELEMENT PASTE-TO-UPLOAD files: ", count);
+    }, []);
+
+    const { toggle, getIsEnabled } = usePasteUpload(props, containerRef, onPasteUpload);
+
+    //toggle can be used in a button click handler to turn paste listening on/off
+
+    return <>
+        <div ref={containerRef}>
+            Click here & Paste a file
+            Paste is: {getIsEnabled() ? "enabled" : "disabled"}
+        </div>
+    </>;
+};
+
+
+const MyApp = () => {
+    return <Uploady destination={{ url: "my-server.com/upload" }}>
+        <ElementPaste
+					autoUpload={false}
+					params={{ test: "paste" }}
+				/>
+    </Uploady>;
+};
+```

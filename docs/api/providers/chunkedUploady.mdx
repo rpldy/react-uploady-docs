@@ -1,6 +1,7 @@
 ---
 id: chunked-uploady
 title: ChunkedUploady
+tags: [provider, chunk]
 ---
 
 ## Package
@@ -25,3 +26,9 @@ npm install @rpldy/chunked-uploady
 In addition, all [UploadOptions](../types#uploadoptions) props can be passed to ChunkedUploady.
 
 See [Uploady documentation](uploady#props) for detailed list of upload options.
+
+
+### retries
+
+It's possible to have chunked uploads retry in case of failure.
+By default, one chunk failing once will cause the entire upload to error.

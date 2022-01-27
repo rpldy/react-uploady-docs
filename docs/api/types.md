@@ -231,6 +231,8 @@ interface ChunkedOptions {
 }
 ```
 
+## ChunkedUploadyProps
+
 ```typescript
 interface ChunkedUploadyProps extends UploadyProps, ChunkedOptions {}
 ```

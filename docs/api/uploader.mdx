@@ -1,4 +1,113 @@
+---
+id: uploader
+title: Uploader
+---
 
+## Upload Options
+
+| Name (* = mandatory) | Type                                                                                                 | Default       | Description |
+| --------------       |------------------------------------------------------------------------------------------------------| ------------- | ------------- |
+| autoUpload           | boolean                                                                                              | true          | automatically upload files when they are added |
+| destination          | [Destination](.#destination)                                                             | undefined     | configure the end-point to upload to |
+| inputFieldName       | string                                                                                               | "file"        | name (attribute) of the file input field (requires sendWithFormData = true) |
+| grouped              | boolean                                                                                              | false         | group multiple files in a single request  |
+| maxGroupSize         | number                                                                                               | 5             | maximum of files to group together in a single request |
+| formatGroupParamName | (number, string) => string                                                                           | undefined | determine the upload request field name when more than file is grouped in a single upload |
+| fileFilter           | (File &#124; string, index: number, File[] &#124; string[]) => boolean &#124; Promise&lt;boolean&gt; | undefined | return **false** or Promise resolving to **false** to exclude item from batch |
+| method               | string                                                                                               | "POST"        | HTTP method in upload request |
+| params               | Object                                                                                               | undefined     | collection of params to pass along with the upload (requires sendWithFormData = true) |
+| forceJsonResponse    | boolean                                                                                              | false         | parse server response as JSON even if no JSON content-type header received             |
+| withCredentials      | boolean                                                                                              | false         | set XHR withCredentials to true |
+| enhancer             | [UploaderEnhancer](.#enhancer) | undefined    | uploader enhancer function |
+| concurrent           | boolean                                                                                              | false          | issue multiple upload requests simultaneously |
+| maxConcurrent        | number                                                                                               | 2              | maximum allowed simultaneous requests |
+| send                 | [SendMethod](.#sendMethod)                                                             | @rpldy/sender | how to send files to the server |
+| sendWithFormData     | boolean                                                                                              | true           | upload is sent as part of [formdata](https://developer.mozilla.org/en-US/docs/Web/API/FormData) - when true, additional params can be sent along with uploaded data |
+| formatServerResponse | [FormatServerResponseMethod](.#formatServerResponseMethod)                                             | undefined | function to create the batch item's uploadResponse from the raw xhr response |
+| formDataAllowUndefined | boolean                                                                                              | false          | //whether to include params with undefined value |
+
+:::info
+The options are further detailed in the [uploady](.) page
+:::
+
+## API
+
+
+### add
+
+_(files: UploadInfo | UploadInfo[], options?: ?UploadOptions) => void_
+
+The way to add file(s) to be uploaded. Second parameters allows to pass different options than
+the ones the instance currently uses for this specific batch. These options will be merged with current instance options.
+
+### upload
+
+_() => void_
+
+For batches that were added with autoUpload = false, the upload method must be called for the files to begin uploading.
+
+### abort
+
+_(id?: string) => void_
+
+abort all files being uploaded or a single item by its ID
+
+### abortBatch
+
+_(id: string) => void_
+
+abort a specific batch by its ID
+
+### update
+
+_(options: UploadOptions) => UploaderType_
+
+options parameter will be merged with the instance's existing options
+Returns the uploader instance
+
+###	getOptions
+
+_() => CreateOptions_
+
+get the instance's upload options
+
+###	clearPending
+
+_() => void_
+
+remove all batches that were added with autoUpload = false
+and were not sent to upload yet.
+
+### on
+
+_[OnAndOnceMethod](../life-events/src/types.js#29)_
+
+register an event handler
+
+### once
+
+_[OnAndOnceMethod](../life-events/src/types.js#29)_
+
+register an event handler that will be called only once
+
+### off
+_[OffMethod](../life-events/src/types.js#27)_
+
+unregister an existing event handler
+
+### registerExtension
+
+_(name: any, Object) => void_
+
+Extensions can only be registered by [enhancers](../../README.md#enhancer).
+If registerExtension is called outside an enhancer, an error will be thrown
+Name must be unique. If not, an error will be thrown
+
+### getExtension
+
+_(name: any) => ?Object__
+
+Retrieve a registered extension by its name
 
 ## Batch
 

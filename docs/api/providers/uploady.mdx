@@ -1,6 +1,7 @@
 ---
 id: uploady
-title: Uploady
+title: "Uploady"
+sidebar_label: "🧰 Uploady"
 slug: /api
 sidebar_position: 0
 tags: [provider]
@@ -36,7 +37,7 @@ npm install @rpldy/uploady
 | maxConcurrent        | number        | 2              | maximum allowed simultaneous requests |
 | send                 | [SendMethod](#sendMethod) | @rpldy/sender | how to send files to the server |
 | sendWithFormData     | boolean       | true           | upload is sent as part of [formdata](https://developer.mozilla.org/en-US/docs/Web/API/FormData) - when true, additional params can be sent along with uploaded data |
-| formatServerResponse | [FormatServerResponseMethod](../../core/shared/src/types.js#L40) | undefined | function to create the batch item's uploadResponse from the raw xhr response |
+| formatServerResponse | [FormatServerResponseMethod](formatServerResponseMethod) | undefined | function to create the batch item's uploadResponse from the raw xhr response |
 | **Uploady Options** |
 | debug                | boolean        | false | enable console logs from uploady packages |
 | listeners            | Object        | undefined | map of [event](../../core/uploader/README.md#events) name and event handler |
@@ -159,6 +160,13 @@ The default send method comes from the [XHR Sender](../senders/xhrSender).
 It's possible to replace the default method with any other sender that provides the same signature the uploader expects.
 
 Providers like [Chunked-Uploady](chunkedUploady), use the ability to swap the send method in order to provide the one from their own sender. ie: [Chunked-Sender](../senders/chunked-sender).
+
+### formatServerResponseMethod
+
+
+
+
+
 
 ### debug
 

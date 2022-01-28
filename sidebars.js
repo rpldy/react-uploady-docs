@@ -65,6 +65,7 @@ const sidebars = {
 				},
 			],
 		},
+		"api/uploader",
 		"api/context",
 		{
 			label: "Components",

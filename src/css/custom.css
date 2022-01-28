@@ -192,3 +192,7 @@ button[class*='collapseSidebarButton_']:hover, div[class^='collapsedDocSidebar_'
 html[data-theme='dark'] button[class*='collapseSidebarButton_']:hover {
     background-color: var(--ifm-color-primary-light);
 }
+
+.theme-doc-sidebar-item-link a {
+    word-break: break-all;
+}

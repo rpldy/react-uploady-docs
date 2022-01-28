@@ -1,7 +1,24 @@
 ---
 id: rpldy-uploader
 title: "@rpldy/uploader"
+sidebar_label: "📦 @rpldy/uploader"
 ---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploader
+```
+
+## Details
+
+The Uploader is the processing and queuing engine for React-Uploady.
+When files are handed to the Uploader, it will represent each file as a [Batch Item](../getting-started/concepts#batch-item) and group them together in a [Batch](../getting-started/concepts#batch).
+
+The Uploader fires Batch & BatchItem lifecycle [events](#events) that can be registered to.
+Some of these events also allow to cancel uploads dynamically.
+
+_If you're looking to integrate file upload with your React app, you'd probably want to head over to the [@rpldy/uploady page](rpldy-uploady).
 
 ## Exports
 

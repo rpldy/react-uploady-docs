@@ -1,6 +1,7 @@
 ---
 id: composeEnhancers
-title: composeEnhancers
+title: "composeEnhancers"
+sidebar_label: "🪛 composeEnhancers"
 tags: [enhancer, utility]
 ---
 

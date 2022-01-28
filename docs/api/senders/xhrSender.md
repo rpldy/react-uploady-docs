@@ -1,6 +1,7 @@
 ---
 id: xhrSender
-title: xhrSender
+title: "xhrSender"
+sidebar_label: "✉️ xhrSender"
 tags: [sender]
 ---
 

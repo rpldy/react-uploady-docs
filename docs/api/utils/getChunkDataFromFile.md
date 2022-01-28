@@ -1,6 +1,7 @@
 ---
 id: getChunkDataFromFile
-title: getChunkDataFromFile
+title: "getChunkDataFromFile"
+sidebar_label: "🪛 getChunkDataFromFile"
 tags: [chunk, utility]
 ---
 

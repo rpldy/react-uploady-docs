@@ -196,3 +196,23 @@ html[data-theme='dark'] button[class*='collapseSidebarButton_']:hover {
 .theme-doc-sidebar-item-link a {
     word-break: break-all;
 }
+
+.navbar__brand {
+    font-size: 18px;
+}
+
+a.navbar__item.navbar__link {
+    font-weight: bold;
+}
+
+.navbar__logo {
+    height: 40px;
+}
+
+a[class^='sidebarLogo_'] img {
+    height: 40px;
+}
+
+a[class^='sidebarLogo_'] b {
+    font-size: 18px;
+}

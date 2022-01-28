@@ -85,7 +85,7 @@ const config = {
 					},
 					{
 						type: "doc",
-						docId: "api/api",
+						docId: "api/providers/uploady",
 						position: "left",
 						label: "API",
 					},

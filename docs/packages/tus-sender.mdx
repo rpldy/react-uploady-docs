@@ -1,0 +1,42 @@
+---
+id: rpldy-tus-sender
+title: "@rpldy/tus-sender"
+---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/tus-sender
+```
+
+## Details
+
+An Uploady sender implementation of the TUS protocol.
+
+Supports version **1.0.0** of the [TUS protocol](https://tus.io/protocols/resumable-upload.html)
+
+Under the hood, the tus-sender uses the [@rpldy/chunked-sender](rpldy-chunked-sender) to upload the files as chunks
+
+### TUS Protocol
+
+On top of the Core Protocol, Uploady supports the following extensions:
+
+- [Creation](https://tus.io/protocols/resumable-upload.html#creation) (creation)
+- [Creation with Upload](https://tus.io/protocols/resumable-upload.html#creation-with-upload) (creation-with-upload)
+- [Concatenation](https://tus.io/protocols/resumable-upload.html#concatenation) (concatenation)
+- [Creation Defer Length](https://tus.io/protocols/resumable-upload.html#upload-defer-length) (creation-defer-length)
+
+It also supports the __Upload-Metadata__ header and will turn the destination __params__ prop into the metadata key/value.
+
+## Exports
+
+* [getTusEnhancer](../api/enhancersgetTusEnhancer)
+* [clearResumables](../api/utils/clearResumables)
+
+## Related Topics
+
+* [tus-uploady](rpldy-tus-uploady)
+* [@rpldy/sender](rpldy-sender)
+* [@rpldy/chunked-sender](rpldy-chunked-sender)
+* [@rpldy/mock-sender](mock-sender)
+

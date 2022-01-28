@@ -1,0 +1,107 @@
+---
+id: getTusEnhancer
+title: getTusEnhancer
+tags: [enhancer, resumable, tus]
+---
+
+## Package
+
+- **_[@rpldy/chunked-sender](../../packages/rpldy-chunked-sender)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/chunked-sender
+```
+
+## Details
+
+```typescript
+type getTusEnhancer = (options: TusOptions) => UploaderEnhancer;
+```
+
+- See: [TusOptions](../types#tusoptions)
+- See: [UploaderEnhancer](../types#uploaderenhancer)
+
+Creates an uploader enhancer that can be handed to the [Uploady](..) (using the [enhancer prop](..#enhancer)),
+or to the [uploader](../uploader).
+
+:::caution
+When using React, there's typically no need to use this enhancer directly.
+Using [Tus-Uploady](../providers/tus-uploady) will do this for you automatically.
+:::
+
+## Options
+
+| Name (* = mandatory) | Type          | Default       | Description  |
+| --------------       | ------------- | ------------- | ------------|
+| version           | string    | "1.0.0" | The tus server version|
+| featureDetection | boolean    | false | whether to query the server for supported extensions|
+| featureDetectionUrl | string | null | URL to query for TUS server feature detection, in case it's different from upload URL|
+| onFeaturesDetected  | (string[]) => ?TusOptions | void | callback to handle the extensions the server broadcasts|
+| resume    |   boolean     | true | whether to store information locally on files being uploaded to support resuming|
+| deferLength | boolean | false | defer sending file length to server ([protocol](https://tus.io/protocols/resumable-upload.html#upload-defer-length))|
+| overrideMethod | boolean | false | whether to use X-HTTP-Method-Override header instead of PATCH|
+| sendDataOnCreate | boolean | false | send first chunk with create request ([protocol](https://tus.io/protocols/resumable-upload.html#creation-with-upload))|
+| storagePrefix | string | "__rpldy-tus__" | the key prefix to use for persisting resumable info about files|
+| lockedRetryDelay | number | 2000 | milliseconds to wait before retrying a locked (423) resumable file|
+| forgetOnSuccess   | boolean | false | whether to remove URL from localStorage when upload finishes successfully|
+| ignoreModifiedDateInStorage   | boolean   | false     | ignore File's modified date when creating key for storage|
+
+:::warn
+When the chunked-sender parallel param is set to > 1, the Concatenation tus extension will be used.
+It will send the chunks as different parallel requests that are finalized once done.
+:::
+
+:::info
+The params prop that is set on the Destination or upload options is serialized (encoded according to Tus protocol) and sent as the value of the Upload-Metadata header.
+:::
+
+:::info
+Custom headers set on the Destination will be sent (and override existing headers) with the Creation request
+:::
+
+
+## Example
+
+```jsx
+import React, { useCallback, useEffect, useRef } from "react";
+import createUploader from "@rpldy/uploader";
+import getTusEnhancer from "@rpldy/tus-sender";
+
+export const App = () => {
+	const inputRef = useRef(null);
+	const uploaderRef = useRef(null);
+
+	useEffect(() => {
+		const tusEnhancer = getTusEnhancer({
+			parallel: 2,
+		});
+
+		uploaderRef.current = createUploader({
+			enhancer: tusEnhancer,
+			destination: {url: "my-tus-server.com"},
+			params: {
+				source: "rpldy",
+			}
+		});
+	}, []);
+
+	const onClick = useCallback(() => {
+		const input = inputRef.current;
+		if (input) {
+			input.value = "";
+			input.click();
+		}
+	}, []);
+
+	const onInputChange = useCallback(() => {
+		uploaderRef.current?.add(inputRef.current?.files);
+	}, []);
+
+	return <div>
+		<input type="file" ref={inputRef} style={{ display: "none" }} onChange={onInputChange}/>
+		<button id="upload-button" onClick={onClick}>Upload with TUS</button>
+	</div>
+};
+```

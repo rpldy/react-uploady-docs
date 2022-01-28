@@ -1,0 +1,31 @@
+---
+id: rpldy-mock-sender
+title: "@rpldy/mock-sender"
+---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/mock-sender
+```
+
+## Details
+
+Provides a mock sender that can be used to replace a real sender for testing purposes.
+
+As it provides the same interface and events as a real sender,
+the Uploader works the same as if files were actually being sent.
+
+On-progress events and abort functionality are supported
+
+## Exports
+
+* [getMockSenderEnhancer](../api/enhancers/getMockSenderEnhancer)
+* [createMockSender](../api/senders/mockSender)
+
+## Related Topics
+
+* [xhr-sender](rpldy-sender)
+* [chunked-sender](chunked-sender)
+* [tus-sender](tus-sender)
+

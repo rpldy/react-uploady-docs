@@ -5,11 +5,9 @@ description: How to install react-uploady to get started
 sidebar_position: 0
 ---
 
-
 ## Requirements
 
 React-Uploady defines react & react-dom as peer dependencies with the minimum version of: __16.8.0__
-
 
 ## Install
 
@@ -32,39 +30,43 @@ After that, you can add additional packages as needed.
 ## Available Packages
 
 ### Main Packages
-* [@rpldy/uploader](packages/core/uploader) - The processing and queuing engine
-* [@rpldy/uploady](packages/ui/uploady) - The context provider for react-uploady and hooks (lots of hooks)
+
+* [@rpldy/uploader](../packages/rpldy-uploader) - The processing and queuing engine
+* [@rpldy/uploady](../packages/rpldy-uploady) - The context provider for react-uploady and hooks (lots of hooks)
 
 ### UI Packages
-* [@rpldy/upload-button](packages/ui/upload-button) - Upload button component and asUploadButton HOC
-* [@rpldy/upload-preview](packages/ui/upload-preview) - Image&video preview component for files being uploaded
-* [@rpldy/upload-url-input](packages/ui/upload-url-input) - Input component to send URL as upload info (ex: [Cloudinary](https://cloudinary.com/documentation/upload_images#auto_fetching_remote_images))
-* [@rpldy/upload-drop-zone](packages/ui/upload-drop-zone) - (Drag&)Drop zone to upload files and folder content
-* [@rpldy/upload-paste](packages/ui/upload-paste) - Easily add paste-to-upload to React components
-* [@rpldy/retry-hooks](packages/ui/retry-hooks) - Hooks to interact with the retry mechanism
+
+* [@rpldy/upload-button](../packages/rpldy-upload-button) - Upload button component and asUploadButton HOC
+* [@rpldy/upload-preview](../packages/rpldy-upload-preview) - Image&video preview component for files being uploaded
+* [@rpldy/upload-url-input](../packages/rpldy-upload-url-input) - Input component to send URL as upload info (ex: [Cloudinary](https://cloudinary.com/documentation/upload_images#auto_fetching_remote_images))
+* [@rpldy/upload-drop-zone](../packages/rpldy-upload-drop-zone) - (Drag&)Drop zone to upload files and folder content
+* [@rpldy/upload-paste](../packages/rpldy-upload-paste) - Easily add paste-to-upload to React components
+* [@rpldy/retry-hooks](../packages/rpldy-retry-hooks) - Hooks to interact with the retry mechanism
 
 ### Providers
-* [@rpldy/chunked-uploady](packages/ui/chunked-uploady) - Wrapper for Uploady with support for chunked uploads
-* [@rpldy/tus-uploady](packages/ui/tus-uploady) - Wrapper for Uploady with support for tus(resumable) uploads
-* [@rpldy/native-uploady](packages/native/native-uploady) - Uploay for React Native (no react-dom)
 
+* [@rpldy/chunked-uploady](../packages/rpldy-chunked-uploady) - Wrapper for Uploady with support for chunked uploads
+* [@rpldy/tus-uploady](../packages/rpldy-tus-uploady) - Wrapper for Uploady with support for tus(resumable) uploads
+* [@rpldy/native-uploady](../packages/rpldy-native-uploady) - Uploay for React Native (no react-dom)
 
 ### Senders
-* [@rpldy/sender](packages/core/sender) - Uploady's main file sender (XHR)
-* [@rpldy/chunked-sender](packages/core/chunked-sender) - add chunked uploads support on top of the XHR Sender
-* [@rpldy/tus-sender](packages/core/tus-sender) - add TUS resumable upload support
-* [@rpldy/mock-sender](packages/core/mock-sender) - use Mock sender for testing purposes
+
+* [@rpldy/sender](../packages/rpldy-sender) - Uploady's main file sender (XHR)
+* [@rpldy/chunked-sender](../packages/rpldy-chunked-sender) - add chunked uploads support on top of the XHR Sender
+* [@rpldy/tus-sender](../packages/rpldy-tus-sender) - add TUS resumable upload support
+* [@rpldy/mock-sender](../packages/rpldy-mock-sender) - use Mock sender for testing purposes
 
 ### Extras
-* [@rpldy/retry](packages/core/retry) - Add support for retrying failed uploads
+
+* [@rpldy/retry](../packages/rpldy-retry) - Add support for retrying failed uploads
 
 ### Internal Packages
-* [@rpldy/shared](packages/core/shared) - Internal set of utils+types that all packages require
-* [@rpldy/shared-ui](packages/ui/shared) - Internal set of utils+types that all UI packages require
-* [@rpldy/life-events](packages/core/life-events) - provides **cancellable** pub/sub "events"
-* [@rpldy/safe-storage](packages/core/safe-storage) - safe (don't throw) versions of local and session storage
-* [@rpldy/simple-state](packages/core/simple-state) - deep proxy object, so it's only updateable through an update method
 
+* [@rpldy/shared](../packages/rpldy-shared) - Internal set of utils+types that all packages require
+* [@rpldy/shared-ui](../packages/rpldy-shared) - Internal set of utils+types that all UI packages require
+* [@rpldy/life-events](../packages/rpldy-life-events) - provides **cancellable** pub/sub "events"
+* [@rpldy/safe-storage](../packages/rpldy-safe-storage) - safe (don't throw) versions of local and session storage
+* [@rpldy/simple-state](../packages/rpldy-simple-state) - deep proxy object, so it's only updateable through an update method
 
 
 ## UMD Bundles

@@ -65,12 +65,14 @@ html[data-theme='dark'] {
 
 .theme-doc-markdown header h1 {
     position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
 }
 
 .theme-doc-markdown header h1::before {
     display: block;
     position: absolute;
-    width: 35%;
+    width: 85%;
     height: 40px;
     bottom: -6px;
     content: "";

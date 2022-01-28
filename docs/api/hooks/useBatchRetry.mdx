@@ -26,6 +26,11 @@ Returns a retry function.
 
 When called, passing a batch id, will attempt retry for all failed items in that batch.
 
+:::info
+To enable retries for your Uploady instance,
+you need to use the provided (uploader enhancer): [retryEnhancer](../enhancers/retryEnhancer).
+:::
+
 ## Example
 
 ```javascript

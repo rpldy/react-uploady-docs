@@ -1,0 +1,33 @@
+---
+id: mockdSender
+title: mockSender
+tags: [sender, test]
+---
+
+# createMockSender
+
+:::danger
+Internal API - Not intended for use outside rpldy packages.
+:::
+
+## Package
+
+- **_[@rpldy/mock-sender](../../packages/rpldy-mock-sender)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/mock-sender
+```
+
+## Details
+
+```typescript
+
+type ChunkedSender = {
+  	update: (updated: MockOptions) => void;
+    send: SendMethod;
+};
+
+type createMockSender = (option: MockOptions) => MockSender;
+```

@@ -1,0 +1,57 @@
+---
+id: getMockSenderEnhancer
+title: getMockSenderEnhancer
+tags: [enhancer, test]
+---
+
+## Package
+
+- **_[@rpldy/mock-sender](../../packages/rpldy-mock-sender)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/mock-sender
+```
+
+## Details
+
+```typescript
+type getMockSenderEnhancer = (options: MockOptions) => UploaderEnhancer;
+```
+
+- See: [MockOptions](../types#mockoptions)
+- See: [UploaderEnhancer](../types#uploaderenhancer)
+
+Creates an enhancer that when handed to the [Uploady](..) (using the [enhancer prop](..#enhancer)),
+or to the [uploader](../uploader), will simulate file uploads without actually making requests.
+
+## Options
+
+| Name (* = mandatory) | Type    | Default       | Description  |
+| -------------- | ------------- | ------------- | -------------|
+| delay          | number        | 500           | time in ms for mocked upload to take|
+| fileSize       | number        | 1e+6          | file size of the mocked upload, used for progress calculation|
+| progressIntervals | number[]   | [10, 25, 50, 75, 100] | mock intervals (percentages) to emit progress events at|
+| response       | any           |  {"mock": true, "success": true} | mock response for upload request|
+| responseStatus | number        | 200           | upload request status code|
+
+## Example
+
+```javascript
+import Uploady from "@rpldy/uploady";
+import UploadButton from "@rpldy/upload-button";
+import { getMockSenderEnhancer } from "@rpldy/mock-sender";
+
+const mockSenderEnhancer = getMockSenderEnhancer({
+   delay: 1500,
+   progressIntervals: [20, 40, 75, 80, 90, 99]
+});
+
+const App = () => <Uploady
+         destination={{ url: "mock-url"}}
+         enhancer={mockSenderEnhancer}
+        >
+            <UploadButton />
+        </Uploady>;
+```

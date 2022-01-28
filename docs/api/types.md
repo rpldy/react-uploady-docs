@@ -347,3 +347,14 @@ type PreviewData = {
     clearPreviews: () => void;
 };
 ```
+
+## MockOptions
+
+```typescript
+interface MockOptions {
+    delay?: number;
+    fileSize?: number;
+    progressIntervals?: number[];
+    response?: any;
+}
+```

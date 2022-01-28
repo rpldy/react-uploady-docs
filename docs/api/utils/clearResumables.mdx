@@ -1,0 +1,27 @@
+---
+id: clearResumables
+title: clearResumables
+tags: [tus, utility]
+---
+
+## Package
+
+- **_[@rpldy/tus-sender](../../packages/rpldy-tus-sender)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/tus-sender
+```
+
+## Details
+
+```typescript
+type clearResumables = () => void
+```
+
+By default, the tus-sender will store the URLs for uploaded files, so it can query
+the server for their status and skip chunks that are indicated as uploaded.
+
+The URLs are persisted to local storage.
+This method allows you to clear the URLs that were previously persisted.

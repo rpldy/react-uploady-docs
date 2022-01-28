@@ -62,8 +62,18 @@ Most of the events are related to either a batch (ex: batch upload started) or t
 ### Abort 
 
 Also referred to as "Cancel".
-With a batch ID, it is possible to cancel all files that are part of it.
+
+With an item ID, it is possible to abort a single item. 
+
+With a batch ID, it is possible to abort all files that are part of it.
+
+It is also possible to abort all files currently uploading.
+
+See the [Upload Queue Guide](../guides/UploadQueue.md) for examples. 
 
 ### Retry
 
-It can also be used to retry all files in the batch (see [@rpldy/retry](../packages/rpldy-retry)).
+When a file is marked as failed (error) or cancelled (abort), it is possible to retry the upload using the appropriate method.
+
+Retrying can be done on a single item, batch, or all failed uploads.
+Ssee [@rpldy/retry](../packages/rpldy-retry).

@@ -25,16 +25,16 @@ const FEATURES = [
 			</>
 		),
 	},
-	// {
-	// 	title: "Building Blocks Inside",
-	// 	Svg: require("../../static/img/undraw_docusaurus_react.svg").default,
-	// 	description: (
-	// 		<>
-	// 			React-Uploady doesn't try to be something it's not.
-	// 			It provides the building-blocks (components & hooks) for you to build your upload flow they way you like it.
-	// 		</>
-	// 	),
-	// },
+	{
+		title: "Building Blocks Inside",
+		image: require("../../static/img/uploady/feature3.png").default,
+		description: (
+			<>
+				React-Uploady doesn't try to be something it's not.
+				It provides the building-blocks (components & hooks) for you to build your upload flow they way you like it.
+			</>
+		),
+	},
 ];
 
 function Feature({ image, title, description }) {

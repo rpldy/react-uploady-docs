@@ -2,10 +2,12 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
 
+
+
 const FEATURES = [
 	{
 		title: "Get Started Quickly",
-		Svg: require("../../static/img/undraw_docusaurus_mountain.svg").default,
+		image: require("../../static/img/uploady/feature1.png").default,
 		description: (
 			<>
 				React-Uploady takes care of complex & advanced uploading flows
@@ -15,31 +17,31 @@ const FEATURES = [
 	},
 	{
 		title: "Simple yet Configurable",
-		Svg: require("../../static/img/undraw_docusaurus_tree.svg").default,
+		image: require("../../static/img/uploady/feature2.png").default,
 		description: (
 			<>
 				All of Uploady's features can be used easily and out of the box.
-				However, everything is configurable and extensible so you can easily make it fit your particular needs.
+				However, everything is configurable and extensible, so you can easily make it fit your particular needs.
 			</>
 		),
 	},
-	{
-		title: "Building Blocks Inside",
-		Svg: require("../../static/img/undraw_docusaurus_react.svg").default,
-		description: (
-			<>
-				React-Uploady doesn't try to be something it's not.
-				It provides the building-blocks (components & hooks) for you to build your upload flow they way you like it.
-			</>
-		),
-	},
+	// {
+	// 	title: "Building Blocks Inside",
+	// 	Svg: require("../../static/img/undraw_docusaurus_react.svg").default,
+	// 	description: (
+	// 		<>
+	// 			React-Uploady doesn't try to be something it's not.
+	// 			It provides the building-blocks (components & hooks) for you to build your upload flow they way you like it.
+	// 		</>
+	// 	),
+	// },
 ];
 
-function Feature({ Svg, title, description }) {
+function Feature({ image, title, description }) {
 	return (
 		<div className={clsx("col col--4")}>
 			<div className="text--center">
-				<Svg className={styles.featureSvg} alt={title}/>
+				<img src={image} />
 			</div>
 			<div className="text--center padding-horiz--md">
 				<h3>{title}</h3>

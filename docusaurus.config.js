@@ -107,6 +107,7 @@ const config = {
 					},
 				],
 			},
+
 			footer: {
 				style: "dark",
 				links: [
@@ -154,7 +155,7 @@ const config = {
 						],
 					},
 				],
-				copyright: `Copyright © ${new Date().getFullYear()} React-Uploady, Yoav Niran.`,
+				copyright: `Copyright © ${new Date().getFullYear()} React-Uploady, <a href="https://github.com/yoavniran" target="_blank" rel="nofollow noopener">Yoav Niran.</a>`,
 			},
 			prism: {
 				theme: lightCodeTheme,

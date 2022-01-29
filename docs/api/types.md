@@ -77,6 +77,17 @@ interface SendOptions  {
 }
 ```
 
+## UploadInfo
+
+```typescript
+type UploadInfo = string | FileLike | BatchItem;
+```
+## UploadAddMethod
+
+```typescript
+type UploadAddMethod = (files: UploadInfo | UploadInfo[], addOptions?: UploadOptions) => Promise<void>
+```
+
 ## UploaderType
 
 ```typescript

@@ -1,7 +1,18 @@
 ---
 id: uploader
 title: Uploader
+tags: [event, batch, batchItem]
 ---
+
+## Package
+
+**_[@rpldy/uploader](../../packages/rpldy-uploader)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/uploader
+```
 
 ## Upload Options
 
@@ -13,7 +24,7 @@ title: Uploader
 | grouped              | boolean                                                                                              | false         | group multiple files in a single request  |
 | maxGroupSize         | number                                                                                               | 5             | maximum of files to group together in a single request |
 | formatGroupParamName | (number, string) => string                                                                           | undefined | determine the upload request field name when more than file is grouped in a single upload |
-| fileFilter           | (File &#124; string, index: number, File[] &#124; string[]) => boolean &#124; Promise&lt;boolean&gt; | undefined | return **false** or Promise resolving to **false** to exclude item from batch |
+| fileFilter           | [fileFilter](.#fileFilter | undefined | return **false** or Promise resolving to **false** to exclude item from batch |
 | method               | string                                                                                               | "POST"        | HTTP method in upload request |
 | params               | Object                                                                                               | undefined     | collection of params to pass along with the upload (requires sendWithFormData = true) |
 | forceJsonResponse    | boolean                                                                                              | false         | parse server response as JSON even if no JSON content-type header received             |
@@ -23,107 +34,308 @@ title: Uploader
 | maxConcurrent        | number                                                                                               | 2              | maximum allowed simultaneous requests |
 | send                 | [SendMethod](.#sendMethod)                                                             | @rpldy/sender | how to send files to the server |
 | sendWithFormData     | boolean                                                                                              | true           | upload is sent as part of [formdata](https://developer.mozilla.org/en-US/docs/Web/API/FormData) - when true, additional params can be sent along with uploaded data |
-| formatServerResponse | [FormatServerResponseMethod](.#formatServerResponseMethod)                                             | undefined | function to create the batch item's uploadResponse from the raw xhr response |
+| formatServerResponse | [FormatServerResponseMethod](.#formatserverresponsemethod)                                             | undefined | function to create the batch item's uploadResponse from the raw xhr response |
 | formDataAllowUndefined | boolean                                                                                              | false          | //whether to include params with undefined value |
 
 :::info
-The options are further detailed in the [uploady](.) page
+See [uploady](.) page for more details on some of these options
 :::
+
+## Example
+
+```javascript
+import createUploader, { UPLOADER_EVENTS } from "@rpldy/uploader";
+
+const uploader = createUploader({ destination: { url: "https://my-server.com/upload" }});
+
+uploader.add([myFile1, myFile2], { autoUpload: false });
+
+uploader.once(UPLOADER_EVENTS.BATCH_ADD, (batch) => {
+	console.log(`NEW BATCH ADDED WITH ${batch.items.length} FILES`, batch);
+});
+```
 
 ## API
 
+The Uploader API is typically used by internal logic of the various rpldy packages.
+In a React environment, accessing the API should be done through the [Context API](context#api).
 
 ### add
 
-_(files: UploadInfo | UploadInfo[], options?: ?UploadOptions) => void_
+```typescript
+type Add = (files: UploadInfo | UploadInfo[], addOptions?: UploadOptions) => Promise<void>
+```
+
+- See: [UploadInfo](types#uploadinfo)
+- See: [UploadOptions](types#uploadoptions)
 
 The way to add file(s) to be uploaded. Second parameters allows to pass different options than
 the ones the instance currently uses for this specific batch. These options will be merged with current instance options.
 
 ### upload
 
-_() => void_
+```typescript
+type Upload = (uploadOptions?: UploadOptions) => void
+```
 
-For batches that were added with autoUpload = false, the upload method must be called for the files to begin uploading.
+- See: [UploadOptions](types#uploadoptions)
+
+For batches that were added with `autoUpload = false`, the upload method must be called for the files to begin uploading.
 
 ### abort
 
-_(id?: string) => void_
+```typescript
+type Abort  = (id?: string) => void;
+```
 
-abort all files being uploaded or a single item by its ID
+abort all files being uploaded or a single item by passing its ID
 
 ### abortBatch
 
-_(id: string) => void_
+(id: string) => void;
 
-abort a specific batch by its ID
+```typescript
+type AbortBatch  = (id?: string) => void;
+```
+
+abort a specific batch by passing its ID
 
 ### update
 
-_(options: UploadOptions) => UploaderType_
+```typescript
+type Update = (updateOptions: CreateOptions) => UploaderType;
+```
 
-options parameter will be merged with the instance's existing options
-Returns the uploader instance
+- See: [CreateOptions](types#createoptions)
+- See: [UploaderType](types#uploadertype)
+
+
+The `updateOptions` parameter will be merged with the instance's existing options
+Returns the updated uploader instance
 
 ###	getOptions
 
-_() => CreateOptions_
+```typescript
+type GetOptions = () => CreateOptions;
+```
 
-get the instance's upload options
+- See: [CreateOptions](types#createoptions)
+
+Get the instance's upload options
 
 ###	clearPending
 
-_() => void_
+```typescript
+type ClearPending = () => void;
+```
 
-remove all batches that were added with autoUpload = false
-and were not sent to upload yet.
+Remove all batches that were added with `autoUpload = false`
+and were not handed over to the sender
 
 ### on
 
-_[OnAndOnceMethod](../life-events/src/types.js#29)_
+```typescript
+type On = (name: unknown, cb: EventCallback) => OffMethod
+```
 
-register an event handler
+Register an event handler
 
 ### once
 
-_[OnAndOnceMethod](../life-events/src/types.js#29)_
+```typescript
+type Once = (name: unknown, cb: EventCallback) => OffMethod
+```
 
-register an event handler that will be called only once
+Register an event handler that will be called a maximum one time
 
 ### off
-_[OffMethod](../life-events/src/types.js#27)_
 
-unregister an existing event handler
+```typescript
+type Off = (name: unknown, cb?: EventCallback) => void;
+```
+
+Unregister an existing event handler.
+If handler function reference isn't provided, will unregister all handlers for the provided event name.
 
 ### registerExtension
 
-_(name: any, Object) => void_
+```typescript
+type RegisterExtension = (name: unknown, methods: { [key: string]: (...args: any[]) => void | unknown }) => void;
+```
 
-Extensions can only be registered by [enhancers](../../README.md#enhancer).
+Extensions can only be registered by [uploader enhancers](.#enhancer).
 If registerExtension is called outside an enhancer, an error will be thrown
 Name must be unique. If not, an error will be thrown
 
 ### getExtension
 
-_(name: any) => ?Object__
+```typescript
+type GetExtension = (name: unknown) => Record<string, unknown>;
+```
 
 Retrieve a registered extension by its name
 
-## Batch
-
-### Events {#batch-events}
-
-
-
-
-## Batch Item
-
-
-## Events {#batch-item-events}
-
-
 ## Events
 
+The Uploader will trigger lifecycle events for Batch and Batch Item.
 
+Registering to handle events can be done using the uploader's _on()_ and _once()_ methods.
+Unregistering can be done using _off()_ or by the return value of both _on()_ and _once()_.
 
-See Batch Events and
+```javascript
+const batchAddHandler = (batch) => {};
+
+const unregister = uploader.on(UPLOADER_EVENTS.BATCH_ADD, batchAddHandler);
+
+unregister(); //is equivalent to the line below
+uploader.off(UPLOADER_EVENTS.BATCH_ADD, batchAddHandler);
+```
+
+### Batch Events {#batch-events}
+
+#### UPLOADER_EVENTS.BATCH_ADD
+
+Triggered when a new batch is added.
+
+- Parameters: _(batch, options: CreateOptions)_
+
+- See: [CreateOptions](types#createoptions)
+
+:::info
+This event is _[cancellable](events#cancellable-events)_
+:::
+
+#### UPLOADER_EVENTS.BATCH_START
+
+Triggered when batch items start uploading
+
+- Parameters: _(batch, options: CreateOptions)_
+
+- See: [CreateOptions](types#createoptions)
+
+:::info
+This event is _[cancellable](events#cancellable-events)_
+:::
+
+#### UPLOADER_EVENTS.BATCH_PROGRESS
+
+Triggered every time progress data is received from the upload request(s)
+
+- Parameters: _(batch)_
+
+#### UPLOADER_EVENTS.BATCH_FINISH
+
+Triggered when batch items finished uploading
+
+- Parameters: _(batch)_
+
+#### UPLOADER_EVENTS.BATCH_CANCEL
+
+Triggered in case batch was cancelled from BATCH_START event handler
+
+- Parameters: _(batch)_
+
+#### UPLOADER_EVENTS.BATCH_ABORT
+
+Triggered in case the batch was [aborted](#abortbatch)
+
+- Parameters: _(batch)_
+
+#### UPLOADER_EVENTS.BATCH_ERROR
+
+Triggered in case the batch was failed with an error.
+These errors will most likely occur due to invalid event handling.
+For instance, by a handler (ex: BATCH_START) throwing an error.
+
+- Parameters: _(batch)_
+
+#### UPLOADER_EVENTS.BATCH_FINALIZE
+
+Triggered when all batch items have finished uploading or in case the batch was cancelled(abort) or had an error
+
+- Parameters: _(batch)_
+
+### Batch Item Events {#batch-item-events}
+
+#### UPLOADER_EVENTS.ITEM_START
+
+Triggered when item starts uploading (just before)
+For grouped uploads (multiple files in same xhr request) ITEM_START is triggered for each item separately
+
+- Parameters: _(item)_
+
+:::info
+This event is _[cancellable](events#cancellable-events)_
+:::
+
+#### UPLOADER_EVENTS.ITEM_FINISH
+
+Triggered when item finished uploading successfully
+
+- Parameters: _(item)_
+
+:::info
+The server response can be accessed through the item's _uploadResponse_ property and status code through _uploadStatus_
+:::
+
+#### UPLOADER_EVENTS.ITEM_PROGRESS
+
+Triggered every time progress data is received for this file upload
+
+- Parameters: _(item)_
+
+:::info
+progress info is accessed through the item's "completed" (percentage) and "loaded" (bytes) properties.
+:::
+
+#### UPLOADER_EVENTS.ITEM_CANCEL
+
+Triggered in case item was cancelled from [ITEM_START](#uploader_eventsitem_start) event handler
+
+- Parameters: _(item)_
+
+#### UPLOADER_EVENTS.ITEM_ERROR
+
+Triggered in case item upload failed
+
+- Parameters: _(item)_
+
+:::info
+The server response can be accessed through the item's uploadResponse property.
+:::
+
+#### UPLOADER_EVENTS.ITEM_ABORT
+
+Triggered in case [abort](#abort) was called
+
+- Parameters: _(item)_
+
+### UPLOADER_EVENTS.ITEM_FINALIZE
+
+Triggered for item when uploading is done due to: finished, error, cancel or abort
+Use this event if you want to handle the state of the item being done for any reason.
+
+- Parameters: _(item)_
+
+### UPLOADER_EVENTS.REQUEST_PRE_SEND
+
+Triggered before a group of items is going to be uploaded
+Group will contain a single item unless "grouped" option is set to true.
+
+Handler receives the item(s) in the group and the upload options that were used.
+The handler can change data inside the items and in the options by returning different data than received.
+See this [guide](../guides/DynamicParameters.md) for more details.
+
+- Parameters: _(items, options)_
+
+:::info
+This event is _[cancellable](events#cancellable-events)_
+:::
+
+- See: [withRequestPreSendUpdate HOC](hocs/withRequestPreSendUpdate)
+
+### UPLOADER_EVENTS.ALL_ABORT
+
+Triggered when abort is called without an item id (abort all)
+
+- no parameters

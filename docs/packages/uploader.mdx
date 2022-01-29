@@ -13,14 +13,34 @@ npm install @rpldy/uploader
 ## Details
 
 The Uploader is the processing and queuing engine for React-Uploady.
+It takes care of many things:
+
+- hand data to the sender to be uploaded
+- handle upload items and batches
+- keep internal state of uploads and their statuses
+- trigger external [events](../api/uploader#events)
+- orchestrate concurrent uploads (when configured)
+- group items into single request (when configured)
+- supports [enhancers](../getting-started/concepts#enhancer) for custom functionality
+
 When files are handed to the Uploader, it will represent each file as a [Batch Item](../getting-started/concepts#batch-item) and group them together in a [Batch](../getting-started/concepts#batch).
 
-The Uploader fires Batch & BatchItem lifecycle [events](#events) that can be registered to.
-Some of these events also allow to cancel uploads dynamically.
+The uploader works well out of the box, but it can be configured with many [options](../api/uploader) to make it suit a myriad of use-cases.
 
-_If you're looking to integrate file upload with your React app, you'd probably want to head over to the [@rpldy/uploady page](rpldy-uploady).
+:::info
+If you're looking to integrate file upload with your React app, you'd probably want to head over to the [@rpldy/uploady page](rpldy-uploady).
+:::
 
 ## Exports
 
-*
+* [createUploader](../api/uploader)
 * [composeEnhancers](../api/utils/composeEnhancers)
+* [UPLOADER_EVENTS](../api/constants#uploaderEvents)
+* [BATCH_STATES](../api/constants#batchStates)
+* [FILE_STATES](../api/constants#fileStates)
+
+## Related Topics
+
+* [uploady](rpldy-uploady)
+* [Uploader Events Guide](../guides/UploaderEvents)
+* [Uploader Enhancers Guide](../guides/UploaderEnhancers)

@@ -36,8 +36,13 @@ const App = () => {
 
 The example above shows how to use a custom input while everything else about Uploady's usage remains the same.
 
-> Notice the `customInput` prop passed to the Uploady component.
-> `useFileInput` is called inside the form component, passing it the ref to the custom input.
+:::note
+Notice the `customInput` prop passed to the Uploady component.
+:::
+
+:::info 
+`useFileInput` is called inside the form component, passing it the ref to the custom input.
+:::
 
 ### With Custom Button
 

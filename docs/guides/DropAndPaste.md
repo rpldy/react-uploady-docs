@@ -1,9 +1,9 @@
 # Drop and Paste
 
-With [@rpldy/upload-paste](../packages/ui/upload-paste) you can make an element a 
+With [@rpldy/upload-paste](../packages/rpldy-upload-paste) you can make an element a 
 recipient of paste events that trigger an upload.
 
-With [@rpldy/upload-drop-zone](../packages/ui/upload-drop-zone) you can make an element trigger upload by 
+With [@rpldy/upload-drop-zone](../packages/rpldy-upload-drop-zone) you can make an element trigger upload by 
 accepting a file being dropped on it.
 
 Combining the two together can be a very nice user experience. For example: Whatsapp Web does this very nicely.
@@ -30,7 +30,7 @@ const StyledDropZone = styled(UploadDropZone)`
 
 const PasteUploadDropZone = withPasteUpload(StyledDropZone);
 
-export const MyApp = (): Node => {
+export const MyApp = () => {
     return <Uploady multiple
                     destination={{ url: "my-server.com/upload" }}>
         <PasteUploadDropZone autoUpload={false} params={{ test: "paste" }}>
@@ -44,8 +44,9 @@ export const MyApp = (): Node => {
 };
 ```
 
-> Note that the PasteUploadDropZone accepts [Upload Options](../packages/ui/uploady#props) that are merged (and can override)
-> the options given to the Uploady provider. 
-
+:::note
+Note that the PasteUploadDropZone accepts [Upload Options](../api#props) that are merged (and can override)
+the options given to the Uploady provider. 
+:::
 
 Try it out in this [code sandbox](https://codesandbox.io/s/react-uploady-drag-and-paste-usx9s?file=/src/App.js)

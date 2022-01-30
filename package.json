@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.16.7",
+    "@docusaurus/plugin-pwa": "^2.0.0-beta.15",
     "@rpldy/upload-button": "^0.17.0",
     "@rpldy/upload-preview": "^0.17.0",
     "@rpldy/uploady": "^0.17.0",

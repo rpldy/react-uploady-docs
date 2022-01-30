@@ -63,7 +63,7 @@ After that, you can add additional packages as needed.
 ### Internal Packages
 
 * [@rpldy/shared](../packages/rpldy-shared) - Internal set of utils+types that all packages require
-* [@rpldy/shared-ui](../packages/rpldy-shared) - Internal set of utils+types that all UI packages require
+* [@rpldy/shared-ui](../packages/rpldy-shared-ui) - Internal set of utils+types that all UI packages require
 * [@rpldy/life-events](../packages/rpldy-life-events) - provides **cancellable** pub/sub "events"
 * [@rpldy/safe-storage](../packages/rpldy-safe-storage) - safe (don't throw) versions of local and session storage
 * [@rpldy/simple-state](../packages/rpldy-simple-state) - deep proxy object, so it's only updateable through an update method

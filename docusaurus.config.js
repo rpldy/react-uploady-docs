@@ -60,6 +60,10 @@ const config = {
 				theme: {
 					customCss: require.resolve("./src/css/custom.css"),
 				},
+				sitemap: {
+					changefreq: "weekly",
+					priority: 0.5,
+				},
 			}),
 		],
 	],
@@ -189,20 +193,50 @@ const config = {
 
 	plugins: [
 		[
-			"@docusaurus/plugin-sitemap",
+			"@docusaurus/plugin-pwa",
 			{
-				changefreq: "weekly",
-				priority: 0.5,
+				debug: false,
+				offlineModeActivationStrategies: [
+					"appInstalled",
+					"standalone",
+					"queryString",
+				],
+				pwaHead: [
+					{
+						tagName: "link",
+						rel: "icon",
+						href: "/img/react-uploady.png",
+					},
+					{
+						tagName: "link",
+						rel: "manifest",
+						href: "/manifest.json", // your PWA manifest
+					},
+					{
+						tagName: "meta",
+						name: "theme-color",
+						content: "#052649",
+					},
+					{
+						tagName: "meta",
+						name: "apple-mobile-web-app-capable",
+						content: 'yes',
+					},
+					{
+						tagName: "meta",
+						name: "apple-mobile-web-app-status-bar-style",
+						content: "#052649",
+					},
+					{
+						tagName: "link",
+						rel: "apple-touch-icon",
+						href: "img/uploady/react-uploady.png",
+					},
+				],
 			},
 		],
+
 		"./src/plugins/uploadyPlugin",
-		//TODO - configure PWA plugin!!
-		// [
-		// 	"@docusaurus/plugin-pwa",
-		// 	{
-		//
-		// 	}
-		// ]
 	],
 };
 

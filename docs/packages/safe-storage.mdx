@@ -1,0 +1,27 @@
+---
+id: rpldy-safe-storage
+title: "@rpldy/safe-storage"
+sidebar_label: "📦 @rpldy/safe-storage 🛑"
+---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/safe-storage
+```
+
+## Details
+
+provides safe versions of localStorage and sessionStorage that don't throw because
+of browser issues like safari in private mode.
+
+exposes the same storage API as the browser's API -
+
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+
+In case storage isn't supported, the same API is available but will be replaced with no-op versions.
+
+:::danger
+Internal API - Not intended for use outside rpldy packages.
+:::

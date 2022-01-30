@@ -40,7 +40,7 @@ const MyUploadField = asUploadButton(
 
 ```
 
-The button uses the [useBatchAddListener](../packages/ui/uploady#usebatchaddlistener-event-hook) and [useBatchFinishListener](../packages/ui/uploady#usebatchfinishlistener-event-hook) to set and clear the file name from the field respectively.
+The button uses the [useBatchAddListener](../api/hooks/useBatchAddListener) and [useBatchFinishListener](../api/hooks/useBatchFinishListener) to set and clear the file name from the field respectively.
 
 ### The Form
 
@@ -85,7 +85,7 @@ const MyForm = () => {
 
 ```
 
-Notice that our submit button uses the [processPending](../packages/ui/uploady#processpending) context api method to initiate the upload.
+Notice that our submit button uses the [processPending](../api/context#processpending) context api method to initiate the upload.
 The additional form fields are passed as `params`, which will be added to the form data sent as part of the request.
 
 We also pass `autoUpload` as false in order for the uploader mechanism to wait until we're ready to upload. This allows the user to select a file and fill the other fields independently.

@@ -36,7 +36,7 @@ Must be rendered inside (child/descendant) of an Uploady instance
 | previewComponentProps | [PreviewComponentPropsOrMethod](#previewcomponentprops) | undefined | object or function to generate object as additional props for the preview component|
 | PreviewComponent      | React.ComponentType&lt;any&gt; | img &#124; video | The component that will show the preview|
 | rememberPreviousBatches | boolean | false | show previous batches' previews as opposed to just the last |
-| previewMethodsRef     | React Ref   | undefined | ref will be set with preview helper [methods](src/types.js#L29)|
+| previewMethodsRef     | React Ref   | undefined | ref will be set with preview helper [methods](#previewmethodsref)|
 | onPreviewsChanged     | (PreviewItem[]) => void | undefined | callback will be called whenever preview items array changes|
 
 
@@ -66,12 +66,23 @@ type PreviewComponentPropsOrMethod = Record<string, unknown> | PreviewComponentP
 - See: [BatchItem](../entities#batchitem)
 
 
+### previewMethodsRef
+
+```typescript
+type PreviewMethods = {
+    clear: () => void;
+};
+```
+
+Provides access to preview related methods. Currently `clear` is the only method available.
+It will reset the item previews shown.
+
 ## Example
 
 The props _rememberPreviousBatches_, _previewMethodsRef_, and _onPreviewsChanged_ make it possible to do more with previews.
 Specifically, the make it possible to create a visual queue of the uploads.
 
-This is especially useful when adding other features such as abort and [retry](../core/retry-hooks).
+This is especially useful when adding other features such as abort and [retry](../../packages/rpldy-retry-hooks).
 
 The code below shows how to clear the previews with a button click:
 

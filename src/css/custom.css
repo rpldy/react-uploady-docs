@@ -59,7 +59,17 @@ html[data-theme='dark'] {
     --collapse-button-bg-color-dark: var(--ifm-color-primary-light);
 
     --side-menu-background-color: #04111f;
+
+    --ifm-card-background-color: var(--ifm-color-primary)
 }
+
+html[data-theme='dark'] a[class*='cardContainer_']:hover {
+    background-color: var(--ifm-color-primary-darkest);
+}
+
+/*a[class*='cardContainer_']:hover {*/
+/*    background-color: var(--ifm-color-primary);*/
+/*}*/
 
 .theme-doc-markdown header h1 {
     position: relative;

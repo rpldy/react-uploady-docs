@@ -25,17 +25,17 @@ Must be rendered inside (child/descendant) of an Uploady instance
 
 ## Props
 
-| Name (* = mandatory) | Type          | Default       | Description
-| --------------       | ------------- | ------------- | -------------
-| id             | string   | undefined | id attribute to pass to the button element
-| className      | string   | undefined | the class attribute to pass to the button element
-| placeholder    | string    | undefined | input's placeholder text
-| validate       | [ValidateMethod](#validate) | undefined | function to validate input's value before its sent
-| uploadRef     | React Ref   | undefined | ref will be set to the upload callback so it can be triggered from the outside (see [example](#example))
-| ignoreKeyPress   | boolean | false | by default pressing Enter will initiate the upload, set to true in order to disable this behavior
+| Name (* = mandatory) | Type          | Default       | Description |
+| --------------       | ------------- | ------------- | ------------- |
+| id             | string   | undefined | id attribute to pass to the button element |
+| className      | string   | undefined | the class attribute to pass to the button element |
+| placeholder    | string    | undefined | input's placeholder text |
+| validate       | [ValidateMethod](#validate) | undefined | function to validate input's value before its sent |
+| uploadRef     | React Ref   | undefined | ref will be set to the upload callback so it can be triggered from the outside (see [example](#example)) |
+| ignoreKeyPress   | boolean | false | by default pressing Enter will initiate the upload, set to true in order to disable this behavior |
 
 In addition, most UploadOptions props can be passed to UploadButton, in order to override configuration passed to the parent Uploady component.
-See [Uploady documentation](../api/providers/uploady#props) for detailed list of upload options.
+See [Uploady documentation](..#props) for detailed list of upload options.
 
 ### validate
 

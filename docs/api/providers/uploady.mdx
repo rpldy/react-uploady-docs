@@ -9,7 +9,7 @@ tags: [provider]
 
 ## Package
 
-**_[@rpldy/uploady](../../packages/rpldy-uploady)_**
+**_[@rpldy/uploady](packages/rpldy-uploady)_**
 
 ## Installation
 
@@ -40,8 +40,8 @@ npm install @rpldy/uploady
 | formatServerResponse | [FormatServerResponseMethod](#formatserverresponsemethod) | undefined | function to create the batch item's uploadResponse from the raw xhr response |
 | **Uploady Options** |
 | debug                | boolean        | false | enable console logs from uploady packages |
-| listeners            | Object        | undefined | map of [uploader events](uploader#events) name and event handler |
-| customInput          | boolean       | false | whether to use a custom file input (see: [useFileInput](hooks/useFileInput) |
+| listeners            | Object        | undefined | map of [uploader events](api/uploader#events) name and event handler |
+| customInput          | boolean       | false | whether to use a custom file input (see: [useFileInput](api/hooks/useFileInput) |
 | inputFieldName       | string        | "file"        | name (attribute) of the file input field (requires sendWithFormData = true) |
 | inputFieldContainer  | HTMLElement   | document.body | html element to place the file input element inside |
 | children             | React.Node    | undefined     | any part of your React app that will require access to the upload flow  (components, hooks, etc.) |
@@ -109,7 +109,7 @@ type UploaderEnhancer = (uploader: UploaderType, trigger: Trigger<any>) => Uploa
 Registering an enhancer gives you access to the uploader instance and to the trigger method.
 This is a powerful way to customize the uploader or its options.
 
-The trigger method can be used to trigger(fire) custom events that can be listened to using the [listeners](#listeners) prop or the [on](context#on) and [once](context#once) context methods.
+The trigger method can be used to trigger(fire) custom events that can be listened to using the [listeners](#listeners) prop or the [on](api/context#on) and [once](api/context#once) context methods.
 
 #### Extensions
 
@@ -117,7 +117,7 @@ Enhancers are the only time when external code can register an extension.
 Extensions are objects that are added to an uploader instance under a specific name and can later be retrieved.
 This is mainly used internally by the other providers.
 
-See [Uploader Enhancers Guide](../guides/UploaderEnhancers) for more details
+See [Uploader Enhancers Guide](guides/UploaderEnhancers) for more details
 
 ### fileFilter
 
@@ -129,16 +129,16 @@ the file filter method is called on each item being uploaded (typically: File) a
 
 the filter method supports async (returning a promise) responses.
 
-See [File Filter Guide](../guides/FileFilter)
+See [File Filter Guide](guides/FileFilter)
 
 ### listeners
 
 Makes it possible to pass an object map of key being the event name (ex: "BATCH-START") and the value being a handler function.
 The event handlers passed using this object map will be registered using the Context's on method.
 
-- See [Uploader Events](constants#uploaderEvents)
+- See [Uploader Events](api/constants#uploaderEvents)
 
-- See [Passing listeners using props](../guides/UploaderEvents#listeners-props)
+- See [Passing listeners using props](guides/UploaderEvents#listeners-props)
 
 ### Send Method {#sendMethod}
 
@@ -155,18 +155,18 @@ type SendMethod = (item: BatchItem[], url: string | undefined, options: SendOpti
 ```
 
 This is the method that will be called by the uploader when its time to start making upload requests.
-The default send method comes from the [XHR Sender](senders/xhrSender).
+The default send method comes from the [XHR Sender](api/senders/xhrSender).
 
 It's possible to replace the default method with any other sender that provides the same signature the uploader expects.
 
-Providers like [Chunked-Uploady](providers/chunked-uploady), use the ability to swap the send method in order to provide the one from their own sender.
-ie: [Chunked-Sender](senders/chunkedSender).
+Providers like [Chunked-Uploady](api/providers/chunked-uploady), use the ability to swap the send method in order to provide the one from their own sender.
+ie: [Chunked-Sender](api/senders/chunkedSender).
 
 ### formatServerResponseMethod
 
 A function to create the batch item's uploadResponse from the raw xhr response.
 
-- See [FormatServerResponseMethod](types#formatserverresponsemethod)
+- See [FormatServerResponseMethod](api/types#formatserverresponsemethod)
 
 If not provided, JSON responses will be parsed using [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) or be left as fis for anything else.
 
@@ -174,7 +174,7 @@ If not provided, JSON responses will be parsed using [JSON.parse](https://develo
 
 Uploady render's a (hidden) file input that is used to show the file selection prompt to the user in order to select local files to upload.
 In almost all cases that is the preferred way and therefore the default. In case you want to use your own file input, this can be achieved by setting the prop to true,
-and using the [useFileInput hook](hooks/useFileInput) to pass a ref to the custom element.
+and using the [useFileInput hook](api/hooks/useFileInput) to pass a ref to the custom element.
 
 ### debug
 

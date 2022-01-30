@@ -1,6 +1,6 @@
 # Different Configurations
 
-The [Uploady](../packages/ui/uploady) component accepts all upload options which are either used to initialize the file input or to initialize the [Uploader](../packages/uploader) instance.
+The [Uploady](../api) component accepts all upload options which are either used to initialize the file input or to initialize the [Uploader](../api/uploader) instance.
 
 To be able to use UI components from this library or any of the hooks it provides, you need to surround the relevant components with an &lt;Uploady&gt; component.
 

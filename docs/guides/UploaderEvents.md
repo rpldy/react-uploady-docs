@@ -4,14 +4,13 @@ When files are added to the upload queue, they are organized in batches and each
 
 Both batches and batch items have their own life-cycles and the uploader exposes events for all of them.
 
-The entire list of Uploader events is documented in the [Uploader README](../packages/uploader#events).
+The entire list of Uploader events is documented in the [Uploader page](../api/uploader#events).
 
-Extensions may also add their own events. For example, [Retry](../packages/ui/retry-hooks#events).
-
+Extensions may also add their own events. For example, [Retry](../packages/rpldy-retry).
 
 ## Cancellable Events
 
-There are explained in further detail [here](../packages/uploader#cancellable-events).
+These are explained in further detail [here](../api/events#cancellable-events).
 
 These events allow you to cancel the uploading batch or item.
 
@@ -19,7 +18,7 @@ Cancelling the operation through an event handler is done by returning false or 
 
 ## Usage
 
-While in React, [Uploady hooks](../packages/ui/uploady#hooks) provide easy access to event handling. 
+While in React, [Uploady hooks](../category/hooks) provide easy access to event handling. 
 
 However, outside of React, it is also possible to handle these events using the uploader's: on, off and once methods.
 

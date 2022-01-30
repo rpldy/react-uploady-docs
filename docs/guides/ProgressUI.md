@@ -1,10 +1,10 @@
 # Progress UI
 
-Uploady (the [sender](../packages/sender) really) exposes an item progress event and hook that can be used to show an upload progress UI.
+Uploady (the [sender](../packages/rpldy-sender) really) exposes an item progress event and hook that can be used to show an upload progress UI.
 
 Below is an example of this using the very cool [rc-progress](https://www.npmjs.com/package/rc-progress).
 
-The [useItemProgressListener](../packages/ui/uploady#useitemprogresslistener-event-hook) hook is used to capture progress info for all uploads taking place within an Uploady instance.
+The [useItemProgressListener](../api/hooks/useItemProgressListener) hook is used to capture progress info for all uploads taking place within an Uploady instance.
 Regardless of how the uploads are initiated (ex: upload-button, upload-drop-zoe, api call, etc.).
 
 ## Example
@@ -65,4 +65,3 @@ const MyApp = () => {
 
 ```
 
- 

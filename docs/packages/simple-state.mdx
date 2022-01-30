@@ -1,0 +1,26 @@
+---
+id: rpldy-simple-state
+title: "@rpldy/simple-state"
+sidebar_label: "📦 @rpldy/simple-state 🛑"
+---
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/simple-state
+```
+
+## Details
+
+Deep proxies an object, so it is only updateable through an update callback.
+outside an updater, it is impossible to make changes
+
+It only proxies simple objects (not maps or sets) and arrays
+
+It doesn't create new references and doesn't copy over anything
+
+**Original object is changed!**
+
+:::danger
+Internal API - Not intended for use outside rpldy packages.
+:::

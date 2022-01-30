@@ -22,7 +22,7 @@ Each request is sent with the _Content-Range_ header to specify the bytes range.
 Internally, _ChunkedUploady_ uses [@rpldy/chunked-sender](rpldy-chunked-sender) instead of the default (XHR) sender.
 
 _Chunked-Sender_, doesn't support grouped uploads (see Upload Options [documentation](../api#props)) or URL uploading.
-These will be handed over to the default [@rpldy/sender](sender).
+These will be handed over to the default [@rpldy/sender](rpldy-sender).
 
 In case the browser doesn't support chunking (blob slicing), the default sender will be used as well.
 
@@ -54,7 +54,7 @@ const App = () => (
 * [ChunkedUploadyProps](../api/types#chunkeduploadyprops)
 
 :::info
-Plus all the exports from [uploady](uploady)
+Plus all the exports from [uploady](rpldy-uploady)
 :::
 
 ## Related Topics

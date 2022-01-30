@@ -1,6 +1,6 @@
 # Retry Failed Uploads
 
-[@rpldy/retry](../packages/retry) and its React counter part: [@rpldy/retry-hooks](../packages/ui/retry-hooks)
+[@rpldy/retry](../packages/rpldy-retry) and its React counter part: [@rpldy/retry-hooks](../packages/rpldy-retry-hooks)
 provide retry functionality for failed uploads. 
 
 There are 3 retry flavors: retry all, retry batch, and retry item.

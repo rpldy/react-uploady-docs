@@ -17,6 +17,12 @@ html[data-theme='dark'] .quotesContainer {
     border-radius: 50%;
 }
 
+@media (min-width: 1600px) {
+    .quote {
+        margin-right: 40px;
+    }
+}
+
 .quoteHighlight {
     position: absolute;
     width: 85%;

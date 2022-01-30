@@ -12,7 +12,7 @@ const HomepageVideo = () => {
 			className={clsx("hero--primary", styles.homeVideoContainer)}
 		>
 			<section>
-						<YoutubePreview id={homeVideoId} className={styles.video}/>
+				<YoutubePreview id={homeVideoId} className={styles.video}/>
 			</section>
 		</div>
 	);

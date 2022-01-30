@@ -20,7 +20,7 @@ npm install @rpldy/retry-hooks
 ```typescript
 type RetryBatchMethod = (batchId?: string) => boolean;
 
-type useBatchRetry = (id: string) => RetryBatchMethod;
+type useBatchRetry = () => RetryBatchMethod;
 ```
 
 Returns a retry function.

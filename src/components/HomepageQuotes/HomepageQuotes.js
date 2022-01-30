@@ -23,6 +23,7 @@ const QUOTES = [
 
 const Quote = ({ text, name }) => {
 	return <div className={clsx("col col--4 quote-col", styles.quote)}>
+		<div className={styles.quoteHighlight} />
 		<FaQuoteRight size={32}/>
 		<div className="text--center padding-horiz--md">
 			<h3>{name}</h3>

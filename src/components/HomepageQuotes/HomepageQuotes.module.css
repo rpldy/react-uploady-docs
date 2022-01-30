@@ -14,6 +14,25 @@ html[data-theme='dark'] .quotesContainer {
     position: relative;
     font-weight: bold;
     margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+.quoteHighlight {
+    position: absolute;
+    width: 85%;
+    height: 90%;
+    background-color: var( --quote-bg-color);
+    display: block;
+    border-radius: 100%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    top: 50%;
+
+    transition: box-shadow 0.2s;
+}
+
+.quoteHighlight:hover {
+    box-shadow: 2px 3px 20px 11px #44446496;
 }
 
 .quotesContainer :global(.row) {
@@ -43,25 +62,27 @@ html[data-theme='dark'] .quote {
     --quote-bg-color: rgba(214, 227, 236, 0.75);
 }
 
-.quote::before {
-    content: "";
-    width: 85%;
-    height: 90%;
-    background-color: var( --quote-bg-color);
-    display: block;
-    position: absolute;
-    border-radius: 100%;
-    z-index: -1;
-    left: 50%;
-    transform: translate(-50%, -40%);
-    top: 50%;
-}
+/*.quote::before {*/
+/*    content: "";*/
+/*    width: 85%;*/
+/*    height: 90%;*/
+/*    background-color: var( --quote-bg-color);*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    border-radius: 100%;*/
+/*    z-index: -1;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -40%);*/
+/*    top: 50%;*/
+/*}*/
 
 .quote p {
+    position: relative;
     padding: 0 10%;
 }
 
 .quote h3 {
+    position: relative;
     margin-top: 40px;
 }
 

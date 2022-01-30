@@ -9,7 +9,7 @@ const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
 const config = {
 	title: "React-Uploady",
 	tagline: "Modern file-upload components & hooks for React.",
-	url: "https://react-uploady.com",
+	url: "https://react-uploady.netlify.com",
 	baseUrl: "/",
 	onBrokenLinks: "throw",
 	onBrokenMarkdownLinks: "warn",

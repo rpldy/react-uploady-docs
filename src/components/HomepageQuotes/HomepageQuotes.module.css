@@ -1,11 +1,8 @@
 .quotesContainer {
     --ifm-hero-text-color: #FFFFFF;
-
-    background-color: var(--ifm-hero-background-color);
+    margin: 40px 0;
+    /*background-color: var(--ifm-hero-background-color);*/
     color: var(--ifm-hero-text-color);
-
-    clip-path: polygon(0 0%, 100% 10%, 100% 96%, 0 84%);
-    padding: 80px 0;
 }
 
 html[data-theme='dark'] .quotesContainer {
@@ -16,6 +13,22 @@ html[data-theme='dark'] .quotesContainer {
     --quote-bg-color: rgba(28, 35, 40, 0.75);
     position: relative;
     font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.quotesContainer :global(.row) {
+    justify-content: center;
+}
+
+.quotesContainer :global(.row .col.col.col) {
+    max-width: 400px;
+}
+
+@media (max-width: 800px) {
+    .quotesContainer :global(.row .col.col.col) {
+        --ifm-col-width: 80%;
+        min-width: 300px;
+    }
 }
 
 .quote svg {
@@ -48,9 +61,12 @@ html[data-theme='dark'] .quote {
     padding: 0 10%;
 }
 
-
+.quote h3 {
+    margin-top: 40px;
+}
 
 .quote svg {
-    /*position: absolute;*/
-    /*right: 10px;*/
+    position: absolute;
+    left: 14%;
+    top: 20%;
 }

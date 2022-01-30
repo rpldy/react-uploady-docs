@@ -1,0 +1,10 @@
+.videos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.videos img {
+    max-width: 300px;
+}
+
+

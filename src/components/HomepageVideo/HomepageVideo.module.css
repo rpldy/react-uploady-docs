@@ -1,0 +1,17 @@
+.homeVideoContainer {
+    background-color: var(--ifm-hero-background-color);
+
+    clip-path: polygon(0 0%, 100% 10%, 100% 96%, 0 84%);
+    padding: 80px 0 100px;
+}
+
+.video {
+    width: 60%;
+    min-width: 400px;
+    position: relative;
+}
+
+.homeVideoContainer section {
+    display: flex;
+    justify-content: center;
+}

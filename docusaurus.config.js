@@ -28,7 +28,8 @@ const config = {
 			Instagram: "https://instagram.com/literaryCoder",
 			Medium: "https://poeticgeek.medium.com/",
 			"dev.to": "https://dev.to/poeticgeek"
-		}
+		},
+		homeVideoId: "bxvHE4hWu3c",
 	},
 
 	presets: [

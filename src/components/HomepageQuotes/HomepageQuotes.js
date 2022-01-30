@@ -22,9 +22,9 @@ const QUOTES = [
 ];
 
 const Quote = ({ text, name }) => {
-	return <div className={clsx("col col--4", styles.quote)}>
+	return <div className={clsx("col col--4 quote-col", styles.quote)}>
+		<FaQuoteRight size={32}/>
 		<div className="text--center padding-horiz--md">
-			<FaQuoteRight size={32}/>
 			<h3>{name}</h3>
 			<p>"{text}"</p>
 		</div>
@@ -32,7 +32,7 @@ const Quote = ({ text, name }) => {
 };
 
 const HomepageQuotes = () => {
-	return <div className={clsx("hero--primary", styles.quotesContainer)}>
+	return <div className={clsx(styles.quotesContainer)}>
 		<section>
 		<div className="container">
 			<div className="row">

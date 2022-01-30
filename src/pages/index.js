@@ -8,6 +8,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./index.module.css";
 import HomepageFeatures from "../components/HomepageFeatures";
 import HomepageQuotes from "../components/HomepageQuotes";
+import HomepageVideo from "../components/HomepageVideo";
 // import useThemeContext from "@theme/hooks/useThemeContext";
 
 function HomepageHeader() {
@@ -55,10 +56,12 @@ export default function Home() {
 		<Layout
 			home
 			title={`Home`}
-			description="Description will go into a meta tag in <head />">
+			description={siteConfig.customFields.description}
+		>
 			<HomepageHeader/>
 			<main>
 				<HomepageFeatures/>
+				<HomepageVideo />
 				<HomepageQuotes/>
 			</main>
 		</Layout>

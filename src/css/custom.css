@@ -214,3 +214,7 @@ a[class^='sidebarLogo_'] img {
 a[class^='sidebarLogo_'] b {
     font-size: 18px;
 }
+
+.navbar-sidebar__item .header-npm-version {
+    max-width: 60px;
+}

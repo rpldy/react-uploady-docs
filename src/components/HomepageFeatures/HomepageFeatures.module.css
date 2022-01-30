@@ -4,3 +4,7 @@
   padding: 2rem 0;
   width: 100%;
 }
+
+.features img {
+    max-height: 240px;
+}

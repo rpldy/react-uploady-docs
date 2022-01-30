@@ -1,0 +1,54 @@
+.preview {
+    cursor: pointer;
+    position: relative;
+}
+
+.absImg {
+    position: absolute;
+}
+
+.preview img {
+    margin-right: 6px;
+    margin-bottom: 10px;
+}
+
+.preview svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.imgContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.imgPreviewMode::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: inline;
+    content: "";
+    width: 30px;
+    height: 24px;
+    background-color: #FFFFFF;
+}
+
+.preview iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.iframeContainer {
+    width: 100%;
+    position: relative;
+    height: 0;
+    padding-top: 56.25%;
+}

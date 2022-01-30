@@ -17,8 +17,6 @@ const config = {
 	organizationName: "rpldy",
 	projectName: "react-uploady",
 
-	// metadata: [{name: 'twitter:card', content: 'summary'}],
-
 	customFields: {
 		description:
 			"react-uploady is a library containing modern file-upload components & hooks for React.",
@@ -74,7 +72,13 @@ const config = {
 	themeConfig:
 	/** @type {import("@docusaurus/preset-classic").ThemeConfig} */
 		({
-			image: "img/uploady/react-uploady-text-logo.png",
+			image: "img/uploady/react-uploady-text-logo-og.png",
+
+			metadata: [
+				{ name: "twitter:card", content: "summary_large_image" },
+				{ name: "twitter:domain", content: "react-uploady.netlify.app" },
+			],
+
 			hideableSidebar: true,
 
 			announcementBar: {
@@ -188,6 +192,7 @@ const config = {
 				],
 				copyright: `Copyright © ${new Date().getFullYear()} React-Uploady, <a href="/docs/yoav">Yoav Niran.</a>`,
 			},
+
 			prism: {
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,

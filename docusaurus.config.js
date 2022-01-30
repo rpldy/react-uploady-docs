@@ -19,10 +19,17 @@ const config = {
 
 	// metadata: [{name: 'twitter:card', content: 'summary'}],
 
-	// customFields: {
-	// 	description:
-	// 		'An optimized site generator in React. Docusaurus helps you to move fast and write content. Build documentation websites, blogs, marketing pages, and more.',
-	// },
+	customFields: {
+		description:
+			"react-uploady is a library containing modern file-upload components & hooks for React.",
+		contact: {
+			Twitter: "https://twitter.com/poeticGeek",
+			Linkedin: "https://www.linkedin.com/in/yoavniran/",
+			Instagram: "https://instagram.com/literaryCoder",
+			Medium: "https://poeticgeek.medium.com/",
+			"dev.to": "https://dev.to/poeticgeek"
+		}
+	},
 
 	presets: [
 		[
@@ -89,8 +96,11 @@ const config = {
 						position: "left",
 						label: "API",
 					},
-					{ to: "/blog", label: "Blog", position: "left" },
-
+					{
+						to: "/blog",
+						label: "Blog",
+						position: "left"
+					},
 
 					//right-side
 					{
@@ -116,11 +126,15 @@ const config = {
 						items: [
 							{
 								label: "Docs",
-								to: "/docs/intro",
+								to: "/docs",
 							},
 							{
 								label: "API",
 								to: "/docs/api",
+							},
+							{
+								label: "Storybook",
+								href: "https://react-uploady-storybook.netlify.app/"
 							},
 						],
 					},
@@ -128,12 +142,12 @@ const config = {
 						title: "Community",
 						items: [
 							{
-								label: "Stack Overflow",
-								href: "https://stackoverflow.com/questions/tagged/docusaurus",
+								label: "Discussions",
+								href: "https://github.com/rpldy/react-uploady/discussions",
 							},
 							{
-								label: "Discord",
-								href: "https://discordapp.com/invite/docusaurus",
+								label: "External Resources",
+								to: "/docs/external#blog-posts"
 							},
 							{
 								label: "Twitter",
@@ -152,10 +166,14 @@ const config = {
 								label: "GitHub",
 								href: "https://github.com/rpldy/react-uploady",
 							},
+							{
+								label: "Issues",
+								href: "https://github.com/rpldy/react-uploady/issues"
+							},
 						],
 					},
 				],
-				copyright: `Copyright © ${new Date().getFullYear()} React-Uploady, <a href="https://github.com/yoavniran" target="_blank" rel="nofollow noopener">Yoav Niran.</a>`,
+				copyright: `Copyright © ${new Date().getFullYear()} React-Uploady, <a href="/docs/yoav">Yoav Niran.</a>`,
 			},
 			prism: {
 				theme: lightCodeTheme,

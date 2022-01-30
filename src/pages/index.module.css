@@ -4,10 +4,11 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 10%, 100% 2%, 100% 79%, 0 100%);
 }
 
 .heroLogo {
@@ -15,15 +16,15 @@
 }
 
 @media screen and (max-width: 966px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+    .heroBanner {
+        padding: 2rem;
+    }
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .buttons > * {

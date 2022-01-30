@@ -1,0 +1,18 @@
+.link {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.linkList {
+    list-style: none;
+}
+
+.linkList li {
+margin-bottom: 20px;
+}
+
+.linkList li svg {
+    margin-right: 6px;
+}

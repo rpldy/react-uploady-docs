@@ -7,6 +7,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./index.module.css";
 import HomepageFeatures from "../components/HomepageFeatures";
+import HomepageQuotes from "../components/HomepageQuotes";
 // import useThemeContext from "@theme/hooks/useThemeContext";
 
 function HomepageHeader() {
@@ -16,7 +17,6 @@ function HomepageHeader() {
 	return (
 		<header className={clsx("hero hero--primary", styles.heroBanner)}>
 			<div className="container">
-				{/*<h1 className="hero__title">{siteConfig.title}</h1>*/}
 				<ThemedImage
 					className={styles.heroLogo}
 					sources={{
@@ -59,6 +59,7 @@ export default function Home() {
 			<HomepageHeader/>
 			<main>
 				<HomepageFeatures/>
+				<HomepageQuotes/>
 			</main>
 		</Layout>
 	);

@@ -2,12 +2,10 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
 
-
-
 const FEATURES = [
 	{
 		title: "Get Started Quickly",
-		image: require("../../static/img/uploady/feature1.png").default,
+		image: require("../../../static/img/uploady/feature1.png").default,
 		description: (
 			<>
 				React-Uploady takes care of complex & advanced uploading flows
@@ -17,7 +15,7 @@ const FEATURES = [
 	},
 	{
 		title: "Simple yet Configurable",
-		image: require("../../static/img/uploady/feature2.png").default,
+		image: require("../../../static/img/uploady/feature2.png").default,
 		description: (
 			<>
 				All of Uploady's features can be used easily and out of the box.
@@ -27,7 +25,7 @@ const FEATURES = [
 	},
 	{
 		title: "Building Blocks Inside",
-		image: require("../../static/img/uploady/feature3.png").default,
+		image: require("../../../static/img/uploady/feature3.png").default,
 		description: (
 			<>
 				React-Uploady doesn't try to be something it's not.

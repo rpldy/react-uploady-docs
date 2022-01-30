@@ -1,7 +1,7 @@
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 // import { useColorMode } from "@docusaurus/theme-common";
-import { FaLinkedinIn, FaInstagram, FaTwitter, FaMedium, FaLink } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaInstagram, FaTwitter, FaMedium, FaLink } from "react-icons/fa";
 import styles from "./ContactList.module.css";
 
 const ICONS = {
@@ -9,6 +9,7 @@ const ICONS = {
 	"instagram": FaInstagram,
 	"linkedin": FaLinkedinIn,
 	"medium": FaMedium,
+	"github": FaGithub,
 };
 
 const ContactList = () => {

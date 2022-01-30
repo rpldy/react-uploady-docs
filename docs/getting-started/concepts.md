@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Important Concepts
+description: "Important concepts to learn about when using React-Uploady. Explains the different entities used in the upload process"
 ---
 
 ### Upload Options

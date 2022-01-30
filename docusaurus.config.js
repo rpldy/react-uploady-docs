@@ -24,6 +24,7 @@ const config = {
 			"react-uploady is a library containing modern file-upload components & hooks for React.",
 		contact: {
 			Twitter: "https://twitter.com/poeticGeek",
+			Github: "https://github.com/yoavniran",
 			Linkedin: "https://www.linkedin.com/in/yoavniran/",
 			Instagram: "https://instagram.com/literaryCoder",
 			Medium: "https://poeticgeek.medium.com/",
@@ -40,7 +41,7 @@ const config = {
 				docs: {
 					sidebarPath: require.resolve("./sidebars.js"),
 
-					// editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+					editUrl: "https://github.com/rpldy/react-uploady-docs/edit/master/",
 
 					// showLastUpdateAuthor: true,
 					showLastUpdateTime: true,
@@ -54,8 +55,6 @@ const config = {
 						type: "all",
 						copyright: `Copyright © ${new Date().getFullYear()} Yoav Niran`,
 					},
-					// editUrl:
-					// 	"https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
 				},
 				theme: {
 					customCss: require.resolve("./src/css/custom.css"),

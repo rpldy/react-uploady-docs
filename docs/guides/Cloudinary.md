@@ -1,3 +1,7 @@
+---
+description: "Examples on how to use React-Uploady with the Cloudinary service"
+---
+
 # Cloudinary
 
 Uploading to [Cloudinary](https://cloudinary.com) can be done from the client easily.

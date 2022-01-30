@@ -32,6 +32,8 @@
     --collapse-button-bg-color-dark: var(--ifm-color-primary-dark);
 
     --side-menu-background-color: #fafafa;
+
+    --ifm-navbar-item-padding-horizontal: 10px;
 }
 
 html[data-theme='dark'] {

@@ -29,7 +29,7 @@ const FEATURES = [
 		description: (
 			<>
 				React-Uploady doesn't try to be something it's not.
-				It provides the building-blocks (components & hooks) for you to build your upload flow they way you like it.
+				It provides the building-blocks (components & hooks) for you to build your upload flow just the way you like it.
 			</>
 		),
 	},

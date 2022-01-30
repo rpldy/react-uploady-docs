@@ -19,7 +19,8 @@ html[data-theme='dark'] .header-github-link::before {
     justify-content: center;
     align-items: center;
     border-radius: 6px;
-    margin-right: 12px;
+    margin-right: 6px;
+    margin-left: 6px;
     padding: 0 4px;
     background-color: #252222;
     color: var(--ifm-navbar-background-color);

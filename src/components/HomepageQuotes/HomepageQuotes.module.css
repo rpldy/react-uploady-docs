@@ -18,11 +18,11 @@ html[data-theme='dark'] .quotesContainer {
     font-weight: bold;
 }
 
-.quote h3 {
+.quote svg {
     color: #000000;
 }
 
-html[data-theme='dark'] .quote h3 {
+html[data-theme='dark'] .quote svg {
     color: #FFFFFF;
 }
 

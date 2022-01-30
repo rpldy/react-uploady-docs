@@ -115,6 +115,11 @@ const config = {
 						className: "header-npm-version",
 						"aria-label": "NPM package"
 					},
+					{
+						label: "donate",
+						href: "https://opencollective.com/react-uploady",
+						position: "right",
+					}
 				],
 			},
 

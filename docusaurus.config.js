@@ -5,6 +5,13 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
 
+
+const logo = {
+	alt: "Uploady Logo",
+	src: "img/uploady/react-uploady.png",
+	srcDark: "img/uploady/react-uploady-light.png",
+};
+
 /** @type {import("@docusaurus/types").Config} */
 const config = {
 	title: "React-Uploady",
@@ -89,11 +96,7 @@ const config = {
 			navbar: {
 				hideOnScroll: true,
 				title: "React-Uploady",
-				logo: {
-					alt: "Uploady Logo",
-					src: "img/uploady/react-uploady.png",
-					srcDark: "img/uploady/react-uploady-light.png",
-				},
+				logo,
 				items: [
 					//left-side
 					{
@@ -187,9 +190,15 @@ const config = {
 								label: "Issues",
 								href: "https://github.com/rpldy/react-uploady/issues"
 							},
+							{
+								html: `<a href="https://app.netlify.com/sites/react-uploady/deploys">
+									<img src="https://api.netlify.com/api/v1/badges/22e2f0d8-93e2-4889-b9fc-17c9302675c9/deploy-status" alt="netlify status"/>
+								</a>`
+							}
 						],
 					},
 				],
+				logo: { ...logo, height: 48, width: 48 },
 				copyright: `Copyright © ${new Date().getFullYear()} React-Uploady, <a href="/docs/yoav">Yoav Niran.</a>`,
 			},
 
@@ -213,7 +222,7 @@ const config = {
 					{
 						tagName: "link",
 						rel: "icon",
-						href: "/img/react-uploady.png",
+						href: "/img/uploady/react-uploady.png",
 					},
 					{
 						tagName: "link",

@@ -228,3 +228,7 @@ a[class^='sidebarLogo_'] b {
 .navbar-sidebar__item .header-npm-version {
     max-width: 60px;
 }
+
+.footer__logo {
+    height: 96px;
+}

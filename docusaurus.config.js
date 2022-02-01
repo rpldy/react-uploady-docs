@@ -84,6 +84,7 @@ const config = {
 			metadata: [
 				{ name: "twitter:card", content: "summary_large_image" },
 				{ name: "twitter:domain", content: "react-uploady.netlify.app" },
+				{ name: "keywords", content: "uploady,react-uploady,file upload,upload,queue,javascript,frontend dev,development,documentation,docs,chunked uploads,resumable" },
 			],
 
 			hideableSidebar: true,

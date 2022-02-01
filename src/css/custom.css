@@ -49,7 +49,7 @@ html[data-theme='dark'] {
     --ifm-navbar-link-hover-color: var(--ifm-color-primary-lightest);
     --ifm-menu-color-active: var(--ifm-color-primary-lightest);
 
-    --ifm-link-color: var(--ifm-color-primary-light);
+    --ifm-link-color: var(--ifm-color-primary-lighter);
 
     --ifm-table-stripe-background: rgba(72, 96, 133, 0.34);
 
@@ -60,7 +60,7 @@ html[data-theme='dark'] {
 
     --side-menu-background-color: #04111f;
 
-    --ifm-card-background-color: var(--ifm-color-primary)
+    --ifm-card-background-color: var(--ifm-color-primary);
 }
 
 html[data-theme='dark'] a[class*='cardContainer_']:hover {
@@ -139,6 +139,10 @@ html[data-theme='dark'] div[class^='announcementBar_'] .close {
 
 html[data-theme='dark'] .table-of-contents__link--active {
     color: var(--ifm-color-primary-light);
+}
+
+html[data-theme='dark'] table tr:nth-child(2n) a {
+    color: #adbabe;
 }
 
 html[data-theme='dark'] .table-of-contents__link:hover {

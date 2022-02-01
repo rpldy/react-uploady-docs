@@ -1,9 +1,9 @@
 {
-  "short_name": "React-Upload",
+  "short_name": "React-Uploady",
   "name": "React-Uploady Documentation",
   "icons": [
     {
-      "src": "/img/react-uploady.png",
+      "src": "/img/uploady/react-uploady.png",
       "sizes": "512x512"
     },
     {

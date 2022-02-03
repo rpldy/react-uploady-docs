@@ -8,3 +8,13 @@
 .features img {
     max-height: 240px;
 }
+
+@media (max-width: 996px) {
+    .features :global(.row .col.col.col ) {
+        max-width: 320px;
+    }
+
+    .features :global(.row) {
+        justify-content: center;
+    }
+}

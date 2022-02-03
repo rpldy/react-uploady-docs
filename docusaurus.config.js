@@ -253,7 +253,16 @@ const config = {
 				],
 			},
 		],
-
+		[
+			"@docusaurus/plugin-ideal-image",
+			{
+				// quality: 80,
+				max: 2048, // max resized image's size.
+				min: 440, // min resized image's size. if original is lower, use that size.
+				steps: 6, // the max number of images generated between min and max (inclusive)
+				disableInDev: true,
+			},
+		],
 		"./src/plugins/uploadyPlugin",
 	],
 };

@@ -9,8 +9,6 @@ const getIdealImageMaxSrc = (img, max) => {
 		};
 	}
 
-	console.log("!!!!! IMAGE MAX ", img, max);
-
 	return img;
 };
 

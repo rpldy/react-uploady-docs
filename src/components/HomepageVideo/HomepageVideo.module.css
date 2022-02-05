@@ -25,6 +25,13 @@
     }
 }
 
+@media (min-width: 1200px) {
+    .video {
+        min-width: 900px;
+    }
+}
+
+
 .homeVideoContainer section {
     display: flex;
     justify-content: center;

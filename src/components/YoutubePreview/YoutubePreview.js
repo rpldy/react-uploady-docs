@@ -12,19 +12,25 @@ const YoutubePreview = ({ id, className, embed = true }) => {
 		}
 	};
 
+	const normalImg = `https://i3.ytimg.com/vi/${id}/hqdefault.jpg`,
+		hiResImg = `https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`;
+
 	return (<div className={clsx(styles.preview, className)} onClick={onClick}>
 		<div className={clsx(
 			styles.imgContainer,
 			{
 				[styles.absImg]: isShowingEmbed,
 				[styles.imgPreviewMode]: !isShowingEmbed,
-			}
+			},
 		)}>
-			<img src={`https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`}/>
-			{!isShowingEmbed && <FaYoutube
-				size="10%"
-				fill="red"
-			/>}
+			<picture>
+				<source media="(max-width: 1000px)" srcSet={normalImg}/>
+				<source media="(min-width: 1000px)" srcSet={hiResImg}/>
+				<img src={hiResImg} alt="youtube preview image"/>
+			</picture>
+
+
+			{!isShowingEmbed && <FaYoutube size="10%" fill="red"/>}
 		</div>
 
 		{isShowingEmbed &&

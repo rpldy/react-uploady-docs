@@ -48,3 +48,7 @@ html[data-theme='dark'] .header-npm-version:hover {
     top: 7px;
     position: relative;
 }
+
+.navbar__logo {
+    margin-right: 0;
+}

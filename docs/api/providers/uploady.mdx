@@ -39,8 +39,9 @@ npm install @rpldy/uploady
 | send                 | [SendMethod](#sendMethod) | @rpldy/sender | how to send files to the server |
 | sendWithFormData     | boolean       | true           | upload is sent as part of [formdata](https://developer.mozilla.org/en-US/docs/Web/API/FormData) - when true, additional params can be sent along with uploaded data |
 | formatServerResponse | [FormatServerResponseMethod](#formatserverresponsemethod) | undefined | function to create the batch item's uploadResponse from the raw xhr response |
-| **Uploady Options** |
-| debug                | boolean        | false | enable console logs from uploady packages |
+| clearPendingOnAdd    | [boolean](#clearPendingOnAdd)       | false          | whether to clear pending batch(es) when a new one is added
+| **Uploady Options**  |
+| debug                | boolean       | false | enable console logs from uploady packages |
 | listeners            | Object        | undefined | map of [uploader events](api/uploader#events) name and event handler |
 | customInput          | boolean       | false | whether to use a custom file input (see: [useFileInput](api/hooks/useFileInput) |
 | inputFieldName       | string        | "file"        | name (attribute) of the file input field (requires sendWithFormData = true) |
@@ -176,6 +177,12 @@ If not provided, JSON responses will be parsed using [JSON.parse](https://develo
 Uploady render's a (hidden) file input that is used to show the file selection prompt to the user in order to select local files to upload.
 In almost all cases that is the preferred way and therefore the default. In case you want to use your own file input, this can be achieved by setting the prop to true,
 and using the [useFileInput hook](api/hooks/useFileInput) to pass a ref to the custom element.
+
+### clearPendingOnAdd {#clearPendingOnAdd}
+
+When uploader is set up with `autoUpload = false`, files added (batches) will not automatically upload
+and a call to [upload](./api/uploader#upload) is required.
+Setting this option to true will remove previously added batch(es) and leave only the new one to upload.
 
 ### debug
 

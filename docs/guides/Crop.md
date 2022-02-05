@@ -8,7 +8,7 @@ This is the perfect time to allow the user to crop their image and replace the s
 For this guide, we use [@rpldy/upload-preview](../packages/rpldy-upload-preview) together with the [withRequestPreSendUpdate](../api/hocs/withRequestPreSendUpdate) HOC.
 _upload-preview_ allows us to use a custom preview component and _withRequestPreSendUpdate_ makes it easy to intercept the upload data and change it when we're ready.
 
-Use of upload-preview isn't mandatory of course. It's simply makes it easier as it loads a preview of the uploaded image for us.
+Use of upload-preview isn't mandatory, of course. It simply makes it easier as it loads a preview of the uploaded image for us.
 It also provides the batch item id which is needed for _withRequestPreSendUpdate_.
 
 ## Code

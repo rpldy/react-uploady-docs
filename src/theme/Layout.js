@@ -6,11 +6,11 @@ const UploadyLayout = (props) => {
 	useEffect(() => {
 		console.log(` HELLO
 		
-			 ______                  __          _______       __                __       
-			|   __ |.----.---.-.----| |__ ______|   |   .-----|  .-----.---.-.--|  .--.--.
-			|      |  -__|  _  |  __|   _|______|   |   |  _  |  |  _  |  _  |  _  |  |  |
-			|___|__|_____|___._|____|____|      |_______|   __|__|_____|___._|_____|___  |
-                                                        |__|                       |_____|
+ ______                  __          ___ ___       __                __       
+|   __ |.----.---.-.----| |__ ______|   |   |-----|  .-----.---.-.--|  .--.--.
+|      |  -__|  _  |  __|   _|______|   |   |  _  |  |  _  |  _  |  _  |  |  |
+|___|__|_____|___._|____|____|      |_______|   __|__|_____|___._|_____|___  |
+                                            |__|                       |_____|
 		`);
 	}, []);
 
@@ -30,11 +30,6 @@ const UploadyLayout = (props) => {
 				<link rel="preconnect" href="https://fonts.googleapis.com"/>
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
 				<link rel="preconnect" href="https://i3.ytimg.com" />
-
-				{/*<link*/}
-				{/*	href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap"*/}
-				{/*	rel="stylesheet"*/}
-				{/*/>*/}
 			</Head>
 			<DocusaurusLayout {...props} pageClassName={pageClassName}/>
 		</>;

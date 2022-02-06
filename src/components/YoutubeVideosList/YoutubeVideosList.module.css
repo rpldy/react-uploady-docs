@@ -5,7 +5,12 @@
 }
 
 .videos img {
-    max-width: 300px;
+    /*max-width: 300px;*/
+}
+
+.videos a {
+    min-width: 360px;
+    margin: 0 20px 20px 0;
 }
 
 

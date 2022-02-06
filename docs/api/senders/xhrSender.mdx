@@ -1,6 +1,7 @@
 ---
 id: xhrSender
 title: "xhrSender"
+pagination_label: "xhrSender"
 sidebar_label: "✉️ xhrSender"
 tags: [sender]
 ---
@@ -42,11 +43,11 @@ const mySend = (items, url, sendOptions, onProgress) => {
 	return send(items, url, sendOptions, onProgress);
 };
 
-const myEnhancer = (uploader) => {		
-	
+const myEnhancer = (uploader) => {
+
 	//make uploader use the custom send method
     uploader.update({ send: mySend });
-	
+
 	return uploader;
 };
 

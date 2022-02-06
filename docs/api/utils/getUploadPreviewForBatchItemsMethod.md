@@ -1,6 +1,7 @@
 ---
 id: getUploadPreviewForBatchItemsMethod
 title: "getUploadPreviewForBatchItemsMethod"
+pagination_label: "getUploadPreviewForBatchItemsMethod"
 sidebar_label: "🪛 getUploadPreviewForBatchItemsMethod"
 tags: [utility, preview]
 ---

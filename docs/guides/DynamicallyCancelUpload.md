@@ -1,8 +1,13 @@
+---
+id: "DynamicallyCancelUploads"
+description: "How to dynamically cancel uploads using Uploady and event hook"
+---
+
 # Dynamically Cancel Uploads
 
 It's possible to cancel an upload programmatically using the *_START events.
 
-These events are considered "[Cancellable](../api/events#cancellable-events)".
+These events are considered "[Cancellable](../../api/events#cancellable-events)".
 A cancelleable event can be cancelled when its handler returns _false_
 
 In React you can more easily do this by using hooks but can also do this by registering event callbacks.
@@ -54,7 +59,7 @@ const MyUploadButton = () => {
 
 ### Cancel Upload using event listener
 
-Event hooks are convenience helpers around [Uploader events](../api/uploader#events)
+Event hooks are convenience helpers around [Uploader events](../../api/uploader#events)
 
 Event handlers can be passed to the Uploady instance and can also cancel uploads programmatically.
 

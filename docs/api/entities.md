@@ -22,7 +22,7 @@ type Batch = {
 };
 ```
 
-See [BATCH_STATES](constants#batchStates) 
+See [BATCH_STATES](../constants#batchStates) 
 
 ## FileLike
 
@@ -64,4 +64,4 @@ interface BatchFile extends BatchItemBase {
 
 ```
 
-See [FILE_STATES](constants#fileStates) 
+See [FILE_STATES](../constants#fileStates) 

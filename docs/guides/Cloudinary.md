@@ -1,4 +1,5 @@
 ---
+id: Cloudinary
 description: "Examples on how to use React-Uploady with the Cloudinary service"
 ---
 

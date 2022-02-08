@@ -23,10 +23,10 @@ Typically, only once instance of Uploady should be enough for an application.
 
 Rendering Uploady does three main things:
 
-- Create an instance of the [uploader](../api/uploader) object,
-which manages the actual upload data and passes it to the configured [sender](../getting-started/concepts#sender).
+- Create an instance of the [uploader](../../api/uploader) object,
+which manages the actual upload data and passes it to the configured [sender](../../getting-started/concepts#sender).
 
-- Create a [UploadyContext](../api/context) (Reactjs [context](https://reactjs.org/docs/context.html)) instance.
+- Create a [UploadyContext](../../api/context) (Reactjs [context](https://reactjs.org/docs/context.html)) instance.
 
 - Render a (hidden) file input element will to the page. This element will be used to show the file chooser prompt to the user.
 
@@ -55,34 +55,34 @@ const App = () => (
 
 ## Exports
 
-* [Uploady](../api)
-* [useFileInput](../api/hooks/useFileInput)
-* [useBatchAddListener](../api/hooks/useBatchAddListener)
-* [useBatchStartListener](../api/hooks/useBatchStartListener)
-* [useBatchProgressListener](../api/hooks/useBatchProgressListener)
-* [useBatchFinishListener](../api/hooks/useBatchFinishListener)
-* [useBatchCancelledListener](../api/hooks/useBatchCancelledListener)
-* [useBatchAbortListener](../api/hooks/useBatchAbortListener)
-* [useBatchErrorListener](../api/hooks/useBatchErrorListener)
-* [useBatchFinalizeListener](../api/hooks/useBatchFinalizeListener)
-* [useItemStartListener](../api/hooks/useItemStartListener)
-* [useItemFinishListener](../api/hooks/useItemFinishListener)
-* [useItemProgressListener](../api/hooks/useItemProgressListener)
-* [useItemCancelListener](../api/hooks/useItemCancelListener)
-* [useItemErrorListener](../api/hooks/useItemErrorListener)
-* [useItemAbortListener](../api/hooks/useItemAbortListener)
-* [useItemFinalizeListener](../api/hooks/useItemFinalizeListener)
-* [useUploadOptions](../api/hooks/useUploadOptions)
-* [useAbortItem](../api/hooks/useAbortItem)
-* [useAbortBatch](../api/hooks/useAbortBatch)
-* [useAbortAll](../api/hooks/useAbortAll)
-* [useUploader](../api/hooks/useUploader)
-* [BATCH_STATES](../api/constants#batchStates)
-* [FILE_STATES](../api/constants#fileStates)
+* [Uploady](../../api)
+* [useFileInput](../../api/hooks/useFileInput)
+* [useBatchAddListener](../../api/hooks/useBatchAddListener)
+* [useBatchStartListener](../../api/hooks/useBatchStartListener)
+* [useBatchProgressListener](../../api/hooks/useBatchProgressListener)
+* [useBatchFinishListener](../../api/hooks/useBatchFinishListener)
+* [useBatchCancelledListener](../../api/hooks/useBatchCancelledListener)
+* [useBatchAbortListener](../../api/hooks/useBatchAbortListener)
+* [useBatchErrorListener](../../api/hooks/useBatchErrorListener)
+* [useBatchFinalizeListener](../../api/hooks/useBatchFinalizeListener)
+* [useItemStartListener](../../api/hooks/useItemStartListener)
+* [useItemFinishListener](../../api/hooks/useItemFinishListener)
+* [useItemProgressListener](../../api/hooks/useItemProgressListener)
+* [useItemCancelListener](../../api/hooks/useItemCancelListener)
+* [useItemErrorListener](../../api/hooks/useItemErrorListener)
+* [useItemAbortListener](../../api/hooks/useItemAbortListener)
+* [useItemFinalizeListener](../../api/hooks/useItemFinalizeListener)
+* [useUploadOptions](../../api/hooks/useUploadOptions)
+* [useAbortItem](../../api/hooks/useAbortItem)
+* [useAbortBatch](../../api/hooks/useAbortBatch)
+* [useAbortAll](../../api/hooks/useAbortAll)
+* [useUploader](../../api/hooks/useUploader)
+* [BATCH_STATES](../../api/constants#batchStates)
+* [FILE_STATES](../../api/constants#fileStates)
 
 
 ## Related Topics
 
-* [chunked-uploady](rpldy-chunked-uploady)
-* [tus-uploady](rpldy-tus-uploady)
-* [Different Configuration Guide](../guides/DifferentConfiguration)
+* [chunked-uploady](../rpldy-chunked-uploady)
+* [tus-uploady](../rpldy-tus-uploady)
+* [Different Configuration Guide](../../guides/DifferentConfiguration)

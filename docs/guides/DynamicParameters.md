@@ -1,10 +1,15 @@
+---
+id: "DynamicParameters"
+description: "How to dynamically add parameters that will be sent with the upload"
+---
+
 # Dynamic Parameters
 
 Uploady allows you to inject upload related parameters/options dynamically.
 This is useful when different headers or parameters are needed based on the uploaded data.
 
-The relevant event for this is: [REQUEST_PRE_SEND](../api/uploader#uploader_eventsrequest_pre_send) and the relevant hook: 
-[useRequestPreSend](../api/hooks/useRequestPreSend).
+The relevant event for this is: [REQUEST_PRE_SEND](../../api/uploader#uploader_eventsrequest_pre_send) and the relevant hook: 
+[useRequestPreSend](../../api/hooks/useRequestPreSend).
 
 The handler (event or hook) receives an object:  _{items, options}_
 
@@ -15,7 +20,7 @@ The array will contain more than one item when grouping is configured (by defaul
 
 The _options_ object contains the upload options attached to the batch the items belong to.
 Options related to the upload can be changed, for example destination headers or params.
-See Upload Options [documentation](../api#props). 
+See Upload Options [documentation](../../api#props). 
 
 The handler should return an object with either _items_ or _options_ or both,
 in case a change was made. In case no change/addition was made the handler doesnt have to return anything.

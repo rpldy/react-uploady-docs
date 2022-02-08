@@ -1,3 +1,8 @@
+---
+id: "UploadQueue"
+description: "How to build an uploading queue UI"
+---
+
 # Upload Queue
 
 > A more detailed demo with code can be found in this post: [hooked on file uploads with react-uploady](https://dev.to/poeticgeek/hooked-on-file-uploads-with-react-uploady-3h0j) and here: [React Uploady with Ant Design ](https://dev.to/poeticgeek/react-uploady-with-ant-design-dja)

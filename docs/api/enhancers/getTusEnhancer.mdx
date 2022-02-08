@@ -8,7 +8,7 @@ tags: [enhancer, resumable, tus]
 
 ## Package
 
-- **_[@rpldy/chunked-sender](../../packages/rpldy-chunked-sender)_**
+- **_[@rpldy/chunked-sender](../../../packages/rpldy-chunked-sender)_**
 
 ## Installation
 
@@ -22,15 +22,15 @@ npm install @rpldy/chunked-sender
 type getTusEnhancer = (options: TusOptions) => UploaderEnhancer;
 ```
 
-- See: [TusOptions](../types#tusoptions)
-- See: [UploaderEnhancer](../types#uploaderenhancer)
+- See: [TusOptions](../../types#tusoptions)
+- See: [UploaderEnhancer](../../types#uploaderenhancer)
 
-Creates an uploader enhancer that can be handed to the [Uploady](..) (using the [enhancer prop](..#enhancer)),
-or to the [uploader](../uploader).
+Creates an uploader enhancer that can be handed to the [Uploady](../..) (using the [enhancer prop](../..#enhancer)),
+or to the [uploader](../../uploader).
 
 :::caution
 When using React, there's typically no need to use this enhancer directly.
-Using [Tus-Uploady](../providers/tus-uploady) will do this for you automatically.
+Using [Tus-Uploady](../../providers/tus-uploady) will do this for you automatically.
 :::
 
 ## Options

@@ -6,19 +6,19 @@ description: "Important concepts to learn about when using React-Uploady. Explai
 
 ### Upload Options
 
-These are the options that are passed to the [uploader](../api/uploader) to configure aspects of the upload process.
+These are the options that are passed to the [uploader](../../api/uploader) to configure aspects of the upload process.
 For example, whether files can be grouped in a single request (by default, no).
 
-Upload Options are typically passed to the [Uploady](../api) instance. But these can be overriden. 
-For example, by props passed to the [upload button](../api/components/uploadButton).
-Or even during [upload processing](../guides/DynamicParameters.md).
+Upload Options are typically passed to the [Uploady](../../api) instance. But these can be overriden. 
+For example, by props passed to the [upload button](../../api/components/uploadButton).
+Or even during [upload processing](../../guides/DynamicParameters).
 
 ### Destination
 
 Passed as a part of the upload options. It's an object that is used to configure the end-point where the files will be uploaded to.
 Its type is defined [here](https://github.com/rpldy/react-uploady/blob/master/packages/core/shared/types/index.d.ts#L1).
 
-See more information in the [Uploady](../api#props) section.
+See more information in the [Uploady](../../api#props) section.
 
 At the very least, a destination should contain a URL property with the server endpoint.
 
@@ -31,28 +31,28 @@ Sender should be able to supply progress information and an abort method to the 
 
 By default, an XHR sender is used.
 
-However, other senders can be configured. This is typically done using the [send prop](../api#send) passed to Uploady
+However, other senders can be configured. This is typically done using the [send prop](../../api#send) passed to Uploady
 or when initializing the uploader.
 
 ### Enhancer
 
-See: [UploaderEnhancer](../api/types#uploaderenhancer)
+See: [UploaderEnhancer](../../api/types#uploaderenhancer)
 
 Enhancers are functions that can enhance an uploader instance. They are also passed as part of the options given to the Uploady instance.
 
 As they are applied when the uploader instance is created, they can change the way uploader does things or pass different defaults.
 
-See this [guide](../guides/UploaderEnhancers.md) for practical information and sample code.
+See this [guide](../../guides/UploaderEnhancers) for practical information and sample code.
 
 ### Batch
 
 When a file or files are handed over to the uploader, they are considered to be a batch.
-This batch will have its own lifetime [events](../api/uploader#batch-events).
+This batch will have its own lifetime [events](../../api/uploader#batch-events).
 
 ### BatchItem
 
 Each file (or URL) added to the uploader are wrapped by a BatchItem object. They will have a unique ID within the life-time of the uploader instance.
-A BatchItem has its own lifetime [events](../api/uploader#batch-item-events).
+A BatchItem has its own lifetime [events](../../api/uploader#batch-item-events).
 
 ### Events
 
@@ -70,11 +70,11 @@ With a batch ID, it is possible to abort all files that are part of it.
 
 It is also possible to abort all files currently uploading.
 
-See the [Upload Queue Guide](../guides/UploadQueue.md) for examples. 
+See the [Upload Queue Guide](../../guides/UploadQueue) for examples. 
 
 ### Retry
 
 When a file is marked as failed (error) or cancelled (abort), it is possible to retry the upload using the appropriate method.
 
 Retrying can be done on a single item, batch, or all failed uploads.
-Ssee [@rpldy/retry](../packages/rpldy-retry).
+Ssee [@rpldy/retry](../../packages/rpldy-retry).

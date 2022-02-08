@@ -9,7 +9,7 @@ Registering to handle events can be done using the uploader's _on()_ and _once()
 Unregistering can be done using _off()_ or by calling the return value (function) of both _on()_ and _once()_.
 
 :::info
-See UPLOADER_EVENTS in [constants](constants#uploaderEvents)
+See UPLOADER_EVENTS in [constants](../constants#uploaderEvents)
 :::
 
 ```javascript
@@ -64,7 +64,7 @@ Triggered in case batch was cancelled from BATCH_START event handler
 
 `Parameters`: _(batch: Batch)_
 
-Triggered in case the batch was [aborted](uploader#abortBatch)
+Triggered in case the batch was [aborted](../uploader#abortBatch)
 
 ### BATCH_ERROR {#batchError}
 
@@ -137,7 +137,7 @@ The server response can be accessed through the item's uploadResponse property.
 
 `Parameters`: _(item: BatchItem)_
 
-Triggered in case [abort](uploader#abort) was called
+Triggered in case [abort](../uploader#abort) was called
 
 ### ITEM_FINALIZE {#itemFinalize}
 
@@ -159,7 +159,7 @@ Group will contain a single item unless "grouped" option is set to true.
 
 Handler receives the item(s) in the group and the upload options that were used.
 The handler can change data inside the items and in the options by returning different data than received.
-See this [guide](../guides/DynamicParameters.md) for more details.
+See this [guide](../../guides/DynamicParameters) for more details.
 
 :::info
 This event is _[cancellable](#cancellable-events)_
@@ -196,7 +196,7 @@ uploader.on(UPLOADER_EVENTS.ITEM_START, (item) => {
 
 Triggered when a chunk begins uploading as part of a chunked upload
 
-- See: [ChunkStartEventData](types#chunkstarteventdata)
+- See: [ChunkStartEventData](../types#chunkstarteventdata)
 
 ### CHUNK_FINISH {#chunkFinish}
 
@@ -204,7 +204,7 @@ Triggered when a chunk begins uploading as part of a chunked upload
 
 Triggered when a chunk finishes uploading as part of a chunked upload
 
-- See: [ChunkFinishEventData](types#chunkfinisheventdata)
+- See: [ChunkFinishEventData](../types#chunkfinisheventdata)
 
 ## RETRY_EVENT {#retryEvent}
 

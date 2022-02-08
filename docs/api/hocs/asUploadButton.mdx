@@ -8,7 +8,7 @@ tags: [hoc, component]
 
 ## Package
 
-**_[@rpldy/upload-button](../../packages/rpldy-upload-button)_**
+**_[@rpldy/upload-button](../../../packages/rpldy-upload-button)_**
 
 ## Installation
 
@@ -33,12 +33,12 @@ export interface UploadButtonProps extends ButtonProps, UploadOptions {}
 type asUploadButton = <T>(component: React.ForwardRefExoticComponent<T> | React.ComponentType<T>) => React.FC<UploadButtonProps>;
 ```
 
-- See: [UploadOptions](../types#uploadoptions)
+- See: [UploadOptions](../../types#uploadoptions)
 
 In case you want to use your own component as the upload trigger, use the asUploadButton HOC.
 
 The props that the new component (returned by HOC) are the same as described in
-the [Upload Button Props table](../components/uploadButton#props).
+the [Upload Button Props table](../../components/uploadButton#props).
 In order to pass props to the wrapped component, use the `extraProps` prop.
 
 ## Example

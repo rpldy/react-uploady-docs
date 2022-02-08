@@ -8,7 +8,7 @@ tags: [hoc, paste]
 
 ## Package
 
-**_[@rpldy/upload-paste](../../packages/rpldy-upload-paste)_**
+**_[@rpldy/upload-paste](../../../packages/rpldy-upload-paste)_**
 
 ## Installation
 
@@ -26,9 +26,9 @@ type withPasteUpload =
     <T>(component: React.ForwardRefExoticComponent<T> | React.ComponentType<T>) => React.FC<PasteProps>;
 ```
 
-- See: [PasteUploadHandler](../types#pasteuploadhandler)
-- See: [PasteCompProps](../types#pastecompprops)
-- See: [UploadOptions](../types#uploadoptions)
+- See: [PasteUploadHandler](../../types#pasteuploadhandler)
+- See: [PasteCompProps](../../types#pastecompprops)
+- See: [UploadOptions](../../types#uploadoptions)
 
 A HOC that turns the wrapped component into a paste target.
 Meaning, when user focuses and pastes, will pass the files (if there are any) from the clipboard to be uploaded.
@@ -42,7 +42,7 @@ Meaning, when user focuses and pastes, will pass the files (if there are any) fr
 | children       | React.Node        | undefined | child element(s) to render inside the button (replaces text)|
 | extraProps     | Object            | undefined | any other props to pass to the wrapped component (with spread)|
 | ref            | React ref         | undefined | will be passed to the button element to acquire a ref|
-| onPasteUpload  | [PasteUploadHandler](../types#pasteuploadhandler) | undefined | function called when paste to upload occurs|
+| onPasteUpload  | [PasteUploadHandler](../../types#pasteuploadhandler) | undefined | function called when paste to upload occurs|
 
 
 ## Example

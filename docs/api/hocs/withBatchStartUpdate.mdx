@@ -8,7 +8,7 @@ tags: [hoc, event]
 
 ## Package
 
-**_[@rpldy/uploady](../../packages/rpldy-uploady)_**
+**_[@rpldy/uploady](../../../packages/rpldy-uploady)_**
 
 ## Installation
 
@@ -36,7 +36,7 @@ within the batch before a single request is made.
 For example: cropping multiple items prior to upload.
 
 When rendering the HOC's output, the id of the batch must be provided as a prop.
-The id of the batch can be obtained from the [useBatchAddListener](../hooks/usebatchaddlistener)
+The id of the batch can be obtained from the [useBatchAddListener](../../hooks/usebatchaddlistener)
 
 ```javascript
     import React, { useState, useCallback } from "react";
@@ -88,7 +88,7 @@ The id of the batch can be obtained from the [useBatchAddListener](../hooks/useb
                         return item;
                     });
 
-				//update the items in the batch with the cropped files
+								//update the items in the batch with the cropped files
                 updateRequest({ items: readyItems });
             }
         };
@@ -136,4 +136,4 @@ The id of the batch can be obtained from the [useBatchAddListener](../hooks/useb
     };
 ```
 
-See the [Multi Crop Guide](../../guides/MultiCrop.md) for a full example.
+See the [Multi Crop Guide](../../../guides/MultiCrop) for a full example.

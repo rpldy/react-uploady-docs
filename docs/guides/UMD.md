@@ -1,3 +1,8 @@
+---
+id: "UMD"
+description: "Using Uploady from a CDN without npm"
+---
+
 # UMD
 
 In case you're not using webpack, rollup, etc, to bundle your app and you need access to react-uploady functionality, 

@@ -8,7 +8,7 @@ tags: [hook, event, chunk, cancellable]
 
 ## Package
 
-**_[@rpldy/chunked-uploady](../../packages/rpldy-chunked-uploady)_**
+**_[@rpldy/chunked-uploady](../../../packages/rpldy-chunked-uploady)_**
 
 ## Installation
 
@@ -28,17 +28,17 @@ type StartEventResponse = void | boolean | {
 type useChunkStartListener = (cb: (data: ChunkStartEventData ) => StartEventResponse) => void;
 ```
 
-- See: [ChunkStartEventData](../types#chunkstarteventdata)
-- See: [SendOptions](../types#sendoptions)
+- See: [ChunkStartEventData](../../types#chunkstarteventdata)
+- See: [SendOptions](../../types#sendoptions)
 
 :::note
-Event Hook - [CHUNK_START](../events#chunkStart)
+Event Hook - [CHUNK_START](../../events#chunkStart)
 :::
 
 Called when a chunk begins uploading as part of a chunked upload
 
 :::info
-This event is _[cancellable](../events#cancellable-events)_
+This event is _[cancellable](../../events#cancellable-events)_
 :::
 
 ## Example

@@ -8,7 +8,7 @@ tags: [hook, event, batchItem, cancellable]
 
 ## Package
 
-**_[@rpldy/uploady](../../packages/rpldy-uploady)_**
+**_[@rpldy/uploady](../../../packages/rpldy-uploady)_**
 
 ## Installation
 
@@ -23,11 +23,11 @@ type useRequestPreSend = (cb: (data: PreSendData) =>
     PreSendResponse | boolean | Promise<PreSendResponse | boolean> | Promise<boolean>) => void;
 ```
 
-- See: [PreSendResponse](../types#presendresponse)
-- See: [PreSendData](../types#presenddata)
+- See: [PreSendResponse](../../types#presendresponse)
+- See: [PreSendData](../../types#presenddata)
 
 :::note
-Event Hook - [BATCH-START](../events#batchStart)
+Event Hook - [BATCH-START](../../events#batchStart)
 :::
 
 Called before a group of items is going to be uploaded
@@ -35,10 +35,10 @@ Group will contain a single item unless "grouped" option is set to true (default
 
 Handler receives the item(s) in the group and the upload options that were used.
 The handler can change data inside the items and in the options by returning different data than received.
-See simple example below or this more detailed [guide](../../guides/DynamicParameters.md).
+See simple example below or this more detailed [guide](../../../guides/DynamicParameters).
 
 :::info
-This event is _[cancellable](../events#cancellable-events)_
+This event is _[cancellable](../../events#cancellable-events)_
 :::
 
 ```javascript

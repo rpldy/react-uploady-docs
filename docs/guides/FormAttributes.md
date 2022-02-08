@@ -1,7 +1,12 @@
+---
+id: "FormAttributes"
+description: "Using form attributes to configure Uploady"
+---
+
 # Form Attributes
 
 By default, Uploady wil create its own file input which will be used internally for file uploads from the user's file system.
-In this case, the way to tell Uploady where to upload files to is by setting the [Destination](../getting-started/concepts.md#destination) upload option.
+In this case, the way to tell Uploady where to upload files to is by setting the [Destination](../../getting-started/concepts#destination) upload option.
 
 If, however, you wish to use an existing file input, that is also an option.
 Furthermore, when using your file input and not passing a destination, Uploady will check if the input element resides in a form element.

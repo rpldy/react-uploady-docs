@@ -1,6 +1,11 @@
+---
+id: "RetryFailedUploads"
+description: "Enable upload retries for failed requests using Uploady"
+---
+
 # Retry Failed Uploads
 
-[@rpldy/retry](../packages/rpldy-retry) and its React counter part: [@rpldy/retry-hooks](../packages/rpldy-retry-hooks)
+[@rpldy/retry](../../packages/rpldy-retry) and its React counterpart: [@rpldy/retry-hooks](../../packages/rpldy-retry-hooks)
 provide retry functionality for failed uploads. 
 
 There are 3 retry flavors: retry all, retry batch, and retry item.

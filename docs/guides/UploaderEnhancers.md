@@ -1,11 +1,16 @@
+---
+id: "UploaderEnhancers"
+description: "Learn about Uploady Enhancers and how to use them"
+---
+
 # Uploader Enhancers
 
 Upload Enhancers are the way to extend the Uploader with custom functionality.
 
 Current examples of their use can be found in these packages:
 
-- [@rpldy/retry](../packages/rpldy-retry)
-- [@rpldy/chunked-sender](../packages/rpldy-chunked-sender)
+- [@rpldy/retry](../../packages/rpldy-retry)
+- [@rpldy/chunked-sender](../../packages/rpldy-chunked-sender)
 
 Enhancers receive an instance of the Uploader and may change its options (or modify it - not recommended).
 They can also handle events and register [extensions](#extensions)

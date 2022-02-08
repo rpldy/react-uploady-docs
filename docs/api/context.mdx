@@ -5,7 +5,7 @@ title: Uploady Context
 
 ## Package
 
-**_[@rpldy/uploady](../packages/rpldy-uploady)_**
+**_[@rpldy/uploady](../../packages/rpldy-uploady)_**
 
 ## Installation
 
@@ -16,10 +16,10 @@ npm install @rpldy/uploady
 ## Details
 
 When working in React, The UploadyContext is the [API](#api) provider for the uploader mechanism.
-It wraps the [uploader](uploader) and exposes everything the app using it needs.
+It wraps the [uploader](../uploader) and exposes everything the app using it needs.
 
 
-Accessing the Context API should be done using the [useUploady](hooks/useUploady) hook.
+Accessing the Context API should be done using the [useUploady](../hooks/useUploady) hook.
 
 ```javascript
 import { useUploady } from "@rpldy/uploady";
@@ -92,19 +92,19 @@ abort a specific batch by its ID
 
 _(name: any, cb: EventCallback) => OffMethod_
 
-register for an [event](uploader#events)
+register for an [event](../uploader#events)
 
 ### once
 
 _(name: any, cb: EventCallback) => OffMethod_
 
-register **once** for an [event](uploader#events)
+register **once** for an [event](../uploader#events)
 
 ### off
 
 _(name: any, cb?: EventCallback) => void_
 
-unregister an [event](uploader#events) handler
+unregister an [event](../uploader#events) handler
 
 ## Example
 

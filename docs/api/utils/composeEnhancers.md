@@ -8,8 +8,8 @@ tags: [enhancer, utility]
 
 ## Package
 
-- **_[@rpldy/uploady](../../packages/rpldy-uploady)_**
-- **_[@rpldy/uploader](../../packages/rpldy-uploader)_**
+- **_[@rpldy/uploady](../../../packages/rpldy-uploady)_**
+- **_[@rpldy/uploader](../../../packages/rpldy-uploader)_**
 
 ## Installation
 

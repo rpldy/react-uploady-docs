@@ -1,3 +1,8 @@
+---
+id: "CustomInput"
+description: "How to use your own custom input element with Uploady"
+---
+
 # Custom Input
 
 At times, you may wish to have complete control over the [file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file) Uploady uses to initiate the file selector.

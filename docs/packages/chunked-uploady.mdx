@@ -13,17 +13,17 @@ npm install @rpldy/chunked-uploady
 
 ## Details
 
-This package is provided as a convenient alternative to the main [Uploady](rpldy-uploady) package.
+This package is provided as a convenient alternative to the main [Uploady](../rpldy-uploady) package.
 To be used in case chunked upload is required.
 
 The server that is accepting the upload must also support chunked uploads.
 The original file is broken down into smaller blobs, which are sent in different requests.
 Each request is sent with the _Content-Range_ header to specify the bytes range.
 
-Internally, _ChunkedUploady_ uses [@rpldy/chunked-sender](rpldy-chunked-sender) instead of the default (XHR) sender.
+Internally, _ChunkedUploady_ uses [@rpldy/chunked-sender](../rpldy-chunked-sender) instead of the default (XHR) sender.
 
-_Chunked-Sender_, doesn't support grouped uploads (see Upload Options [documentation](../api#props)) or URL uploading.
-These will be handed over to the default [@rpldy/sender](rpldy-sender).
+_Chunked-Sender_, doesn't support grouped uploads (see Upload Options [documentation](../../api#props)) or URL uploading.
+These will be handed over to the default [@rpldy/sender](../rpldy-sender).
 
 In case the browser doesn't support chunking (blob slicing), the default sender will be used as well.
 
@@ -48,19 +48,19 @@ const App = () => (
 
 ## Exports
 
-* [ChunkedUploady](../api/providers/chunked-uploady)
-* [useChunkStartListener](../api/hooks/useChunkStartListener)
-* [useChunkFinishListener](../api/hooks/useChunkFinishListener)
-* [CHUNK_EVENTS](../api/events#chunk-events)
-* [ChunkedUploadyProps](../api/types#chunkeduploadyprops)
+* [ChunkedUploady](../../api/providers/chunked-uploady)
+* [useChunkStartListener](../../api/hooks/useChunkStartListener)
+* [useChunkFinishListener](../../api/hooks/useChunkFinishListener)
+* [CHUNK_EVENTS](../../api/events#chunk-events)
+* [ChunkedUploadyProps](../../api/types#chunkeduploadyprops)
 
 :::info
-Plus all the exports from [uploady](rpldy-uploady)
+Plus all the exports from [uploady](../rpldy-uploady)
 :::
 
 ## Related Topics
 
-* [@rpldy/chunked-sender](rpldy-chunked-sender)
-* [@rpldy/uploady](rpldy-uploady)
-* [@rpldy/tus-uploady](rpldy-tus-uploady)
-* [Cloudinary Guide](../guides/Cloudinary#chunked-uploads)
+* [@rpldy/chunked-sender](../rpldy-chunked-sender)
+* [@rpldy/uploady](../rpldy-uploady)
+* [@rpldy/tus-uploady](../rpldy-tus-uploady)
+* [Cloudinary Guide](../../guides/Cloudinary#chunked-uploads)

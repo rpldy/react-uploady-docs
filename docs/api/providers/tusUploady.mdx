@@ -8,7 +8,7 @@ tags: [provider, tus, resumable]
 
 ## Package
 
-**_[@rpldy/tus-uploady](../../packages/rpldy-tus-uploady)_**
+**_[@rpldy/tus-uploady](../../../packages/rpldy-tus-uploady)_**
 
 ## Installation
 
@@ -33,11 +33,11 @@ npm install @rpldy/tus-uploady
 | forgetOnSuccess   | boolean | false | whether to remove URL from localStorage when upload finishes successfully|
 | ignoreModifiedDateInStorage   | boolean   | false     | ignore File's modified date when creating key for storage|
 
-In addition, all [UploadOptions](../types#uploadoptions) props can be passed to ChunkedUploady.
+In addition, all [UploadOptions](../../types#uploadoptions) props can be passed to ChunkedUploady.
 
-See [Uploady documentation](..#props) for detailed list of upload options.
+See [Uploady documentation](../../..#props) for detailed list of upload options.
 
-All [chunked-sender options](../enhancers/getChunkedEnhancer#options) are supported as well
+All [chunked-sender options](../../enhancers/getChunkedEnhancer#options) are supported as well
 
 :::note
 Params prop that is set on the Destination or upload options is serialized (encoded according to Tus protocol) and sent as the value of the Upload-Metadata header.

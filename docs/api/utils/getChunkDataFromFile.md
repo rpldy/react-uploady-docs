@@ -8,7 +8,7 @@ tags: [chunk, utility]
 
 ## Package
 
-- **_[@rpldy/chunked-sender](../../packages/rpldy-chunked-sender)_**
+- **_[@rpldy/chunked-sender](../../../packages/rpldy-chunked-sender)_**
 
 
 ## Installation

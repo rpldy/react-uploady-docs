@@ -8,7 +8,7 @@ tags: [hook, event, batch, cancellable]
 
 ## Package
 
-**_[@rpldy/uploady](../../packages/rpldy-uploady)_**
+**_[@rpldy/uploady](../../../packages/rpldy-uploady)_**
 
 ## Installation
 
@@ -23,22 +23,22 @@ type BatchStartHook = (cb: (batch: Batch, options: CreateOptions) =>
     { items?: BatchItem[]; options?: CreateOptions } | boolean | void) => void;
 ```
 
-- See: [CreateOptions](../types#createoptions)
-- See: [Batch Entity](../entities#batch)
+- See: [CreateOptions](../../types#createoptions)
+- See: [Batch Entity](../../entities#batch)
 
 :::note
-Event Hook - [BATCH-START](../events#batchStart)
+Event Hook - [BATCH-START](../../events#batchStart)
 :::
 
 Called when batch items start uploading
 
 The callback passed to the hook may also return an object containing items and/or options
-in order to update the request dynamically, similar to [useRequestPreSend](useRequestPreSend) only for the entire batch.
-See [withBatchStartUpdate](../hocs/withBatchStartUpdate) HOC below for more details.
+in order to update the request dynamically, similar to [useRequestPreSend](../useRequestPreSend) only for the entire batch.
+See [withBatchStartUpdate](../../hocs/withBatchStartUpdate) HOC below for more details.
 
 
 :::info
-This event is _[cancellable](../events#cancellable-events)_
+This event is _[cancellable](../../events#cancellable-events)_
 :::
 
 :::info

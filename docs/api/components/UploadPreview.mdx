@@ -8,7 +8,7 @@ tags: [component, preview]
 
 ## Package
 
-**_[@rpldy/upload-preview](../../packages/rpldy-upload-preview)_**
+**_[@rpldy/upload-preview](../../../packages/rpldy-upload-preview)_**
 
 ## Installation
 
@@ -32,8 +32,8 @@ Must be rendered inside (child/descendant) of an Uploady instance
 | maxPreviewImageSize  | number        | 2e+7          | maximum size of image to preview|
 | maxPreviewVideoSize  | number        | 1e+8          | maximum size of video to preview|
 | fallbackUrl          | string &#124; [FallbackMethod](#fallbackurl) | undefined | static URL or function that returns fallback in case failed to load preview or when file over max size|
-| imageMimeTypes       | string[]      | [see list](../../packages/rpldy-upload-preview#supported-image-types) | image mime types to load preview for |
-| videoMimeTypes       | string[]      | [see list](../../packages/rpldy-upload-preview#supported-video-types) | video mime types to load preview for |
+| imageMimeTypes       | string[]      | [see list](../../../packages/rpldy-upload-preview#supported-image-types) | image mime types to load preview for |
+| videoMimeTypes       | string[]      | [see list](../../../packages/rpldy-upload-preview#supported-video-types) | video mime types to load preview for |
 | previewComponentProps | [PreviewComponentPropsOrMethod](#previewcomponentprops) | undefined | object or function to generate object as additional props for the preview component|
 | PreviewComponent      | React.ComponentType&lt;any&gt; | img &#124; video | The component that will show the preview|
 | rememberPreviousBatches | boolean | false | show previous batches' previews as opposed to just the last |
@@ -51,8 +51,8 @@ type FallbackType = string | PreviewData;
 type FallbackMethod = (file: FileLike) => FallbackType | void;
 ```
 
-- See: [PreviewData](../types#previewdata)
-- See: [FileLike](../entities#filelike)
+- See: [PreviewData](../../types#previewdata)
+- See: [FileLike](../../entities#filelike)
 
 
 ### previewComponentProps
@@ -63,8 +63,8 @@ type PreviewComponentPropsMethod = (item: BatchItem, url: string, type: PreviewT
 type PreviewComponentPropsOrMethod = Record<string, unknown> | PreviewComponentPropsMethod;
 ```
 
-- See: [PreviewType](../constants#previewTypes)
-- See: [BatchItem](../entities#batchitem)
+- See: [PreviewType](../../constants#previewTypes)
+- See: [BatchItem](../../entities#batchitem)
 
 
 ### previewMethodsRef
@@ -83,7 +83,7 @@ It will reset the item previews shown.
 The props _rememberPreviousBatches_, _previewMethodsRef_, and _onPreviewsChanged_ make it possible to do more with previews.
 Specifically, the make it possible to create a visual queue of the uploads.
 
-This is especially useful when adding other features such as abort and [retry](../../packages/rpldy-retry-hooks).
+This is especially useful when adding other features such as abort and [retry](../../../packages/rpldy-retry-hooks).
 
 The code below shows how to clear the previews with a button click:
 

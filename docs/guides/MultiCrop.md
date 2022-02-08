@@ -1,14 +1,19 @@
+---
+id: "MultiCrop"
+description: "Crop multiple images before uploading using Uploady"
+---
+
 # Multi Crop
 
 This guide shows how to implement cropping for all images in a batch. Unlike the [Crop](Crop.md) guide that shows how to do crop for a single image request.
 
-After the user chooses the files to upload, the [BATCH_START](../api/events#batchStart) event can be used to augment/change the data that will be sent to the server.
+After the user chooses the files to upload, the [BATCH_START](../../api/events#batchStart) event can be used to augment/change the data that will be sent to the server.
 This is the perfect time to allow the user to crop their images and replace the selected files with the crop action result.
 
-For this guide, we use [@rpldy/upload-preview](../packages/rpldy-upload-preview) together with the [withBatchStartUpdate](../api/hocs/withBatchStartUpdate) HOC.
+For this guide, we use [@rpldy/upload-preview](../../packages/rpldy-upload-preview) together with the [withBatchStartUpdate](../../api/hocs/withBatchStartUpdate) HOC.
 _upload-preview_ allows us to use a custom preview component and _withBatchStartUpdate_ makes it easy to intercept the upload data and change it when we're ready.
 
-In the example below, to get the batch ID and pass it to `withBatchStartUpdate` we use the [useBatchAddListener](../api/hooks/useBatchAddListener) event hook.
+In the example below, to get the batch ID and pass it to `withBatchStartUpdate` we use the [useBatchAddListener](../../api/hooks/useBatchAddListener) event hook.
 We also hide the upload button while a batch is in progress so user can't add more files until the current batch is uploaded for simplicity's sake.
 This is done to simplify the example. It is possible to make this code work for multiple batches or at least to allow selection while upload is in progress.
 This is outsude the scope of this guide.
@@ -164,7 +169,7 @@ const CropperForMultiCrop = ({ item, url, setCropForItem }) => {
 This is the main component of the example. It uses the `withBatchStartUpdate` HOC. This gives it access to the items
 being uploaded and to the `updateRequest` method, which is how we update the data before it's passed to the sender.
 
-We also mark the item as cropped and finished ([useItemFinalizeListener](../api/hooks/useItemFinalizeListener) event hook) according to the data we have. 
+We also mark the item as cropped and finished ([useItemFinalizeListener](../../api/hooks/useItemFinalizeListener) event hook) according to the data we have. 
 
 ```jsx
 const BatchCrop = withBatchStartUpdate((props) => {
@@ -227,7 +232,7 @@ const BatchCrop = withBatchStartUpdate((props) => {
 
 ### Multi Crop Queue
 
-The MultiCropQueue component kicks things off by using the [useBatchAddListener](../api/hooks/useBatchAddListener) event hook.
+The MultiCropQueue component kicks things off by using the [useBatchAddListener](../../api/hooks/useBatchAddListener) event hook.
 Once a batch as added, we can listen to its start event. This is done by the `withBatchStartUpdate` HOC and our component (BatchCrop) component it wraps.
 
 Finally, our App component just needs to render everything inside an Uploady instance, and we're good to go.

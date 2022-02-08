@@ -6,7 +6,7 @@ tags: [event, batch, batchItem]
 
 ## Package
 
-**_[@rpldy/uploader](../packages/rpldy-uploader)_**
+**_[@rpldy/uploader](../../packages/rpldy-uploader)_**
 
 ## Installation
 
@@ -16,27 +16,27 @@ npm install @rpldy/uploader
 
 ## Upload Options
 
-| Name (* = mandatory) | Type                                                  | Default       | Description |
-| --------------       |------------------------------------------------------------------------------------------------------| ------------- | ------------- |
-| autoUpload           | boolean                                               | true          | automatically upload files when they are added |
-| destination          | [Destination](.#destination)                          | undefined     | configure the end-point to upload to |
-| inputFieldName       | string                                                | "file"        | name (attribute) of the file input field (requires sendWithFormData = true) |
-| grouped              | boolean                                               | false         | group multiple files in a single request  |
-| maxGroupSize         | number                                                | 5             | maximum of files to group together in a single request |
-| formatGroupParamName | (number, string) => string                            | undefined     | determine the upload request field name when more than file is grouped in a single upload |
-| fileFilter           | [fileFilter](.#fileFilter | undefined | return **false** or Promise resolving to **false** to exclude item from batch |
-| method               | string                                                | "POST"        | HTTP method in upload request |
-| params               | Object                                                | undefined     | collection of params to pass along with the upload (requires sendWithFormData = true) |
-| forceJsonResponse    | boolean                                               | false         | parse server response as JSON even if no JSON content-type header received             |
-| withCredentials      | boolean                                               | false         | set XHR withCredentials to true |
-| enhancer             | [UploaderEnhancer](.#enhancer)                        | undefined     | uploader enhancer function |
-| concurrent           | boolean                                               | false         | issue multiple upload requests simultaneously |
-| maxConcurrent        | number                                                | 2             | maximum allowed simultaneous requests |
-| send                 | [SendMethod](.#sendMethod)                            | @rpldy/sender | how to send files to the server |
-| sendWithFormData     | boolean                                               | true          | upload is sent as part of [formdata](https://developer.mozilla.org/en-US/docs/Web/API/FormData) - when true, additional params can be sent along with uploaded data |
-| formatServerResponse | [FormatServerResponseMethod](.#formatserverresponsemethod)  | undefined | function to create the batch item's uploadResponse from the raw xhr response |
-| formDataAllowUndefined | boolean                                             | false         | whether to include params with undefined value |
-| clearPendingOnAdd    | [boolean](.#clearPendingOnAdd)                         | false         | whether to clear pending batch(es) when a new one is added |
+| Name (* = mandatory)   | Type                                                       | Default       | Description                                                                                                                                                         |
+|------------------------|------------------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| autoUpload             | boolean                                                    | true          | automatically upload files when they are added                                                                                                                      |
+| destination            | [Destination](.#destination)                               | undefined     | configure the end-point to upload to                                                                                                                                |
+| inputFieldName         | string                                                     | "file"        | name (attribute) of the file input field (requires sendWithFormData = true)                                                                                         |
+| grouped                | boolean                                                    | false         | group multiple files in a single request                                                                                                                            |
+| maxGroupSize           | number                                                     | 5             | maximum of files to group together in a single request                                                                                                              |
+| formatGroupParamName   | (number, string) => string                                 | undefined     | determine the upload request field name when more than file is grouped in a single upload                                                                           |
+| fileFilter             | [fileFilter](.#fileFilter                                  | undefined     | return **false** or Promise resolving to **false** to exclude item from batch                                                                                       |
+| method                 | string                                                     | "POST"        | HTTP method in upload request                                                                                                                                       |
+| params                 | Object                                                     | undefined     | collection of params to pass along with the upload (requires sendWithFormData = true)                                                                               |
+| forceJsonResponse      | boolean                                                    | false         | parse server response as JSON even if no JSON content-type header received                                                                                          |
+| withCredentials        | boolean                                                    | false         | set XHR withCredentials to true                                                                                                                                     |
+| enhancer               | [UploaderEnhancer](.#enhancer)                             | undefined     | uploader enhancer function                                                                                                                                          |
+| concurrent             | boolean                                                    | false         | issue multiple upload requests simultaneously                                                                                                                       |
+| maxConcurrent          | number                                                     | 2             | maximum allowed simultaneous requests                                                                                                                               |
+| send                   | [SendMethod](.#sendMethod)                                 | @rpldy/sender | how to send files to the server                                                                                                                                     |
+| sendWithFormData       | boolean                                                    | true          | upload is sent as part of [formdata](https://developer.mozilla.org/en-US/docs/Web/API/FormData) - when true, additional params can be sent along with uploaded data |
+| formatServerResponse   | [FormatServerResponseMethod](.#formatserverresponsemethod) | undefined     | function to create the batch item's uploadResponse from the raw xhr response                                                                                        |
+| formDataAllowUndefined | boolean                                                    | false         | whether to include params with undefined value                                                                                                                      |
+| clearPendingOnAdd      | [boolean](.#clearPendingOnAdd)                             | false         | whether to clear pending batch(es) when a new one is added                                                                                                          |
 
 :::info
 See [uploady](.) page for more details on some of these options
@@ -59,7 +59,7 @@ uploader.once(UPLOADER_EVENTS.BATCH_ADD, (batch) => {
 ## API
 
 The Uploader API is typically used by internal logic of the various rpldy packages.
-In a React environment, accessing the API should be done through the [Context API](context#api).
+In a React environment, accessing the API should be done through the [Context API](../context#api).
 
 ### add
 
@@ -68,8 +68,8 @@ type Add = (files: UploadInfo | UploadInfo[], addOptions?: UploadOptions) => Pro
 
 ```
 
-- See: [UploadInfo](types#uploadinfo)
-- See: [UploadOptions](types#uploadoptions)
+- See: [UploadInfo](../types#uploadinfo)
+- See: [UploadOptions](../types#uploadoptions)
 
 The way to add file(s) to be uploaded. Second parameters allows to pass different options than
 the ones the instance currently uses for this specific batch. These options will be merged with current instance options.
@@ -80,7 +80,7 @@ the ones the instance currently uses for this specific batch. These options will
 type Upload = (uploadOptions?: UploadOptions) => void
 ```
 
-- See: [UploadOptions](types#uploadoptions)
+- See: [UploadOptions](../types#uploadoptions)
 
 For batches that were added with `autoUpload = false`, the upload method must be called for the files to begin uploading.
 
@@ -108,8 +108,8 @@ abort a specific batch by passing its ID
 type Update = (updateOptions: CreateOptions) => UploaderType;
 ```
 
-- See: [CreateOptions](types#createoptions)
-- See: [UploaderType](types#uploadertype)
+- See: [CreateOptions](../types#createoptions)
+- See: [UploaderType](../types#uploadertype)
 
 
 The `updateOptions` parameter will be merged with the instance's existing options
@@ -121,7 +121,7 @@ Returns the updated uploader instance
 type GetOptions = () => CreateOptions;
 ```
 
-- See: [CreateOptions](types#createoptions)
+- See: [CreateOptions](../types#createoptions)
 
 Get the instance's upload options
 
@@ -165,7 +165,7 @@ If handler function reference isn't provided, will unregister all handlers for t
 type RegisterExtension = (name: unknown, methods: { [key: string]: (...args: any[]) => void | unknown }) => void;
 ```
 
-Extensions can only be registered by [uploader enhancers](.#enhancer).
+Extensions can only be registered by [uploader enhancers](..#enhancer).
 If registerExtension is called outside an enhancer, an error will be thrown
 Name must be unique. If not, an error will be thrown
 
@@ -201,10 +201,10 @@ Triggered when a new batch is added.
 
 - Parameters: _(batch, options: CreateOptions)_
 
-- See: [CreateOptions](types#createoptions)
+- See: [CreateOptions](../types#createoptions)
 
 :::info
-This event is _[cancellable](events#cancellable-events)_
+This event is _[cancellable](../events#cancellable-events)_
 :::
 
 #### UPLOADER_EVENTS.BATCH_START
@@ -213,10 +213,10 @@ Triggered when batch items start uploading
 
 - Parameters: _(batch, options: CreateOptions)_
 
-- See: [CreateOptions](types#createoptions)
+- See: [CreateOptions](../types#createoptions)
 
 :::info
-This event is _[cancellable](events#cancellable-events)_
+This event is _[cancellable](../events#cancellable-events)_
 :::
 
 #### UPLOADER_EVENTS.BATCH_PROGRESS
@@ -267,7 +267,7 @@ For grouped uploads (multiple files in same xhr request) ITEM_START is triggered
 - Parameters: _(item)_
 
 :::info
-This event is _[cancellable](events#cancellable-events)_
+This event is _[cancellable](../events#cancellable-events)_
 :::
 
 #### UPLOADER_EVENTS.ITEM_FINISH
@@ -326,15 +326,15 @@ Group will contain a single item unless "grouped" option is set to true.
 
 Handler receives the item(s) in the group and the upload options that were used.
 The handler can change data inside the items and in the options by returning different data than received.
-See this [guide](../guides/DynamicParameters.md) for more details.
+See this [guide](../../guides/DynamicParameters) for more details.
 
 - Parameters: _(items, options)_
 
 :::info
-This event is _[cancellable](events#cancellable-events)_
+This event is _[cancellable](../events#cancellable-events)_
 :::
 
-- See: [withRequestPreSendUpdate HOC](hocs/withRequestPreSendUpdate)
+- See: [withRequestPreSendUpdate HOC](../hocs/withRequestPreSendUpdate)
 
 ### UPLOADER_EVENTS.ALL_ABORT
 

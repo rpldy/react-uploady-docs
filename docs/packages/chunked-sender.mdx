@@ -13,25 +13,25 @@ npm install @rpldy/chunked-sender
 
 ## Details
 
-Adds chunked upload capabilities on top of the regular XHR [@rpldy/sender](rpldy-sender)
-Exposes an UploaderEnhancer that replaces the default send method the [uploader](../api/uploader) uses.
+Adds chunked upload capabilities on top of the regular XHR [@rpldy/sender](../rpldy-sender)
+Exposes an UploaderEnhancer that replaces the default send method the [uploader](../../api/uploader) uses.
 
-For usage with your React app, see [@rpldy/chunked-uploady](rpldy-chunked-uploady).
+For usage with your React app, see [@rpldy/chunked-uploady](../rpldy-chunked-uploady).
 
 Chunked uploading doesn't support grouped uploads (in single XHR request) or URL uploading.
-These will be handed over to the default [@rpldy/sender](rpldy-sender)
+These will be handed over to the default [@rpldy/sender](../rpldy-sender)
 
 ## Exports
 
-* [getChunkedEnhancer](../api/enhancers/getChunkedEnhancer)
-* [createChunkedSender](../api/senders/chunkedSender)
-* [getChunkDataFromFile](../api/utils/getChunkDataFromFile)
-* [CHUNK_EVENTS](../api/events#chunk-events)
-* [CHUNKING_SUPPORT](../api/constants#chunkingSupport)
+* [getChunkedEnhancer](../../api/enhancers/getChunkedEnhancer)
+* [createChunkedSender](../../api/senders/chunkedSender)
+* [getChunkDataFromFile](../../api/utils/getChunkDataFromFile)
+* [CHUNK_EVENTS](../../api/events#chunk-events)
+* [CHUNKING_SUPPORT](../../api/constants#chunkingSupport)
 
 ## Related Topics
 
-* [@rpldy/chunked-uploady](rpldy-chunked-uploady)
-* [@rpldy/sender](rpldy-sender)
-* [@rpldy/tus-sender](rpldy-tus-sender)
-* [@rpldy/mock-sender](rpldy-mock-sender)
+* [@rpldy/chunked-uploady](../rpldy-chunked-uploady)
+* [@rpldy/sender](../rpldy-sender)
+* [@rpldy/tus-sender](../rpldy-tus-sender)
+* [@rpldy/mock-sender](../rpldy-mock-sender)

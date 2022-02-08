@@ -1,3 +1,8 @@
+---
+id: "FileFilter"
+description: "Using Uploady's fileFilter prop to filter out files before upload begins"
+---
+
 # File Filter
 
 The fileFilter upload option can be used to filter out files (or URLs) before an upload batch is created.
@@ -5,7 +10,7 @@ In case a [Falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value
 A [Truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) will keep the file. 
 
 
-Unlike with [Cancellable Events](../api/events#cancellable-events), items that are filtered out are never recorded as part of a batch.
+Unlike with [Cancellable Events](../../api/events#cancellable-events), items that are filtered out are never recorded as part of a batch.
 This means that no events will fire for these items, and the uploader will not be aware of them.
 
 > function can return Promise in order to support async flow 

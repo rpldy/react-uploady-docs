@@ -4,7 +4,7 @@ title: Types
 ---
 
 :::info
-For Batch and BatchItem see: [Entities Page](entities)
+For Batch and BatchItem see: [Entities Page](../entities)
 :::
 
 ## UploadyContextType {#uploadyContextType}
@@ -151,7 +151,7 @@ type UploadData = {
 };
 ```
 
-See: [FILE_STATES](types#file-states)
+See: [FILE_STATES](../types#file-states)
 
 ## SendResult
 

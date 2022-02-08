@@ -8,7 +8,7 @@ tags: [hoc, event]
 
 ## Package
 
-**_[@rpldy/uploady](../../packages/rpldy-uploady)_**
+**_[@rpldy/uploady](../../../packages/rpldy-uploady)_**
 
 ## Installation
 
@@ -31,12 +31,12 @@ type withRequestPreSendUpdate = <P extends WithRequestPreSendUpdateProps>(Comp: 
 HOC to enable components to interact with the upload data and options just-in-time before the request is sent.
 This is a hatch point to introduce custom logic that may affect the upload data.
 
-A good example use-case for this is applying [crop](../../guides/Crop.md) to selected image before it is uploaded.
+A good example use-case for this is applying [crop](../../../guides/Crop) to selected image before it is uploaded.
 
 When rendering the HOC's output, the id of the batch-item must be provided as a prop.
 This ensures the HOC only re-renders for a specific item and not for all.
-The id of the batch-item can be obtained from a hook (ex: [useitemstartlistener](../hooks/useitemstartlistener) or
-[useBatchStartListener](../hooks/useBatchStartListener))
+The id of the batch-item can be obtained from a hook (ex: [useitemstartlistener](../../hooks/useitemstartlistener) or
+[useBatchStartListener](../../hooks/useBatchStartListener))
 
 ```javascript
   import React, { useState, useCallback } from "react";
@@ -86,5 +86,5 @@ The id of the batch-item can be obtained from a hook (ex: [useitemstartlistener]
     }
 ```
 
-See the [Crop Guide](../../guides/Crop.md) for a full example.
+See the [Crop Guide](../../../guides/Crop) for a full example.
 

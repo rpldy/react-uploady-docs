@@ -8,7 +8,7 @@ tags: [hook, event, retry]
 
 ## Package
 
-**_[@rpldy/retry-hooks](../../packages/rpldy-retry-hooks)_**
+**_[@rpldy/retry-hooks](../../../packages/rpldy-retry-hooks)_**
 
 ## Installation
 
@@ -29,10 +29,10 @@ type RetryEventCallback = (data: RetryEventData) => void;
 type useRetryListener = (cb: RetryEventCallback) => void;;
 ```
 
-- See: [UploadOptions](../types#uploadoptions)
+- See: [UploadOptions](../../types#uploadoptions)
 
 :::note
-Event Hook - [ITEM-PROGRESS](../events#itemProgress)
+Event Hook - [ITEM-PROGRESS](../../events#itemProgress)
 :::
 
 Called every time progress data is received for this file upload
@@ -43,7 +43,7 @@ This event can be scoped to a specific item by passing the item id as a second p
 
 :::info
 To enable retries for your Uploady instance,
-you need to use the provided (uploader enhancer): [retryEnhancer](../enhancers/retryEnhancer).
+you need to use the provided (uploader enhancer): [retryEnhancer](../../enhancers/retryEnhancer).
 :::
 
 ## Example

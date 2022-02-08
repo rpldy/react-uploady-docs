@@ -18,6 +18,7 @@ const config = {
 	tagline: "Modern file-upload components & hooks for React.",
 	url: "https://react-uploady.netlify.com",
 	baseUrl: "/",
+	trailingSlash: true,
 	onBrokenLinks: "throw",
 	onBrokenMarkdownLinks: "warn",
 	favicon: "https://res.cloudinary.com/yoav-cloud/image/upload/w_192,r_max/v1585756811/rpldy/logo/logo-white-bg.png",

@@ -50,13 +50,13 @@ Using [Tus-Uploady](../../providers/tus-uploady) will do this for you automatica
 | forgetOnSuccess   | boolean | false | whether to remove URL from localStorage when upload finishes successfully|
 | ignoreModifiedDateInStorage   | boolean   | false     | ignore File's modified date when creating key for storage|
 
-:::warn
-When the chunked-sender parallel param is set to > 1, the Concatenation tus extension will be used.
+:::caution
+When the chunked-sender `parallel` param is set to > 1, the Concatenation tus extension will be used.
 It will send the chunks as different parallel requests that are finalized once done.
 :::
 
-:::info
-The params prop that is set on the Destination or upload options is serialized (encoded according to Tus protocol) and sent as the value of the Upload-Metadata header.
+:::note
+The `params` prop that is set on the Destination or upload options is serialized (encoded according to Tus protocol) and sent as the value of the Upload-Metadata header.
 :::
 
 :::info

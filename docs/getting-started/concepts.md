@@ -16,7 +16,7 @@ Or even during [upload processing](../../guides/DynamicParameters).
 ### Destination
 
 Passed as a part of the upload options. It's an object that is used to configure the end-point where the files will be uploaded to.
-Its type is defined [here](https://github.com/rpldy/react-uploady/blob/master/packages/core/shared/types/index.d.ts#L1).
+Its type is defined [here](../../api/types/#destination).
 
 See more information in the [Uploady](../../api#props) section.
 

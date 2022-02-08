@@ -19,7 +19,7 @@ npm install @rpldy/uploader
 | Name (* = mandatory)   | Type                                                       | Default       | Description                                                                                                                                                         |
 |------------------------|------------------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | autoUpload             | boolean                                                    | true          | automatically upload files when they are added                                                                                                                      |
-| destination            | [Destination](.#destination)                               | undefined     | configure the end-point to upload to                                                                                                                                |
+| destination            | [Destination](../#destination)                               | undefined     | configure the end-point to upload to                                                                                                                                |
 | inputFieldName         | string                                                     | "file"        | name (attribute) of the file input field (requires sendWithFormData = true)                                                                                         |
 | grouped                | boolean                                                    | false         | group multiple files in a single request                                                                                                                            |
 | maxGroupSize           | number                                                     | 5             | maximum of files to group together in a single request                                                                                                              |
@@ -29,14 +29,14 @@ npm install @rpldy/uploader
 | params                 | Object                                                     | undefined     | collection of params to pass along with the upload (requires sendWithFormData = true)                                                                               |
 | forceJsonResponse      | boolean                                                    | false         | parse server response as JSON even if no JSON content-type header received                                                                                          |
 | withCredentials        | boolean                                                    | false         | set XHR withCredentials to true                                                                                                                                     |
-| enhancer               | [UploaderEnhancer](.#enhancer)                             | undefined     | uploader enhancer function                                                                                                                                          |
+| enhancer               | [UploaderEnhancer](../#enhancer)                             | undefined     | uploader enhancer function                                                                                                                                          |
 | concurrent             | boolean                                                    | false         | issue multiple upload requests simultaneously                                                                                                                       |
 | maxConcurrent          | number                                                     | 2             | maximum allowed simultaneous requests                                                                                                                               |
-| send                   | [SendMethod](.#sendMethod)                                 | @rpldy/sender | how to send files to the server                                                                                                                                     |
+| send                   | [SendMethod](../#sendMethod)                                 | @rpldy/sender | how to send files to the server                                                                                                                                     |
 | sendWithFormData       | boolean                                                    | true          | upload is sent as part of [formdata](https://developer.mozilla.org/en-US/docs/Web/API/FormData) - when true, additional params can be sent along with uploaded data |
-| formatServerResponse   | [FormatServerResponseMethod](.#formatserverresponsemethod) | undefined     | function to create the batch item's uploadResponse from the raw xhr response                                                                                        |
+| formatServerResponse   | [FormatServerResponseMethod](../#formatserverresponsemethod) | undefined     | function to create the batch item's uploadResponse from the raw xhr response                                                                                        |
 | formDataAllowUndefined | boolean                                                    | false         | whether to include params with undefined value                                                                                                                      |
-| clearPendingOnAdd      | [boolean](.#clearPendingOnAdd)                             | false         | whether to clear pending batch(es) when a new one is added                                                                                                          |
+| clearPendingOnAdd      | [boolean](../#clearPendingOnAdd)                             | false         | whether to clear pending batch(es) when a new one is added                                                                                                          |
 
 :::info
 See [uploady](.) page for more details on some of these options
@@ -165,7 +165,7 @@ If handler function reference isn't provided, will unregister all handlers for t
 type RegisterExtension = (name: unknown, methods: { [key: string]: (...args: any[]) => void | unknown }) => void;
 ```
 
-Extensions can only be registered by [uploader enhancers](..#enhancer).
+Extensions can only be registered by [uploader enhancers](../#enhancer).
 If registerExtension is called outside an enhancer, an error will be thrown
 Name must be unique. If not, an error will be thrown
 

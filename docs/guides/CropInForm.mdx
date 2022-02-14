@@ -1,0 +1,247 @@
+---
+id: "CropInForm"
+description: "Example code showing how to combine: Uploady, Image Crop, and form submission"
+---
+
+# Crop In Form
+
+Building on top of the [Crop](../Crop) guide, this guide shows how to combine Uploady, image cropping and form submission in one simple example.
+
+Full code example can be found in this sandbox:
+
+[![Edit react-uploady - crop with form](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-uploady-crop-with-form-pvq4b?fontsize=14&hidenavigation=1&theme=dark)
+
+## Code
+
+### Init
+
+First we define Uploady with `multiple = false`. This makes the example simple as there's no need to support multiple images with cropping.
+This is certainly possible (see [MultiCrop](../MultiCrop) guide), but makes the code more complex.
+
+We also define `clearPendingOnAdd` to allow the user to replace the image they selected with a new one and ensure the discarded one won't be uploaded.
+
+Lastly, we need to define `autoUpload = false` in order to make it possible for the user to crop and enter values into the input fields before submitting.
+
+```jsx
+import React from "react";
+import Uploady from "@rpldy/uploady";
+
+const App = () => {
+  return (
+    <Uploady
+      debug
+      clearPendingOnAdd
+      multiple={false}
+      autoUpload={false}
+      destination={{ url: "[upload-url]" }}
+    >
+			<MyForm />
+    </Uploady>
+  );
+}
+```
+
+### Form
+
+In this form we render our [upload field](#uploadField) that will let the user select the file to upload and do the cropping.
+In addition, this is where we render our form fields, the values from the inputs will be sent as parameters along with the uploaded file.
+
+When the user is ready, clicking the submit button will use Uploady's context [processPending](../../api/context#processpending) method.
+
+Finally, we use the ever useful [useRequestPreSend](../../api/hooks/useRequestPreSend) hook to replace the original file
+with the cropped result coming from the upload field.
+
+```jsx
+import {
+	useUploady,
+	useRequestPreSend,
+} from "@rpldy/uploady";
+
+const MyForm = () => {
+  const { processPending } = useUploady();
+  const [fields, setFields] = useState({});
+  const [cropped, setCropped] = useState(null);
+
+  const setCropForItem = (id, data) => {
+    setCropped(() => ({ id, data }));
+  };
+
+  useRequestPreSend(({ items }) => {
+    return {
+      items: [
+        {
+          ...items[0],
+          //change the request's file to the cropped image
+          file: cropped.data
+        }
+      ]
+    };
+  });
+
+  const onSubmit = () => {
+    //process batch with the form fields
+    processPending({ params: fields });
+  };
+
+  const onFieldChange = (e) => {
+    setFields({
+      ...fields,
+      [e.currentTarget.id]: e.currentTarget.value
+    });
+  };
+
+  return (
+    <form>
+      <UploadCropField setCropForItem={setCropForItem}/>
+      <input
+        onChange={onFieldChange}
+        id="field-name"
+        type="text"
+        placeholder="your name"
+      />
+      <br />
+      <input
+        onChange={onFieldChange}
+        id="field-age"
+        type="number"
+        placeholder="your age"
+      />
+      <br />
+      <button
+        onClick={onSubmit}
+        type="button"
+        disabled={!cropped || undefined}
+      >
+        Submit
+      </button>
+    </form>
+  );
+};
+```
+
+### Upload Field {#uploadField}
+
+In order for the preview to show when `autoUpload` is set to false. We need to use a custom preview.
+We create it by calling the [getUploadPreviewForBatchItemsMethod](../../api/utils/getUploadPreviewForBatchItemsMethod) utility method.
+Passing it the [useBatchAddListener](../../api/hooks/useBatchAddListener) hook makes it show previews as soon as the batch is added (before any processing begins).
+
+We also ensure our preview component, where the cropper is rendered, receives the `setCropForItem` state setter.
+This is done by passing a function to the Preview's `previewComponentProps` prop.
+
+```jsx
+import { useBatchAddListener } from "@rpldy/uploady";
+import UploadButton from "@rpldy/upload-button";
+import { getUploadPreviewForBatchItemsMethod } from "@rpldy/upload-preview";
+
+const BatchAddUploadPreview = getUploadPreviewForBatchItemsMethod(
+  useBatchAddListener
+);
+
+const UploadCropField = ({ setCropForItem }) => {
+  const getPreviewCompProps = useCallback(
+    (item) => {
+      return {
+        item,
+        setCropForItem,
+      };
+    },
+    [setCropForItem]
+  );
+
+  return (
+    <div>
+      <UploadButton extraProps={{ type: "button" }}>
+        Choose image
+      </UploadButton>
+      <BatchAddUploadPreview
+        previewComponentProps={getPreviewCompProps}
+        PreviewComponent={CropPreviewFieldComp}
+      />
+    </div>
+  );
+};
+```
+
+### Preview & Cropping
+
+The cropping in this example is done with [react-image-crop](https://www.npmjs.com/package/react-image-crop) but there's no requirement to use this specific library.
+See this [sandbox](https://codesandbox.io/s/react-uploady-crop-and-upload-with-react-easy-crop-5g7vw) for example of using [react-easy-crop](https://www.npmjs.com/package/react-easy-crop).
+
+Once the user crops and saves the outcome, we generate the blob using a utility function.
+The preview is replaces to show the cropped area insteaf of the original image.
+
+
+```jsx
+import ReactCrop from "react-image-crop";
+import "react-image-crop/dist/ReactCrop.css";
+import cropImage from "./my-fancy-canvas-cropper";
+
+const CropPreviewFieldComp = ({ item, name, url, setCropForItem }) => {
+  const [crop, setCrop] = useState({ height: 100, width: 100, x: 50, y: 50 });
+  const [croppedUrl, setCroppedUrl] = useState(null);
+  const [isCropping, setCropping] = useState(false);
+  const imgRef = useRef(null);
+
+  const startCropping = () => setCropping(true);
+
+  const onSaveCrop = async () => {
+    //revoke previously created object URL if there is one
+    croppedUrl?.revokeUrl();
+
+    const { blob, blobUrl, revokeUrl } = await cropImage(
+      imgRef.current,
+      item.file,
+      crop,
+      true
+    );
+
+    setCropForItem(item.id, blob);
+    setCroppedUrl({ blobUrl, revokeUrl });
+    setCropping(false);
+  };
+
+  useEffect(
+    () => () => {
+      //revoke previously created object URL if there is one
+      !isCropping && croppedUrl?.revokeUrl();
+    },
+    [isCropping, croppedUrl]
+  );
+
+  const onLoad = useCallback((img) => {
+    imgRef.current = img;
+  }, []);
+
+  return (
+    <div>
+      {!isCropping ? (
+        <>
+          <span>{name}</span>
+          <img
+            className="preview-thumb"
+            src={croppedUrl?.blobUrl || url}
+            onClick={startCropping}
+          />
+        </>
+      ) : (
+        <>
+          <ReactCrop
+            src={url}
+            crop={crop}
+            onImageLoaded={onLoad}
+            onChange={setCrop}
+            onComplete={setCrop}
+          />
+          <button type="button" onClick={onSaveCrop} id="save-crop-btn">
+            Save Crop
+          </button>
+        </>
+      )}
+    </div>
+  );
+};
+```
+
+:::note
+Implementation of the cropImage function can be found [here](https://codesandbox.io/s/react-uploady-crop-with-form-pvq4b?file=/src/cropImage.js).
+:::

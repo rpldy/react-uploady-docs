@@ -63,7 +63,13 @@ const ItemPreviewWithCrop = withRequestPreSendUpdate((props) => {
 
 ```
 
-* Note that when a fallback image is used (ex: when uploading non-image) then we only show the fallback, without crop.
+:::note 
+When a fallback image is used (ex: when uploading non-image) we dont render the crop.
+:::
+
+:::note
+Implementation of the cropImage function can be found [here](https://codesandbox.io/s/react-uploady-crop-and-upload-uyl4e?file=/src/cropImage.js).
+:::
 
 Then we define our "app" with Uploady, an UploadButton and UploadPreview.
 We use our own _ItemPreviewWithCrop_ as the PreviewComponent instead of the default one _UploadPreview_ provides.

@@ -105,7 +105,10 @@ This should be useful for applications where something about the file input shou
 In case you don't want to create your own file input but still want to directly influence the input in your own code, useFileInput can be used as well.
 When useFileInput is called without parameters, it will return a ref to the internal input Uploady renders when its created.
 
-> Note: This isn't the recommended, or the 'Reacty' way to do things. It is still recommended to pass along a ref to an input that you render
+:::caution
+This isn't the recommended, or the 'Reacty' way to do things. 
+It is still preferable to pass along a ref to an input that you render
+:::
 
 ```javascript
 import Uploady, { useFileInput } from "@rpldy/uploady";

@@ -8,7 +8,9 @@ description: "Examples on how to use React-Uploady with the Cloudinary service"
 Uploading to [Cloudinary](https://cloudinary.com) can be done from the client easily.
 For [unsigned](https://cloudinary.com/documentation/upload_images#unsigned_upload) uploads it's just a matter of knowing your cloud name and the name of an unsigned upload preset.
 
-> Note that for Production accounts, it's advised to only allow [signed](https://cloudinary.com/documentation/upload_images#generating_authentication_signatures) uploads
+:::note
+For Production accounts, it's advised to only allow [signed](https://cloudinary.com/documentation/upload_images#generating_authentication_signatures) uploads
+:::
 
 ## Code
 
@@ -99,7 +101,7 @@ export default function App() {
 
 ```
 
-check out this [sandbox](https://codesandbox.io/s/react-uploady-cloudinary-signed-sample-8tw8d) with the same code.
+Check out this [sandbox](https://codesandbox.io/s/react-uploady-cloudinary-signed-sample-8tw8d) with the same code.
 
 
 ### Chunked Uploads

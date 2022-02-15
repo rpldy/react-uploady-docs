@@ -150,7 +150,9 @@ See examples below, which polyfill bundle corresponds to which UMD bundle.
 
 ### Everything Bundle
 
-> note that the "Everything" bundle requires a different polyfill bundle
+:::note 
+The "Everything" bundle requires a different polyfill bundle
+:::
 
 ```html
 

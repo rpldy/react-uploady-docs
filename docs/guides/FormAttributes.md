@@ -18,7 +18,9 @@ If you with to use your own file input (which is in a form) but don't want Uploa
 
 Using a custom file input and its parent form's attributes can loo something like this:\
 
-> Notice the use of "customInput" prop (passed to &lt;Uploady&gt;) and then the call to useFileInput hook.
+:::note
+Notice the use of "customInput" prop (passed to &lt;Uploady&gt;) and then the call to useFileInput hook.
+:::
 
 ```javascript
 

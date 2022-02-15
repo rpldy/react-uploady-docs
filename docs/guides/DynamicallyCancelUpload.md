@@ -16,7 +16,9 @@ In React you can more easily do this by using hooks but can also do this by regi
 
 ### Cancel Upload using useBatchStartListener
 
-> note that a component using this hook should be wrapped by an &lt;Uploady&gt; component
+:::note 
+A component using this hook should be wrapped by an &lt;Uploady&gt; component
+:::
 
 ```javascript
 
@@ -37,7 +39,9 @@ const MyUploadButton = () => {
 
 ### Cancel Upload using useItemStartListener hook
 
-> note that a component using this hook should be wrapped by an &lt;Uploady&gt; component
+:::note 
+A component using this hook should be wrapped by an &lt;Uploady&gt; component
+:::
 
 ```javascript
 

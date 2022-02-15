@@ -16,7 +16,10 @@ The handler (event or hook) receives an object:  _{items, options}_
 The _items_ array contains the (batch) items that are going to be uploaded in the next request.
 The array will contain more than one item when grouping is configured (by default grouping is turned off).
 
-> items info can be inspected and then changes to the options can be made. The items array itself should not be modified. 
+:::note
+Items info can be inspected and changes to the options can be made. 
+The items array itself should not be modified. 
+:::
 
 The _options_ object contains the upload options attached to the batch the items belong to.
 Options related to the upload can be changed, for example destination headers or params.
@@ -65,7 +68,9 @@ const MyApp = () => {
 
 ## Using hook
 
-> note that a component using this hook should be wrapped by an &lt;Uploady&gt; component
+:::note 
+A component using this hook should be wrapped by an &lt;Uploady&gt; component
+:::
 
 ```javascript
     import { useRequestPreSend } from "@rpldy/uploady";

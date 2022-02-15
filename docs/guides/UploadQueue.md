@@ -5,10 +5,11 @@ description: "How to build an uploading queue UI"
 
 # Upload Queue
 
-> A more detailed demo with code can be found in this post: [hooked on file uploads with react-uploady](https://dev.to/poeticgeek/hooked-on-file-uploads-with-react-uploady-3h0j) and here: [React Uploady with Ant Design ](https://dev.to/poeticgeek/react-uploady-with-ant-design-dja)
- 
- ```javascript
+:::info
+A more detailed demo with code can be found in this post: [hooked on file uploads with react-uploady](https://dev.to/poeticgeek/hooked-on-file-uploads-with-react-uploady-3h0j) and here: [React Uploady with Ant Design ](https://dev.to/poeticgeek/react-uploady-with-ant-design-dja)
+:::
 
+ ```javascript
 import React, { useCallback, useState, memo } from "react";
 import styled from "styled-components";
 import { Circle } from "rc-progress";
@@ -35,8 +36,6 @@ const STATE_COLORS = {
     [STATES.ABORTED]: "#f7cdcd",
     [STATES.ERROR]: "#ee4c4c",
 };
-
-
 
 const StyledCircle = styled(Circle)`
   width: 32px;

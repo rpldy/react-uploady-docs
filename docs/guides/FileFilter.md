@@ -13,7 +13,9 @@ A [Truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) will keep t
 Unlike with [Cancellable Events](../../api/events#cancellable-events), items that are filtered out are never recorded as part of a batch.
 This means that no events will fire for these items, and the uploader will not be aware of them.
 
-> function can return Promise in order to support async flow 
+:::info
+The callback function can return a Promise in order to support async flow 
+:::
 
 ## Example
 

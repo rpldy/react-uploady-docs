@@ -208,7 +208,7 @@ const config = {
 				appId: "UBRVBVSQ7O",
 				apiKey: "d29ceb6b90743491a147875578436255",
 				indexName: "react-uploady",
-				contextualSearch: true,
+				contextualSearch: false,
 			},
 
 			prism: {

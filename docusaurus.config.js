@@ -204,6 +204,13 @@ const config = {
 				copyright: `Copyright © ${new Date().getFullYear()} React-Uploady, <a href="/docs/yoav">Yoav Niran.</a>`,
 			},
 
+			algolia: {
+				appId: "UBRVBVSQ7O",
+				apiKey: "d29ceb6b90743491a147875578436255",
+				indexName: "react-uploady",
+				contextualSearch: true,
+			},
+
 			prism: {
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,

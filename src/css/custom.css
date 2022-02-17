@@ -63,6 +63,21 @@ html[data-theme='dark'] {
     --ifm-card-background-color: var(--ifm-color-primary);
 }
 
+html[data-theme='light'] .DocSearch {
+    --docsearch-highlight-color: var(--ifm-color-primary);
+    --docsearch-modal-shadow: 0 0 14px 2px var(--ifm-color-primary-dark);
+}
+
+html[data-theme='dark'] .DocSearch {
+    --docsearch-modal-background: var(--ifm-color-primary-darkest);
+    --docsearch-muted-color: #9a9eab;
+    --docsearch-highlight-color: var(--ifm-color-primary-lightest);
+    --docsearch-hit-active-color: #000;
+    --docsearch-footer-background: #010715;
+
+    --docsearch-modal-shadow: 0 0 10px 0 var(--ifm-color-primary-lighter);
+}
+
 html[data-theme='dark'] a[class*='cardContainer_']:hover {
     background-color: var(--ifm-color-primary-darkest);
 }

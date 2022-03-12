@@ -40,7 +40,8 @@ npm install @rpldy/uploady
 | send                 | [SendMethod](#sendMethod) | @rpldy/sender | how to send files to the server |
 | sendWithFormData     | boolean       | true           | upload is sent as part of [formdata](https://developer.mozilla.org/en-US/docs/Web/API/FormData) - when true, additional params can be sent along with uploaded data |
 | formatServerResponse | [FormatServerResponseMethod](#formatserverresponsemethod) | undefined | function to create the batch item's uploadResponse from the raw xhr response |
-| clearPendingOnAdd    | [boolean](#clearPendingOnAdd)       | false          | whether to clear pending batch(es) when a new one is added |
+| clearPendingOnAdd    | [boolean](#clearPendingOnAdd)           | false          | whether to clear pending batch(es) when a new one is added |
+| isSuccessfulCall     | [IsSuccessfulCall](#issuccessfulcall)   | undefined     | callback to use to decide whether upload response is succssful or not |
 | **Uploady Options**  |
 | debug                | boolean       | false | enable console logs from uploady packages |
 | listeners            | Object        | undefined | map of [uploader events](../api/uploader#events) name and event handler |
@@ -185,11 +186,38 @@ When uploader is set up with `autoUpload = false`, files added (batches) will no
 and a call to [upload](../api/uploader#upload) is required.
 Setting this option to true will remove previously added batch(es) and leave only the new one to upload.
 
+### isSuccessfulCall
+
+```typescript
+type IsSuccessfulCall = (xhr: XMLHttpRequest) => boolean;
+```
+
+Uploady's [sender](../api/senders/xhrSender) treats server responses as successful when they have one of these status codes: 200, 201, 202, 203, 204.
+
+In case you have a server that returns a different code or you want to specify your own logic to determine the success of the call, `isSuccessfulCall` gives you the chance to do so, overriding the default behavior.
+
+:::info
+The callback can be asynchronous
+:::
+
+```jsx
+//determine successful call using custom status codes
+const customIsSuccess = (xhr) => [308, 418].includes(xhr.status);
+
+const App = () => {
+	return (
+		<Uploady isSuccessfulCall={customIsSuccess}>
+		...
+		</Uploady>
+	);
+};
+```
+
 ### debug
 
 > Default: false
 
-Most of the time there is no need to use this flag. When setting to true it will make Uploady and other internal classes to log debugging information to the console.
+Most of the time there is no need to use this flag. When setting to true it will make Uploady and other internal classes log debugging information to the console.
 
 ### No DOM Uploady
 

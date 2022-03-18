@@ -110,6 +110,7 @@ const UploadListItem = ({ item }) => {
 We render the Item details (file name) with an abort button using the [useAbortItem](../../api/hooks/useAbortItem) hook.
 
 We show the progress for each item using the [useItemProgressListener](../../api/hooks/useItemProgressListener) hook.
+The progress component is taken from [rc-progress](https://www.npmjs.com/package/rc-progress).
 
 :::note
 Notice we pass the ID of the item to the progress hook, to make sure we get the data for the right item

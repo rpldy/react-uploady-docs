@@ -1,0 +1,191 @@
+---
+id: "AddRemoveThenUpload"
+sidebar_label: "Add & Remove Before Upload"
+description: "Example code showing how to allow user to add & remove files before starting to upload"
+---
+
+# Add And Remove Before Uploading
+
+The following example shows how to use the `autoUpload` prop, which is by default set to __true__, when set to __false__.
+
+When it is off, the [uploader](../../api/uploader) will aggregate the files (and batches) until it receives an explicit instruction to begin uploading.
+
+In React, this is typically done using the [Context API](../../api/context).
+
+The working code example can be found in this sandbox:
+
+[![Edit react-uploady - add and remove before upload](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-uploady-add-and-remove-before-upload-vk1rs5?fontsize=14&hidenavigation=1&theme=dark)
+
+## Code
+
+In this guide we will create a list of items that each will show progress for its respective item and will also allow the user to cancel(abort)
+the upload before or during the upload.
+
+### The List Item
+
+```jsx
+import React, { useState, memo } from "react";
+import styled from "styled-components";
+import { Circle } from "rc-progress";
+import { RiDeleteBin2Fill } from "react-icons/ri";
+import { ImCancelCircle } from "react-icons/im";
+import { FcCheckmark } from "react-icons/fc";
+import {
+  useItemFinalizeListener,
+  useItemProgressListener,
+  useAbortItem,
+  FILE_STATES
+} from "@rpldy/uploady";
+
+const StyledCircle = styled(Circle)`
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
+`;
+
+const ItemProgress = memo(({ id }) => {
+  const { completed } = useItemProgressListener(id) || { completed: 0 };
+
+  return (
+    <StyledCircle
+      percent={completed}
+      strokeWidth={2}
+      trailColor="rgb(175,180,176)"
+      strokeColor={{
+        "0%": "#ffecb1",
+        "100%": "#9eea9e"
+      }}
+    />
+  );
+});
+
+const ItemWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  justify-content: flex-start;
+`;
+
+const ItemName = styled.span`
+  display: inline-block;
+  margin: 0 10px;
+
+  ${({ $aborted }) => ($aborted ? "color: gray;" : undefined)}
+  ${({ $success }) => ($success ? "color: green;" : undefined)}
+`;
+
+const UploadListItem = ({ item }) => {
+  const [itemState, setState] = useState(item.state);
+
+  const abortItem = useAbortItem();
+
+  useItemFinalizeListener((item) => {
+    setState(item.state);
+  }, item.id);
+
+  const isAborted = itemState === FILE_STATES.ABORTED,
+    isSuccess = itemState === FILE_STATES.FINISHED,
+    isFinished = ![FILE_STATES.PENDING, FILE_STATES.UPLOADING].includes(
+      itemState
+    );
+
+  const onAbortItem = () => {
+    abortItem(item.id);
+  };
+
+  return (
+    <ItemWrapper>
+      {!isFinished && <ItemProgress id={item.id} />}
+      {isAborted && <ImCancelCircle size={36} color="gray" />}
+      {isSuccess && <FcCheckmark size={36} />}
+      <ItemName $aborted={isAborted} $success={isSuccess}>
+        {item.file.name}
+      </ItemName>
+      {!isFinished && <RiDeleteBin2Fill size={32} onClick={onAbortItem} />}
+    </ItemWrapper>
+  );
+};
+```
+
+We render the Item details (file name) with an abort button using the [useAbortItem](../../api/hooks/useAbortItem) hook.
+
+We show the progress for each item using the [useItemProgressListener](../../api/hooks/useItemProgressListener) hook.
+
+:::note
+Notice we pass the ID of the item to the progress hook, to make sure we get the data for the right item
+:::
+
+We also show the status of the item (success, aborted, etc) using the [useItemFinalizeListener](../../api/hooks/useItemFinalizeListener) hook.
+Again, we pass the `item.id` to make sure we only get the relevant state.
+
+### The List
+
+```jsx
+import React, { useState } from "react";
+import styled from "styled-components";
+import {
+	useUploady,
+  useBatchAddListener,
+} from "@rpldy/uploady";
+
+const ListContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  margin-top: 20px;
+`;
+
+const UploadList = () => {
+  const { processPending } = useUploady();
+  const [items, setItems] = useState([]);
+
+  useBatchAddListener((batch) => {
+    setItems((items) => items.concat(batch.items));
+  });
+
+  return (
+    <ListContainer>
+      {items.map((item) => (
+        <UploadListItem key={item.id} item={item} />
+      ))}
+
+      {items.length ? <button onClick={processPending}>Upload</button> : null}
+    </ListContainer>
+  );
+};
+```
+
+The list component uses the [useBatchAddListener](../../api/hooks/useBatchAddListener) hook to get updated when new items are added to the queue.
+For each of the items added we render the `UploadListItem` component we defined in the previous section.
+
+It also uses the [processPending](../../api/context#processpending) context method to initiate the actual upload processing when the user clicks the button.
+
+### Uploady
+
+```jsx
+import Uploady from "@rpldy/uploady";
+import UploadButton from "@rpldy/upload-button";
+
+export default function App() {
+  return (
+    <Uploady
+      autoUpload={false}
+      destination={{ url: "[upload-url]" }}
+    >
+      <div className="App">
+        <UploadButton>Add Files</UploadButton>
+        <UploadList />
+      </div>
+    </Uploady>
+  );
+}
+```
+
+Our App component in this example renders the [Uploady](../../api) that we must use to wrap any functionality
+that depends on the Uploady functionality (eX: accessing the context). Here we specify `autoUpload={false}` to allow users to add files
+multiple times before the upload requests are sent.
+
+We use the [UploadButton](../../api/components/UploadButton) component to show the file selection modal to the user
+and then render the `UploadList` component we defined in the previous section.

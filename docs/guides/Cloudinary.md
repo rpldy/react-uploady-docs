@@ -116,8 +116,8 @@ Two requirements must be fulfilled for chunked uploads to work with Cloudinary:
 This can be done easily with Uploady and the useRequestPreSend event hook:
 
 ```javascript 
-improt React from "react";
-import ChunkedUploady from "@rpldy/chunked-uploady";
+import React from "react";
+import ChunkedUploady, { useRequestPreSend } from "@rpldy/chunked-uploady";
 import UploadButton from "@rpldy/upload-button";
 
 const UploadButtonWithUniqueIdHeader = () => {

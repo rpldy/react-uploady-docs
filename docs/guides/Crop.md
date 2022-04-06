@@ -1,6 +1,7 @@
 ---
 id: "Crop"
 description: "tapping into the upload flow of Uploady to add Crop before upload"
+tags: [crop, dynamic, preview]
 ---
 
 # Crop

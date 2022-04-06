@@ -1,6 +1,7 @@
 ---
 id: Cloudinary
 description: "Examples on how to use React-Uploady with the Cloudinary service"
+tags: [cloudinary, signed, chunk]
 ---
 
 # Cloudinary
@@ -32,7 +33,6 @@ const App = () => (<Uploady
     }}>
     <UploadButton/>
 </Uploady>);
-
 ```
 
 ### Production 
@@ -115,7 +115,7 @@ Two requirements must be fulfilled for chunked uploads to work with Cloudinary:
 
 This can be done easily with Uploady and the useRequestPreSend event hook:
 
-```javascript 
+```jsx 
 import React from "react";
 import ChunkedUploady, { useRequestPreSend } from "@rpldy/chunked-uploady";
 import UploadButton from "@rpldy/upload-button";
@@ -149,7 +149,5 @@ export const App = () => {
         <UploadButtonWithUniqueIdHeader/>
     </ChunkedUploady>;
 };
-
-
 ```
 

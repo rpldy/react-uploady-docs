@@ -1,6 +1,7 @@
 ---
 id: "DragAndDrop"
 description: "How to upload files using drag and drop"
+tags: [drag&drop]
 ---
 
 # Drag and Drop
@@ -21,20 +22,18 @@ It uses the [Uploady Context API](../../api/context#api) to initiate the upload 
 import React from "react";
 import { DndProvider, useDrop } from "react-dnd";
 import Backend, { NativeTypes } from "react-dnd-html5-backend";
-import Uploady, { UploadyContext } from "@rpldy/uploady";
+import Uploady, { useUploady } from "@rpldy/uploady";
 
 const DropZone = () => {
-    const uploadyContext = useContext(UploadyContext);
+    const { upload } = useUploady();
 
     const [{ isDragging }, dropRef] = useDrop({
         accept: NativeTypes.FILE,
         collect: ((monitor) => ({
             isDragging: !!monitor.isOver()
         })),
-        drop: (item) => {
-            if (uploadyContext) {
-                uploadyContext.upload(item.files);
-            }
+        drop: (item) => { 					 					
+            upload(item.files);						
         },
     });
 
@@ -51,5 +50,4 @@ export const MyApp = () => {
         </Uploady>
     </DndProvider>;
 };
-
 ```

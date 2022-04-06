@@ -41,7 +41,7 @@ type createMockSender = (option: MockOptions) => MockSender;
 | progressIntervals  | number[]   | [10, 25, 50, 75, 100] | mock intervals (percentages) to emit progress events at|
 | response           | any           |  { "mock": true, "success": true } | mock response for upload request|
 | responseStatus     | number        | 200           | upload request status code|
-| isSuccessfulCall   | [IsSuccessfulCall](../#issuccessfulcall)  | undefined  | callback to use to decide whether upload response is succssful or not |
+| isSuccessfulCall   | [IsSuccessfulCall](../../#issuccessfulcall)  | undefined  | callback to use to decide whether upload response is succssful or not |
 
 :::info
 isSuccessfulCall receives a mock XHR object with the mock status, response, and headers

@@ -1,6 +1,7 @@
 ---
 id: "DifferentConfiguration"
 description: "how to apply different options with the same Uploady instance"
+tags: [configuration, drag&drop]
 ---
 
 # Different Configurations
@@ -29,7 +30,7 @@ import UploadButton from "@rpldy/upload-button";
 const MyApp = () => {
  return <Uploady
            autoUpload
-            destination={{url: "https://my-server.com/upload"}}>
+            destination={{ url: "https://my-server.com/upload" }}>
 
             <UploadButton autoUpload={false}>
                 autoUpload = false

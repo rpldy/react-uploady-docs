@@ -1,6 +1,7 @@
 ---
 id: "MultiCrop"
 description: "Crop multiple images before uploading using Uploady"
+tags: [crop, hooks, queue]
 ---
 
 # Multi Crop

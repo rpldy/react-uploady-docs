@@ -1,6 +1,7 @@
 ---
 id: "CustomInput"
 description: "How to use your own custom input element with Uploady"
+tags: [form, input, custom]
 ---
 
 # Custom Input

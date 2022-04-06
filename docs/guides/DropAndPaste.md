@@ -1,6 +1,7 @@
 ---
 id: "DropAndPaste"
 description: "How to upload files using paste action"
+tags: [drag&drop, paste, hoc]
 ---
 
 # Drop and Paste

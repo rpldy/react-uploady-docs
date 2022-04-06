@@ -7,10 +7,6 @@ tags: [sender, test]
 
 # createMockSender
 
-:::danger
-Internal API - Not intended for use outside rpldy packages.
-:::
-
 ## Package
 
 - **_[@rpldy/mock-sender](../../../packages/rpldy-mock-sender)_**
@@ -25,10 +21,50 @@ npm install @rpldy/mock-sender
 
 ```typescript
 
-type ChunkedSender = {
+type MockSender = {
   	update: (updated: MockOptions) => void;
     send: SendMethod;
 };
 
 type createMockSender = (option: MockOptions) => MockSender;
 ```
+
+- See: [SendMethod](../../types#sendmethod)
+- See: [MockOptions](../../types#mockoptions)
+
+## Options
+
+| Name (* = mandatory) | Type    | Default       | Description  |
+| --------------     | ------------- | ------------- | -------------|
+| delay              | number        | 500           | time in ms for mocked upload to take|
+| fileSize           | number        | 1e+6          | file size of the mocked upload, used for progress calculation|
+| progressIntervals  | number[]   | [10, 25, 50, 75, 100] | mock intervals (percentages) to emit progress events at|
+| response           | any           |  { "mock": true, "success": true } | mock response for upload request|
+| responseStatus     | number        | 200           | upload request status code|
+| isSuccessfulCall   | [IsSuccessfulCall](../#issuccessfulcall)  | undefined  | callback to use to decide whether upload response is succssful or not |
+
+:::info
+isSuccessfulCall receives a mock XHR object with the mock status, response, and headers
+:::
+
+## Usage
+
+```javascript
+import Uploady from "@rpldy/uploady";
+import UploadButton from "@rpldy/upload-button";
+import { getMockSenderEnhancer } from "@rpldy/mock-sender";
+
+const mockSenderEnhancer = getMockSenderEnhancer({
+   delay: 1500,
+   progressIntervals: [20, 40, 75, 80, 90, 99]
+});
+
+const App = () => (
+	<Uploady
+   enhancer={mockSenderEnhancer}
+  >
+      <UploadButton />
+  </Uploady>
+);
+```
+

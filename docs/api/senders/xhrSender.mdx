@@ -43,8 +43,17 @@ const mySend = (items, url, sendOptions, onProgress) => {
 	return send(items, url, sendOptions, onProgress);
 };
 
-const myEnhancer = (uploader) => {
+ const MyApp = () => {
+    return <Uploady send={mySend}>
+      <RestOfMyApp/>
+    </Uploady>;
+};
+```
 
+Alternatively, you can also create a reusable enhancer that will set your custom send method:
+
+```jsx
+const myEnhancer = (uploader) => {
 	//make uploader use the custom send method
     uploader.update({ send: mySend });
 
@@ -52,8 +61,8 @@ const myEnhancer = (uploader) => {
 };
 
  const MyApp = () => {
-        return <Uploady enhancer={myEnhancer}>
-          <RestOfMyApp/>
-        </Uploady>;
-    };
+    return <Uploady enhancer={myEnhancer}>
+      <RestOfMyApp/>
+    </Uploady>;
+};
 ```

@@ -60,6 +60,13 @@ type FormatParamGroupNameMethod = (index: number, paramName: string) => string;
 type FileFilterMethod = (file: File | string, index: number, files: File[] | string[]) => boolean | Promise<boolean | undefined> | undefined;
 ```
 
+## IsSuccessfulCall
+
+```typescript
+export type IsSuccessfulCall = (xhr: XMLHttpRequest) => boolean;
+```
+
+
 ## SendOptions
 
 ```typescript
@@ -74,6 +81,7 @@ interface SendOptions  {
     sendWithFormData?: boolean;
     formDataAllowUndefined?: boolean;
     formatServerResponse?: FormatServerResponseMethod;
+    isSuccessfulCall?: IsSuccessfulCall;
 }
 ```
 

@@ -3,6 +3,13 @@
  * and scoped locally.
  */
 
+:global(
+    html[data-theme='dark'] .hero--primary
+) {
+    --ifm-hero-background-color: #2b3c5e;
+}
+
+
 .heroBanner {
     padding: 4rem 0 6rem;
     text-align: center;

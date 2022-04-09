@@ -78,7 +78,60 @@ type PreviewMethods = {
 Provides access to preview related methods. Currently `clear` is the only method available.
 It will reset the item previews shown.
 
-## Example
+## Examples
+
+### Custom Preview Component
+
+The Upload Preview can be customized in several ways. The main method is through the _PreviewComponent_ prop.
+Passing a custom component will make the preview render your own UI per each file being uploaded.
+
+The custom component is called with the following props
+
+```typescript
+type PreviewProps = {
+	id: string;
+	url: string;
+	name: string;
+	type: PreviewType;
+	isFallback: boolean;
+};
+```
+
+:::note
+Additional props handed to the UploadPreview component using [previewComponentProps](#previewcomponentprops)
+Will be spread into the props given to the custom preview component
+:::
+
+:::note
+For uploaded image files, the _url_ prop will be the result of calling [URL.createObjectURL](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL) on the file.
+:::
+
+```jsx
+
+import React from "react";
+import Uploady from "@rpldy/uploady";
+import UploadPreview from "@rpldy/upload-preview";
+import UploadButton from "@rpldy/upload-button";
+
+const MyPreview = ({ type, url, id, name, isFallback, foo }) => {
+
+	return <MyCustomPreviewUI/>
+};
+
+export const App = () => {
+	return <Uploady destination={{ url: "my-server.com/upload" }}>
+		<UploadButton />
+		<UploadPreview
+			PreviewComponent={MyPreview}
+			previewComponentProps={{
+				foo: "bar"
+			}}
+		/>
+	</Uploady>;
+};
+```
+
+### Preview Methods & Remember Previous
 
 The props _rememberPreviousBatches_, _previewMethodsRef_, and _onPreviewsChanged_ make it possible to do more with previews.
 Specifically, the make it possible to create a visual queue of the uploads.
@@ -87,7 +140,7 @@ This is especially useful when adding other features such as abort and [retry](.
 
 The code below shows how to clear the previews with a button click:
 
-```jsx title="advanced example"
+```jsx
 import React from "react";
 import Uploady from "@rpldy/uploady";
 import UploadPreview from "@rpldy/upload-preview";

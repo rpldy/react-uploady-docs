@@ -56,7 +56,7 @@ function Feature({ image, title, description }) {
 	);
 }
 
-export default function HomepageFeatures() {
+const HomepageFeatures = () => {
 	return (
 		<section className={styles.features}>
 			<div className="container">
@@ -68,4 +68,6 @@ export default function HomepageFeatures() {
 			</div>
 		</section>
 	);
-}
+};
+
+export default HomepageFeatures;

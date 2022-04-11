@@ -31,13 +31,14 @@ Must be rendered inside (child/descendant) of an Uploady instance
 | id                  | string   | undefined | id attribute to pass to the container element|
 | className           | string   | undefined | the class attribute to pass to the container element|
 | onDragOverClassName | string   | undefined | class name to add to the container when dragged over|
-| dropHandler         | [DropHandlerMethod](#drophandler) | undefined | override default handler that returns the drop result (ex: files). May return a promise|
+| dropHandler         | [DropHandlerMethod](#dropHandler) | undefined | override default handler that returns the drop result (ex: files). May return a promise|
 | htmlDirContentParams | [Object](#htmldircontentparams) | undefined | will be passed as is to html-dir-content.|
+| shouldRemoveDragOver | [ShouldRemoveDragOverMethod](#shouldRemoveDragOver)  | undefined | callback to help identify when to remove the onDragOverClassName. Receives the dragleave event           |
 | children             | React.Node | undefined | child element(s) to render inside the container|
 | extraProps          | Object   | undefined | any other props to pass to the div component (with spread)|
 
 
-### dropHandler
+### dropHandler {#dropHandler}
 
 ```typescript
 type DropResult = FileList | unknown[]
@@ -54,6 +55,20 @@ In case you want to provide your own logic that will calculate the items(files) 
 These are options that html-dir-content receives as is.
 See [docs](https://www.npmjs.com/package/html-dir-content#api) for more info.
 
+### shouldRemoveDragOver {#shouldRemoveDragOver}
+
+```typescript
+type ShouldRemoveDragOverMethod = (e: DragEvent) => boolean;
+```
+
+There are cases when the default logic in the UploadDropZone component cannot determine whether the drag leave event should remove the indicator (onDragOverClassName).
+
+In this case, this prop can be implemented. It will receive the `dragleave` event. Custom logic can be added to determine whether this event should be considered
+as the cause to remove the indicator.
+
+See the [example below](#customRemoveDragExample) on how to implement.
+
+
 ## Example
 
 ```jsx
@@ -61,13 +76,36 @@ import Uploady from "@rpldy/uploady";
 import UploadDropZone from "@rpldy/upload-drop-zone";
 
 const App = () => (
-<Uploady destination={destination}>
-    <UploadDropZone
-			onDragOverClassName="drag-over"
-			grouped
-			maxGroupSize={3}
-		>
-        <span>Drag&Drop File(s) Here</span>
-    </UploadDropZone>
-</Uploady>);
+	<Uploady destination={destination}>
+	    <UploadDropZone
+				onDragOverClassName="drag-over"
+				grouped
+				maxGroupSize={3}
+			>
+	        <span>Drag&Drop File(s) Here</span>
+	    </UploadDropZone>
+	</Uploady>
+);
+```
+
+### Custom Remove Drag Class {#customRemoveDragExample}
+
+```jsx
+import Uploady from "@rpldy/uploady";
+import UploadDropZone from "@rpldy/upload-drop-zone";
+
+const App = () => {
+    const indicatorRef = useRef(null);
+
+    return (<Uploady destination={destination}>
+        <UploadDropZone
+						id="upload-drop-zone"
+						onDragOverClassName="drag-over"
+						shouldRemoveDragOver={({ target }) => target === indicatorRef.current}
+				>
+					<h1>Drop files here</h1>
+          <div className="on-drag-indicator" ref={indicatorRef} />
+        </UploadDropZone>
+    </Uploady>);
+};
 ```

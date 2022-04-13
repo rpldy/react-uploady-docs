@@ -46,7 +46,7 @@ html[data-theme='dark'] .quotesContainer  h3 {
 }
 
 .quoteHighlight:hover {
-    box-shadow: 2px 3px 20px 11px #44446496;
+    box-shadow: 2px 3px 20px 11px  var(--ifm-navbar-link-hover-color);
 }
 
 .quotesContainer :global(.row) {

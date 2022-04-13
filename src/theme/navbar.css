@@ -29,6 +29,12 @@ html[data-theme='dark'] .header-github-link::before {
     font-weight: bold;
 }
 
+@media (max-width: 996px) {
+    .navbar__items--right .header-npm-version {
+        display: none;
+    }
+}
+
 html[data-theme='dark'] .header-npm-version {
     background-color: #FFF;
 }

@@ -55,6 +55,10 @@ html[data-theme='dark'] .compShowCase:hover {
     text-decoration: none;
 }
 
+.imgContainer {
+    max-width: 300px;
+}
+
 .compShowCase img {
     max-height: 250px;
     max-width: 300px;

@@ -44,7 +44,7 @@ const Components = [
 const ComponentShowcase = ({ title, link, description, image, className }) => {
 	return <div className={clsx(styles.compShowCase, className)}>
 		<Link to={link} className={clsx("row", styles.showCaseLink)}>
-			<Image img={getIdealImageMaxSrc(image, 600)}/>
+			<Image img={getIdealImageMaxSrc(image, 600)} className={styles.imgContainer}/>
 			<div className={clsx(styles.componentText)}>
 				<h2>{title}</h2>
 				<p>{description}</p>

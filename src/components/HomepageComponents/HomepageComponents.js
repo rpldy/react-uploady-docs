@@ -58,7 +58,8 @@ const HomepageComponents = () => {
 		<div className={clsx("hero--primary", styles.components)}>
 			<h1>Components</h1>
 			<div className={clsx(styles.limitedContainer)}>
-				{Components.map((c) => <ComponentShowcase {...c} key={c.title}/>)}
+				{Components.map((c) =>
+					<ComponentShowcase {...c} key={c.title}/>)}
 			</div>
 		</div>
 	);

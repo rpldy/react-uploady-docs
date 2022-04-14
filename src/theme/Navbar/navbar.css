@@ -58,3 +58,8 @@ html[data-theme='dark'] .header-npm-version:hover {
 .navbar__logo {
     margin-right: 0;
 }
+
+.navbar__item .header-npm-version {
+    max-width: 60px;
+}
+

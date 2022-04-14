@@ -135,6 +135,7 @@ const config = {
 					{
 						label: "donate",
 						href: "https://opencollective.com/react-uploady",
+						className: "donate-item",
 						position: "right",
 					}
 				],

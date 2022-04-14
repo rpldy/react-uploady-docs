@@ -246,10 +246,6 @@ a[class^='sidebarLogo_'] b {
     font-size: 18px;
 }
 
-.navbar-sidebar__item .header-npm-version {
-    max-width: 60px;
-}
-
 .footer__logo {
     height: 96px;
     width: 96px;

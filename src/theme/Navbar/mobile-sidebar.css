@@ -1,0 +1,17 @@
+.menu__link .header-npm-version {
+    max-width: none;
+}
+
+.menu__link.header-npm-version::before {
+    margin-right: 12px;
+}
+
+.menu__list-item:not(:first-child) {
+    margin-top: 0.5rem;
+}
+
+.menu__link.donate-item, .menu__link.header-github-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

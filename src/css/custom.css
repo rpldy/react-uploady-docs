@@ -34,6 +34,8 @@
     --side-menu-background-color: #fafafa;
 
     --ifm-navbar-item-padding-horizontal: 10px;
+
+    --ifm-breadcrumb-color-active: var(--ifm-color-primary-light);
 }
 
 html[data-theme='dark'] {
@@ -250,6 +252,7 @@ a[class^='sidebarLogo_'] b {
 
 .footer__logo {
     height: 96px;
+    width: 96px;
 }
 
 /* latin */

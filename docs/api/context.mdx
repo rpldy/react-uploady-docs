@@ -18,7 +18,6 @@ npm install @rpldy/uploady
 When working in React, The UploadyContext is the [API](#api) provider for the uploader mechanism.
 It wraps the [uploader](../uploader) and exposes everything the app using it needs.
 
-
 Accessing the Context API should be done using the [useUploady](../hooks/useUploady) hook.
 
 ```javascript
@@ -26,9 +25,8 @@ import { useUploady } from "@rpldy/uploady";
 ```
 
 :::info
-Can only be called from components rendered inside an &lt;Uploady&gt; components
+Can only be called from components rendered under (descendant of) an &lt;Uploady&gt; component
 :::
-
 
 ## API
 
@@ -108,22 +106,23 @@ unregister an [event](../uploader#events) handler
 
 ## Example
 
-```javascript
+```jsx
 import React from "react";
 import Uploady, { useUploady } from "@rpldy/uploady";
 
-const MyComponent = () => {
+const MyUploadCButton = () => {
     const uploady = useUploady();
 
-    const onClick = ()=> {
-            uploady.showFileUpload();
-        };
+    const onClick = () => {
+        uploady.showFileUpload();
+    };
 
-    return <button onClick={onClick}>Custom Upload Button</button>
+    return <button onClick={onClick}>Custom Upload Button</button>;
 }
 
-const App = () => (<Uploady>
-    <MyComponent/>
-</Uploady>);
-
+const App = () => (
+	<Uploady>
+    <MyUploadCButton/>
+	</Uploady>
+);
 ```

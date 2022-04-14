@@ -8,8 +8,8 @@ const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
 
 const logo = {
 	alt: "Uploady Logo",
-	src: "img/uploady/react-uploady.png",
-	srcDark: "img/uploady/react-uploady-light.png",
+	// src: "img/uploady/react-uploady.png",
+	src: "img/uploady/react-uploady-light.png",
 };
 
 /** @type {import("@docusaurus/types").Config} */
@@ -200,7 +200,7 @@ const config = {
 						],
 					},
 				],
-				logo: { ...logo, height: 48, width: 48 },
+				logo: { ...logo, height: 48, width: 48, href: "/" },
 				copyright: `Copyright © ${new Date().getFullYear()} React-Uploady, <a href="/docs/yoav">Yoav Niran.</a>`,
 			},
 

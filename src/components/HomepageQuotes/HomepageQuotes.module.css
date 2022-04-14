@@ -1,11 +1,16 @@
 .quotesContainer {
     --ifm-hero-text-color: #FFFFFF;
-    margin: 40px 0;
+    margin: 0;
 
     color: var(--ifm-hero-text-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.quotesContainer h3 {
+.quotesContainer h3, .quotesContainer h1 {
     color: #000000;
 }
 
@@ -13,7 +18,8 @@ html[data-theme='dark'] .quotesContainer {
     --ifm-hero-text-color: #000000;
 }
 
-html[data-theme='dark'] .quotesContainer  h3 {
+html[data-theme='dark'] .quotesContainer h3,
+html[data-theme='dark'] .quotesContainer h1 {
     color: #FFFFFF;
 }
 

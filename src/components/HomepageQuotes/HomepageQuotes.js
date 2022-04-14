@@ -34,12 +34,13 @@ const Quote = ({ text, name }) => {
 
 const HomepageQuotes = () => {
 	return <div className={clsx(styles.quotesContainer)}>
+		<h1>People Say...</h1>
 		<section>
-		<div className="container">
-			<div className="row">
-				{QUOTES.map((quote) => <Quote {...quote} key={quote.name}/>)}
+			<div className="container">
+				<div className="row">
+					{QUOTES.map((quote) => <Quote {...quote} key={quote.name}/>)}
+				</div>
 			</div>
-		</div>
 		</section>
 	</div>;
 };

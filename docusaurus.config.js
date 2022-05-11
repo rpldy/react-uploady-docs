@@ -16,7 +16,7 @@ const logo = {
 const config = {
 	title: "React-Uploady",
 	tagline: "Modern file-upload components & hooks for React.",
-	url: "https://react-uploady.netlify.com",
+	url: "https://react-uploady.org",
 	baseUrl: "/",
 	trailingSlash: true,
 	onBrokenLinks: "throw",

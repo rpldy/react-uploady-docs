@@ -1,6 +1,7 @@
 ---
 id: "FormAttributes"
 description: "Using form attributes to configure Uploady"
+tags: [form, upload-button, hooks]
 ---
 
 # Form Attributes

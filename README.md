@@ -4,6 +4,6 @@
 
 This is the official documentation website of [react-uploady](https://github.com/rpldy/react-uploady)
 
-https://react-uploady.netlify.app
+https://react-uploady.org
 
 > Built with Docusaurus 2

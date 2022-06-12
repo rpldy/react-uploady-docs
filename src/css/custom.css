@@ -95,6 +95,20 @@ html[data-theme='dark'] a[class*='cardContainer_']:hover {
     word-break: break-all;
 }
 
+@media (max-width: 500px) {
+    .theme-doc-markdown header h1 {
+        font-size: 38px;
+    }
+
+    .theme-doc-markdown header h2 {
+        font-size: 28px;
+    }
+
+    .theme-doc-markdown header h3 {
+        font-size: 20px;
+    }
+}
+
 .theme-doc-markdown header h1::before {
     display: block;
     position: absolute;

@@ -92,6 +92,7 @@ html[data-theme='dark'] a[class*='cardContainer_']:hover {
     position: relative;
     display: inline-block;
     margin-bottom: 10px;
+    word-break: break-all;
 }
 
 .theme-doc-markdown header h1::before {

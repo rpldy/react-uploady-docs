@@ -105,6 +105,10 @@ html[data-theme='dark'] .compShowCase:hover {
     .showCaseLink {
         padding: 45px 38px;
     }
+
+    :global(.clip-path-3) {
+        padding-top: 30px;
+    }
 }
 
 :global(.clip-path-1) {

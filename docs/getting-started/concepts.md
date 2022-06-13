@@ -77,4 +77,4 @@ See the [Upload Queue Guide](../../guides/UploadQueue) for examples.
 When a file is marked as failed (error) or cancelled (abort), it is possible to retry the upload using the appropriate method.
 
 Retrying can be done on a single item, batch, or all failed uploads.
-Ssee [@rpldy/retry](../../packages/rpldy-retry).
+See [@rpldy/retry](../../packages/rpldy-retry).

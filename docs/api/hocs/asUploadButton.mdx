@@ -51,8 +51,12 @@ import { asUploadButton } from "@rpldy/upload-button";
 
 const DivUploadButton = asUploadButton(forwardRef(
     (props, ref) =>
-        <div {...props} style={{ cursor: "pointer" }}>
-            DIV Upload Button
+        <div
+          {...props}
+          style={{ cursor: "pointer" }}
+          ref={ref}
+        >
+          DIV Upload Button
         </div>
 ));
 
@@ -61,3 +65,9 @@ const App = () => (<Uploady
     <DivUploadButton/>
 </Uploady>);
 ```
+
+### Live Example
+
+You can see this HOC in action in this codesandbox:
+
+[![Edit react-uploady-asUploadButton](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-uploady-asuploadbutton-9ycrc?fontsize=14&hidenavigation=1&theme=dark)

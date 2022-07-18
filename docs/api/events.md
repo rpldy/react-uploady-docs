@@ -33,9 +33,11 @@ This event is _[cancellable](#cancellable-events)_
 
 ## BATCH_START {#batchStart}
 
-`Parameters`: _(batch: Batch)_
+`Parameters`: _(batch: Batch, options: CreateOptions)_
 
 Triggered when batch items start uploading
+
+The handler can change data inside the items and in the options by returning different data than received.
 
 :::info
 This event is _[cancellable](#cancellable-events)_

@@ -20,10 +20,11 @@ npm install @rpldy/uploady
 
 ```typescript
 type BatchStartHook = (cb: (batch: Batch, options: CreateOptions) =>
-    { items?: BatchItem[]; options?: CreateOptions } | boolean | void) => void;
+    PreSendResponse | Promise<PreSendResponse>) => void;
 ```
 
 - See: [CreateOptions](../../types#createoptions)
+- See; [PreSendResponse](../../types#presendresponse)
 - See: [Batch Entity](../../entities#batch)
 
 :::note
@@ -48,31 +49,31 @@ This event can be scoped to a specific batch by passing the batch id as a second
 ## Example
 
 ```javascript
-    import { useBatchStartListener } from "@rpldy/uploady";
+import { useBatchStartListener } from "@rpldy/uploady";
 
-    const MyComponent = () => {
-        useBatchStartListener((batch) => {
-            console.log(`batch ${batch.id} started uploading`);
-        });
+const MyComponent = () => {
+    useBatchStartListener((batch) => {
+        console.log(`batch ${batch.id} started uploading`);
+    });
 
-        //or scoped:
-        useBatchStartListener((batch) => {
-            console.log(`batch ${batch.id} started uploading`);
-        }, "b-123");
-        //...
-    };
+    //or scoped:
+    useBatchStartListener((batch) => {
+        console.log(`batch ${batch.id} started uploading`);
+    }, "b-123");
+    //...
+};
 ```
 
 ### Cancel Batch
 
 ```javascript
- import { useBatchStartListener } from "@rpldy/uploady";
+import { useBatchStartListener } from "@rpldy/uploady";
 
-    const MyComponent = () => {
-        useBatchStartListener(() => {
-            return false;
-        });
-    };
+const MyComponent = () => {
+    useBatchStartListener(() => {
+        return false;
+    });
+};
 ```
 
 ### Update Batch Options
@@ -82,14 +83,14 @@ import { useBatchStartListener } from "@rpldy/uploady";
     const MyComponent = () => {
         useBatchStartListener((batch, options) => {
             return {
-							options: {
-								destination: {
-									headers: {
-										"x-custom":
-											options.destination.headers["x-custom"]	+ " updated",
-									}
-								}
-							}
+				options: {
+					destination: {
+						headers: {
+							"x-custom":
+								options.destination.headers["x-custom"]	+ " updated",
+						}
+					}
+				}
             }
         });
     };

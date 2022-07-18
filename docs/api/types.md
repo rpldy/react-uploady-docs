@@ -378,7 +378,7 @@ interface MockOptions {
 }
 ```
 
-## 
+## PreSendResponse
 
 ```typescript
 type PreSendResponse = { items?: BatchItem[]; options?: CreateOptions } | boolean | void;

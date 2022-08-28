@@ -134,6 +134,7 @@ interface UploadOptions extends Partial<SendOptions>{
     maxGroupSize?: number;
     fileFilter?: FileFilterMethod;
     destination?: Destination;
+    fastAbortThreshold?: number;
 }
 ```
 

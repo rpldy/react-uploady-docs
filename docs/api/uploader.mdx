@@ -38,6 +38,7 @@ npm install @rpldy/uploader
 | formDataAllowUndefined | boolean                                                      | false         | whether to include params with undefined value                                                                                                                      |
 | clearPendingOnAdd      | [boolean](../#clearPendingOnAdd)                             | false         | whether to clear pending batch(es) when a new one is added                                                                                                          |
 | isSuccessfulCall       | [IsSuccessfulCall](../#issuccessfulcall)                     | undefined     | callback to use to decide whether upload response is succssful or not |
+| [fastAbortThreshold](../#fastabortthreshold)   | number           | 100           | the pending/active item count threshold from which to start using the performant abort mechanism |
 
 :::info
 See [uploady](.) page for more details on some of these options

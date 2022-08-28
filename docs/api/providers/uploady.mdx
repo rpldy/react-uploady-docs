@@ -25,28 +25,29 @@ npm install @rpldy/uploady
 | --------------       | ------------- | ------------- | ------------- |
 | **Uploader Options** |
 | autoUpload           | boolean       | true          | automatically upload files when they are added |
-| destination          | [Destination](#destination)   | undefined     | configure the end-point to upload to |
+| [destination](#destination)          | [Destination](#destination)   | undefined     | configure the end-point to upload to |
 | grouped              | boolean       | false         | group multiple files in a single request |
 | maxGroupSize         | number        | 5             | maximum of files to group together in a single request |
 | formatGroupParamName | (number, string) => string | undefined | determine the upload request field name when more than file is grouped in a single upload |
-| fileFilter           | [FileFilter](#filefilter) | undefined | return false to exclude from batch |
-| method               | string        | "POST"        | HTTP method in upload request |
-| params               | Object        | undefined     | collection of params to pass along with the upload (requires sendWithFormData = true) |
+| [fileFilter](#filefilter)  | [FileFilter](#filefilter) | undefined | return false to exclude from batch |
+| [method](#method)    | string        | "POST"        | HTTP method in upload request |
+| [params](#params)    | Object        | undefined     | collection of params to pass along with the upload (requires sendWithFormData = true) |
 | forceJsonResponse    | boolean       | false         | parse server response as JSON even if no JSON content-type header received |
 | withCredentials      | boolean       | false         | set XHR withCredentials to true |
-| enhancer             | [UploaderEnhancer](#enhancer) | undefined    | uploader enhancer function |
+| [enhancer](#enhancer) | [UploaderEnhancer](#enhancer) | undefined    | uploader enhancer function |
 | concurrent           | boolean       | false          | issue multiple upload requests simultaneously |
 | maxConcurrent        | number        | 2              | maximum allowed simultaneous requests |
-| send                 | [SendMethod](#sendMethod) | @rpldy/sender | how to send files to the server |
+| [send](#sendMethod)  | [SendMethod](#sendMethod) | @rpldy/sender | how to send files to the server |
 | sendWithFormData     | boolean       | true           | upload is sent as part of [formdata](https://developer.mozilla.org/en-US/docs/Web/API/FormData) - when true, additional params can be sent along with uploaded data |
 | formatServerResponse | [FormatServerResponseMethod](#formatserverresponsemethod) | undefined | function to create the batch item's uploadResponse from the raw xhr response |
-| clearPendingOnAdd    | [boolean](#clearPendingOnAdd)           | false          | whether to clear pending batch(es) when a new one is added |
-| isSuccessfulCall     | [IsSuccessfulCall](#issuccessfulcall)   | undefined     | callback to use to decide whether upload response is succssful or not |
+| [clearPendingOnAdd](#clearPendingOnAdd)    | boolean    | false          | whether to clear pending batch(es) when a new one is added |
+| [isSuccessfulCall](#issuccessfulcall)      | [IsSuccessfulCall](#issuccessfulcall)   | undefined     | callback to use to decide whether upload response is succssful or not |
+| [fastAbortThreshold](#fastabortthreshold)   | number           | 100           | the pending/active item count threshold from which to start using the performant abort mechanism |
 | **Uploady Options**  |
-| debug                | boolean       | false | enable console logs from uploady packages |
-| listeners            | Object        | undefined | map of [uploader events](../api/uploader#events) name and event handler |
-| customInput          | boolean       | false | whether to use a custom file input (see: [useFileInput](../api/hooks/useFileInput) |
-| inputFieldName       | string        | "file"        | name (attribute) of the file input field (requires sendWithFormData = true) |
+| [debug](#debug)      | boolean       | false | enable console logs from uploady packages |
+| [listeners](#listeners)      | Object        | undefined | map of [uploader events](../api/uploader#events) name and event handler |
+| [customInput](#custominput)  | boolean       | false | whether to use a custom file input (see: [useFileInput](../api/hooks/useFileInput) |
+| [inputFieldName](#inputfieldname)       | string        | "file"        | name (attribute) of the file input field (requires sendWithFormData = true) |
 | inputFieldContainer  | HTMLElement   | document.body | html element to place the file input element inside |
 | children             | React.Node    | undefined     | any part of your React app that will require access to the upload flow  (components, hooks, etc.) |
 | capture              | string        | null          | [input/file#capture](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#capture) - affects file input only. for example, drag&drop or programmatic uploads will not be affected by this setting |
@@ -218,6 +219,17 @@ const App = () => {
 > Default: false
 
 Most of the time there is no need to use this flag. When setting to true it will make Uploady and other internal classes log debugging information to the console.
+
+### fastAbortThreshold
+
+> Default: 100
+
+Added in [1.1.0](https://github.com/rpldy/react-uploady/releases/tag/v1.1.0)
+
+Controls the way abort of multiple items (all or batch) is handled by the [Abort Enhancer](../packages/rpldy-abort).
+When the count of items to abort it equal or higher than the threshold, the [fast](../api/enhancers/getAbortEnhancer#fast) abort mode is used.
+If not, or when the threshold is set to 0, the [normal](../api/enhancers/getAbortEnhancer#normal) mode is used.
+
 
 ### No DOM Uploady
 

@@ -77,16 +77,6 @@ See the [example below](#customRemoveDragExample) on how to implement.
 ### shouldHandleDrag {#shouldHandleDrag}
 
 ```typescript
-type ShouldHandleDragMethod = (e: DragEvent) => boolean;
-```
-
-Can be a boolean or a method returning a boolean. In case of a method, the drag event will be provided as a param.
-
-In case shouldHandleDrag === false, the drag&drop flow will not be handled by this component.
-In case you want to use logic to determine whether drag&drop will be enabled, pass a callback for this prop.
-Returning a _Falsy_ value will disable DnD, returning _Truthy_ will keep it enabled (as would undefined by default).
-
-```typescript
 export type ShouldHandleDragMethod = (e: DragEvent) => boolean;
 
 export type ShouldHandleDrag = boolean | ShouldHandleDragMethod;
@@ -95,8 +85,8 @@ export type ShouldHandleDrag = boolean | ShouldHandleDragMethod;
 Can be a boolean or a method returning a boolean. In case of a method, the drag event will be provided as a param.
 
 In case shouldHandleDrag === false, the drag&drop flow will not be handled by this component.
-In case you want to enable logic to determine whether drag&drop will be enabled, pass a callback for this prop.
-Returning a _Falsy_ value will disable DnD, returning _Truthy_ will keep it enabled.
+In case you want to use logic to determine whether drag&drop will be enabled, pass a callback for this prop.
+Returning a _Falsy_ value will disable DnD, returning _Truthy_ will keep it enabled (as would undefined by default).
 
 ## Example
 

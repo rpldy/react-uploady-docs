@@ -222,7 +222,8 @@ type BatchEventHook = EventHook<Batch>;
 ## BatchCancellableEventHook
 
 ```typescript
-type BatchCancellableEventHook = CancellableHook<Batch>;
+type BatchCancellableEventHook = 
+  (cb: (batch: Batch, options: CreateOptions) => boolean | void) => void;
 ```
 
 ## ItemEventHook

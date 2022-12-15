@@ -35,6 +35,7 @@ Called when a new batch is added.
 This event is _[cancellable](../../events#cancellable-events)_
 :::
 
+The handler passed to the hook may return an async result (promise).
 
 ## Example
 
@@ -42,8 +43,10 @@ This event is _[cancellable](../../events#cancellable-events)_
     import { useBatchAddListener } from "@rpldy/uploady";
 
     const MyComponent = () => {
-        useBatchAddListener((batch) => {
+        useBatchAddListener((batch, options) => {
             console.log(`batch ${batch.id} was just added with ${batch.items.length} items`);
+
+						//return false to cancel the batch
         });
 
         //...

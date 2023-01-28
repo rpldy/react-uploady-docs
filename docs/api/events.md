@@ -68,7 +68,7 @@ Triggered in case batch was cancelled from BATCH_START event handler
 
 Triggered in case the batch was [aborted](../uploader#abortBatch)
 
-### BATCH_ERROR {#batchError}
+## BATCH_ERROR {#batchError}
 
 `Parameters`: _(batch: Batch)_
 
@@ -77,7 +77,7 @@ These errors will most likely occur due to invalid event handling.
 For instance, by a handler (ex: BATCH_START) throwing an error.
 
 
-### BATCH_FINALIZE {#batchFinalize}
+## BATCH_FINALIZE {#batchFinalize}
 
 `Parameters`: _(batch: Batch)_
 
@@ -87,7 +87,7 @@ Triggered when all batch items have finished uploading or in case the batch was 
 This event can be relied on to be called regardless of how the batch finished
 :::
 
-### ITEM_START {#itemStart}
+## ITEM_START {#itemStart}
 
 `Parameters`: _(item: BatchItem)_
 
@@ -98,7 +98,7 @@ For grouped uploads (multiple files in same xhr request) ITEM_START is triggered
 This event is _[cancellable](#cancellable-events)_
 :::
 
-### ITEM_FINISH {#itemFinish}
+## ITEM_FINISH {#itemFinish}
 
 `Parameters`: _(item: BatchItem)_
 
@@ -108,7 +108,7 @@ Triggered when item finished uploading successfully
 The server response can be accessed through the item's _uploadResponse_ property and status code through _uploadStatus_
 :::
 
-### ITEM_PROGRESS {#itemProgress}
+## ITEM_PROGRESS {#itemProgress}
 
 `Parameters`: _(item: BatchItem)_
 
@@ -118,30 +118,29 @@ Triggered every time progress data is received for this file upload
 progress info is accessed through the item's "completed" (percentage) and "loaded" (bytes) properties.
 :::
 
-### ITEM_CANCEL {#itemCancel}
+## ITEM_CANCEL {#itemCancel}
 
 `Parameters`: _(item: BatchItem)_
 
 Triggered in case item was cancelled programmatically 
 
-### ITEM_ERROR {#itemError}
+## ITEM_ERROR {#itemError}
 
 `Parameters`: _(item: BatchItem)_
 
 Triggered in case item upload failed
 
-
 :::note
 The server response can be accessed through the item's uploadResponse property.
 :::
 
-### ITEM_ABORT {#itemAbort}
+## ITEM_ABORT {#itemAbort}
 
 `Parameters`: _(item: BatchItem)_
 
 Triggered in case [abort](../uploader#abort) was called
 
-### ITEM_FINALIZE {#itemFinalize}
+## ITEM_FINALIZE {#itemFinalize}
 
 `Parameters`: _(item: BatchItem)_
 
@@ -152,7 +151,7 @@ Use this event if you want to handle the state of the item being done for any re
 This event can be relied on to be called regardless of how the item finished
 :::
 
-### REQUEST_PRE_SEND {#requestPreSend}
+## REQUEST_PRE_SEND {#requestPreSend}
 
 `Parameters`: _(items: BatchItem[], options: CreateOptions)_
 
@@ -167,7 +166,7 @@ See this [guide](../../guides/DynamicParameters) for more details.
 This event is _[cancellable](#cancellable-events)_
 :::
 
-### ALL_ABORT {#allAbort}
+## ALL_ABORT {#allAbort}
 
 `No parameters`: _()_
 

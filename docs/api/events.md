@@ -212,10 +212,10 @@ Triggered when a chunk finishes uploading as part of a chunked upload
 
 Triggered when files are re-added to the queue for retry.
 
-`Parameters`: _({ uploads: string[], options?: UploadOptions })_
+`Parameters`: _({ uploads: BatchItem[], options?: UploadOptions })_
 
 :::note
-uploads is an array of batch item ids.
+uploads is an array of batch items.
 :::
 
 :::note

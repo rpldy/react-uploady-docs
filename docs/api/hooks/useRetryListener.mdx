@@ -18,9 +18,12 @@ npm install @rpldy/retry-hooks
 
 ## Details
 
+Use this hook to have a component notified when a [retry event](../../events#retryEvent) is triggered.
+This happens for every item retry, whether the retry action was for an individual item, batch, or all failed items.
+
 ```typescript
 type RetryEventData = {
-    items: string[];
+    items: BatchItem[];
     options: UploadOptions | void;
 };
 
@@ -32,13 +35,7 @@ type useRetryListener = (cb: RetryEventCallback) => void;;
 - See: [UploadOptions](../../types#uploadoptions)
 
 :::note
-Event Hook - [ITEM-PROGRESS](../../events#itemProgress)
-:::
-
-Called every time progress data is received for this file upload
-
-:::info
-This event can be scoped to a specific item by passing the item id as a second parameter
+Event Hook - [RETRY_EVENT](../../events#retryEvent)
 :::
 
 :::info
@@ -49,25 +46,15 @@ you need to use the provided (uploader enhancer): [retryEnhancer](../../enhancer
 ## Example
 
 ```javascript
-import { useItemProgressListener } from "@rpldy/uploady";
+import React  from "react";
+import { useRetryListener } from "@rpldy/retry-hooks";
 
-const MyComponent = () => {
-    const item = useItemProgressListener((item) => {
-      //callback is optional for this hook
+const MyComponent = ( ) => {
+
+    useRetryListener(({ items }) => {
+        console.log("##### RETRY EVENT - retrying items: ", items);
     });
 
-    console.log(`item ${item.id} is ${item.completed}% done and ${item.loaded} bytes uploaded`)
-
-   //...
+    return <div/>;
 };
-```
-
-### Scoping
-
-Scoping to an id can be done like so:
-
-```javascript
-//...
-const { completed } = useItemProgressListener("item-id") || { completed: 0 };
-//...
 ```

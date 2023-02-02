@@ -367,6 +367,12 @@ interface PasteCompProps {
 }
 ```
 
+## RemovePreviewMethod 
+
+```typescript
+type RemovePreviewMethod = (id: string) => void;
+```
+
 ## PreviewItem
 
 ```typescript
@@ -376,16 +382,8 @@ type PreviewItem = {
     name: string;
     type: PreviewType;
     isFallback: boolean;
+    removePreview: RemovePreviewMethod;
     props: Record<string, unknown>;
-};
-```
-
-## PreviewData
-
-```typescript
-type PreviewData = {
-    previews: PreviewItem[];
-    clearPreviews: () => void;
 };
 ```
 

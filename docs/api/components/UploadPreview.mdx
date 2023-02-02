@@ -46,12 +46,12 @@ Must be rendered inside (child/descendant) of an Uploady instance
 In case you wish to return a dynamic fallback URL you can pass in a function instead of a string:
 
 ```typescript
-type FallbackType = string | PreviewData;
+type FallbackType = string | PreviewItem;
 
 type FallbackMethod = (file: FileLike) => FallbackType | void;
 ```
 
-- See: [PreviewData](../../types#previewdata)
+- See: [PreviewItem](../../types#previewitem)
 - See: [FileLike](../../entities#filelike)
 
 
@@ -72,11 +72,18 @@ type PreviewComponentPropsOrMethod = Record<string, unknown> | PreviewComponentP
 ```typescript
 type PreviewMethods = {
     clear: () => void;
+    removePreview: (id: string) => void;
 };
 ```
 
-Provides access to preview related methods. Currently `clear` is the only method available.
-It will reset the item previews shown.
+Provides access to preview related methods:
+
+- `clear` - will reset all items shown in the preview
+- `removePreview` - will remove a single item preview
+
+:::note
+These methods do not remove the item from the upload queue. ONLY from the preview.
+:::
 
 ## Examples
 
@@ -94,6 +101,7 @@ type PreviewProps = {
 	name: string;
 	type: PreviewType;
 	isFallback: boolean;
+    removePreview: () => void;
 };
 ```
 

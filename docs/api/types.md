@@ -323,6 +323,26 @@ interface TusOptions extends ChunkedOptions {
 interface TusUploadyProps extends UploadyProps, TusOptions {}
 ```
 
+## ResumeStartEventData
+
+```typescript
+interface TusResumeStartEventData {
+    url: string;
+    item: BatchItem;
+    resumeHeaders?: Record<string, string>;
+}
+```
+
+## TusResumeStartEventResponse
+
+```typescript
+type TusResumeStartEventResponse = void | boolean | {
+    url?: string;
+    resumeHeaders?: Record<string, string>;
+};
+```
+
+
 ## PasteUploadData
 
 ```typescript

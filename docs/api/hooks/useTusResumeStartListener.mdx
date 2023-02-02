@@ -1,0 +1,69 @@
+---
+id: useTusResumeStartListener
+title: "useTusResumeStartListener"
+pagination_label: "useTusResumeStartListener"
+sidebar_label: "🪝 useTusResumeStartListener"
+tags: [hook, event, tus, resumable, cancellable]
+---
+
+## Package
+
+**_[@rpldy/tus-uploady](../../../packages/rpldy-tus-uploady)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/tus-uploady
+```
+
+## Details
+
+```typescript
+type useTusResumeStartListener = (cb: (data: TusResumeStartEventData) => TusResumeStartEventResponse) => void;
+```
+
+- See: [TusResumeStartEventData](../../types#tusresumestarteventdata)
+- See: [TusResumeStartEventResponse](../../types#tusresumestarteventresponse)
+
+:::note
+Event Hook - [RESUME_START](../../events#resumeStart)
+:::
+
+:::info
+This event is _[cancellable](../../events#cancellable-events)_
+:::
+
+Called before the (HEAD) request is issued on behalf of a potentially resumeable upload.
+
+Receives an object with:
+
+- url: the URL the resume (HEAD) request will be sent to
+- item: the BatchItem being sent
+- resumeHeaders: an optional object that was passed to the [TusUploady props](../../providers/tusUploady#resumeHeaders)
+
+May return `false` to cancel the resume, nothing, or an [object](../../types#tusresumestarteventresponse)
+with:
+
+Cancelling the request (return `false`) will not abort the entire upload, but rather cancel the fetching of resume info.
+
+- `url` property to overwrite the URL the request will be sent to.
+- And/Or a `resumeHeaders` object that will be merged with the optional object passed as a prop to TusUploady.
+
+```javascript
+import React from "react";
+import { useTusResumeStartListener } from "@rpldy/tus-uploady";
+
+const MyComponent = () => {
+    useTusResumeStartListener(({ url, item, resumeHeaders }) => {
+        return cancelResume ? false : {
+            resumeHeaders: {
+                "x-another-header": "foo",
+                "x-test-override": "def"
+            }
+        }
+    });
+
+	//...
+};
+
+```

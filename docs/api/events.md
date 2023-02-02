@@ -220,3 +220,19 @@ uploads is an array of batch items.
 :::note
 options are the (optional) upload options that are passed to the retry call
 :::
+
+## Tus Events {#tus-events}
+
+### RESUME_START {#resumeStart}
+
+`Parameters`: _(data: ResumeStartEventData)_
+
+Triggered before the (HEAD) request is issued on behalf of a potentially resumeable upload.
+
+- See: [ResumeStartEventData](../types#resumestarteventdata)
+
+:::info
+This event is _[cancellable](#cancellable-events)_
+:::
+
+Cancelling the request will not abort the entire upload, but rather cancel the fetching of resume info.

@@ -22,7 +22,7 @@ npm install @rpldy/tus-uploady
 type useTusResumeStartListener = (cb: (data: TusResumeStartEventData) => TusResumeStartEventResponse) => void;
 ```
 
-- See: [TusResumeStartEventData](../../types#tusresumestarteventdata)
+- See: [ResumeStartEventData](../../types#resumestarteventdata)
 - See: [TusResumeStartEventResponse](../../types#tusresumestarteventresponse)
 
 :::note
@@ -39,7 +39,7 @@ Receives an object with:
 
 - url: the URL the resume (HEAD) request will be sent to
 - item: the BatchItem being sent
-- resumeHeaders: an optional object that was passed to the [TusUploady props](../../providers/tus-uploady#resumeHeaders)
+- resumeHeaders: an optional object that was passed to the [TusUploady props](../../providers/tus-uploady#resume-headers)
 
 May return `false` to cancel the resume, nothing, or an [object](../../types#tusresumestarteventresponse)
 with:

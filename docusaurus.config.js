@@ -88,7 +88,11 @@ const config = {
 				{ name: "keywords", content: "uploady,react-uploady,file upload,upload,queue,javascript,frontend dev,development,documentation,docs,chunked uploads,resumable" },
 			],
 
-			hideableSidebar: true,
+			docs: {
+				sidebar: {
+					hideable: true,
+				},
+			},
 
 			announcementBar: {
 				id: "rpldy-announce-1", // Increment on change

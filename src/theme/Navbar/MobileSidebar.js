@@ -1,12 +1,13 @@
 import React from "react";
 import DocusaurusMobileSidebar from "@theme-original/Navbar/MobileSidebar";
-import { useNavbarMobileSidebar } from "@docusaurus/theme-common";
 import useMenuUploadyVersion from "./useMenuUploadyVersion";
+import useIsUsingMobileSidebar from "./useIsUsingMobileSidebar";
 
 import "./mobile-sidebar.css";
 
+
 const UploadyMobileSidebar = (props) => {
-	const { shouldRender } = useNavbarMobileSidebar();
+	const shouldRender = useIsUsingMobileSidebar();
 	useMenuUploadyVersion(".menu__link", shouldRender);
 
 	return <DocusaurusMobileSidebar {...props}/>;

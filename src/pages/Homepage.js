@@ -9,6 +9,7 @@ import HomepageFeatures from "../components/HomepageFeatures";
 import HomepageQuotes from "../components/HomepageQuotes";
 import HomepageVideo from "../components/HomepageVideo";
 import HomepageComponents from "../components/HomepageComponents";
+import HomepageSponsors from "../components/HomepageSponsors";
 // import useThemeContext from "@theme/hooks/useThemeContext";
 import styles from "./Homepage.module.css";
 
@@ -65,6 +66,7 @@ export default function Home() {
 				<HomepageVideo />
 				<HomepageQuotes/>
 				<HomepageComponents/>
+				<HomepageSponsors />
 			</main>
 		</Layout>
 	);

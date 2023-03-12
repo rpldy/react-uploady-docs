@@ -121,4 +121,5 @@ html[data-theme='dark'] .quote {
 
 .shareLinkRow {
     margin-top: 20px;
+    font-weight: bold;
 }

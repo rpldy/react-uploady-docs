@@ -34,11 +34,14 @@ const Quote = ({ text, name }) => {
 
 const HomepageQuotes = () => {
 	return <div className={clsx(styles.quotesContainer)}>
-		<h1>People Say...</h1>
+		<h1>Developers Say...</h1>
 		<section>
 			<div className="container">
 				<div className="row">
 					{QUOTES.map((quote) => <Quote {...quote} key={quote.name}/>)}
+				</div>
+				<div className={`row ${styles.shareLinkRow}`}>
+					<a target="_blank" href="https://github.com/rpldy/react-uploady/discussions/131">Share your Uploady story with us</a>
 				</div>
 			</div>
 		</section>

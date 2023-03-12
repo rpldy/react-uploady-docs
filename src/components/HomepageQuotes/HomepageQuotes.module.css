@@ -118,3 +118,7 @@ html[data-theme='dark'] .quote {
     justify-content: space-evenly;
     height: 100%;
 }
+
+.shareLinkRow {
+    margin-top: 20px;
+}

@@ -8,7 +8,7 @@
 
     background-color: var(--ifm-hero-background-color);
 
-    clip-path: polygon(0 5%, 100% 3%, 100% 99%, 0 96%);
+    clip-path: polygon(0 4%, 100% 3%, 100% 99%, 0 96%);
 
     min-height: 500px;
 }

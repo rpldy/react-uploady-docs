@@ -30,7 +30,7 @@ In case the browser doesn't support chunking (blob slicing), the default sender 
 ## Example
 
 ```jsx title="Chunked - Simple Example"
-import ChunkedUploady from "@rpldy/uploady";
+import ChunkedUploady from "@rpldy/chunked-uploady";
 
 const App = () => (
 	<ChunkedUploady
@@ -42,7 +42,7 @@ const App = () => (
     destination={{ url: "https://my-server", headers: { "x-custom": "123" } }}>
 
     <RestOfMyApp/>
-</ChunkedUploady>
+	</ChunkedUploady>
 );
 ```
 

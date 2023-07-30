@@ -1,0 +1,10 @@
+---
+id: guides
+title: Guides
+# have to use custom index because no way of linking from navbar to auto-generated category index: https://github.com/facebook/docusaurus/issues/6041
+---
+
+import DocCardList from "@theme/DocCardList";
+import { useCurrentSidebarCategory } from "@docusaurus/theme-common";
+
+<DocCardList items={useCurrentSidebarCategory().items}/>

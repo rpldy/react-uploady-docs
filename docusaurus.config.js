@@ -5,6 +5,9 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
 
+const EXCLUDED_SIDEBAR_ITEMS = [
+	"guides/guides"
+];
 
 const logo = {
 	alt: "Uploady Logo",
@@ -34,7 +37,7 @@ const config = {
 			Linkedin: "https://www.linkedin.com/in/yoavniran/",
 			Instagram: "https://instagram.com/literaryCoder",
 			Medium: "https://poeticgeek.medium.com/",
-			"dev.to": "https://dev.to/poeticgeek"
+			"dev.to": "https://dev.to/poeticgeek",
 		},
 		homeVideoId: "bxvHE4hWu3c",
 	},
@@ -53,6 +56,12 @@ const config = {
 					showLastUpdateTime: true,
 
 					remarkPlugins: [[npm2yarn, { sync: true }]],
+
+					//have to use custom generator because no way of linking from navbar to auto-generated category index: https://github.com/facebook/docusaurus/issues/6041
+					async sidebarItemsGenerator({ defaultSidebarItemsGenerator, ...args }) {
+						const sidebarItems = await defaultSidebarItemsGenerator(args);
+						return sidebarItems.filter((item) => !EXCLUDED_SIDEBAR_ITEMS.includes(item.id));
+					}
 				},
 				blog: {
 					showReadingTime: true,
@@ -85,7 +94,10 @@ const config = {
 			metadata: [
 				{ name: "twitter:card", content: "summary_large_image" },
 				{ name: "twitter:domain", content: "react-uploady.netlify.app" },
-				{ name: "keywords", content: "uploady,react-uploady,file upload,upload,queue,javascript,frontend dev,development,documentation,docs,chunked uploads,resumable" },
+				{
+					name: "keywords",
+					content: "uploady,react-uploady,file upload,upload,queue,javascript,frontend dev,development,documentation,docs,chunked uploads,resumable",
+				},
 			],
 
 			docs: {
@@ -118,9 +130,15 @@ const config = {
 						label: "API",
 					},
 					{
+						type: "doc",
+						docId: "guides/guides",
+						position: "left",
+						label: "Guides",
+					},
+					{
 						to: "/blog",
 						label: "Blog",
-						position: "left"
+						position: "left",
 					},
 
 					//right-side
@@ -134,14 +152,14 @@ const config = {
 						href: "https://www.npmjs.com/package/@rpldy/uploady",
 						position: "right",
 						className: "header-npm-version",
-						"aria-label": "NPM package"
+						"aria-label": "NPM package",
 					},
 					{
 						label: "donate",
 						href: "https://opencollective.com/react-uploady",
 						className: "donate-item",
 						position: "right",
-					}
+					},
 				],
 			},
 
@@ -161,7 +179,7 @@ const config = {
 							},
 							{
 								label: "Storybook",
-								href: "https://react-uploady-storybook.netlify.app/"
+								href: "https://react-uploady-storybook.netlify.app/",
 							},
 						],
 					},
@@ -174,7 +192,7 @@ const config = {
 							},
 							{
 								label: "External Resources",
-								to: "/docs/external#blog-posts"
+								to: "/docs/external#blog-posts",
 							},
 							{
 								label: "Twitter",
@@ -195,13 +213,13 @@ const config = {
 							},
 							{
 								label: "Issues",
-								href: "https://github.com/rpldy/react-uploady/issues"
+								href: "https://github.com/rpldy/react-uploady/issues",
 							},
 							{
 								html: `<a href="https://app.netlify.com/sites/react-uploady/deploys">
 									<img src="https://api.netlify.com/api/v1/badges/22e2f0d8-93e2-4889-b9fc-17c9302675c9/deploy-status" alt="netlify status"/>
-								</a>`
-							}
+								</a>`,
+							},
 						],
 					},
 				],
@@ -251,7 +269,7 @@ const config = {
 					{
 						tagName: "meta",
 						name: "apple-mobile-web-app-capable",
-						content: 'yes',
+						content: "yes",
 					},
 					{
 						tagName: "meta",

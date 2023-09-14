@@ -195,16 +195,22 @@ interface CreateOptions extends UploadOptions {
 type InputRef = { current: HTMLInputElement | null };
 ```
 
-## ItemCancellableEventHook
+## EventHook
 
 ```typescript
-type ItemCancellableEventHook = CancellableHook<BatchItem>;
+type EventHook<T> = (cb: (obj: T, options: CreateOptions) => void, id?: string) => void;
 ```
 
 ## CancellableHook
 
 ```typescript
-type CancellableHook<T> = (cb: (obj: T) => boolean | void, id?: string) => void;
+type CancellableHook<T> = (cb: (obj: T, options: CreateOptions) => boolean | void, id?: string) => void;
+```
+
+## ItemCancellableEventHook
+
+```typescript
+type ItemCancellableEventHook = CancellableHook<BatchItem>;
 ```
 
 ## EventHookWithState

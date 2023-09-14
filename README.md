@@ -7,3 +7,7 @@ This is the official documentation website of [react-uploady](https://github.com
 https://react-uploady.org
 
 > Built with Docusaurus 2
+
+## React Uploady Version
+
+    Docs are updated for v1.5.0

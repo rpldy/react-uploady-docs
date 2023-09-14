@@ -41,7 +41,7 @@ This event can be scoped to a specific item by passing the item id as a second p
 import { useItemCancelListener } from "@rpldy/uploady";
 
 const MyComponent = () => {
-    useItemCancelListener((item) => {
+    useItemCancelListener((item, options) => {
         console.log(`item ${item.id} was cancelled`);
     });
 

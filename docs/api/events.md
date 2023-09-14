@@ -45,32 +45,31 @@ This event is _[cancellable](#cancellable-events)_
 
 ## BATCH_PROGRESS {#batchProgress}
 
-`Parameters`: _(batch: Batch)_
+`Parameters`: _(batch: Batch, options: CreateOptions)_
 
 Triggered every time progress data is received from the upload request(s)
 
 ## BATCH_FINISH {#batchFinish}
 
-Triggered when batch items finished uploading
+- `Parameters`: _(batch, options: CreateOptions)_
 
-- Parameters: _(batch)_
+Triggered when batch items finished uploading
 
 ## BATCH_CANCEL {#batchCancel}
 
-`Parameters`: _(batch: Batch)_
+`Parameters`: _(batch: Batch, options: CreateOptions)_
 
 Triggered in case batch was cancelled from BATCH_START event handler
 
-
 ## BATCH_ABORT {#batchAbort}
 
-`Parameters`: _(batch: Batch)_
+`Parameters`: _(batch: Batch, options: CreateOptions)_
 
 Triggered in case the batch was [aborted](../uploader#abortBatch)
 
 ## BATCH_ERROR {#batchError}
 
-`Parameters`: _(batch: Batch)_
+`Parameters`: _(batch: Batch, options: CreateOptions)_
 
 Triggered in case the batch was failed with an error.
 These errors will most likely occur due to invalid event handling.
@@ -79,7 +78,7 @@ For instance, by a handler (ex: BATCH_START) throwing an error.
 
 ## BATCH_FINALIZE {#batchFinalize}
 
-`Parameters`: _(batch: Batch)_
+`Parameters`: _(batch: Batch, options: CreateOptions)_
 
 Triggered when all batch items have finished uploading or in case the batch was cancelled(abort) or had an error
 
@@ -89,7 +88,7 @@ This event can be relied on to be called regardless of how the batch finished
 
 ## ITEM_START {#itemStart}
 
-`Parameters`: _(item: BatchItem)_
+`Parameters`: _(item: BatchItem, options: CreateOptions)_
 
 Triggered when item starts uploading (just before)
 For grouped uploads (multiple files in same xhr request) ITEM_START is triggered for each item separately
@@ -100,7 +99,7 @@ This event is _[cancellable](#cancellable-events)_
 
 ## ITEM_FINISH {#itemFinish}
 
-`Parameters`: _(item: BatchItem)_
+`Parameters`: _(item: BatchItem, options: CreateOptions)_
 
 Triggered when item finished uploading successfully
 
@@ -120,13 +119,13 @@ progress info is accessed through the item's "completed" (percentage) and "loade
 
 ## ITEM_CANCEL {#itemCancel}
 
-`Parameters`: _(item: BatchItem)_
+`Parameters`: _(item: BatchItem, options: CreateOptions)_
 
 Triggered in case item was cancelled programmatically 
 
 ## ITEM_ERROR {#itemError}
 
-`Parameters`: _(item: BatchItem)_
+`Parameters`: _(item: BatchItem, options: CreateOptions)_
 
 Triggered in case item upload failed
 
@@ -136,13 +135,13 @@ The server response can be accessed through the item's uploadResponse property.
 
 ## ITEM_ABORT {#itemAbort}
 
-`Parameters`: _(item: BatchItem)_
+`Parameters`: _(item: BatchItem, options: CreateOptions)_
 
 Triggered in case [abort](../uploader#abort) was called
 
 ## ITEM_FINALIZE {#itemFinalize}
 
-`Parameters`: _(item: BatchItem)_
+`Parameters`: _(item: BatchItem, options: CreateOptions)_
 
 Triggered for item when uploading is done due to: finished, error, cancel or abort
 Use this event if you want to handle the state of the item being done for any reason.

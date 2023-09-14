@@ -41,7 +41,7 @@ This event can be scoped to a specific item by passing the item id as a second p
 import { useItemFinalizeListener } from "@rpldy/uploady";
 
 const MyComponent = () => {
-    useItemFinalizeListener((item) => {
+    useItemFinalizeListener((item, options) => {
         console.log(`item ${item.id} is done with state: ${item.state}`);
     });
 

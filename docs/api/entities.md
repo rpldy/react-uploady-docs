@@ -17,6 +17,7 @@ type Batch = {
     state: BATCH_STATES;
     completed: number;
     loaded: number;
+	total: number;
     orgItemCount: number;
     additionalInfo: string | null;
 };
@@ -48,7 +49,8 @@ interface BatchItemBase {
     state: FILE_STATES;
     uploadResponse?: any;
     uploadStatus: number;
-    completed: number;
+	total: number;
+	completed: number;
     loaded: number;
     recycled: boolean;
     previousBatch?: string;

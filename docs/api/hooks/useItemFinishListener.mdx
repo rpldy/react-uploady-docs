@@ -41,7 +41,7 @@ This event can be scoped to a specific item by passing the item id as a second p
 import { useItemFinishListener } from "@rpldy/uploady";
 
 const MyComponent = () => {
-    useItemFinishListener((item) => {
+    useItemFinishListener((item, options) => {
         console.log(`item ${item.id} finished uploading, response was: `, item.uploadResponse, item.uploadStatus);
     });
 

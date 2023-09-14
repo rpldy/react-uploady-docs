@@ -41,7 +41,7 @@ This event can be scoped to a specific item by passing the item id as a second p
     import { useBatchFinishListener } from "@rpldy/uploady";
 
     const MyComponent = () => {
-        useBatchFinishListener((batch) => {
+        useBatchFinishListener((batch, options) => {
             console.log(`batch ${batch.id} finished uploading`);
         });
 

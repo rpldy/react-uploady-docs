@@ -52,7 +52,7 @@ This event can be scoped to a specific batch by passing the batch id as a second
 import { useBatchStartListener } from "@rpldy/uploady";
 
 const MyComponent = () => {
-    useBatchStartListener((batch) => {
+    useBatchStartListener((batch, options) => {
         console.log(`batch ${batch.id} started uploading`);
     });
 

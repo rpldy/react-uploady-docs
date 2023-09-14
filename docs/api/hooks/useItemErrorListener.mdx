@@ -41,7 +41,7 @@ This event can be scoped to a specific item by passing the item id as a second p
 import { useItemErrorListener } from "@rpldy/uploady";
 
 const MyComponent = () => {
-    useItemErrorListener((item) => {
+    useItemErrorListener((item, options) => {
         console.log(`item ${item.id} failed - `, item.uploadResponse);
     });
 

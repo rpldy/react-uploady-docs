@@ -34,3 +34,52 @@ See: [Uploady documentation](../..#props) for detailed list of upload options.
 
 It's possible to have chunked uploads retry in case of failure.
 By default, one chunk failing once will cause the entire upload to error.
+
+## Events
+
+Chunked Sender makes it possible to handle chunk life-time events.
+See [uploader events](../../events) section on more info regarding how to register for events.
+
+### CHUNK_EVENTS.CHUNK_START
+
+Triggered when a chunk is about to be sent to the server
+
+> This event is _[cancellable](../../events#cancellable-events)_
+
+The event handler may return an object with the following shape:
+
+```typescript
+interface ChunkedOptions {
+    chunked?: boolean;
+    chunkSize?: number;
+    retries?: number;
+    parallel?: number;
+}
+
+type StartEventResponse = {
+	url: string,
+  sendOptions: ChunkedOptions
+}
+```
+
+### CHUNK_EVENTS.CHUNK_FINISH
+
+Triggered when a chunk has finished uploading
+
+### Item Error
+
+In case of chunk upload error in conjunction of using the [ITEM_ERROR](../../events/#itemError) or the
+[useItemErrorListener](../../hooks/useItemErrorListener/) hook, it is possible to access the error information returned from the server like so:
+
+```jsx
+import { useItemErrorListener } from "@rpldy/uploady";
+
+const MyComponent = () => {
+    useItemErrorListener((item) => {
+        console.log(`item ${item.id} failed -  status code:`, item.uploadResponse.chunkUploadResponse.status); //the status code returned by the server on the failed chunk
+        console.log(`item ${item.id} failed -  msg:`, item.uploadResponse.chunkUploadResponse.response); //the response data (if) sent by the server on the failed chunk
+    });
+
+    //...
+};
+```

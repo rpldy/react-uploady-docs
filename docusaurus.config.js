@@ -179,6 +179,10 @@ const config = {
 								to: "/docs/api",
 							},
 							{
+								label: "Guides",
+								href: "/docs/guides",
+							},
+							{
 								label: "Storybook",
 								href: "https://react-uploady-storybook.netlify.app/",
 							},

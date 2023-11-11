@@ -11,7 +11,7 @@ This is useful when different headers or parameters are needed based on the uplo
 The relevant event for this is: [REQUEST_PRE_SEND](../../api/uploader#uploader_eventsrequest_pre_send) and the relevant hook: 
 [useRequestPreSend](../../api/hooks/useRequestPreSend).
 
-The handler (event or hook) receives an object:  _{items, options}_
+The handler (event or hook) receives an object:  ```{ items, options }```
 
 The _items_ array contains the (batch) items that are going to be uploaded in the next request.
 The array will contain more than one item when grouping is configured (by default grouping is turned off).

@@ -1,9 +1,10 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
+import npm2yarn from "@docusaurus/remark-plugin-npm2yarn";
+import {
+	github as lightCodeTheme,
+	dracula as darkCodeTheme,
+} from "prism-react-renderer"
 
 const EXCLUDED_SIDEBAR_ITEMS = [
 	"guides/guides"
@@ -33,7 +34,7 @@ const config = {
 			"react-uploady is a library containing modern file-upload components & hooks for React.",
 		contact: {
 			Twitter: "https://twitter.com/poeticGeek",
-			Github: "https://github.com/yoavniran",
+			Github: "https://github.com/rpldy",
 			Linkedin: "https://www.linkedin.com/in/yoavniran/",
 			Instagram: "https://instagram.com/literaryCoder",
 			Medium: "https://poeticgeek.medium.com/",
@@ -55,7 +56,7 @@ const config = {
 					// showLastUpdateAuthor: true,
 					showLastUpdateTime: true,
 
-					remarkPlugins: [[npm2yarn, { sync: true }]],
+					remarkPlugins: [[npm2yarn, { sync: true, converters: ["yarn", "pnpm"] }]],
 
 					//have to use custom generator because no way of linking from navbar to auto-generated category index: https://github.com/facebook/docusaurus/issues/6041
 					async sidebarItemsGenerator({ defaultSidebarItemsGenerator, ...args }) {
@@ -237,6 +238,7 @@ const config = {
 			prism: {
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,
+				additionalLanguages: [ "jsx", "javascript", "typescript"],
 			},
 		}),
 
@@ -296,6 +298,16 @@ const config = {
 		],
 		"./src/plugins/uploadyPlugin",
 	],
+
+	markdown: {
+		format: "mdx",
+		mermaid: true,
+		// mdx1Compat: {
+		// 	comments: true,
+		// 	admonitions: true,
+		// 	headingIds: true,
+		// },
+	}
 };
 
 module.exports = config;

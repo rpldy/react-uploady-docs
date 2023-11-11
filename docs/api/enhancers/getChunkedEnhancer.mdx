@@ -28,19 +28,19 @@ type getChunkedEnhancer = (options: ChunkedOptions) => UploaderEnhancer
 Creates an uploader enhancer that can be handed to the [Uploady](../..) (using the [enhancer prop](../..#enhancer)),
 or to the [uploader](../../uploader).
 
-:::caution
+:::warning
 When using React, there's typically no need to use this enhancer directly.
 Using [Chunked-Uploady](../../providers/chunked-uploady) will do this for you automatically.
 :::
 
 ## Options
 
-| Name (* = mandatory) | Type          | Default       | Description|
-| --------------       | ------------- | ------------- | ------------|
-| chunked               | boolean       | true          | chunk uploads. setting to false will return to default sending behavior|
-| chunkSize             | number        | 5242880      | the chunk size. relevant when uploaded file is larger than the value|
-| retries               | number        | 0             | how many times to retry sending a failed chunk|
-| parallel              | number        | 0             | how many (chunk) requests to send simultaneously|
+| Name (* = mandatory) | Type    | Default | Description                                                             |
+|----------------------|---------|---------|-------------------------------------------------------------------------|
+| chunked              | boolean | true    | chunk uploads. setting to false will return to default sending behavior |
+| chunkSize            | number  | 5242880 | the chunk size. relevant when uploaded file is larger than the value    |
+| retries              | number  | 0       | how many times to retry sending a failed chunk                          |
+| parallel             | number  | 0       | how many (chunk) requests to send simultaneously                        |
 
 ## Example
 

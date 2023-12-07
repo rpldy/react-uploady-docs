@@ -22,10 +22,12 @@ Each request is sent with the _Content-Range_ header to specify the bytes range.
 
 Internally, _ChunkedUploady_ uses [@rpldy/chunked-sender](../rpldy-chunked-sender) instead of the default (XHR) sender.
 
+:::note
 _Chunked-Sender_, doesn't support grouped uploads (see Upload Options [documentation](../../api#props)) or URL uploading.
 These will be handed over to the default [@rpldy/sender](../rpldy-sender).
+:::
 
-In case the browser doesn't support chunking (blob slicing), the default sender will be used as well.
+In case the browser doesn't support chunking (blob slicing), the default sender will be used instead.
 
 ## Example
 
@@ -36,8 +38,6 @@ const App = () => (
 	<ChunkedUploady
 		chunkSize={5120000}
     multiple
-    grouped
-    maxGroupSize={2}
     method="PUT"
     destination={{ url: "https://my-server", headers: { "x-custom": "123" } }}>
 

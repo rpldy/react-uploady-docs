@@ -204,7 +204,7 @@ type EventHook<T> = (cb: (obj: T, options: CreateOptions) => void, id?: string) 
 ## CancellableHook
 
 ```typescript
-type CancellableHook<T> = (cb: (obj: T, options: CreateOptions) => boolean | void, id?: string) => void;
+type CancellableHook<T> = (cb: (obj: T, options: CreateOptions) => boolean | void | Promise<boolean | void>, id?: string) => void;
 ```
 
 ## ItemCancellableEventHook
@@ -228,8 +228,7 @@ type BatchEventHook = EventHook<Batch>;
 ## BatchCancellableEventHook
 
 ```typescript
-type BatchCancellableEventHook = 
-  (cb: (batch: Batch, options: CreateOptions) => boolean | void) => void;
+type BatchCancellableEventHook = CancellableHook<Batch>;
 ```
 
 ## ItemEventHook

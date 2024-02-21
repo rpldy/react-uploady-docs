@@ -31,7 +31,7 @@ Sender should be able to supply progress information and an abort method to the 
 
 By default, an XHR sender is used.
 
-However, other senders can be configured. This is typically done using the [send prop](../../api#send) passed to Uploady
+However, other senders can be configured. This is typically done using the [send prop](../../api/types#sendmethod) passed to Uploady
 or when initializing the uploader.
 
 ### Enhancer

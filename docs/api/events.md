@@ -65,7 +65,7 @@ Triggered in case batch was cancelled from BATCH_START event handler
 
 `Parameters`: _(batch: Batch, options: CreateOptions)_
 
-Triggered in case the batch was [aborted](../uploader#abortBatch)
+Triggered in case the batch was [aborted](../uploader#abortbatch)
 
 ## BATCH_ERROR {#batchError}
 

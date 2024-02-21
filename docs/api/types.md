@@ -160,7 +160,7 @@ type UploadData = {
 };
 ```
 
-See: [FILE_STATES](../types#file-states)
+See: [FILE_STATES](../constants#fileStates)
 
 ## SendResult
 
@@ -403,8 +403,43 @@ interface MockOptions {
 }
 ```
 
+## PreSendData
+
+```typescript
+export interface PreSendData {
+    items: BatchItem[];
+    options: CreateOptions;
+}
+```
+
 ## PreSendResponse
 
 ```typescript
 type PreSendResponse = { items?: BatchItem[]; options?: CreateOptions } | boolean | void;
+```
+
+## PreviewOptions
+
+```typescript
+type FallbackMethod = (file: FileLike) => FallbackType | void;
+
+enum PreviewType {
+	IMAGE = "image",
+	VIDEO = "video",
+}
+
+type PreviewComponentPropsMethod = (item: BatchItem, url: string, type: PreviewType) => Record<string, unknown>;
+
+type PreviewComponentPropsOrMethod = Record<string, unknown> | PreviewComponentPropsMethod;
+
+interface PreviewOptions {
+	rememberPreviousBatches?: boolean;
+	loadFirstOnly?: boolean;
+	maxPreviewImageSize?: number;
+	maxPreviewVideoSize?: number;
+	fallbackUrl?: string | FallbackMethod;
+	imageMimeTypes?: string[];
+	videoMimeTypes?: string[];
+	previewComponentProps?: PreviewComponentPropsOrMethod;
+}
 ```

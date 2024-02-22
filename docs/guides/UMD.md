@@ -25,8 +25,8 @@ See examples below, which polyfill bundle corresponds to which UMD bundle.
 
 <html>
     <head>
-        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/umd/polyfills-bundle.js"/>
-        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploader/umd/rpldy-core.umd.min.js"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/lib/umd/polyfills-bundle.js"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploader/lib/umd/rpldy-core.umd.min.js"/>
     </head>
     <body>
         <input type="file" id="fileInput"/>
@@ -55,8 +55,8 @@ See examples below, which polyfill bundle corresponds to which UMD bundle.
 
 <html>
     <head>
-        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/umd/polyfills-bundle.js"/>
-        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/umd/rpldy-ui-core.umd.min.js"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/lib/umd/polyfills-bundle.js"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/lib/umd/rpldy-ui-core.umd.min.js"/>
     </head>
     <body>
                
@@ -98,8 +98,8 @@ See examples below, which polyfill bundle corresponds to which UMD bundle.
 
 <html>
     <head>
-        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/umd/polyfills-bundle.js"/>
-        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/chunked-uploady/umd/rpldy-ui-core-chunked.umd.min.js"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/lib/umd/polyfills-bundle.js"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/chunked-uploady/lib/umd/rpldy-ui-core-chunked.umd.min.js"/>
     </head>
     <body>
                
@@ -158,8 +158,8 @@ The "Everything" bundle requires a different polyfill bundle
 
 <html>
     <head>
-        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/umd/polyfills-all-bundle.js"/>
-        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/umd/rpldy-all.umd.min.js"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/lib/umd/polyfills-all-bundle.js"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/@rpldy/uploady/lib/umd/rpldy-all.umd.min.js"/>
     </head>
     <body>
                

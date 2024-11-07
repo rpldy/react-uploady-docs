@@ -443,3 +443,21 @@ interface PreviewOptions {
 	previewComponentProps?: PreviewComponentPropsOrMethod;
 }
 ```
+
+## EventCallback
+
+```typescript
+type EventCallback = (...args: any[]) => unknown | void;
+```
+
+## OffMethod
+
+```typescript
+type OffMethod = (name: unknown, cb?: EventCallback) => void;
+```
+
+## OnAndOnceMethod
+
+```typescript
+type OnAndOnceMethod = (name: unknown, cb: EventCallback) => OffMethod;
+```

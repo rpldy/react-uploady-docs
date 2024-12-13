@@ -8,12 +8,12 @@ tags: [enhancer, resumable, tus]
 
 ## Package
 
-- **_[@rpldy/chunked-sender](../../../packages/rpldy-chunked-sender)_**
+- **_[@rpldy/tus-sender](../../../packages/rpldy-tus-sender)_**
 
 ## Installation
 
 ```bash npm2yarn
-npm install @rpldy/chunked-sender
+npm install @rpldy/tus-sender
 ```
 
 ## Details
@@ -49,6 +49,8 @@ Using [Tus-Uploady](../../providers/tus-uploady) will do this for you automatica
 | lockedRetryDelay            | number                    | 2000            | milliseconds to wait before retrying a locked (423) resumable file                                                     |
 | forgetOnSuccess             | boolean                   | false           | whether to remove URL from localStorage when upload finishes successfully                                              |
 | ignoreModifiedDateInStorage | boolean                   | false           | ignore File's modified date when creating key for storage                                                              |
+
+> The [getChunkedEnhancer](../getChunkedEnhancer) [options](../getChunkedEnhancer#options) are also supported by the Tus enhancer. You can include them in the options object passed to the enhancer.
 
 :::info
 When the chunked-sender `parallel` param is set to > 1, the Concatenation Tus extension will be used.

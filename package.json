@@ -5,8 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start --no-open",
-    "prebuild": "pnpm install --platform=linux --arch=x64 sharp",
-    "build": "docusaurus build",
+    "build": "npm_config_platform=linux npm_config_arch=x64 pnpm install sharp && pnpm build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

@@ -10,4 +10,4 @@ https://react-uploady.org
 
 ## React Uploady Version
 
-    Docs are updated for v1.9.1
+    Docs are updated for v1.10.0

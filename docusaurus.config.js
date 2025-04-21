@@ -108,8 +108,9 @@ const config = {
 			},
 
 			announcementBar: {
-				id: "rpldy-announce-1", // Increment on change
-				content: `⭐️ If you like Uploady, please give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/rpldy/react-uploady">GitHub</a> ⭐`,
+				id: "rpldy-announce-2", // Increment on change
+				// content: `⭐️ If you like Uploady, please give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/rpldy/react-uploady">GitHub</a> ⭐`,
+				content: `🌟Enjoying React-Uploady? Keep it thriving -- support us <a target="_blank" rel="noopener noreferrer" href="https://opencollective.com/react-uploady">here</a> 🙏`,
 			},
 
 			navbar: {
@@ -144,6 +145,21 @@ const config = {
 
 					//right-side
 					{
+						type: "dropdown",
+						label: "Support Us!",
+						position: "right",
+						items: [
+							{
+								label: "Open Collective",
+								href: "https://opencollective.com/react-uploady",
+							},
+							{
+								label: "Github Sponsors",
+								href: "https://github.com/sponsors/yoavniran",
+							},
+						],
+					},
+					{
 						href: "https://github.com/rpldy/react-uploady",
 						position: "right",
 						className: "header-github-link",
@@ -154,12 +170,6 @@ const config = {
 						position: "right",
 						className: "header-npm-version",
 						"aria-label": "NPM package",
-					},
-					{
-						label: "donate",
-						href: "https://opencollective.com/react-uploady",
-						className: "donate-item",
-						position: "right",
 					},
 				],
 			},

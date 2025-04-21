@@ -154,6 +154,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 div[class^='announcementBar_'] {
     background-color: var(--ifm-color-primary-darkest);
     color: #FFFFFF;
+    font-weight: bold;
 }
 
 div[class^='announcementBar_'] .close {
@@ -251,6 +252,10 @@ a.navbar__item.navbar__link {
 
 .navbar__logo {
     height: 40px;
+}
+
+.navbar__items--right {
+    gap: 4px;
 }
 
 a[class^='sidebarLogo_'] img {

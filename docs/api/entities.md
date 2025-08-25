@@ -17,7 +17,7 @@ type Batch = {
     state: BATCH_STATES;
     completed: number;
     loaded: number;
-	total: number;
+    total: number;
     orgItemCount: number;
     additionalInfo: string | null;
 };
@@ -29,10 +29,10 @@ See [BATCH_STATES](../constants#batchStates)
 
 ```typescript
 type FileLike = {
-  name: string;
-  size: number;
-  type: string;
-  lastModified: number;
+    name: string;
+    size: number;
+    type: string;
+    lastModified: number;
 }
 ```
 
@@ -49,19 +49,19 @@ interface BatchItemBase {
     state: FILE_STATES;
     uploadResponse?: any;
     uploadStatus: number;
-	total: number;
-	completed: number;
+    total: number;
+    completed: number;
     loaded: number;
     recycled: boolean;
     previousBatch?: string;
 }
 
 interface BatchUrl extends BatchItemBase {
-  url: string;
+    url: string;
 }
 
 interface BatchFile extends BatchItemBase {
-  file: FileLike;
+    file: FileLike;
 }
 
 ```

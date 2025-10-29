@@ -328,7 +328,7 @@ interface TusOptions extends ChunkedOptions {
 interface TusUploadyProps extends UploadyProps, TusOptions {}
 ```
 
-## ResumeStartEventData
+## TusResumeStartEventData
 
 ```typescript
 interface TusResumeStartEventData {

@@ -228,7 +228,7 @@ options are the (optional) upload options that are passed to the retry call
 
 Triggered before the (HEAD) request is issued on behalf of a potentially resumeable upload.
 
-- See: [ResumeStartEventData](../types#resumestarteventdata)
+- See: [TusResumeStartEventData](../types#tusresumestarteventdata)
 
 :::info
 This event is _[cancellable](#cancellable-events)_
@@ -242,4 +242,4 @@ Cancelling the request will not abort the entire upload, but rather cancel the f
 
 Triggered before a (PATCH) request is issued to upload a chunk (part) of a file.
 
-- See: [ResumeStartEventData](../../types#tuspartstarteventdata)
+- See: [TusPartStartEventData](../types#tuspartstarteventdata)

@@ -22,8 +22,8 @@ npm install @rpldy/tus-uploady
 type useTusPartStartListener: (cb: (data: TusPartStartEventData) => TusPartStartEventResponse) => void;
 ```
 
-- See: [ResumeStartEventData](../../types#tuspartstarteventdata)
-- See: [TusResumeStartEventResponse](../../types#tuspartstarteventresponse)
+- See: [TusPartStartEventData](../../types#tuspartstarteventdata)
+- See: [TusPartStartEventResponse](../../types#tuspartstarteventresponse)
 
 :::note
 Event Hook - [PART_START](../../events#partStart)
@@ -38,7 +38,7 @@ Receives an object with:
 - headers: the headers that will be sent with the request
 - chunk: the chunk info (start, end, chunkSize)
 
-May return nothing or an [object](../../types/#tuspartstarteventresponse) with:
+May return nothing or an [object](../../types#tuspartstarteventresponse) with:
 - `url` property to overwrite the URL the request will be sent to
 - `headers` object that will be merged with the headers that will be sent with the request.
 

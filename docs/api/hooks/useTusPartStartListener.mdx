@@ -1,0 +1,64 @@
+---
+id: useTusPartStartListener
+title: "useTusPartStartListener"
+pagination_label: "useTusPartStartListener"
+sidebar_label: "🪝 useTusPartStartListener"
+tags: [hook, event, tus, resumable]
+---
+
+## Package
+
+**_[@rpldy/tus-uploady](../../../packages/rpldy-tus-uploady)_**
+
+## Installation
+
+```bash npm2yarn
+npm install @rpldy/tus-uploady
+```
+
+## Details
+
+```typescript
+type useTusPartStartListener: (cb: (data: TusPartStartEventData) => TusPartStartEventResponse) => void;
+```
+
+- See: [ResumeStartEventData](../../types#tuspartstarteventdata)
+- See: [TusResumeStartEventResponse](../../types#tuspartstarteventresponse)
+
+:::note
+Event Hook - [PART_START](../../events#partStart)
+:::
+
+Called before a (PATCH) request is issued to upload a chunk (part) of a file.
+
+Receives an object with:
+
+- url: the URL the PATCH request will be sent to
+- item: the BatchItem being sent
+- headers: the headers that will be sent with the request
+- chunk: the chunk info (start, end, chunkSize)
+
+May return nothing or an [object](../../types/#tuspartstarteventresponse) with:
+- `url` property to overwrite the URL the request will be sent to
+- `headers` object that will be merged with the headers that will be sent with the request.
+
+```javascript
+import React from "react";
+import { useTusPartStartListener } from "@rpldy/tus-uploady";
+
+const MyComponent = () => {
+    useTusPartStartListener(({ item, chunk, headers, url }) => {
+        const authHeaderVal = headers["Authorization"];
+
+        return {
+            headers: {
+                "Authorization": authHeaderVal + "-part-" + (chunk.index + 1),
+            }
+        };
+    });
+
+	//...
+};
+```
+
+

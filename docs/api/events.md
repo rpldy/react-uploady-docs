@@ -235,3 +235,11 @@ This event is _[cancellable](#cancellable-events)_
 :::
 
 Cancelling the request will not abort the entire upload, but rather cancel the fetching of resume info.
+
+### PART_START {#partStart}
+
+`Parameters`: _(data: TusPartStartEventData)_
+
+Triggered before a (PATCH) request is issued to upload a chunk (part) of a file.
+
+- See: [ResumeStartEventData](../../types#tuspartstarteventdata)

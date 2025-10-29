@@ -348,6 +348,28 @@ type TusResumeStartEventResponse = void | boolean | {
 ```
 
 
+## TusPartStartEventData
+
+```typescript
+interface TusPartStartEventData {
+	url: string;
+	item: BatchItem;
+	headers: Record<string, string>;
+	chunk: ChunkEventData;
+}
+```
+
+## TusPartStartEventResponse
+
+```typescript
+type TusPartStartEventResponse = void  | {
+	url?: string;
+	headers?: Record<string, string>;
+};
+```
+
+
+
 ## PasteUploadData
 
 ```typescript

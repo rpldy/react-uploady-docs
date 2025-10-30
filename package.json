@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prebuild-sharp": "npm rebuild sharp --force || true",
     "docusaurus": "docusaurus",
     "start": "docusaurus start --no-open",
     "build": "docusaurus build",

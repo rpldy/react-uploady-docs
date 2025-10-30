@@ -44,9 +44,9 @@
     "@babel/plugin-proposal-export-default-from": "^7.27.1",
     "@docusaurus/module-type-aliases": "^3.9.2",
     "@docusaurus/types": "^3.9.2",
-    "@rpldy/upload-button": "^1.11.0",
-    "@rpldy/upload-preview": "^1.11.0",
-    "@rpldy/uploady": "^1.11.0",
+    "@rpldy/upload-button": "^1.12.0",
+    "@rpldy/upload-preview": "^1.12.0",
+    "@rpldy/uploady": "^1.12.0",
     "cross-fetch": "^4.1.0",
     "pacote": "^21.0.3"
   }

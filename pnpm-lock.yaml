@@ -58,14 +58,14 @@ importers:
         specifier: ^3.9.2
         version: 3.9.2(acorn@8.14.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@rpldy/upload-button':
-        specifier: ^1.11.0
-        version: 1.11.0(react@19.2.0)
+        specifier: ^1.12.0
+        version: 1.12.0(react@19.2.0)
       '@rpldy/upload-preview':
-        specifier: ^1.11.0
-        version: 1.11.0(react@19.2.0)
+        specifier: ^1.12.0
+        version: 1.12.0(react@19.2.0)
       '@rpldy/uploady':
-        specifier: ^1.11.0
-        version: 1.11.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^1.12.0
+        version: 1.12.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       cross-fetch:
         specifier: ^4.1.0
         version: 4.1.0(encoding@0.1.13)
@@ -1476,44 +1476,44 @@ packages:
       rollup:
         optional: true
 
-  '@rpldy/abort@1.11.0':
-    resolution: {integrity: sha512-vEQK3ZyXlLuCGiaXGY5qY3qV1hvmvcG67OZmtvHbZnbwipmQp5CDAUl/R3T2anlGNvxd9kit4J3nI2zxduDAIQ==}
+  '@rpldy/abort@1.12.0':
+    resolution: {integrity: sha512-tGXFjK4A5VKk8H2QlABoxRgSq8mM8vzFDr0MvnMhcG3XDdG7q+bDZkwqTe4ua1XdIG1mIYOsn97stszJ5vtMXA==}
 
-  '@rpldy/life-events@1.11.0':
-    resolution: {integrity: sha512-zRAepNing9kUyqUjTtbCj6KUFCvn+VgwrmiL14OIS2N9HoAt0krLeau6rK1aL8rbzbvH6R17MvLt4LdHFkA9NA==}
+  '@rpldy/life-events@1.12.0':
+    resolution: {integrity: sha512-9/99mbLE7JAPCkXABFM/niANEZ8hNESL7nEDowD+WJCyFswvf7TGZ0AjCMv8TKUPWpsSZIFrgoE+Eh47xd3mkA==}
 
-  '@rpldy/raw-uploader@1.11.0':
-    resolution: {integrity: sha512-wCtncUB5H6VkooSQbRh6ho161/BXCs+NwSAIOFiJ3ObMNKA1pnv5IeYjIzYa7pPc+0ODLnO51WXytHq893xriA==}
+  '@rpldy/raw-uploader@1.12.0':
+    resolution: {integrity: sha512-MEBvaGdIzZ+hMvWS1RUrN69SiBjfvZnqBErj605Jw/X46Mv2TGm5zerSYkRC4Pslvq2PHJnB6ZCgQIHTcWnemA==}
 
-  '@rpldy/sender@1.11.0':
-    resolution: {integrity: sha512-7mly34B6mNSL5wvj1OchVH1cL6qQ8gR+B7z54En7ZE6cHzG6LJ8+0ix1do2H3uSAl+rkMgjfuXWKjm7IKJsYZQ==}
+  '@rpldy/sender@1.12.0':
+    resolution: {integrity: sha512-UMqkiGzVS56VcR7FupEknRqQTsSb9hLVRVbfYMvs6p9XFJDLgY1oRLd1QRVY/QuFcGQkAdt0OPL5fVpl9I/RRw==}
 
-  '@rpldy/shared-ui@1.11.0':
-    resolution: {integrity: sha512-lHosrLLVLIu2gMqIhTLEN5xKmVz6I7nDsOl6CDQjBALg4k1suQAD/FZYJ5RZzu/t5VrlXWdg/OhViw6EAd5i9A==}
+  '@rpldy/shared-ui@1.12.0':
+    resolution: {integrity: sha512-3wBH/TVSNyJpq9+uWuODwN8XyycOkCsQrf2iVsH9V4jhwYXcHoZIE0+hpxbCd/tdsReVZpTxoPA3lVOpJahsBQ==}
     peerDependencies:
       react: '>=16.8'
 
-  '@rpldy/shared@1.11.0':
-    resolution: {integrity: sha512-g1/Skspp0jhlvuO5ZkUX/WegvHHwhjWiW6ktzFDl4z/HdJZlDiLTBqDOSR0sj0ivRXsPr9kd6wGpj134Jhz5Ag==}
+  '@rpldy/shared@1.12.0':
+    resolution: {integrity: sha512-2CUSX9zPxDp1XABANOef43jHYp0fqjHOi0Lu3zZVfrz1xQdnE7DcIjepzIPR6QDofxM6Y4z8v3RvtrYVoyBdhw==}
 
-  '@rpldy/simple-state@1.11.0':
-    resolution: {integrity: sha512-ExyLIeXtrJ7BcEDyZrxN3qs/xyMVfKI+vZnE3fnugbU8tdTH/JAjz23aJX8i4zDBZYJ+yjCqa9GjMuGWUF4EFg==}
+  '@rpldy/simple-state@1.12.0':
+    resolution: {integrity: sha512-YSG+ZYMr94xxpU2u951uz578N9S1lpy2Rr+sARAGxYsnNUiq7A8cpgTd6lPWUXSKiFURHKhmH/gTn12s+pHkvw==}
 
-  '@rpldy/upload-button@1.11.0':
-    resolution: {integrity: sha512-u1HVpoV+7wJ6qKFO9pSLIjEA89TIChhm+Gh6OUNoXgF2DGvt4uA0w9ATFB7KXoR8ERfCtVBuKA8BJE3XBXOreQ==}
+  '@rpldy/upload-button@1.12.0':
+    resolution: {integrity: sha512-HtDozTFrrrgE4yd5qfKL1cMfz8IUl/fFuv5OoNBEXUHQv4x3VwXxZeuxz78hL8BqcbEy4DcGwFqvvWjwXWFupQ==}
     peerDependencies:
       react: '>=16.8'
 
-  '@rpldy/upload-preview@1.11.0':
-    resolution: {integrity: sha512-4L/gzs6kba7DEBt6gOaruuL/gXrCYPYN/aMa5knV2rgB2rNWPilrxvcmXl3nuivTeVa8cBLuybqMIAz4CeqFVA==}
+  '@rpldy/upload-preview@1.12.0':
+    resolution: {integrity: sha512-/CYfHuAWoOSLGAJD1LmP5Q05tJGelya/9wfPDTSWxYrgOXgxjX15OBkg2aTTbcDhXN0mbQehFJn65mNzCQ9fxg==}
     peerDependencies:
       react: '>=16.8'
 
-  '@rpldy/uploader@1.11.0':
-    resolution: {integrity: sha512-G0xUDXtWmem1a+R6w88c3Ep0TIVMI1iv8YPBVhsTzYxLxyYwWP+2pn2c9QDQZw4+HrZWZeY/1BCXq/SqzY9WWA==}
+  '@rpldy/uploader@1.12.0':
+    resolution: {integrity: sha512-fWowxPvzBLUC9tLVcpp7iDoRtWOdj9A5goqCJ41vdGCGQ8y+IlrcuNEOe60oSYTYOlKTleff+CEOM9mZVkzl+g==}
 
-  '@rpldy/uploady@1.11.0':
-    resolution: {integrity: sha512-XnWvJumWs5FETaG613O1cSsypa7qVCnGObA6vA7mTjcX4DjkU43RhD2QjSXQwacP23OSfTogxhwk3ZhFWBRVtA==}
+  '@rpldy/uploady@1.12.0':
+    resolution: {integrity: sha512-sQZJVQXXfNz2zMOROAqqcs8LwXGcSw71gYk98MOxdbpX6YksV4NXCCWZV/GxBpvd1VExkG0gR3A12IJexv7ntg==}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
@@ -8516,66 +8516,66 @@ snapshots:
     optionalDependencies:
       rollup: 2.79.2
 
-  '@rpldy/abort@1.11.0':
+  '@rpldy/abort@1.12.0':
     dependencies:
-      '@rpldy/raw-uploader': 1.11.0
-      '@rpldy/shared': 1.11.0
-      '@rpldy/simple-state': 1.11.0
+      '@rpldy/raw-uploader': 1.12.0
+      '@rpldy/shared': 1.12.0
+      '@rpldy/simple-state': 1.12.0
 
-  '@rpldy/life-events@1.11.0':
+  '@rpldy/life-events@1.12.0':
     dependencies:
-      '@rpldy/shared': 1.11.0
+      '@rpldy/shared': 1.12.0
 
-  '@rpldy/raw-uploader@1.11.0':
+  '@rpldy/raw-uploader@1.12.0':
     dependencies:
-      '@rpldy/life-events': 1.11.0
-      '@rpldy/shared': 1.11.0
+      '@rpldy/life-events': 1.12.0
+      '@rpldy/shared': 1.12.0
 
-  '@rpldy/sender@1.11.0':
+  '@rpldy/sender@1.12.0':
     dependencies:
-      '@rpldy/shared': 1.11.0
+      '@rpldy/shared': 1.12.0
 
-  '@rpldy/shared-ui@1.11.0(react@19.2.0)':
+  '@rpldy/shared-ui@1.12.0(react@19.2.0)':
     dependencies:
-      '@rpldy/shared': 1.11.0
-      '@rpldy/uploader': 1.11.0
+      '@rpldy/shared': 1.12.0
+      '@rpldy/uploader': 1.12.0
       react: 19.2.0
 
-  '@rpldy/shared@1.11.0':
+  '@rpldy/shared@1.12.0':
     dependencies:
       invariant: 2.2.4
       just-throttle: 4.2.0
 
-  '@rpldy/simple-state@1.11.0':
+  '@rpldy/simple-state@1.12.0':
     dependencies:
-      '@rpldy/shared': 1.11.0
+      '@rpldy/shared': 1.12.0
 
-  '@rpldy/upload-button@1.11.0(react@19.2.0)':
+  '@rpldy/upload-button@1.12.0(react@19.2.0)':
     dependencies:
-      '@rpldy/shared-ui': 1.11.0(react@19.2.0)
+      '@rpldy/shared-ui': 1.12.0(react@19.2.0)
       react: 19.2.0
 
-  '@rpldy/upload-preview@1.11.0(react@19.2.0)':
+  '@rpldy/upload-preview@1.12.0(react@19.2.0)':
     dependencies:
-      '@rpldy/shared': 1.11.0
-      '@rpldy/shared-ui': 1.11.0(react@19.2.0)
+      '@rpldy/shared': 1.12.0
+      '@rpldy/shared-ui': 1.12.0(react@19.2.0)
       react: 19.2.0
 
-  '@rpldy/uploader@1.11.0':
+  '@rpldy/uploader@1.12.0':
     dependencies:
-      '@rpldy/abort': 1.11.0
-      '@rpldy/life-events': 1.11.0
-      '@rpldy/raw-uploader': 1.11.0
-      '@rpldy/sender': 1.11.0
-      '@rpldy/shared': 1.11.0
-      '@rpldy/simple-state': 1.11.0
+      '@rpldy/abort': 1.12.0
+      '@rpldy/life-events': 1.12.0
+      '@rpldy/raw-uploader': 1.12.0
+      '@rpldy/sender': 1.12.0
+      '@rpldy/shared': 1.12.0
+      '@rpldy/simple-state': 1.12.0
 
-  '@rpldy/uploady@1.11.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@rpldy/uploady@1.12.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
-      '@rpldy/life-events': 1.11.0
-      '@rpldy/shared': 1.11.0
-      '@rpldy/shared-ui': 1.11.0(react@19.2.0)
-      '@rpldy/uploader': 1.11.0
+      '@rpldy/life-events': 1.12.0
+      '@rpldy/shared': 1.12.0
+      '@rpldy/shared-ui': 1.12.0(react@19.2.0)
+      '@rpldy/uploader': 1.12.0
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 

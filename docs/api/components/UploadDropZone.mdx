@@ -40,6 +40,16 @@ Must be rendered inside (child/descendant) of an Uploady instance
 | children              | React.Node                                             | undefined | child element(s) to render inside the container                                                        |
 | extraProps            | Object                                                 | undefined | any other props to pass to the div component (with spread)                                             |
 
+
+In addition, most UploadOptions props can be passed to UploadDropZone, in order to override configuration passed to the parent Uploady component.
+See [Uploady documentation](../..#props) for detailed list of upload options.
+
+The following [guide](../../../guides/DifferentConfiguration) shows how different upload drop zones may use different upload options.
+
+:::note
+Some options cannot be overridden by the drop zone. For example, any prop that influences the file input directly (such as '_multiple_')
+:::
+
 ### dropHandler {#dropHandler}
 
 ```typescript

@@ -19,15 +19,25 @@ const QUOTES = [
 		name: "Austin R.O.",
 		//https://blog.logrocket.com/building-a-file-upload-component-with-react-uploady-and-ant-design/
 	},
+	{
+		text: "We love using Uploady at SmugMug! It's a fantastic library.",
+		"name": "AJ L.",
+		logo: "/SmugMug-Logo.png"
+	}
 ];
 
-const Quote = ({ text, name }) => {
+const Quote = ({ text, name, logo }) => {
 	return <div className={clsx("col col--4 quote-col", styles.quote)}>
 		<div className={styles.quoteHighlight} />
 		<FaQuoteRight size={32}/>
 		<div className={clsx("text--center padding-horiz--md", styles.quoteText)}>
 			<h3>{name}</h3>
 			<p>"{text}"</p>
+			{logo && (
+				<div className={styles.logoContainer}>
+					<img src={logo} alt={name} className={styles.logo} />
+				</div>
+			)}
 		</div>
 	</div>;
 };

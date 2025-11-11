@@ -32,13 +32,21 @@
   "browserslist": {
     "production": [
       ">0.5%",
+      "last 2 versions",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "Safari >= 11",
+      "iOS >= 11",
+      "Chrome >= 60",
+      "Firefox >= 60",
+      "Edge >= 16"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 safari versions",
+      "Safari >= 11",
+      "iOS >= 11"
     ]
   },
   "devDependencies": {
